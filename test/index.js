@@ -1,5 +1,5 @@
 import axios from "axios"
-import cheerio from "cheerio"
+import * as cheerio from "cheerio"
 import express from "express"
 
 const PORT = process.env.PORT || 5000
@@ -15,17 +15,22 @@ axios(URL)
         const $ = cheerio.load(htmlData)
         const articles = []
 
-        console.log(htmlData)
+        console.log($)
 
-        // $('.teaser', htmlData).each((index, element) => {
-        //     const title = $(element).children('.headline').text()
-        //     const titleURL = $(element).children('.headline').attr('href')
-        //     articles.push({
-        //         title,
-        //         titleURL
-        //     })
-        // })
-        // console.log(articles)
+        $('.teaser', htmlData).each((index, element) => {
+            // console.log("here comes the element")
+            // console.log(element)
+            // console.log("/n")
+            const title = $(element).children('.headline').text()
+            console.log(title)
+            const titleURL = $(element).children('.headline').attr('href')
+            console.log(titleURL)
+            articles.push({
+                title,
+                titleURL
+            })
+        })
+        console.log(articles)
     }).catch(err => console.error(err))
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
