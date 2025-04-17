@@ -1,0 +1,8 @@
+{
+  "Name": "Powerdrill MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/powerdrillai",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@powerdrillai/powerdrill-mcp"
+}

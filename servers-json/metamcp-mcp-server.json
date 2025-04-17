@@ -1,0 +1,8 @@
+{
+  "Name": "MetaMCP MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/metatool-ai",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@metatool-ai/mcp-server-metamcp"
+}

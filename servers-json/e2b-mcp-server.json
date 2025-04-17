@@ -1,0 +1,8 @@
+{
+  "Name": "e2b-mcp-server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/e2b-dev",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@e2b-dev/mcp-server"
+}

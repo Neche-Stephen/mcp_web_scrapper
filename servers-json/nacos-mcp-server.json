@@ -1,0 +1,8 @@
+{
+  "Name": "Nacos MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/nacos-group",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@nacos-group/nacos-mcp-server"
+}

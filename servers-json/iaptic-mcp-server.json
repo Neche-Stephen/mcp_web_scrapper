@@ -1,0 +1,8 @@
+{
+  "Name": "Iaptic MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/iaptic",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@iaptic/mcp-server-iaptic"
+}

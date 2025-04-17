@@ -1,0 +1,8 @@
+{
+  "Name": "Upstash MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/upstash",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@upstash/mcp-server"
+}

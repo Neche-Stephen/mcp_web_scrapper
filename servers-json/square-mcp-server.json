@@ -1,0 +1,8 @@
+{
+  "Name": "Square MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/block",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@block/square-mcp"
+}

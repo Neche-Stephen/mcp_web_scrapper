@@ -1,0 +1,8 @@
+{
+  "Name": "Astra DB MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/datastax",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@datastax/astra-db-mcp"
+}

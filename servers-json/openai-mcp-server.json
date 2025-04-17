@@ -1,0 +1,8 @@
+{
+  "Name": "OpenAI MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/thadius83",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@thadius83/mcp-server-openai"
+}

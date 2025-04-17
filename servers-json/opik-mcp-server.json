@@ -1,0 +1,8 @@
+{
+  "Name": "Opik MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/comet-ml",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@comet-ml/opik-mcp"
+}

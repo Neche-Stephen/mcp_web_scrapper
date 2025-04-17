@@ -1,0 +1,8 @@
+{
+  "Name": "APISIX-MCP",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/api7",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@api7/apisix-mcp"
+}

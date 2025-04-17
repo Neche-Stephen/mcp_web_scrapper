@@ -1,0 +1,8 @@
+{
+  "Name": "Paddle MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/PaddleHQ",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@PaddleHQ/paddle-mcp-server"
+}

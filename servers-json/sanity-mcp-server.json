@@ -1,0 +1,8 @@
+{
+  "Name": "Sanity MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/sanity-io",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@sanity-io/sanity-mcp-server"
+}

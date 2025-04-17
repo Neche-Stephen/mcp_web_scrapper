@@ -1,0 +1,8 @@
+{
+  "Name": "gotoHuman MCP",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/gotohuman",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@gotohuman/gotohuman-mcp-server"
+}

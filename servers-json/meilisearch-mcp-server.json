@@ -1,0 +1,8 @@
+{
+  "Name": "Meilisearch MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/meilisearch",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@meilisearch/meilisearch-mcp"
+}

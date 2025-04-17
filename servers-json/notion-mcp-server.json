@@ -1,0 +1,8 @@
+{
+  "Name": "Notion MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/makenotion",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@makenotion/notion-mcp-server"
+}

@@ -1,0 +1,8 @@
+{
+  "Name": "PostHog MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/PostHog",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@PostHog/posthog-mcp"
+}

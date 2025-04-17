@@ -1,0 +1,8 @@
+{
+  "Name": "Audiense Insights MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/AudienseCo",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@AudienseCo/mcp-audiense-insights"
+}

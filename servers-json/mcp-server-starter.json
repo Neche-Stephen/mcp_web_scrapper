@@ -1,0 +1,8 @@
+{
+  "Name": "MCP Server Starter",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/coinselor",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@coinselor/mcp-zenon"
+}

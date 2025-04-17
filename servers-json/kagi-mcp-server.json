@@ -1,0 +1,8 @@
+{
+  "Name": "Kagi MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/kagisearch",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@kagisearch/kagimcp"
+}

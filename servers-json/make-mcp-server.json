@@ -1,0 +1,8 @@
+{
+  "Name": "Make MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/integromat",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@integromat/make-mcp-server"
+}

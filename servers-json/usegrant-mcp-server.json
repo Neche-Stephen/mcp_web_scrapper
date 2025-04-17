@@ -1,0 +1,8 @@
+{
+  "Name": "UseGrant MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/usegranthq",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@usegranthq/mcp-server"
+}

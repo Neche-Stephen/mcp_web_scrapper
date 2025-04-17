@@ -1,0 +1,8 @@
+{
+  "Name": "mcp-clickhouse",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/ClickHouse",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@ClickHouse/mcp-clickhouse"
+}

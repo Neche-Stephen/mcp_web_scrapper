@@ -1,0 +1,8 @@
+{
+  "Name": "Ragie Model Context Protocol Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/ragieai",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@ragieai/ragie-mcp-server"
+}

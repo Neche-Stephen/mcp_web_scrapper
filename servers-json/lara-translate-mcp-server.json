@@ -1,0 +1,8 @@
+{
+  "Name": "Lara Translate MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/translated",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@translated/lara-mcp"
+}

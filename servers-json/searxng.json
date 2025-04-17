@@ -1,0 +1,8 @@
+{
+  "Name": "searxng",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/SecretiveShell",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@SecretiveShell/MCP-searxng"
+}

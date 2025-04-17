@@ -1,0 +1,8 @@
+{
+  "Name": "mcp-search-linkup",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/LinkupPlatform",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@LinkupPlatform/python-mcp-server"
+}

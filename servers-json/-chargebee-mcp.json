@@ -1,0 +1,8 @@
+{
+  "Name": "@chargebee/mcp",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/chargebee",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@chargebee/agentkit"
+}

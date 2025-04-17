@@ -1,0 +1,8 @@
+{
+  "Name": "Tavily MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/tavily-ai",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@tavily-ai/tavily-mcp"
+}

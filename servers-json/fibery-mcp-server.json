@@ -1,0 +1,8 @@
+{
+  "Name": "Fibery MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/Fibery-inc",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@Fibery-inc/fibery-mcp-server"
+}

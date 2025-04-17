@@ -1,0 +1,8 @@
+{
+  "Name": "mcp-server-rag-web-browser",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/apify",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@apify/mcp-server-rag-web-browser"
+}

@@ -1,0 +1,8 @@
+{
+  "Name": "Atla",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/atla-ai",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@atla-ai/atla-mcp-server"
+}

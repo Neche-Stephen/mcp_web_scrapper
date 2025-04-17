@@ -1,0 +1,8 @@
+{
+  "Name": "Tembo MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/tembo-io",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@tembo-io/mcp-server-tembo"
+}

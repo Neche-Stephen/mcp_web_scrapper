@@ -1,0 +1,8 @@
+{
+  "Name": "mcp-server-qdrant",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/qdrant",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@qdrant/mcp-server-qdrant"
+}

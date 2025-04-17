@@ -1,0 +1,8 @@
+{
+  "Name": "Genkit MCP",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/firebase",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@firebase/genkit"
+}

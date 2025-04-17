@@ -1,0 +1,8 @@
+{
+  "Name": "Semgrep MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/semgrep",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@semgrep/mcp"
+}

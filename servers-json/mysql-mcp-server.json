@@ -1,0 +1,8 @@
+{
+  "Name": "MySQL MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/designcomputer",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@designcomputer/mysql_mcp_server"
+}

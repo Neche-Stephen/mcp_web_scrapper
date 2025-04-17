@@ -1,0 +1,8 @@
+{
+  "Name": "mcp-sqlalchemy",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/OpenLinkSoftware",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@OpenLinkSoftware/mcp-sqlalchemy-server"
+}

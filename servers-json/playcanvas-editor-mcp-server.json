@@ -1,0 +1,8 @@
+{
+  "Name": "PlayCanvas Editor MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/playcanvas",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@playcanvas/editor-mcp-server"
+}

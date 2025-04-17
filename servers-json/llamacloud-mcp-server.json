@@ -1,0 +1,8 @@
+{
+  "Name": "LlamaCloud MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/run-llama",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@run-llama/mcp-server-llamacloud"
+}

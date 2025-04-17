@@ -1,0 +1,8 @@
+{
+  "Name": "BICScan MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/ahnlabio",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@ahnlabio/bicscan-mcp"
+}

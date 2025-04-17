@@ -1,0 +1,8 @@
+{
+  "Name": "Tinybird MCP server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/tinybirdco",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@tinybirdco/mcp-tinybird"
+}

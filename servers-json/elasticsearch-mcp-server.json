@@ -1,0 +1,8 @@
+{
+  "Name": "Elasticsearch MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/elastic",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@elastic/mcp-server-elasticsearch"
+}

@@ -1,0 +1,8 @@
+{
+  "Name": "Geekbot MCP",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/geekbot-com",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@geekbot-com/geekbot-mcp"
+}

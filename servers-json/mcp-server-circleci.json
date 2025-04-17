@@ -1,0 +1,8 @@
+{
+  "Name": "mcp-server-circleci",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/CircleCI-Public",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@CircleCI-Public/mcp-server-circleci"
+}

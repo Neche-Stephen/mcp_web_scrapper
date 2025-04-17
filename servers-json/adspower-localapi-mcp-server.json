@@ -1,6 +1,8 @@
 {
-  "title": "AdsPower LocalAPI MCP Server",
+  "Name": "AdsPower LocalAPI MCP Server",
   "description": "",
-  "author": "",
-  "githubUrl": "https://github.com/AdsPower"
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/AdsPower",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@AdsPower/local-api-mcp-typescript"
 }

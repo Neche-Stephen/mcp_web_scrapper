@@ -1,0 +1,8 @@
+{
+  "Name": "DataWorks MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/aliyun",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@aliyun/alibabacloud-dataworks-mcp-server"
+}

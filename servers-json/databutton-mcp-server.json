@@ -1,0 +1,8 @@
+{
+  "Name": "Databutton MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/databutton",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@databutton/databutton-mcp"
+}

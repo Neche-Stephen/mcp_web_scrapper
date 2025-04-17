@@ -1,0 +1,8 @@
+{
+  "Name": "Xero MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/XeroAPI",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@XeroAPI/xero-mcp-server"
+}

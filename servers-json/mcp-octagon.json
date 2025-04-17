@@ -1,0 +1,8 @@
+{
+  "Name": "mcp-octagon",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/OctagonAI",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@OctagonAI/octagon-mcp-server"
+}

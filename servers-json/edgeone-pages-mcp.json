@@ -1,0 +1,8 @@
+{
+  "Name": "EdgeOne Pages MCP",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/TencentEdgeOne",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@TencentEdgeOne/edgeone-pages-mcp"
+}

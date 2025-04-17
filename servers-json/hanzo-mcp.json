@@ -1,0 +1,8 @@
+{
+  "Name": "Hanzo MCP",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/hanzoai",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@hanzoai/mcp"
+}

@@ -1,6 +1,8 @@
 {
-  "title": "ScrapeGraph MCP Server",
+  "Name": "ScrapeGraph MCP Server",
   "description": "",
-  "author": "",
-  "githubUrl": "https://github.com/ScrapeGraphAI"
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/ScrapeGraphAI",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@ScrapeGraphAI/scrapegraph-mcp"
 }

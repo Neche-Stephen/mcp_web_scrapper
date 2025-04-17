@@ -1,0 +1,8 @@
+{
+  "Name": "Oxylabs MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/oxylabs",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@oxylabs/oxylabs-mcp"
+}

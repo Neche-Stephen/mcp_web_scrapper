@@ -1,0 +1,8 @@
+{
+  "Name": "Exa MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/exa-labs",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@exa-labs/exa-mcp-server"
+}

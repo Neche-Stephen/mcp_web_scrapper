@@ -1,0 +1,8 @@
+{
+  "Name": "Aiven MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/Aiven-Open",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@Aiven-Open/mcp-aiven"
+}

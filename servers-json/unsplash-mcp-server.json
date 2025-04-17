@@ -1,0 +1,8 @@
+{
+  "Name": "Unsplash MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/hellokaton",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@hellokaton/unsplash-mcp-server"
+}

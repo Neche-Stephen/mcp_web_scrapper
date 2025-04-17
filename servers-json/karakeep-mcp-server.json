@@ -1,0 +1,8 @@
+{
+  "Name": "Karakeep MCP server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/karakeep-app",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@karakeep-app/karakeep"
+}

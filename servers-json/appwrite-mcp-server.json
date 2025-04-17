@@ -1,0 +1,8 @@
+{
+  "Name": "Appwrite MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/appwrite",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@appwrite/mcp"
+}

@@ -1,0 +1,8 @@
+{
+  "Name": "Bright Data MCP",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/luminati-io",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@luminati-io/brightdata-mcp"
+}

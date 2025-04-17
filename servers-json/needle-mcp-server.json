@@ -1,0 +1,8 @@
+{
+  "Name": "Needle MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/needle-ai",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@needle-ai/needle-mcp"
+}

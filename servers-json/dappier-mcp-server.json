@@ -1,0 +1,8 @@
+{
+  "Name": "Dappier MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/DappierAI",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@DappierAI/dappier-mcp"
+}

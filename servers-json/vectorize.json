@@ -1,0 +1,8 @@
+{
+  "Name": "Vectorize",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/vectorize-io",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@vectorize-io/vectorize-mcp-server"
+}

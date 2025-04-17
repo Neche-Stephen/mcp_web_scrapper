@@ -1,0 +1,8 @@
+{
+  "Name": "Eyevinn Open Source Cloud MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/EyevinnOSC",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@EyevinnOSC/mcp-server"
+}

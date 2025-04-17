@@ -1,0 +1,8 @@
+{
+  "Name": "Inkdrop MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/inkdropapp",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@inkdropapp/mcp-server"
+}

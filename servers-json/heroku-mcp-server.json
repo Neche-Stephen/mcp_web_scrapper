@@ -1,0 +1,8 @@
+{
+  "Name": "Heroku MCP server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/heroku",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@heroku/heroku-mcp-server"
+}

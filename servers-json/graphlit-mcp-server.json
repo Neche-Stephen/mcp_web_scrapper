@@ -1,0 +1,8 @@
+{
+  "Name": "Graphlit MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/graphlit",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@graphlit/graphlit-mcp-server"
+}

@@ -1,0 +1,8 @@
+{
+  "Name": "Hyperbrowser",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/hyperbrowserai",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@hyperbrowserai/mcp"
+}

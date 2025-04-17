@@ -1,0 +1,8 @@
+{
+  "Name": "Playwright MCP Server",
+  "description": "",
+  "Author": "Glama",
+  "AuthorUrl": "/",
+  "githubUrl": "https://github.com/microsoft",
+  "ScrapeSource": "https://glama.ai/mcp/servers/@microsoft/playwright-mcp"
+}
