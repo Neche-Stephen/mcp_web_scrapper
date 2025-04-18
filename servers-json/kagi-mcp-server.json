@@ -1,8 +1,26 @@
 {
-  "Name": "Kagi MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/kagisearch",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@kagisearch/kagimcp"
+  "name": "Kagi MCP Server",
+  "author": "kagisearch",
+  "author_url": "https://github.com/kagisearch",
+  "category": "Search",
+  "license": "MIT License",
+  "package_url": "https://github.com/kagisearch/kagimcp",
+  "source_url": "",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "KAGI_API_KEY",
+      "required": "Yes",
+      "description": "Your Kagi API key for search API access",
+      "default": ""
+    },
+    {
+      "name": "FASTMCP_LOG_LEVEL",
+      "required": "No",
+      "description": "Level of logging (e.g. ERROR)",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/kagisearch",
+  "scrape_source": "https://glama.ai/mcp/servers/@kagisearch/kagimcp"
 }

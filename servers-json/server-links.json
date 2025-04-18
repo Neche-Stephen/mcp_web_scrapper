@@ -1,51 +1,147 @@
 [
   {
-    "title": "BigGo MCP Server",
-    "url": "https://glama.ai/mcp/servers/@Funmula-Corp/BigGo-MCP-Server"
+    "title": "Azure MCP Server",
+    "url": "https://glama.ai/mcp/servers/@kalivaraprasad-gonapa/azure-mcp"
   },
   {
-    "title": "e2b-mcp-server",
-    "url": "https://glama.ai/mcp/servers/@e2b-dev/mcp-server"
+    "title": "mcp-server-qdrant",
+    "url": "https://glama.ai/mcp/servers/@qdrant/mcp-server-qdrant"
   },
   {
-    "title": "Semgrep MCP Server",
-    "url": "https://glama.ai/mcp/servers/@semgrep/mcp"
+    "title": "Fibery MCP Server",
+    "url": "https://glama.ai/mcp/servers/@Fibery-inc/fibery-mcp-server"
   },
   {
-    "title": "Steel MCP Server",
-    "url": "https://glama.ai/mcp/servers/@steel-dev/steel-mcp-server"
+    "title": "CodeLogic",
+    "url": "https://glama.ai/mcp/servers/@CodeLogicIncEngineering/codelogic-mcp-server"
   },
   {
-    "title": "Hologres MCP Server",
-    "url": "https://glama.ai/mcp/servers/@aliyun/alibabacloud-hologres-mcp-server"
+    "title": "EdgeOne Pages MCP",
+    "url": "https://glama.ai/mcp/servers/@TencentEdgeOne/edgeone-pages-mcp"
   },
   {
-    "title": "Inkdrop MCP Server",
-    "url": "https://glama.ai/mcp/servers/@inkdropapp/mcp-server"
+    "title": "mcp-search-linkup",
+    "url": "https://glama.ai/mcp/servers/@LinkupPlatform/python-mcp-server"
   },
   {
-    "title": "Audiense Insights MCP Server",
-    "url": "https://glama.ai/mcp/servers/@AudienseCo/mcp-audiense-insights"
+    "title": "ElevenLabs MCP Server",
+    "url": "https://glama.ai/mcp/servers/@elevenlabs/elevenlabs-mcp"
   },
   {
-    "title": "Aiven MCP Server",
-    "url": "https://glama.ai/mcp/servers/@Aiven-Open/mcp-aiven"
+    "title": "Glif",
+    "url": "https://glama.ai/mcp/servers/@glifxyz/glif-mcp-server"
   },
   {
-    "title": "JSON Resume MCP Server",
-    "url": "https://glama.ai/mcp/servers/@jsonresume/mcp"
+    "title": "MiniMax MCP JS",
+    "url": "https://glama.ai/mcp/servers/@MiniMax-AI/MiniMax-MCP-JS"
   },
   {
-    "title": "Tinybird MCP server",
-    "url": "https://glama.ai/mcp/servers/@tinybirdco/mcp-tinybird"
+    "title": "Upstash MCP Server",
+    "url": "https://glama.ai/mcp/servers/@upstash/mcp-server"
+  },
+  {
+    "title": "ScreenshotOne MCP Server",
+    "url": "https://glama.ai/mcp/servers/@screenshotone/mcp"
+  },
+  {
+    "title": "Graphlit MCP Server",
+    "url": "https://glama.ai/mcp/servers/@graphlit/graphlit-mcp-server"
+  },
+  {
+    "title": "Ragie Model Context Protocol Server",
+    "url": "https://glama.ai/mcp/servers/@ragieai/ragie-mcp-server"
+  },
+  {
+    "title": "Eyevinn Open Source Cloud MCP Server",
+    "url": "https://glama.ai/mcp/servers/@EyevinnOSC/mcp-server"
+  },
+  {
+    "title": "Bright Data MCP",
+    "url": "https://glama.ai/mcp/servers/@luminati-io/brightdata-mcp"
+  },
+  {
+    "title": "Paddle MCP Server",
+    "url": "https://glama.ai/mcp/servers/@PaddleHQ/paddle-mcp-server"
+  },
+  {
+    "title": "mcp-sqlalchemy",
+    "url": "https://glama.ai/mcp/servers/@OpenLinkSoftware/mcp-sqlalchemy-server"
   },
   {
     "title": "Opik MCP Server",
     "url": "https://glama.ai/mcp/servers/@comet-ml/opik-mcp"
   },
   {
+    "title": "Sensei MCP",
+    "url": "https://glama.ai/mcp/servers/@dojoengine/sensei-mcp"
+  },
+  {
+    "title": "Hologres MCP Server",
+    "url": "https://glama.ai/mcp/servers/@aliyun/alibabacloud-hologres-mcp-server"
+  },
+  {
+    "title": "Nefino MCP Server",
+    "url": "https://glama.ai/mcp/servers/@nefino/mcp-nefino"
+  },
+  {
+    "title": "Heroku MCP server",
+    "url": "https://glama.ai/mcp/servers/@heroku/heroku-mcp-server"
+  },
+  {
+    "title": "Exa MCP Server",
+    "url": "https://glama.ai/mcp/servers/@exa-labs/exa-mcp-server"
+  },
+  {
+    "title": "Iaptic MCP Server",
+    "url": "https://glama.ai/mcp/servers/@iaptic/mcp-server-iaptic"
+  },
+  {
+    "title": "gotoHuman MCP",
+    "url": "https://glama.ai/mcp/servers/@gotohuman/gotohuman-mcp-server"
+  },
+  {
+    "title": "Karakeep MCP server",
+    "url": "https://glama.ai/mcp/servers/@karakeep-app/karakeep"
+  },
+  {
+    "title": "PlayCanvas Editor MCP Server",
+    "url": "https://glama.ai/mcp/servers/@playcanvas/editor-mcp-server"
+  },
+  {
+    "title": "Inkdrop MCP Server",
+    "url": "https://glama.ai/mcp/servers/@inkdropapp/mcp-server"
+  },
+  {
+    "title": "mcp-clickhouse",
+    "url": "https://glama.ai/mcp/servers/@ClickHouse/mcp-clickhouse"
+  },
+  {
     "title": "Powerdrill MCP Server",
     "url": "https://glama.ai/mcp/servers/@powerdrillai/powerdrill-mcp"
+  },
+  {
+    "title": "Audiense Insights MCP Server",
+    "url": "https://glama.ai/mcp/servers/@AudienseCo/mcp-audiense-insights"
+  },
+  {
+    "title": "ScrapeGraph MCP Server",
+    "url": "https://glama.ai/mcp/servers/@ScrapeGraphAI/scrapegraph-mcp"
+  },
+  {
+    "title": "DataWorks MCP Server",
+    "url": "https://glama.ai/mcp/servers/@aliyun/alibabacloud-dataworks-mcp-server"
+  },
+  {
+    "title": "BICScan MCP Server",
+    "url": "https://glama.ai/mcp/servers/@ahnlabio/bicscan-mcp"
+  },
+  {
+    "title": "Webflow",
+    "url": "https://glama.ai/mcp/servers/@webflow/mcp-server"
+  },
+  {
+    "title": "Tinybird MCP server",
+    "url": "https://glama.ai/mcp/servers/@tinybirdco/mcp-tinybird"
   },
   {
     "title": "Square MCP Server",
@@ -56,351 +152,255 @@
     "url": "https://glama.ai/mcp/servers/@OctagonAI/octagon-mcp-server"
   },
   {
-    "title": "Bright Data MCP",
-    "url": "https://glama.ai/mcp/servers/@luminati-io/brightdata-mcp"
-  },
-  {
-    "title": "Iaptic MCP Server",
-    "url": "https://glama.ai/mcp/servers/@iaptic/mcp-server-iaptic"
-  },
-  {
-    "title": "AdsPower LocalAPI MCP Server",
-    "url": "https://glama.ai/mcp/servers/@AdsPower/local-api-mcp-typescript"
-  },
-  {
-    "title": "Genkit MCP",
-    "url": "https://glama.ai/mcp/servers/@firebase/genkit"
-  },
-  {
-    "title": "Elasticsearch MCP Server",
-    "url": "https://glama.ai/mcp/servers/@elastic/mcp-server-elasticsearch"
-  },
-  {
-    "title": "ElevenLabs MCP Server",
-    "url": "https://glama.ai/mcp/servers/@elevenlabs/elevenlabs-mcp"
-  },
-  {
-    "title": "PlayCanvas Editor MCP Server",
-    "url": "https://glama.ai/mcp/servers/@playcanvas/editor-mcp-server"
-  },
-  {
-    "title": "CodeLogic",
-    "url": "https://glama.ai/mcp/servers/@CodeLogicIncEngineering/codelogic-mcp-server"
-  },
-  {
-    "title": "Scrapezy",
-    "url": "https://glama.ai/mcp/servers/@Scrapezy/mcp"
-  },
-  {
-    "title": "EdgeOne Pages MCP",
-    "url": "https://glama.ai/mcp/servers/@TencentEdgeOne/edgeone-pages-mcp"
-  },
-  {
-    "title": "Astra DB MCP Server",
-    "url": "https://glama.ai/mcp/servers/@datastax/astra-db-mcp"
-  },
-  {
-    "title": "Databutton MCP Server",
-    "url": "https://glama.ai/mcp/servers/@databutton/databutton-mcp"
-  },
-  {
-    "title": "Lara Translate MCP Server",
-    "url": "https://glama.ai/mcp/servers/@translated/lara-mcp"
-  },
-  {
-    "title": "Kong Konnect MCP Server",
-    "url": "https://glama.ai/mcp/servers/@Kong/mcp-konnect"
-  },
-  {
-    "title": "Nefino MCP Server",
-    "url": "https://glama.ai/mcp/servers/@nefino/mcp-nefino"
-  },
-  {
-    "title": "Oxylabs MCP Server",
-    "url": "https://glama.ai/mcp/servers/@oxylabs/oxylabs-mcp"
+    "title": "LlamaCloud MCP Server",
+    "url": "https://glama.ai/mcp/servers/@run-llama/mcp-server-llamacloud"
   },
   {
     "title": "mcp-server-circleci",
     "url": "https://glama.ai/mcp/servers/@CircleCI-Public/mcp-server-circleci"
   },
   {
-    "title": "LlamaCloud MCP Server",
-    "url": "https://glama.ai/mcp/servers/@run-llama/mcp-server-llamacloud"
-  },
-  {
-    "title": "Notion MCP Server",
-    "url": "https://glama.ai/mcp/servers/@makenotion/notion-mcp-server"
-  },
-  {
-    "title": "Karakeep MCP server",
-    "url": "https://glama.ai/mcp/servers/@karakeep-app/karakeep"
-  },
-  {
-    "title": "Upstash MCP Server",
-    "url": "https://glama.ai/mcp/servers/@upstash/mcp-server"
-  },
-  {
-    "title": "Magic UI MCP Server",
-    "url": "https://glama.ai/mcp/servers/@magicuidesign/mcp"
-  },
-  {
-    "title": "Tavily MCP Server",
-    "url": "https://glama.ai/mcp/servers/@tavily-ai/tavily-mcp"
-  },
-  {
-    "title": "Geekbot MCP",
-    "url": "https://glama.ai/mcp/servers/@geekbot-com/geekbot-mcp"
-  },
-  {
-    "title": "Glif",
-    "url": "https://glama.ai/mcp/servers/@glifxyz/glif-mcp-server"
-  },
-  {
-    "title": "Playwright MCP Server",
-    "url": "https://glama.ai/mcp/servers/@microsoft/playwright-mcp"
+    "title": "Hanzo MCP",
+    "url": "https://glama.ai/mcp/servers/@hanzoai/mcp"
   },
   {
     "title": "APISIX-MCP",
     "url": "https://glama.ai/mcp/servers/@api7/apisix-mcp"
   },
   {
+    "title": "Sanity MCP Server",
+    "url": "https://glama.ai/mcp/servers/@sanity-io/sanity-mcp-server"
+  },
+  {
+    "title": "Aiven MCP Server",
+    "url": "https://glama.ai/mcp/servers/@Aiven-Open/mcp-aiven"
+  },
+  {
+    "title": "Semgrep MCP Server",
+    "url": "https://glama.ai/mcp/servers/@semgrep/mcp"
+  },
+  {
     "title": "Dappier MCP Server",
     "url": "https://glama.ai/mcp/servers/@DappierAI/dappier-mcp"
   },
   {
-    "title": "Meilisearch MCP Server",
-    "url": "https://glama.ai/mcp/servers/@meilisearch/meilisearch-mcp"
+    "title": "Binalyze AIR MCP Server",
+    "url": "https://glama.ai/mcp/servers/@binalyze/air-mcp"
   },
   {
-    "title": "Kagi MCP Server",
-    "url": "https://glama.ai/mcp/servers/@kagisearch/kagimcp"
+    "title": "Playwright MCP Server",
+    "url": "https://glama.ai/mcp/servers/@microsoft/playwright-mcp"
   },
   {
-    "title": "Make MCP Server",
-    "url": "https://glama.ai/mcp/servers/@integromat/make-mcp-server"
+    "title": "hackle-mcp",
+    "url": "https://glama.ai/mcp/servers/@hackle-io/hackle-mcp"
   },
   {
-    "title": "Hanzo MCP",
-    "url": "https://glama.ai/mcp/servers/@hanzoai/mcp"
-  },
-  {
-    "title": "PostHog MCP Server",
-    "url": "https://glama.ai/mcp/servers/@PostHog/posthog-mcp"
-  },
-  {
-    "title": "MiniMax MCP JS",
-    "url": "https://glama.ai/mcp/servers/@MiniMax-AI/MiniMax-MCP-JS"
-  },
-  {
-    "title": "Fibery MCP Server",
-    "url": "https://glama.ai/mcp/servers/@Fibery-inc/fibery-mcp-server"
+    "title": "Genkit MCP",
+    "url": "https://glama.ai/mcp/servers/@firebase/genkit"
   },
   {
     "title": "Atla",
     "url": "https://glama.ai/mcp/servers/@atla-ai/atla-mcp-server"
   },
   {
-    "title": "mcp-clickhouse",
-    "url": "https://glama.ai/mcp/servers/@ClickHouse/mcp-clickhouse"
-  },
-  {
-    "title": "BICScan MCP Server",
-    "url": "https://glama.ai/mcp/servers/@ahnlabio/bicscan-mcp"
-  },
-  {
-    "title": "Heroku MCP server",
-    "url": "https://glama.ai/mcp/servers/@heroku/heroku-mcp-server"
-  },
-  {
-    "title": "Paddle MCP Server",
-    "url": "https://glama.ai/mcp/servers/@PaddleHQ/paddle-mcp-server"
-  },
-  {
-    "title": "mcp-server-qdrant",
-    "url": "https://glama.ai/mcp/servers/@qdrant/mcp-server-qdrant"
-  },
-  {
-    "title": "Sanity MCP Server",
-    "url": "https://glama.ai/mcp/servers/@sanity-io/sanity-mcp-server"
-  },
-  {
-    "title": "Supavec MCP Server",
-    "url": "https://glama.ai/mcp/servers/@supavec/mcp-server"
-  },
-  {
-    "title": "Exa MCP Server",
-    "url": "https://glama.ai/mcp/servers/@exa-labs/exa-mcp-server"
-  },
-  {
-    "title": "gotoHuman MCP",
-    "url": "https://glama.ai/mcp/servers/@gotohuman/gotohuman-mcp-server"
-  },
-  {
     "title": "Vectorize",
     "url": "https://glama.ai/mcp/servers/@vectorize-io/vectorize-mcp-server"
-  },
-  {
-    "title": "UseGrant MCP Server",
-    "url": "https://glama.ai/mcp/servers/@usegranthq/mcp-server"
-  },
-  {
-    "title": "mcp-search-linkup",
-    "url": "https://glama.ai/mcp/servers/@LinkupPlatform/python-mcp-server"
-  },
-  {
-    "title": "MetaMCP MCP Server",
-    "url": "https://glama.ai/mcp/servers/@metatool-ai/mcp-server-metamcp"
-  },
-  {
-    "title": "Appwrite MCP Server",
-    "url": "https://glama.ai/mcp/servers/@appwrite/mcp"
-  },
-  {
-    "title": "Nacos MCP Server",
-    "url": "https://glama.ai/mcp/servers/@nacos-group/nacos-mcp-server"
-  },
-  {
-    "title": "Needle MCP Server",
-    "url": "https://glama.ai/mcp/servers/@needle-ai/needle-mcp"
-  },
-  {
-    "title": "ScreenshotOne MCP Server",
-    "url": "https://glama.ai/mcp/servers/@screenshotone/mcp"
-  },
-  {
-    "title": "Azure MCP Server",
-    "url": "https://glama.ai/mcp/servers/@kalivaraprasad-gonapa/azure-mcp"
-  },
-  {
-    "title": "302AI Sandbox MCP Server",
-    "url": "https://glama.ai/mcp/servers/@302ai/302_sandbox_mcp"
-  },
-  {
-    "title": "Eyevinn Open Source Cloud MCP Server",
-    "url": "https://glama.ai/mcp/servers/@EyevinnOSC/mcp-server"
-  },
-  {
-    "title": "Redis MCP Server",
-    "url": "https://glama.ai/mcp/servers/@redis/mcp-redis"
-  },
-  {
-    "title": "Ragie Model Context Protocol Server",
-    "url": "https://glama.ai/mcp/servers/@ragieai/ragie-mcp-server"
-  },
-  {
-    "title": "mcp-sqlalchemy",
-    "url": "https://glama.ai/mcp/servers/@OpenLinkSoftware/mcp-sqlalchemy-server"
-  },
-  {
-    "title": "Vapi MCP Server",
-    "url": "https://glama.ai/mcp/servers/@VapiAI/mcp-server"
-  },
-  {
-    "title": "Hyperbrowser",
-    "url": "https://glama.ai/mcp/servers/@hyperbrowserai/mcp"
-  },
-  {
-    "title": "Xero MCP Server",
-    "url": "https://glama.ai/mcp/servers/@XeroAPI/xero-mcp-server"
-  },
-  {
-    "title": "Graphlit MCP Server",
-    "url": "https://glama.ai/mcp/servers/@graphlit/graphlit-mcp-server"
-  },
-  {
-    "title": "@chargebee/mcp",
-    "url": "https://glama.ai/mcp/servers/@chargebee/agentkit"
-  },
-  {
-    "title": "DataWorks MCP Server",
-    "url": "https://glama.ai/mcp/servers/@aliyun/alibabacloud-dataworks-mcp-server"
-  },
-  {
-    "title": "ScrapeGraph MCP Server",
-    "url": "https://glama.ai/mcp/servers/@ScrapeGraphAI/scrapegraph-mcp"
-  },
-  {
-    "title": "Sensei MCP",
-    "url": "https://glama.ai/mcp/servers/@dojoengine/sensei-mcp"
-  },
-  {
-    "title": "Tembo MCP Server",
-    "url": "https://glama.ai/mcp/servers/@tembo-io/mcp-server-tembo"
-  },
-  {
-    "title": "mcp-server-rag-web-browser",
-    "url": "https://glama.ai/mcp/servers/@apify/mcp-server-rag-web-browser"
   },
   {
     "title": "Redis Cloud API MCP Server",
     "url": "https://glama.ai/mcp/servers/@redis/mcp-redis-cloud"
   },
   {
+    "title": "Astra DB MCP Server",
+    "url": "https://glama.ai/mcp/servers/@datastax/astra-db-mcp"
+  },
+  {
+    "title": "Kagi MCP Server",
+    "url": "https://glama.ai/mcp/servers/@kagisearch/kagimcp"
+  },
+  {
+    "title": "Geekbot MCP",
+    "url": "https://glama.ai/mcp/servers/@geekbot-com/geekbot-mcp"
+  },
+  {
+    "title": "Redis MCP Server",
+    "url": "https://glama.ai/mcp/servers/@redis/mcp-redis"
+  },
+  {
+    "title": "Lara Translate MCP Server",
+    "url": "https://glama.ai/mcp/servers/@translated/lara-mcp"
+  },
+  {
+    "title": "BigGo MCP Server",
+    "url": "https://glama.ai/mcp/servers/@Funmula-Corp/BigGo-MCP-Server"
+  },
+  {
+    "title": "Kong Konnect MCP Server",
+    "url": "https://glama.ai/mcp/servers/@Kong/mcp-konnect"
+  },
+  {
+    "title": "Nacos MCP Server",
+    "url": "https://glama.ai/mcp/servers/@nacos-group/nacos-mcp-server"
+  },
+  {
+    "title": "JSON Resume MCP Server",
+    "url": "https://glama.ai/mcp/servers/@jsonresume/mcp"
+  },
+  {
+    "title": "mcp-server-rag-web-browser",
+    "url": "https://glama.ai/mcp/servers/@apify/mcp-server-rag-web-browser"
+  },
+  {
+    "title": "Xero MCP Server",
+    "url": "https://glama.ai/mcp/servers/@XeroAPI/xero-mcp-server"
+  },
+  {
+    "title": "Databutton MCP Server",
+    "url": "https://glama.ai/mcp/servers/@databutton/databutton-mcp"
+  },
+  {
+    "title": "Needle MCP Server",
+    "url": "https://glama.ai/mcp/servers/@needle-ai/needle-mcp"
+  },
+  {
+    "title": "Tavily MCP Server",
+    "url": "https://glama.ai/mcp/servers/@tavily-ai/tavily-mcp"
+  },
+  {
+    "title": "Meilisearch MCP Server",
+    "url": "https://glama.ai/mcp/servers/@meilisearch/meilisearch-mcp"
+  },
+  {
+    "title": "Oxylabs MCP Server",
+    "url": "https://glama.ai/mcp/servers/@oxylabs/oxylabs-mcp"
+  },
+  {
+    "title": "Scrapezy",
+    "url": "https://glama.ai/mcp/servers/@Scrapezy/mcp"
+  },
+  {
+    "title": "Hyperbrowser",
+    "url": "https://glama.ai/mcp/servers/@hyperbrowserai/mcp"
+  },
+  {
+    "title": "Appwrite MCP Server",
+    "url": "https://glama.ai/mcp/servers/@appwrite/mcp"
+  },
+  {
+    "title": "Magic UI MCP Server",
+    "url": "https://glama.ai/mcp/servers/@magicuidesign/mcp"
+  },
+  {
+    "title": "Steel MCP Server",
+    "url": "https://glama.ai/mcp/servers/@steel-dev/steel-mcp-server"
+  },
+  {
+    "title": "e2b-mcp-server",
+    "url": "https://glama.ai/mcp/servers/@e2b-dev/mcp-server"
+  },
+  {
+    "title": "Supavec MCP Server",
+    "url": "https://glama.ai/mcp/servers/@supavec/mcp-server"
+  },
+  {
+    "title": "AdsPower LocalAPI MCP Server",
+    "url": "https://glama.ai/mcp/servers/@AdsPower/local-api-mcp-typescript"
+  },
+  {
+    "title": "302AI Sandbox MCP Server",
+    "url": "https://glama.ai/mcp/servers/@302ai/302_sandbox_mcp"
+  },
+  {
+    "title": "UseGrant MCP Server",
+    "url": "https://glama.ai/mcp/servers/@usegranthq/mcp-server"
+  },
+  {
+    "title": "Notion MCP Server",
+    "url": "https://glama.ai/mcp/servers/@makenotion/notion-mcp-server"
+  },
+  {
+    "title": "@chargebee/mcp",
+    "url": "https://glama.ai/mcp/servers/@chargebee/agentkit"
+  },
+  {
+    "title": "octomind-mcp",
+    "url": "https://glama.ai/mcp/servers/@OctoMind-dev/octomind-mcp"
+  },
+  {
+    "title": "Elasticsearch MCP Server",
+    "url": "https://glama.ai/mcp/servers/@elastic/mcp-server-elasticsearch"
+  },
+  {
+    "title": "MetaMCP MCP Server",
+    "url": "https://glama.ai/mcp/servers/@metatool-ai/mcp-server-metamcp"
+  },
+  {
+    "title": "Vapi MCP Server",
+    "url": "https://glama.ai/mcp/servers/@VapiAI/mcp-server"
+  },
+  {
+    "title": "PostHog MCP Server",
+    "url": "https://glama.ai/mcp/servers/@PostHog/posthog-mcp"
+  },
+  {
+    "title": "Tembo MCP Server",
+    "url": "https://glama.ai/mcp/servers/@tembo-io/mcp-server-tembo"
+  },
+  {
+    "title": "Make MCP Server",
+    "url": "https://glama.ai/mcp/servers/@integromat/make-mcp-server"
+  },
+  {
+    "title": "EOL MCP Server",
+    "url": "https://glama.ai/mcp/servers/@ducthinh993/mcp-server-endoflife"
+  },
+  {
+    "title": "Dataset Viewer MCP Server",
+    "url": "https://glama.ai/mcp/servers/@privetin/dataset-viewer"
+  },
+  {
+    "title": "MCP Svelte Docs Server",
+    "url": "https://glama.ai/mcp/servers/@spences10/mcp-svelte-docs"
+  },
+  {
+    "title": "Salesforce MCP Server",
+    "url": "https://glama.ai/mcp/servers/@SurajAdsul/mcp-server-salesforce"
+  },
+  {
     "title": "Flutter Inspector MCP Server",
     "url": "https://glama.ai/mcp/servers/@Arenukvern/mcp_flutter"
   },
   {
-    "title": "Rijksmuseum MCP Server",
-    "url": "https://glama.ai/mcp/servers/@r-huijts/rijksmuseum-mcp"
+    "title": "mcp-tool-builder",
+    "url": "https://glama.ai/mcp/servers/@hanweg/mcp-tool-builder"
   },
   {
-    "title": "searxng",
-    "url": "https://glama.ai/mcp/servers/@SecretiveShell/MCP-searxng"
+    "title": "Starknet MCP Server",
+    "url": "https://glama.ai/mcp/servers/@milancermak/starknet-mcp"
   },
   {
-    "title": "Safe MCP Server",
-    "url": "https://glama.ai/mcp/servers/@5ajaki/safe-mcp-server"
+    "title": "Safe Local Python Executor/Interpreter",
+    "url": "https://glama.ai/mcp/servers/@maxim-saplin/mcp_safe_local_python_executor"
   },
   {
-    "title": "Meta MCP Server",
-    "url": "https://glama.ai/mcp/servers/@DMontgomery40/meta-mcp-server"
+    "title": "Better Auth MCP Server",
+    "url": "https://glama.ai/mcp/servers/@nahmanmate/better-auth-mcp-server"
   },
   {
-    "title": "TianGong-LCA-MCP Server",
-    "url": "https://glama.ai/mcp/servers/@linancn/tiangong-lca-mcp"
+    "title": "Bitbucket Server MCP",
+    "url": "https://glama.ai/mcp/servers/@garc33/bitbucket-server-mcp-server"
   },
   {
-    "title": "MCP Server Starter",
-    "url": "https://glama.ai/mcp/servers/@coinselor/mcp-zenon"
+    "title": "Starwind UI MCP Server",
+    "url": "https://glama.ai/mcp/servers/@starwind-ui/starwind-ui-mcp"
   },
   {
-    "title": "MySQL MCP Server",
-    "url": "https://glama.ai/mcp/servers/@designcomputer/mysql_mcp_server"
+    "title": "MCP Calculate Server",
+    "url": "https://glama.ai/mcp/servers/@611711Dark/mcp_calculate_server"
   },
   {
-    "title": "Dart MCP Server",
-    "url": "https://glama.ai/mcp/servers/@jmanhype/dart-mcp-server"
-  },
-  {
-    "title": "MCP Code Executor",
-    "url": "https://glama.ai/mcp/servers/@bazinga012/mcp_code_executor"
-  },
-  {
-    "title": "Unsplash MCP Server",
-    "url": "https://glama.ai/mcp/servers/@hellokaton/unsplash-mcp-server"
-  },
-  {
-    "title": "antd-components-mcp",
-    "url": "https://glama.ai/mcp/servers/@zhixiaoqiang/antd-components-mcp"
-  },
-  {
-    "title": "Things MCP Server",
-    "url": "https://glama.ai/mcp/servers/@hald/things-mcp"
-  },
-  {
-    "title": "OpenAI MCP Server",
-    "url": "https://glama.ai/mcp/servers/@thadius83/mcp-server-openai"
-  },
-  {
-    "title": "MCP Think Tool Server",
-    "url": "https://glama.ai/mcp/servers/@abhinav-mangla/think-tool-mcp"
-  },
-  {
-    "title": "HubSpot MCP",
-    "url": "https://glama.ai/mcp/servers/@shinzo-labs/hubspot-mcp"
-  },
-  {
-    "title": "Gitingest-MCP",
-    "url": "https://glama.ai/mcp/servers/@puravparab/Gitingest-MCP"
+    "title": "NS Travel Information MCP Server",
+    "url": "https://glama.ai/mcp/servers/@r-huijts/ns-mcp-server"
   }
 ]

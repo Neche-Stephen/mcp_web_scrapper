@@ -1,8 +1,20 @@
 {
-  "Name": "Azure MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/kalivaraprasad-gonapa",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@kalivaraprasad-gonapa/azure-mcp"
+  "name": "Azure MCP Server",
+  "author": "kalivaraprasad-gonapa",
+  "author_url": "https://github.com/kalivaraprasad-gonapa",
+  "category": "Cloud Platforms",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/azure-mcp",
+  "source_url": "https://github.com/Streen9/azure-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/kalivaraprasad-gonapa",
+  "scrape_source": "https://glama.ai/mcp/servers/@kalivaraprasad-gonapa/azure-mcp"
 }

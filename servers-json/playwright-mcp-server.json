@@ -1,8 +1,62 @@
 {
-  "Name": "Playwright MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/microsoft",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@microsoft/playwright-mcp"
+  "name": "Playwright MCP Server",
+  "author": "microsoft",
+  "author_url": "https://github.com/microsoft",
+  "category": "Browser Automation",
+  "license": "Apache 2.0",
+  "package_url": "https://www.npmjs.com/package/@playwright/mcp",
+  "source_url": "https://github.com/microsoft/playwright-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "CAPS",
+      "required": "No",
+      "description": "Comma-separated list of capabilities to enable, possible values: tabs, pdf, history, wait, files, install",
+      "default": ""
+    },
+    {
+      "name": "PORT",
+      "required": "No",
+      "description": "Port to listen on for SSE transport",
+      "default": ""
+    },
+    {
+      "name": "VISION",
+      "required": "No",
+      "description": "Run server that uses screenshots (Aria snapshots are used by default)",
+      "default": ""
+    },
+    {
+      "name": "BROWSER",
+      "required": "No",
+      "description": "Browser or chrome channel to use. Possible values: chrome, firefox, webkit, msedge, chrome-beta, chrome-canary, chrome-dev, msedge-beta, msedge-canary, msedge-dev",
+      "default": "chrome"
+    },
+    {
+      "name": "HEADLESS",
+      "required": "No",
+      "description": "Run browser in headless mode (headed by default)",
+      "default": ""
+    },
+    {
+      "name": "CDP_ENDPOINT",
+      "required": "No",
+      "description": "CDP endpoint to connect to",
+      "default": ""
+    },
+    {
+      "name": "USER_DATA_DIR",
+      "required": "No",
+      "description": "Path to the user data directory",
+      "default": ""
+    },
+    {
+      "name": "EXECUTABLE_PATH",
+      "required": "No",
+      "description": "Path to the browser executable",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/microsoft",
+  "scrape_source": "https://glama.ai/mcp/servers/@microsoft/playwright-mcp"
 }

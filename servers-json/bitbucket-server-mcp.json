@@ -1,0 +1,44 @@
+{
+  "name": "Bitbucket Server MCP",
+  "author": "garc33",
+  "author_url": "https://github.com/garc33",
+  "category": "Version Control",
+  "license": "Apache 2.0",
+  "package_url": "https://github.com/garc33/bitbucket-server-mcp-server",
+  "source_url": "",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "BITBUCKET_URL",
+      "required": "Yes",
+      "description": "Base URL of your Bitbucket Server instance",
+      "default": ""
+    },
+    {
+      "name": "BITBUCKET_TOKEN",
+      "required": "No",
+      "description": "Personal access token for Bitbucket Server authentication",
+      "default": ""
+    },
+    {
+      "name": "BITBUCKET_PASSWORD",
+      "required": "No",
+      "description": "Password for Bitbucket Server basic authentication",
+      "default": ""
+    },
+    {
+      "name": "BITBUCKET_USERNAME",
+      "required": "No",
+      "description": "Username for Bitbucket Server basic authentication",
+      "default": ""
+    },
+    {
+      "name": "BITBUCKET_DEFAULT_PROJECT",
+      "required": "No",
+      "description": "Default project key to use when not specified in tool calls",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/garc33",
+  "scrape_source": "https://glama.ai/mcp/servers/@garc33/bitbucket-server-mcp-server"
+}

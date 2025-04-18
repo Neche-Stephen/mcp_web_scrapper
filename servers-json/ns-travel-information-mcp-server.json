@@ -1,0 +1,20 @@
+{
+  "name": "NS Travel Information MCP Server",
+  "author": "r-huijts",
+  "author_url": "https://github.com/r-huijts",
+  "category": "Travel & Transportation",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/ns-mcp-server",
+  "source_url": "https://github.com/r-huijts/ns-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "NS_API_KEY",
+      "required": "Yes",
+      "description": "Your NS API key from the NS API Portal (https://apiportal.ns.nl/)",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/r-huijts",
+  "scrape_source": "https://glama.ai/mcp/servers/@r-huijts/ns-mcp-server"
+}

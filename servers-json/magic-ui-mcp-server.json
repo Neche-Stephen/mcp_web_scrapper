@@ -1,8 +1,20 @@
 {
-  "Name": "Magic UI MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/magicuidesign",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@magicuidesign/mcp"
+  "name": "Magic UI MCP Server",
+  "author": "magicuidesign",
+  "author_url": "https://github.com/magicuidesign",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@magicuidesign/mcp",
+  "source_url": "https://github.com/magicuidesign/mcp",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/magicuidesign",
+  "scrape_source": "https://glama.ai/mcp/servers/@magicuidesign/mcp"
 }

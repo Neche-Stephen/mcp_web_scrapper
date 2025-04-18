@@ -1,0 +1,26 @@
+{
+  "name": "Binalyze AIR MCP Server",
+  "author": "binalyze",
+  "author_url": "https://github.com/binalyze",
+  "category": "Security",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@binalyze/air-mcp",
+  "source_url": "https://github.com/binalyze/air-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "AIR_HOST",
+      "required": "Yes",
+      "description": "Your Binalyze AIR API host URL",
+      "default": ""
+    },
+    {
+      "name": "AIR_API_TOKEN",
+      "required": "Yes",
+      "description": "API token required for authentication with Binalyze AIR",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/binalyze",
+  "scrape_source": "https://glama.ai/mcp/servers/@binalyze/air-mcp"
+}

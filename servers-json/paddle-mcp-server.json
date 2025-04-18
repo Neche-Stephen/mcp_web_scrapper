@@ -1,8 +1,26 @@
 {
-  "Name": "Paddle MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/PaddleHQ",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@PaddleHQ/paddle-mcp-server"
+  "name": "Paddle MCP Server",
+  "author": "PaddleHQ",
+  "author_url": "https://github.com/PaddleHQ",
+  "category": "Finance",
+  "license": "Apache 2.0",
+  "package_url": "https://www.npmjs.com/package/@paddle/paddle-mcp",
+  "source_url": "https://github.com/paddlehq/paddle-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "PADDLE_API_KEY",
+      "required": "Yes",
+      "description": "Your Paddle API key from Paddle > Developer tools > Authentication",
+      "default": ""
+    },
+    {
+      "name": "PADDLE_ENVIRONMENT",
+      "required": "Yes",
+      "description": "The Paddle environment to use (sandbox or production)",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/PaddleHQ",
+  "scrape_source": "https://glama.ai/mcp/servers/@PaddleHQ/paddle-mcp-server"
 }

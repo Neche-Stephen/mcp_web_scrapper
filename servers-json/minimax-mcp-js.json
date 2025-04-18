@@ -1,8 +1,38 @@
 {
-  "Name": "MiniMax MCP JS",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/MiniMax-AI",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@MiniMax-AI/MiniMax-MCP-JS"
+  "name": "MiniMax MCP JS",
+  "author": "MiniMax-AI",
+  "author_url": "https://github.com/MiniMax-AI",
+  "category": "Image & Video Processing",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/minimax-mcp-js",
+  "source_url": "https://github.com/MiniMax-AI/MiniMax-MCP-JS",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "MINIMAX_API_KEY",
+      "required": "Yes",
+      "description": "MiniMax API Key (required)",
+      "default": ""
+    },
+    {
+      "name": "MINIMAX_API_HOST",
+      "required": "No",
+      "description": "MiniMax API Host",
+      "default": "https://api.minimaxi.chat"
+    },
+    {
+      "name": "MINIMAX_MCP_BASE_PATH",
+      "required": "No",
+      "description": "Base path for output files",
+      "default": "User's desktop"
+    },
+    {
+      "name": "MINIMAX_RESOURCE_MODE",
+      "required": "No",
+      "description": "Resource handling mode, 'url' or 'local'",
+      "default": "url"
+    }
+  ],
+  "github_url": "https://github.com/MiniMax-AI",
+  "scrape_source": "https://glama.ai/mcp/servers/@MiniMax-AI/MiniMax-MCP-JS"
 }

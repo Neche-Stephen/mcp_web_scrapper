@@ -1,0 +1,20 @@
+{
+  "name": "EOL MCP Server",
+  "author": "ducthinh993",
+  "author_url": "https://github.com/ducthinh993",
+  "category": "Monitoring",
+  "license": "MIT License",
+  "package_url": "https://github.com/ducthinh993/mcp-server-endoflife",
+  "source_url": "",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/ducthinh993",
+  "scrape_source": "https://glama.ai/mcp/servers/@ducthinh993/mcp-server-endoflife"
+}

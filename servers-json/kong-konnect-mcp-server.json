@@ -1,8 +1,26 @@
 {
-  "Name": "Kong Konnect MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/Kong",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@Kong/mcp-konnect"
+  "name": "Kong Konnect MCP Server",
+  "author": "Kong",
+  "author_url": "https://github.com/Kong",
+  "category": "Monitoring",
+  "license": "Apache 2.0",
+  "package_url": "https://github.com/kong/mcp-konnect",
+  "source_url": "",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "KONNECT_REGION",
+      "required": "No",
+      "description": "The API region to use (possible values: US, EU, AU, ME, IN)",
+      "default": "us"
+    },
+    {
+      "name": "KONNECT_ACCESS_TOKEN",
+      "required": "Yes",
+      "description": "Your Kong Konnect API key",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/Kong",
+  "scrape_source": "https://glama.ai/mcp/servers/@Kong/mcp-konnect"
 }

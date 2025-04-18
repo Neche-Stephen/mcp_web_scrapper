@@ -1,0 +1,26 @@
+{
+  "name": "MCP Svelte Docs Server",
+  "author": "spences10",
+  "author_url": "https://github.com/spences10",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/mcp-svelte-docs",
+  "source_url": "https://github.com/spences10/mcp-svelte-docs",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "LIBSQL_URL",
+      "required": "No",
+      "description": "URL for the LibSQL database",
+      "default": "file:local.db"
+    },
+    {
+      "name": "LIBSQL_AUTH_TOKEN",
+      "required": "No",
+      "description": "Auth token for remote LibSQL database",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/spences10",
+  "scrape_source": "https://glama.ai/mcp/servers/@spences10/mcp-svelte-docs"
+}

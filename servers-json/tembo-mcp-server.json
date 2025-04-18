@@ -1,8 +1,20 @@
 {
-  "Name": "Tembo MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/tembo-io",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@tembo-io/mcp-server-tembo"
+  "name": "Tembo MCP Server",
+  "author": "tembo-io",
+  "author_url": "https://github.com/tembo-io",
+  "category": "Cloud Platforms",
+  "license": "MIT License",
+  "package_url": "https://github.com/tembo-io/mcp-server-tembo",
+  "source_url": "",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "TEMBO_API_KEY",
+      "required": "Yes",
+      "description": "Your API key for Tembo Cloud",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/tembo-io",
+  "scrape_source": "https://glama.ai/mcp/servers/@tembo-io/mcp-server-tembo"
 }

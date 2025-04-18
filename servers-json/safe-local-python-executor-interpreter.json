@@ -1,0 +1,20 @@
+{
+  "name": "Safe Local Python Executor/Interpreter",
+  "author": "maxim-saplin",
+  "author_url": "https://github.com/maxim-saplin",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://github.com/maxim-saplin/mcp_safe_local_python_executor",
+  "source_url": "",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/maxim-saplin",
+  "scrape_source": "https://glama.ai/mcp/servers/@maxim-saplin/mcp_safe_local_python_executor"
+}

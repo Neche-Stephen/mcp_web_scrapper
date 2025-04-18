@@ -1,8 +1,20 @@
 {
-  "Name": "ScreenshotOne MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/screenshotone",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@screenshotone/mcp"
+  "name": "ScreenshotOne MCP Server",
+  "author": "screenshotone",
+  "author_url": "https://github.com/screenshotone",
+  "category": "Browser Automation",
+  "license": "MIT License",
+  "package_url": "https://github.com/screenshotone/mcp",
+  "source_url": "",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "SCREENSHOTONE_API_KEY",
+      "required": "Yes",
+      "description": "Your ScreenshotOne API key obtained from screenshotone.com",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/screenshotone",
+  "scrape_source": "https://glama.ai/mcp/servers/@screenshotone/mcp"
 }

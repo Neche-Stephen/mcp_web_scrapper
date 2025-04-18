@@ -1,0 +1,38 @@
+{
+  "name": "Better Auth MCP Server",
+  "author": "nahmanmate",
+  "author_url": "https://github.com/nahmanmate",
+  "category": "Security",
+  "license": "AGPL 3.0",
+  "package_url": "https://github.com/nahmanmate/better-auth-mcp-server",
+  "source_url": "",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "LOG_LEVEL",
+      "required": "No",
+      "description": "Logging level",
+      "default": ""
+    },
+    {
+      "name": "BETTER_AUTH_ENV",
+      "required": "No",
+      "description": "Environment setting (development, staging, or production)",
+      "default": ""
+    },
+    {
+      "name": "BETTER_AUTH_API_KEY",
+      "required": "Yes",
+      "description": "Your Better Auth API key",
+      "default": ""
+    },
+    {
+      "name": "BETTER_AUTH_PROJECT_ID",
+      "required": "Yes",
+      "description": "Your Better Auth project ID",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/nahmanmate",
+  "scrape_source": "https://glama.ai/mcp/servers/@nahmanmate/better-auth-mcp-server"
+}

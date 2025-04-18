@@ -1,0 +1,38 @@
+{
+  "name": "octomind-mcp",
+  "author": "OctoMind-dev",
+  "author_url": "https://github.com/OctoMind-dev",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@octomind/octomind-mcp",
+  "source_url": "https://github.com/OctoMind-dev/octomind-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "APIKEY",
+      "required": "Yes",
+      "description": "The API key for Octomind API",
+      "default": ""
+    },
+    {
+      "name": "LOG_LEVEL",
+      "required": "No",
+      "description": "The log level to use",
+      "default": "info"
+    },
+    {
+      "name": "LOG_FILENAME",
+      "required": "No",
+      "description": "The file to write logs to (only for debugging). If not set, logging is disabled",
+      "default": ""
+    },
+    {
+      "name": "OCTOMIND_API_URL",
+      "required": "No",
+      "description": "Base URL for the API endpoint to use",
+      "default": "https://app.octomind.dev/api"
+    }
+  ],
+  "github_url": "https://github.com/OctoMind-dev",
+  "scrape_source": "https://glama.ai/mcp/servers/@OctoMind-dev/octomind-mcp"
+}

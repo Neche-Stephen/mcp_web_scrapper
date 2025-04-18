@@ -1,8 +1,26 @@
 {
-  "Name": "Upstash MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/upstash",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@upstash/mcp-server"
+  "name": "Upstash MCP Server",
+  "author": "upstash",
+  "author_url": "https://github.com/upstash",
+  "category": "Databases",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@upstash/mcp-server",
+  "source_url": "https://github.com/upstash/mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "UPSTASH_EMAIL",
+      "required": "Yes",
+      "description": "Your Upstash account email address",
+      "default": ""
+    },
+    {
+      "name": "UPSTASH_API_KEY",
+      "required": "Yes",
+      "description": "Your Upstash API key that can be created from the Upstash console",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/upstash",
+  "scrape_source": "https://glama.ai/mcp/servers/@upstash/mcp-server"
 }

@@ -1,8 +1,38 @@
 {
-  "Name": "mcp-clickhouse",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/ClickHouse",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@ClickHouse/mcp-clickhouse"
+  "name": "mcp-clickhouse",
+  "author": "ClickHouse",
+  "author_url": "https://github.com/ClickHouse",
+  "category": "Databases",
+  "license": "Apache 2.0",
+  "package_url": "https://github.com/ClickHouse/mcp-clickhouse",
+  "source_url": "",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "CLICKHOUSE_HOST",
+      "required": "Yes",
+      "description": "The host address of the ClickHouse server",
+      "default": ""
+    },
+    {
+      "name": "CLICKHOUSE_PORT",
+      "required": "Yes",
+      "description": "The port number of the ClickHouse server",
+      "default": ""
+    },
+    {
+      "name": "CLICKHOUSE_USER",
+      "required": "Yes",
+      "description": "The username to connect to the ClickHouse server",
+      "default": ""
+    },
+    {
+      "name": "CLICKHOUSE_PASSWORD",
+      "required": "Yes",
+      "description": "The password to connect to the ClickHouse server",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/ClickHouse",
+  "scrape_source": "https://glama.ai/mcp/servers/@ClickHouse/mcp-clickhouse"
 }

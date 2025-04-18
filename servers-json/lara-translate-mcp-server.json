@@ -1,8 +1,26 @@
 {
-  "Name": "Lara Translate MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/translated",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@translated/lara-mcp"
+  "name": "Lara Translate MCP Server",
+  "author": "translated",
+  "author_url": "https://github.com/translated",
+  "category": "Language Translation",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@translated/lara-mcp",
+  "source_url": "https://github.com/translated/lara-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "LARA_ACCESS_KEY_ID",
+      "required": "Yes",
+      "description": "Your Lara API access key ID obtained from Lara Translate account",
+      "default": ""
+    },
+    {
+      "name": "LARA_ACCESS_KEY_SECRET",
+      "required": "Yes",
+      "description": "Your Lara API access key secret obtained from Lara Translate account",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/translated",
+  "scrape_source": "https://glama.ai/mcp/servers/@translated/lara-mcp"
 }

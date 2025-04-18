@@ -1,8 +1,26 @@
 {
-  "Name": "Heroku MCP server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/heroku",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@heroku/heroku-mcp-server"
+  "name": "Heroku MCP server",
+  "author": "heroku",
+  "author_url": "https://github.com/heroku",
+  "category": "Cloud Platforms",
+  "license": "Apache 2.0",
+  "package_url": "https://www.npmjs.com/package/@heroku/mcp-server",
+  "source_url": "https://github.com/heroku/heroku-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "DEBUG",
+      "required": "No",
+      "description": "Enable debug mode",
+      "default": ""
+    },
+    {
+      "name": "HEROKU_API_KEY",
+      "required": "Yes",
+      "description": "Your Heroku authorization token that can be generated through the Heroku Dashboard account profile or using the Heroku CLI",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/heroku",
+  "scrape_source": "https://glama.ai/mcp/servers/@heroku/heroku-mcp-server"
 }

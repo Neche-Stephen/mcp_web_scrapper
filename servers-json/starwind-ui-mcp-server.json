@@ -1,0 +1,20 @@
+{
+  "name": "Starwind UI MCP Server",
+  "author": "starwind-ui",
+  "author_url": "https://github.com/starwind-ui",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://github.com/Boston343/starwind-ui-mcp",
+  "source_url": "",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/starwind-ui",
+  "scrape_source": "https://glama.ai/mcp/servers/@starwind-ui/starwind-ui-mcp"
+}

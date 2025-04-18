@@ -1,8 +1,32 @@
 {
-  "Name": "Nacos MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/nacos-group",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@nacos-group/nacos-mcp-server"
+  "name": "Nacos MCP Server",
+  "author": "nacos-group",
+  "author_url": "https://github.com/nacos-group",
+  "category": "Monitoring",
+  "license": "Apache 2.0",
+  "package_url": "https://github.com/nacos-group/nacos-mcp-server",
+  "source_url": "",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "host",
+      "required": "Yes",
+      "description": "Your Nacos host",
+      "default": ""
+    },
+    {
+      "name": "port",
+      "required": "Yes",
+      "description": "Your Nacos main port, such as 8848",
+      "default": ""
+    },
+    {
+      "name": "access_token",
+      "required": "Yes",
+      "description": "Your Nacos access token, get from `login` api: /nacos/v3/auth/user/login with `username` and `password`",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/nacos-group",
+  "scrape_source": "https://glama.ai/mcp/servers/@nacos-group/nacos-mcp-server"
 }

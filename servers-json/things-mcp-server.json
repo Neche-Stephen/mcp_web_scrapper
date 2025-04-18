@@ -1,8 +1,0 @@
-{
-  "Name": "Things MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/hald",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@hald/things-mcp"
-}

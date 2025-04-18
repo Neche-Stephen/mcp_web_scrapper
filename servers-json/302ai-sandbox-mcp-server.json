@@ -1,8 +1,20 @@
 {
-  "Name": "302AI Sandbox MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/302ai",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@302ai/302_sandbox_mcp"
+  "name": "302AI Sandbox MCP Server",
+  "author": "302ai",
+  "author_url": "https://github.com/302ai",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@302ai/sandbox-mcp",
+  "source_url": "https://github.com/302ai/302_sandbox_mcp",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "302AI_API_KEY",
+      "required": "Yes",
+      "description": "Your 302AI API key, which can be found at https://dash.302.ai/apis/list",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/302ai",
+  "scrape_source": "https://glama.ai/mcp/servers/@302ai/302_sandbox_mcp"
 }

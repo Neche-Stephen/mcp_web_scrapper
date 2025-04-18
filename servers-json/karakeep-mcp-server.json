@@ -1,8 +1,26 @@
 {
-  "Name": "Karakeep MCP server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/karakeep-app",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@karakeep-app/karakeep"
+  "name": "Karakeep MCP server",
+  "author": "karakeep-app",
+  "author_url": "https://github.com/karakeep-app",
+  "category": "Note Taking",
+  "license": "AGPL 3.0",
+  "package_url": "https://www.npmjs.com/package/@karakeep/mcp",
+  "source_url": "https://github.com/karakeep-app/karakeep/blob/cf97bace33fdd14f29ce947d55d17cba8fa85c11/apps/mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "KARAKEEP_API_KEY",
+      "required": "Yes",
+      "description": "Your Karakeep API token",
+      "default": ""
+    },
+    {
+      "name": "KARAKEEP_API_ADDR",
+      "required": "Yes",
+      "description": "The address of your Karakeep server",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/karakeep-app",
+  "scrape_source": "https://glama.ai/mcp/servers/@karakeep-app/karakeep"
 }

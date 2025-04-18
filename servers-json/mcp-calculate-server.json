@@ -1,0 +1,20 @@
+{
+  "name": "MCP Calculate Server",
+  "author": "611711Dark",
+  "author_url": "https://github.com/611711Dark",
+  "category": "",
+  "license": "MIT License",
+  "package_url": "https://github.com/611711Dark/mcp_calculate_server",
+  "source_url": "",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/611711Dark",
+  "scrape_source": "https://glama.ai/mcp/servers/@611711Dark/mcp_calculate_server"
+}

@@ -1,8 +1,44 @@
 {
-  "Name": "Hologres MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/aliyun",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@aliyun/alibabacloud-hologres-mcp-server"
+  "name": "Hologres MCP Server",
+  "author": "aliyun",
+  "author_url": "https://github.com/aliyun",
+  "category": "Databases",
+  "license": "Apache 2.0",
+  "package_url": "https://github.com/aliyun/alibabacloud-hologres-mcp-server",
+  "source_url": "",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "HOLOGRES_HOST",
+      "required": "Yes",
+      "description": "Hologres server host",
+      "default": ""
+    },
+    {
+      "name": "HOLOGRES_PORT",
+      "required": "Yes",
+      "description": "Hologres server port",
+      "default": ""
+    },
+    {
+      "name": "HOLOGRES_USER",
+      "required": "Yes",
+      "description": "Hologres access ID/username",
+      "default": ""
+    },
+    {
+      "name": "HOLOGRES_DATABASE",
+      "required": "Yes",
+      "description": "Hologres database name",
+      "default": ""
+    },
+    {
+      "name": "HOLOGRES_PASSWORD",
+      "required": "Yes",
+      "description": "Hologres access key/password",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/aliyun",
+  "scrape_source": "https://glama.ai/mcp/servers/@aliyun/alibabacloud-hologres-mcp-server"
 }

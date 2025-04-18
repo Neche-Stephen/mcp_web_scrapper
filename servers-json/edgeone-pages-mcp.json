@@ -1,8 +1,20 @@
 {
-  "Name": "EdgeOne Pages MCP",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/TencentEdgeOne",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@TencentEdgeOne/edgeone-pages-mcp"
+  "name": "EdgeOne Pages MCP",
+  "author": "TencentEdgeOne",
+  "author_url": "https://github.com/TencentEdgeOne",
+  "category": "Cloud Platforms",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/edgeone-pages-mcp",
+  "source_url": "https://github.com/TencentEdgeOne/edgeone-pages-mcp",
+  "language": "",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/TencentEdgeOne",
+  "scrape_source": "https://glama.ai/mcp/servers/@TencentEdgeOne/edgeone-pages-mcp"
 }

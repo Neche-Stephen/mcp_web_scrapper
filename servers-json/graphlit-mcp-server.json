@@ -1,8 +1,98 @@
 {
-  "Name": "Graphlit MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/graphlit",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@graphlit/graphlit-mcp-server"
+  "name": "Graphlit MCP Server",
+  "author": "graphlit",
+  "author_url": "https://github.com/graphlit",
+  "category": "Knowledge & Memory",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/graphlit-mcp-server",
+  "source_url": "https://github.com/graphlit/graphlit-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "JIRA_EMAIL",
+      "required": "No",
+      "description": "Your Jira email for Jira data connector integration",
+      "default": ""
+    },
+    {
+      "name": "JIRA_TOKEN",
+      "required": "No",
+      "description": "Your Jira token for Jira data connector integration",
+      "default": ""
+    },
+    {
+      "name": "LINEAR_API_KEY",
+      "required": "No",
+      "description": "Your Linear API key for Linear data connector integration",
+      "default": ""
+    },
+    {
+      "name": "NOTION_API_KEY",
+      "required": "No",
+      "description": "Your Notion API key for Notion data connector integration",
+      "default": ""
+    },
+    {
+      "name": "SLACK_BOT_TOKEN",
+      "required": "No",
+      "description": "Your Slack bot token for Slack data connector integration",
+      "default": ""
+    },
+    {
+      "name": "DISCORD_BOT_TOKEN",
+      "required": "No",
+      "description": "Your Discord bot token for Discord data connector integration",
+      "default": ""
+    },
+    {
+      "name": "NOTION_DATABASE_ID",
+      "required": "No",
+      "description": "Your Notion database ID for Notion data connector integration",
+      "default": ""
+    },
+    {
+      "name": "GRAPHLIT_JWT_SECRET",
+      "required": "Yes",
+      "description": "Your JWT secret for signing the JWT token found in the API settings dashboard",
+      "default": ""
+    },
+    {
+      "name": "GOOGLE_EMAIL_CLIENT_ID",
+      "required": "No",
+      "description": "Your Google client ID for Google Mail data connector integration",
+      "default": ""
+    },
+    {
+      "name": "GRAPHLIT_ENVIRONMENT_ID",
+      "required": "Yes",
+      "description": "Your Graphlit environment ID found in the API settings dashboard",
+      "default": ""
+    },
+    {
+      "name": "GRAPHLIT_ORGANIZATION_ID",
+      "required": "Yes",
+      "description": "Your Graphlit organization ID found in the API settings dashboard",
+      "default": ""
+    },
+    {
+      "name": "GOOGLE_EMAIL_CLIENT_SECRET",
+      "required": "No",
+      "description": "Your Google client secret for Google Mail data connector integration",
+      "default": ""
+    },
+    {
+      "name": "GOOGLE_EMAIL_REFRESH_TOKEN",
+      "required": "No",
+      "description": "Your Google refresh token for Google Mail data connector integration",
+      "default": ""
+    },
+    {
+      "name": "GITHUB_PERSONAL_ACCESS_TOKEN",
+      "required": "No",
+      "description": "Your GitHub personal access token for GitHub data connector integration",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/graphlit",
+  "scrape_source": "https://glama.ai/mcp/servers/@graphlit/graphlit-mcp-server"
 }

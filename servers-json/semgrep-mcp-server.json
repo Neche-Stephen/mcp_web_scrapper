@@ -1,8 +1,20 @@
 {
-  "Name": "Semgrep MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/semgrep",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@semgrep/mcp"
+  "name": "Semgrep MCP Server",
+  "author": "semgrep",
+  "author_url": "https://github.com/semgrep",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://github.com/semgrep/mcp",
+  "source_url": "",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/semgrep",
+  "scrape_source": "https://glama.ai/mcp/servers/@semgrep/mcp"
 }

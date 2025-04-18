@@ -1,8 +1,44 @@
 {
-  "Name": "Sanity MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/sanity-io",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@sanity-io/sanity-mcp-server"
+  "name": "Sanity MCP Server",
+  "author": "sanity-io",
+  "author_url": "https://github.com/sanity-io",
+  "category": "Databases",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@sanity/mcp-server",
+  "source_url": "https://github.com/sanity-io/sanity-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "MCP_USER_ROLE",
+      "required": "No",
+      "description": "Determines tool access level (developer or editor)",
+      "default": ""
+    },
+    {
+      "name": "SANITY_DATASET",
+      "required": "Yes",
+      "description": "The dataset to use",
+      "default": ""
+    },
+    {
+      "name": "SANITY_API_HOST",
+      "required": "No",
+      "description": "API host (defaults to https://api.sanity.io)",
+      "default": "https://api.sanity.io"
+    },
+    {
+      "name": "SANITY_API_TOKEN",
+      "required": "Yes",
+      "description": "Your Sanity API token",
+      "default": ""
+    },
+    {
+      "name": "SANITY_PROJECT_ID",
+      "required": "Yes",
+      "description": "Your Sanity project ID",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/sanity-io",
+  "scrape_source": "https://glama.ai/mcp/servers/@sanity-io/sanity-mcp-server"
 }

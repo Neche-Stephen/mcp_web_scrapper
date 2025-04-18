@@ -1,8 +1,0 @@
-{
-  "Name": "HubSpot MCP",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/shinzo-labs",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@shinzo-labs/hubspot-mcp"
-}

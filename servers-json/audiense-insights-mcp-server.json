@@ -1,8 +1,32 @@
 {
-  "Name": "Audiense Insights MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/AudienseCo",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@AudienseCo/mcp-audiense-insights"
+  "name": "Audiense Insights MCP Server",
+  "author": "AudienseCo",
+  "author_url": "https://github.com/AudienseCo",
+  "category": "Marketing",
+  "license": "Apache 2.0",
+  "package_url": "https://github.com/AudienseCo/mcp-audiense-insights",
+  "source_url": "",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "AUDIENSE_CLIENT_ID",
+      "required": "Yes",
+      "description": "Your Audiense client ID",
+      "default": ""
+    },
+    {
+      "name": "TWITTER_BEARER_TOKEN",
+      "required": "No",
+      "description": "Your X/Twitter API Bearer Token (optional, for enriched influencer data)",
+      "default": ""
+    },
+    {
+      "name": "AUDIENSE_CLIENT_SECRET",
+      "required": "Yes",
+      "description": "Your Audiense client secret",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/AudienseCo",
+  "scrape_source": "https://glama.ai/mcp/servers/@AudienseCo/mcp-audiense-insights"
 }

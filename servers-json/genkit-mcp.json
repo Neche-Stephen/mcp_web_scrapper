@@ -1,8 +1,26 @@
 {
-  "Name": "Genkit MCP",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/firebase",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@firebase/genkit"
+  "name": "Genkit MCP",
+  "author": "firebase",
+  "author_url": "https://github.com/firebase",
+  "category": "",
+  "license": "Apache 2.0",
+  "package_url": "https://www.npmjs.com/package/genkitx-mcp",
+  "source_url": "https://github.com/firebase/genkit/tree/HEAD/js/plugins/mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "PUBMED_EMAIL",
+      "required": "Yes",
+      "description": "Your email address (required by NCBI)",
+      "default": ""
+    },
+    {
+      "name": "PUBMED_API_KEY",
+      "required": "No",
+      "description": "Optional API key for higher rate limits",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/firebase",
+  "scrape_source": "https://glama.ai/mcp/servers/@firebase/genkit"
 }

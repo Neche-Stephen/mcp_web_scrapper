@@ -1,8 +1,20 @@
 {
-  "Name": "Tavily MCP Server",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/tavily-ai",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@tavily-ai/tavily-mcp"
+  "name": "Tavily MCP Server",
+  "author": "tavily-ai",
+  "author_url": "https://github.com/tavily-ai",
+  "category": "Search",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/tavily-mcp",
+  "source_url": "https://github.com/tavily-ai/tavily-mcp",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "TAVILY_API_KEY",
+      "required": "Yes",
+      "description": "Your Tavily API key obtained from app.tavily.com/home",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/tavily-ai",
+  "scrape_source": "https://glama.ai/mcp/servers/@tavily-ai/tavily-mcp"
 }

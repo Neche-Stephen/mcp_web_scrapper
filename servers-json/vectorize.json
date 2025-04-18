@@ -1,8 +1,26 @@
 {
-  "Name": "Vectorize",
-  "description": "",
-  "Author": "Glama",
-  "AuthorUrl": "/",
-  "githubUrl": "https://github.com/vectorize-io",
-  "ScrapeSource": "https://glama.ai/mcp/servers/@vectorize-io/vectorize-mcp-server"
+  "name": "Vectorize",
+  "author": "vectorize-io",
+  "author_url": "https://github.com/vectorize-io",
+  "category": "Search",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@vectorize-io/vectorize-mcp-server",
+  "source_url": "https://github.com/vectorize-io/vectorize-mcp-server",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "VECTORIZE_TOKEN",
+      "required": "Yes",
+      "description": "Your Vectorize authentication token",
+      "default": ""
+    },
+    {
+      "name": "VECTORIZE_ORG_ID",
+      "required": "Yes",
+      "description": "Your Vectorize organization ID",
+      "default": ""
+    }
+  ],
+  "github_url": "https://github.com/vectorize-io",
+  "scrape_source": "https://glama.ai/mcp/servers/@vectorize-io/vectorize-mcp-server"
 }
