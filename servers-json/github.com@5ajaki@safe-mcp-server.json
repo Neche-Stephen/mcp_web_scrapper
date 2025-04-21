@@ -1,0 +1,41 @@
+{
+  "name": "Safe MCP Server",
+  "author": "5ajaki",
+  "author_url": "https://github.com/5ajaki",
+  "category": "Finance",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/5ajaki/safe-mcp-server",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "SAFE_API_URL",
+      "required": "No",
+      "description": "The Safe Transaction API endpoint to use (defaults to mainnet: https://safe-transaction-mainnet.safe.global/api/v1)",
+      "default": "https://safe-transaction-mainnet.safe.global/api/v1"
+    }
+  ],
+  "tools": [
+    {
+      "name": "getSafeTransactions",
+      "description": "Retrieve all transactions for a Safe address, with options to limit results and paginate using offset. Designed for querying Safe smart contract wallets on the Safe MCP Server.",
+      "instructions": "Get all transactions for a Safe address",
+      "jsonSchema": "{ \"properties\": { \"address\": { \"description\": \"Safe address\", \"type\": \"string\" }, \"limit\": { \"description\": \"Number of transactions to return\", \"type\": \"number\" }, \"offset\": { \"description\": \"Offset for pagination\", \"type\": \"number\" } }, \"required\": [ \"address\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "getMultisigTransaction",
+      "description": "Retrieve detailed information about a specific multisig transaction using the provided Safe transaction hash. This tool integrates with the Safe MCP Server to enable users to query and decode transaction data for smart contract wallets.",
+      "instructions": "Get details of a specific multisig transaction",
+      "jsonSchema": "{ \"properties\": { \"safeTxHash\": { \"description\": \"Safe transaction hash\", \"type\": \"string\" } }, \"required\": [ \"safeTxHash\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "decodeTransactionData",
+      "description": "Decode transaction data in hex format for Safe smart contract wallets using the Safe API. Optionally specify the contract address to enhance decoding accuracy.",
+      "instructions": "Decode transaction data using Safe API",
+      "jsonSchema": "{ \"properties\": { \"data\": { \"description\": \"Transaction data in hex format\", \"type\": \"string\" }, \"to\": { \"description\": \"Optional contract address\", \"type\": \"string\" } }, \"required\": [ \"data\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@5ajaki/safe-mcp-server",
+  "version": "0.1.0",
+  "keywords": []
+}

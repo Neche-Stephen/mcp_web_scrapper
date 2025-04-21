@@ -1,8 +1,13 @@
 const puppeteer = require("puppeteer");
+const fs = require("fs");
+const path = require("path");
+const { promisify } = require("util");
+const exec = promisify(require("child_process").exec);
+const toml = require("@iarna/toml"); // For parsing pyproject.toml
 
 // Target URL for testing
-// const TEST_URL = "https://glama.ai/mcp/servers/@translated/lara-mcp";
-const TEST_URL = "https://glama.ai/mcp/servers/@ThetaBird/mcp-server-axiom-js";
+const TEST_URL = "https://glama.ai/mcp/servers/@translated/lara-mcp";
+// const TEST_URL = "https://glama.ai/mcp/servers/@ThetaBird/mcp-server-axiom-js";
 // const TEST_URL = "https://glama.ai/mcp/servers/@oxylabs/oxylabs-mcp";
 
 async function testExtraction() {
@@ -149,50 +154,54 @@ async function testExtraction() {
     try {
       const toolLinks = await page.$$eval(
         'table[data-sentry-element="Table.Root"] a[href*="/tools/"]',
-        links => links.map(link => ({
-          name: link.textContent.trim(),
-          href: link.href
-        }))
+        (links) =>
+          links.map((link) => ({
+            name: link.textContent.trim(),
+            href: link.href,
+          }))
       );
-    
+
       for (const tool of toolLinks) {
         try {
-          await page.goto(tool.href, { waitUntil: 'networkidle0' });
-          
+          await page.goto(tool.href, { waitUntil: "networkidle0" });
+
           const toolData = await page.evaluate(() => {
             // Get description (from the first prose div after the main title)
             const getDescription = () => {
-              const descriptionDiv = document.querySelector('main#tool h2 + div.prose');
-              return descriptionDiv?.textContent.trim() || '';
+              const descriptionDiv = document.querySelector(
+                "main#tool h2 + div.prose"
+              );
+              return descriptionDiv?.textContent.trim() || "";
             };
-    
+
             // Get instructions (from the section with h3 "Instructions")
             const getInstructions = () => {
-              const instructionsSection = Array.from(document.querySelectorAll('section'))
-                .find(section => {
-                  const h3 = section.querySelector('h3');
-                  return h3 && h3.textContent.includes('Instructions');
-                });
-              
-              if (!instructionsSection) return '';
-    
+              const instructionsSection = Array.from(
+                document.querySelectorAll("section")
+              ).find((section) => {
+                const h3 = section.querySelector("h3");
+                return h3 && h3.textContent.includes("Instructions");
+              });
+
+              if (!instructionsSection) return "";
+
               // Check for list format
-              const ol = instructionsSection.querySelector('ol');
+              const ol = instructionsSection.querySelector("ol");
               if (ol) {
-                return Array.from(ol.querySelectorAll('li'))
-                  .map(li => li.textContent.trim())
-                  .join('\n');
+                return Array.from(ol.querySelectorAll("li"))
+                  .map((li) => li.textContent.trim())
+                  .join("\n");
               }
-    
+
               // Check for paragraph format
-              const prose = instructionsSection.querySelector('.prose');
+              const prose = instructionsSection.querySelector(".prose");
               if (prose) {
                 return prose.textContent.trim();
               }
-    
-              return '';
+
+              return "";
             };
-    
+
             // RESTORE THE WORKING JSON SCHEMA EXTRACTION
             const getJsonSchema = () => {
               const schemaElement = document.evaluate(
@@ -202,40 +211,84 @@ async function testExtraction() {
                 XPathResult.FIRST_ORDERED_NODE_TYPE,
                 null
               ).singleNodeValue;
-              
-              return schemaElement?.textContent
-                .replace(/\s+/g, ' ')
-                .trim() || '';
+
+              return (
+                schemaElement?.textContent.replace(/\s+/g, " ").trim() || ""
+              );
             };
-    
+
             return {
               description: getDescription(),
               instructions: getInstructions(),
-              jsonSchema: getJsonSchema()
+              jsonSchema: getJsonSchema(),
             };
           });
-    
+
           extractedData.tools.push({
             name: tool.name,
-            ...toolData
+            ...toolData,
           });
-    
-          await page.goBack({ waitUntil: 'networkidle0' });
+
+          await page.goBack({ waitUntil: "networkidle0" });
           await page.waitForSelector('table[data-sentry-element="Table.Root"]');
-    
         } catch (err) {
           console.warn(`Error processing tool ${tool.name}:`, err);
           extractedData.tools.push({
             name: tool.name,
-            error: err.message
+            error: err.message,
           });
         }
       }
     } catch (err) {
-      console.warn('Error extracting tools:', err);
+      console.warn("Error extracting tools:", err);
     }
 
-       // Log the results
+    // Add version and keywords extraction
+    console.log("Extracting version and keywords...");
+    extractedData.version = "";
+    extractedData.keywords = [];
+
+    try {
+      if (
+        extractedData.source_url &&
+        extractedData.source_url.includes("github.com")
+      ) {
+        const repoUrl = extractedData.source_url;
+        const tempDir = path.join(__dirname, "temp_repo");
+
+        // Clone repository
+        await exec(`git clone ${repoUrl} ${tempDir}`);
+
+        // Check for Node.js project
+        const packageJsonPath = path.join(tempDir, "package.json");
+        if (fs.existsSync(packageJsonPath)) {
+          const packageJson = JSON.parse(
+            fs.readFileSync(packageJsonPath, "utf8")
+          );
+          extractedData.version = packageJson.version || "";
+          extractedData.keywords = packageJson.keywords || [];
+        }
+        // Check for Python project
+        else {
+          const pyprojectPath = path.join(tempDir, "pyproject.toml");
+          if (fs.existsSync(pyprojectPath)) {
+            const pyproject = toml.parse(
+              fs.readFileSync(pyprojectPath, "utf8")
+            );
+            extractedData.version = pyproject?.project?.version || "";
+            extractedData.keywords = pyproject?.project?.keywords || [];
+          }
+        }
+
+        // Clean up
+        await exec(`rm -rf ${tempDir}`);
+      }
+    } catch (err) {
+      console.warn("Error extracting repository metadata:", err.message);
+      // Keep empty values if extraction fails
+    }
+
+    // Log the results
     console.log("\nEXTRACTION RESULTS:");
     console.log("Extracted Data:", extractedData);
     // console.log('-------------------');

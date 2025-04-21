@@ -1,0 +1,154 @@
+{
+  "name": "PlayCanvas Editor MCP Server",
+  "author": "playcanvas",
+  "author_url": "https://github.com/playcanvas",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@playcanvas/editor-mcp-server",
+  "source_url": "https://github.com/playcanvas/editor-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "PORT",
+      "required": "No",
+      "description": "The port number on which the PlayCanvas MCP server will run",
+      "default": "52000"
+    }
+  ],
+  "tools": [
+    {
+      "name": "create_entities",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "modify_entities",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "duplicate_entities",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "reparent_entity",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "delete_entities",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_entities",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "add_components",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "remove_components",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "add_script_component_script",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "create_assets",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_assets",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "delete_assets",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "instantiate_template_assets",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "set_material_diffuse",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "set_script_text",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "script_parse",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "modify_scene_settings",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "query_scene_settings",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "store_search",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "store_get",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "store_download",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@playcanvas/editor-mcp-server",
+  "version": "0.0.2",
+  "keywords": [
+    "playcanvas",
+    "editor",
+    "mcp",
+    "cli"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "e2b-mcp-server",
+  "author": "e2b-dev",
+  "author_url": "https://github.com/e2b-dev",
+  "category": "Developer Tools",
+  "license": "Apache 2.0",
+  "package_url": "",
+  "source_url": "https://github.com/e2b-dev/mcp-server/tree/main/packages/python",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "E2B_API_KEY",
+      "required": "Yes",
+      "description": "Your E2B API key",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "run_code",
+      "description": "Execute Python code securely in a sandbox environment using Jupyter Notebook syntax. Facilitates safe and isolated code testing and debugging.",
+      "instructions": "Run python code in a secure sandbox by E2B. Using the Jupyter Notebook syntax.",
+      "jsonSchema": "{ \"properties\": { \"code\": { \"title\": \"Code\", \"type\": \"string\" } }, \"required\": [ \"code\" ], \"title\": \"ToolSchema\", \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@e2b-dev/mcp-server",
+  "version": "",
+  "keywords": []
+}

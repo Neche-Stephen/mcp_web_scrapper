@@ -1,0 +1,41 @@
+{
+  "name": "gotoHuman MCP",
+  "author": "gotohuman",
+  "author_url": "https://github.com/gotohuman",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/gotohuman/gotohuman-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "GOTOHUMAN_API_KEY",
+      "required": "Yes",
+      "description": "Your gotoHuman API key",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "list-forms",
+      "description": "Discover all available review forms in the gotoHuman MCP server. Use this tool to identify forms after fetching their schema for detailed field information.",
+      "instructions": "List all available review forms. NOTE: You need to fetch the schema for the form fields first using the get-form-schema tool.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "get-form-schema",
+      "description": "Retrieve the schema for form fields required to request a human review using the gotoHuman MCP server, ensuring correct data submission for approval workflows.",
+      "instructions": "Get the schema to use for the 'fields' property when requesting a human review with a form.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"formId\": { \"description\": \"The form ID to fetch the schema for\", \"type\": \"string\" } }, \"required\": [ \"formId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "request-human-review-with-form",
+      "description": "Submit a structured request for human review by providing form ID and field data, ensuring accurate evaluation. Use related tools to fetch form schema and list available forms.",
+      "instructions": "Request a human review with a form. NOTE: If you don't have a form ID yet, list all available forms using the list-forms tool first. To know what to pass for fieldData, you need to fetch the schema for the form fields using the get-form-schema tool.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"assignToUsers\": { \"description\": \"Optional list of user emails to assign the review to\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"fieldData\": { \"additionalProperties\": {}, \"description\": \"The field data to include in the review request. Note that this is a dynamic schema that you need to fetch first using the get-form-schema tool.\", \"type\": \"object\" }, \"formId\": { \"description\": \"The form ID to request a human review for\", \"type\": \"string\" }, \"metadata\": { \"additionalProperties\": { \"type\": \"string\" }, \"description\": \"Optional additional data that will be incl. in the webhook response after form submission. Incl. everything required to proceed with your workflow.\", \"type\": \"object\" } }, \"required\": [ \"formId\", \"fieldData\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@gotohuman/gotohuman-mcp-server",
+  "version": "0.1.0",
+  "keywords": []
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Atla",
+  "author": "atla-ai",
+  "author_url": "https://github.com/atla-ai",
+  "category": "Research & Data",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/atla-ai/atla-mcp-server",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "ATLA_API_KEY",
+      "required": "Yes",
+      "description": "Your Atla API key, required to interact with the Atla API for LLM evaluation",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "evaluate_llm_response",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "evaluate_llm_response_on_multiple_criteria",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@atla-ai/atla-mcp-server",
+  "version": "0.1.0",
+  "keywords": []
+}

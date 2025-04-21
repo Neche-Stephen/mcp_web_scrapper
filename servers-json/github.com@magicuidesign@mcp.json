@@ -1,0 +1,71 @@
+{
+  "name": "Magic UI MCP Server",
+  "author": "magicuidesign",
+  "author_url": "https://github.com/magicuidesign",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@magicuidesign/mcp",
+  "source_url": "https://github.com/magicuidesign/mcp",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "getUIComponents",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getComponents",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getDeviceMocks",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getSpecialEffects",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getAnimations",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getTextAnimations",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getButtons",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getBackgrounds",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@magicuidesign/mcp",
+  "version": "1.0.6",
+  "keywords": []
+}

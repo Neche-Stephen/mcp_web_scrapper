@@ -1,0 +1,65 @@
+{
+  "name": "Fibery MCP Server",
+  "author": "Fibery-inc",
+  "author_url": "https://github.com/Fibery-inc",
+  "category": "Databases",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/Fibery-inc/fibery-mcp-server",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "FIBERY_HOST",
+      "required": "Yes",
+      "description": "Your Fibery domain (e.g., your-domain.fibery.io)",
+      "default": ""
+    },
+    {
+      "name": "FIBERY_API_TOKEN",
+      "required": "Yes",
+      "description": "Your Fibery API token",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "current_date",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_databases",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "describe_database",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "query_database",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "create_entity",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "update_entity",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@Fibery-inc/fibery-mcp-server",
+  "version": "0.1.3",
+  "keywords": []
+}

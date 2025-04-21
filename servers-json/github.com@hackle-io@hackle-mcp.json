@@ -1,0 +1,34 @@
+{
+  "name": "hackle-mcp",
+  "author": "hackle-io",
+  "author_url": "https://github.com/hackle-io",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/hackle-io/hackle-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "HACKLE_API_KEY",
+      "required": "Yes",
+      "description": "Your Hackle API key obtained from the Hackle team",
+      "default": ""
+    }
+  ],
+  "tools": [],
+  "scrape_source": "https://glama.ai/mcp/servers/@hackle-io/hackle-mcp",
+  "version": "0.0.5",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "ai",
+    "analytics",
+    "experiment",
+    "abtest",
+    "feature-flag",
+    "remote-config",
+    "crm",
+    "customer-relationship-management"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Sensei MCP",
+  "author": "dojoengine",
+  "author_url": "https://github.com/dojoengine",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/sensei",
+  "source_url": "https://github.com/dojoengine/sensei-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "dojo_101",
+      "description": "Learn Dojo development basics with a beginner-friendly guide. Start new projects, understand workflows, and explore the Dojo architecture for building onchain worlds using Starknet.",
+      "instructions": "Beginner-friendly introduction to Dojo development. Use this when starting a new Dojo project, understanding the basic workflow, or when you need a high-level overview of the Dojo development process and architecture.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "dojo_config",
+      "description": "Configure Dojo projects by setting up Scarb.toml, managing permissions, creating profile files, defining namespaces, and handling external contracts and dependencies with Sensei MCP’s guidance.",
+      "instructions": "Essential guidance for configuring Dojo projects. Use this when setting up Scarb.toml, creating dojo profile files, configuring permissions, setting up namespaces, or managing external contracts and dependencies.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "dojo_logic",
+      "description": "Provides expert guidance for implementing Dojo systems and game logic, including contract functions, state changes, and World contract interactions, tailored for Cairo development on Starknet.",
+      "instructions": "Expert guidance on implementing Dojo systems and game logic. Use this when writing contract functions, implementing game mechanics, handling state changes, or working with the World contract to read/write models.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "dojo_model",
+      "description": "Define data structures, model schemas, and traits using specialized guidance for Dojo models. Understand relationships and constraints to build onchain worlds with Starknet's Dojo framework.",
+      "instructions": "Specialized guidance for creating and working with Dojo models. Use this when you need to define data structures, create model schemas, implement model traits, or understand model relationships and constraints.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "dojo_sensei",
+      "description": "Get comprehensive guidance for Dojo and Cairo development on Starknet. This tool provides expert assistance for building onchain worlds using the Dojo Entity Component System framework.",
+      "instructions": "The main system prompt for Dojo development. Use this as the primary prompt when starting a conversation about Dojo or Cairo development, or when you need comprehensive guidance across all aspects of Dojo development.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "dojo_test",
+      "description": "Create and manage unit tests, integration tests, and test environments for Dojo applications to ensure system and model correctness using expert guidance on Starknet.",
+      "instructions": "Comprehensive guide for writing tests for Dojo applications. Use this when creating unit tests, integration tests, setting up test environments, or verifying the correctness of your Dojo systems and models.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "dojo_token",
+      "description": "Implement token standards like ERC20, ERC721, or ERC1155 in Dojo with step-by-step guidance. Integrate tokens into your Dojo game or define token functionality using this tool on the Sensei MCP server.",
+      "instructions": "Detailed guidance on implementing token standards in Dojo. Use this when creating ERC20, ERC721, or ERC1155 tokens, implementing token functionality, or integrating tokens with your Dojo game.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@dojoengine/sensei-mcp",
+  "version": "0.0.1",
+  "keywords": []
+}

@@ -1,0 +1,83 @@
+{
+  "name": "BigGo MCP Server",
+  "author": "Funmula-Corp",
+  "author_url": "https://github.com/Funmula-Corp",
+  "category": "E-commerce & Retail",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/Funmula-Corp/BigGo-MCP-Server",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "BIGGO_MCP_SERVER_REGION",
+      "required": "No",
+      "description": "Region for product search",
+      "default": "TW"
+    },
+    {
+      "name": "BIGGO_MCP_SERVER_CLIENT_ID",
+      "required": "Yes",
+      "description": "BigGo Client ID - Required for specification search",
+      "default": ""
+    },
+    {
+      "name": "BIGGO_MCP_SERVER_CLIENT_SECRET",
+      "required": "Yes",
+      "description": "BigGo Client Secret - Required for specification search",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "product_search",
+      "description": "Perform product searches across e-commerce platforms by entering a query. Retrieve results based on product specifications and price history using natural language prompts.",
+      "instructions": "Product Search",
+      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"Search query\", \"examples\": [ \"iphone\", \"護唇膏\" ], \"title\": \"Query\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"title\": \"product_searchArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "price_history_graph",
+      "description": "Visualize product price trends over time using the product's history ID. Identify patterns and make informed purchasing decisions by tracking price changes.",
+      "instructions": "Link That Visualizes Product Price History",
+      "jsonSchema": "{ \"properties\": { \"history_id\": { \"description\": \"\\n Product History ID\\n Here are a few steps to obtain this argument.\\n 1. Use 'product_search' tool to retrive a list of products\\n 2. Find the most relevant product.\\n 3. The product should have a field called 'history_id', use it as the value for this argument\\n \", \"examples\": [ \"tw_pmall_rakuten-nwdsl_6MONJRBOO\", \"tw_pec_senao-1363332\" ], \"title\": \"History Id\", \"type\": \"string\" } }, \"required\": [ \"history_id\" ], \"title\": \"price_history_graphArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "price_history_with_history_id",
+      "description": "Track price changes of a specific product over time using its unique history ID. Retrieve historical pricing data for defined periods to analyze trends and make informed purchasing decisions.",
+      "instructions": "Product Price History With History ID",
+      "jsonSchema": "{ \"properties\": { \"days\": { \"anyOf\": [ { \"enum\": [ \"90\", \"80\", \"365\", \"730\" ], \"type\": \"string\" }, {} ], \"description\": \"History range\", \"title\": \"Days\" }, \"history_id\": { \"description\": \"\\n Product History ID\\n Here are a few steps to obtain this argument.\\n 1. Use 'product_search' tool to retrive a list of products\\n 2. Find the most relevant product.\\n 3. The product should have a field called 'history_id', use it as the value for this argument\\n \", \"examples\": [ \"tw_pmall_rakuten-nwdsl_6MONJRBOO\", \"tw_pec_senao-1363332\" ], \"title\": \"History Id\", \"type\": \"string\" } }, \"required\": [ \"history_id\", \"days\" ], \"title\": \"price_history_with_history_idArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "price_history_with_url",
+      "description": "Track product price changes over time by providing a URL and desired history range. Retrieve historical pricing data to analyze trends and make informed purchasing decisions.",
+      "instructions": "Product Price History With URL",
+      "jsonSchema": "{ \"properties\": { \"days\": { \"anyOf\": [ { \"enum\": [ \"90\", \"80\", \"365\", \"730\" ], \"type\": \"string\" }, {} ], \"description\": \"History range\", \"title\": \"Days\" }, \"url\": { \"description\": \"Product URL\", \"title\": \"Url\", \"type\": \"string\" } }, \"required\": [ \"days\", \"url\" ], \"title\": \"price_history_with_urlArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "spec_indexes",
+      "description": "Initialize Elasticsearch indexes for product specifications to enable efficient searches across e-commerce platforms. Required step before conducting specification-based queries in the BigGo MCP Server.",
+      "instructions": "Elasticsearch Indexes for Product Specification.It is REQUIRED to use this tool first before running any specification search.",
+      "jsonSchema": "{ \"properties\": {}, \"title\": \"spec_indexesArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "spec_mapping",
+      "description": "Retrieve Elasticsearch mapping for product specifications to enable precise querying of indexed product data, ensuring accurate search results on e-commerce platforms.",
+      "instructions": "Elasticsearch Mapping For Product Specification.Use this tool after you have the index, and need to know the mapping in order to query the index.\nAvailable indexes can be obtained by using the 'spec_indexes' tool.",
+      "jsonSchema": "{ \"properties\": { \"index\": { \"description\": \"\\n Elasticsearch index\\n\\n Steps to obtain this argument.\\n 1. Use 'spec_indexes' tool to get the list of indexes\\n 2. Choose the most relevant index\\n \", \"title\": \"Index\", \"type\": \"string\" } }, \"required\": [ \"index\" ], \"title\": \"spec_mappingArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "spec_search",
+      "description": "Search and retrieve product specifications using an Elasticsearch query. Ensure index mapping is acquired with 'spec_mapping' tool prior to use, and follow strict query rules for efficient results.",
+      "instructions": "Product Specification Search. Index mapping must be aquired before using this tool.\nUse 'spec_mapping' tool to get the mapping of the index.",
+      "jsonSchema": "{ \"properties\": { \"elasticsearch_query\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"object\" } ], \"description\": \"\\n Elasticsearch query ( Elasticsearch version: 8 )\\n\\n Bellow are rules that MUST be followed when using this tool.\\n All rules must be followed strictly.\\n \\n 1. The 'spec_mapping' tool must be used to get the mapping of the index, before using this tool\\n 2. Size must be less than or equal to 10\\n 3. Result must be sorted when needed\\n 4. Must not contain documents with 'status' field as 'deleted'\\n\\n When to sort:\\n - The user wants the most efficient refrigerator: sort by power consumption\\n - The user wants the smallest referegirator: sort by height\\n\\n When not to sort:\\n - The user wants phones with 16GB of ram: no need to sort, just find the exact number\\n\\n Spec fields are all located under the 'spec' key, remaber to add 'spec' when querying.\\n Example fields paths:\\n - specs.physical_specs.weight\\n - specs.technical_specs.water_resistance.depth\\n - specs.sensors.gyroscope\\n \", \"examples\": [ { \"query\": { \"bool\": { \"must\": [ { \"range\": { \"specs.physical_specifications.dimensions.height\": { \"gte\": 1321, \"lte\": 2321 } } } ], \"must_not\": [ { \"match\": { \"status\": \"deleted\" } } ] } }, \"size\": 5, \"sort\": [ { \"specs.physical_specifications.dimensions.height\": \"asc\" } ] } ], \"title\": \"Elasticsearch Query\" }, \"index\": { \"description\": \"\\n Elasticsearch index\\n\\n Steps to obtain this argument.\\n 1. Use 'spec_indexes' tool to get the list of indexes\\n 2. Choose the most relevant index\\n \", \"title\": \"Index\", \"type\": \"string\" } }, \"required\": [ \"index\", \"elasticsearch_query\" ], \"title\": \"spec_searchArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "get_current_region",
+      "description": "Retrieve the current region setting for the BigGo MCP Server to ensure localized product searches and accurate price history tracking.",
+      "instructions": "Get the current region setting.",
+      "jsonSchema": "{ \"properties\": {}, \"title\": \"get_current_regionArguments\", \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@Funmula-Corp/BigGo-MCP-Server",
+  "version": "",
+  "keywords": []
+}

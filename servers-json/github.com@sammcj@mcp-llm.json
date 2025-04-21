@@ -1,0 +1,141 @@
+{
+  "name": "mcp-llm",
+  "author": "sammcj",
+  "author_url": "https://github.com/sammcj",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/mcp-llm",
+  "source_url": "https://github.com/sammcj/mcp-llm",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "LLM_MIN_P",
+      "required": "No",
+      "description": "Min-p parameter for the model (e.g., 0.05)",
+      "default": ""
+    },
+    {
+      "name": "LLM_TOP_K",
+      "required": "No",
+      "description": "Top-k parameter for the model (e.g., 40)",
+      "default": ""
+    },
+    {
+      "name": "LLM_TOP_P",
+      "required": "No",
+      "description": "Top-p parameter for the model (e.g., 0.85)",
+      "default": ""
+    },
+    {
+      "name": "LLM_NUM_CTX",
+      "required": "No",
+      "description": "Context window size (e.g., 16384)",
+      "default": ""
+    },
+    {
+      "name": "LLM_BASE_URL",
+      "required": "No",
+      "description": "Base URL for the model provider (e.g., https://ollama.internal, http://my-openai-compatible-server.com:3000/v1)",
+      "default": ""
+    },
+    {
+      "name": "LLM_TIMEOUT_S",
+      "required": "No",
+      "description": "Timeout in seconds for LLM requests (e.g., 240 for 4 minutes)",
+      "default": "240"
+    },
+    {
+      "name": "LLM_MODEL_NAME",
+      "required": "Yes",
+      "description": "The name of the model to use (e.g., qwen2-32b:q6_k, anthropic.claude-3-7-sonnet-20250219-v1:0)",
+      "default": ""
+    },
+    {
+      "name": "OPENAI_API_KEY",
+      "required": "No",
+      "description": "API key for OpenAI (required when using OpenAI provider)",
+      "default": ""
+    },
+    {
+      "name": "LLM_TEMPERATURE",
+      "required": "No",
+      "description": "Temperature parameter for the model (e.g., 0.2)",
+      "default": ""
+    },
+    {
+      "name": "LLM_MODEL_PROVIDER",
+      "required": "Yes",
+      "description": "The model provider (e.g., bedrock, ollama, openai, openai-compatible)",
+      "default": ""
+    },
+    {
+      "name": "LLM_ALLOW_FILE_WRITE",
+      "required": "No",
+      "description": "Set to true to allow the generate_code_to_file tool to write to files",
+      "default": "false"
+    },
+    {
+      "name": "LLM_REPETITION_PENALTY",
+      "required": "No",
+      "description": "Repetition penalty parameter for the model (e.g., 1.05)",
+      "default": ""
+    },
+    {
+      "name": "LLM_SYSTEM_PROMPT_ASK_QUESTION",
+      "required": "No",
+      "description": "System prompt for the ask_question tool",
+      "default": ""
+    },
+    {
+      "name": "LLM_SYSTEM_PROMPT_GENERATE_CODE",
+      "required": "No",
+      "description": "System prompt for the generate_code tool",
+      "default": ""
+    },
+    {
+      "name": "LLM_SYSTEM_PROMPT_GENERATE_DOCUMENTATION",
+      "required": "No",
+      "description": "System prompt for the generate_documentation tool",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "generate_code",
+      "description": "Create code in various programming languages using natural language descriptions. Provide input details to receive functional code snippets tailored to your specifications.",
+      "instructions": "Generate code based on a description",
+      "jsonSchema": "{ \"properties\": { \"additionalContext\": { \"description\": \"Additional context or requirements for the code\", \"type\": \"string\" }, \"description\": { \"description\": \"Description of the code to generate\", \"type\": \"string\" }, \"language\": { \"description\": \"Programming language (e.g., JavaScript, Python, TypeScript)\", \"type\": \"string\" } }, \"required\": [ \"description\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "generate_code_to_file",
+      "description": "Generate code and insert it into a file at a specified line number, with options to replace or add content, supporting multiple programming languages.",
+      "instructions": "Generate code and write it directly to a file at a specific line number",
+      "jsonSchema": "{ \"properties\": { \"additionalContext\": { \"description\": \"Additional context or requirements for the code\", \"type\": \"string\" }, \"description\": { \"description\": \"Description of the code to generate\", \"type\": \"string\" }, \"filePath\": { \"description\": \"Path to the file where the code should be written\", \"type\": \"string\" }, \"language\": { \"description\": \"Programming language (e.g., JavaScript, Python, TypeScript)\", \"type\": \"string\" }, \"lineNumber\": { \"description\": \"Line number where the code should be inserted (0-based)\", \"type\": \"number\" }, \"replaceLines\": { \"description\": \"Number of lines to replace (0 for insertion only)\", \"type\": \"number\" } }, \"required\": [ \"description\", \"filePath\", \"lineNumber\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "generate_documentation",
+      "description": "Create structured documentation for code by specifying the programming language and desired format, such as JSDoc or Markdown, to enhance code readability and maintainability.",
+      "instructions": "Generate documentation for code",
+      "jsonSchema": "{ \"properties\": { \"code\": { \"description\": \"Code to document\", \"type\": \"string\" }, \"format\": { \"description\": \"Documentation format (e.g., JSDoc, Markdown)\", \"type\": \"string\" }, \"language\": { \"description\": \"Programming language of the code\", \"type\": \"string\" } }, \"required\": [ \"code\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ask_question",
+      "description": "Submit a question to receive an AI-generated response, optionally providing context for more accurate answers. Powered by the MCP-LLM server.",
+      "instructions": "Ask a question to the LLM",
+      "jsonSchema": "{ \"properties\": { \"context\": { \"description\": \"Additional context for the question\", \"type\": \"string\" }, \"question\": { \"description\": \"Question to ask\", \"type\": \"string\" } }, \"required\": [ \"question\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@sammcj/mcp-llm",
+  "version": "1.0.6",
+  "keywords": [
+    "mcp",
+    "documentation",
+    "llm",
+    "ai",
+    "package",
+    "docs",
+    "llamaindex",
+    "sammcj",
+    "smcleod"
+  ]
+}

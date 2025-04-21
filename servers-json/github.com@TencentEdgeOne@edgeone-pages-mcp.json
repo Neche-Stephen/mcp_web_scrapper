@@ -1,0 +1,34 @@
+{
+  "name": "EdgeOne Pages MCP",
+  "author": "TencentEdgeOne",
+  "author_url": "https://github.com/TencentEdgeOne",
+  "category": "Cloud Platforms",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/edgeone-pages-mcp",
+  "source_url": "https://github.com/TencentEdgeOne/edgeone-pages-mcp",
+  "language": "",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "deploy-html",
+      "description": "Publish HTML or text content to the web by uploading it to EdgeOne Pages MCP. Generates a public URL instantly for easy access to your deployed content.",
+      "instructions": "Deploy HTML content to EdgeOne Pages, return the public URL",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"value\": { \"description\": \"HTML or text content to deploy. Provide complete HTML or text content you want to publish, and the system will return a public URL where your content can be accessed.\", \"type\": \"string\" } }, \"required\": [ \"value\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@TencentEdgeOne/edgeone-pages-mcp",
+  "version": "0.0.6",
+  "keywords": [
+    "edgeone",
+    "pages",
+    "deploy",
+    "mcp"
+  ]
+}

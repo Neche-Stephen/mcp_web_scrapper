@@ -1,0 +1,167 @@
+{
+  "name": "Sanity MCP Server",
+  "author": "sanity-io",
+  "author_url": "https://github.com/sanity-io",
+  "category": "Databases",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@sanity/mcp-server",
+  "source_url": "https://github.com/sanity-io/sanity-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "MCP_USER_ROLE",
+      "required": "No",
+      "description": "Determines tool access level (developer or editor)",
+      "default": ""
+    },
+    {
+      "name": "SANITY_DATASET",
+      "required": "Yes",
+      "description": "The dataset to use",
+      "default": ""
+    },
+    {
+      "name": "SANITY_API_HOST",
+      "required": "No",
+      "description": "API host (defaults to https://api.sanity.io)",
+      "default": "https://api.sanity.io"
+    },
+    {
+      "name": "SANITY_API_TOKEN",
+      "required": "Yes",
+      "description": "Your Sanity API token",
+      "default": ""
+    },
+    {
+      "name": "SANITY_PROJECT_ID",
+      "required": "Yes",
+      "description": "Your Sanity project ID",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "get_initial_context",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "get_sanity_config",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "get_groq_specification",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "create_document",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "update_document",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "patch_document",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "query_documents",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "document_action",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "create_version",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "discard_version",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "mark_for_unpublish",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "get_schema",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_schema_ids",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_releases",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "create_release",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "edit_release",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "schedule_release",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "release_action",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_embeddings_indices",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "semantic_search",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@sanity-io/sanity-mcp-server",
+  "version": "0.7.13",
+  "keywords": []
+}

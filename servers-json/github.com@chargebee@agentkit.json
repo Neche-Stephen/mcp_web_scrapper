@@ -1,0 +1,35 @@
+{
+  "name": "@chargebee/mcp",
+  "author": "chargebee",
+  "author_url": "https://github.com/chargebee",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@chargebee/mcp",
+  "source_url": "https://github.com/chargebee/agentkit/tree/main/modelcontextprotocol",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "chargebee_documentation_search",
+      "description": "Search and retrieve relevant Chargebee documentation content based on user queries and programming language. Use this tool to find precise integration guidance without generating code.",
+      "instructions": "Do not use this tool for code generation. For code generation use \"chargebee_code_planner\" tool. \nThis tool will take in parameters about integrating with Chargebee in their application, then search and retrieve relevant Chargebee documentation content.It takes the following arguments:query (string): The user query to search an answer for in the Chargebee documentation.language (enum): The programming language for the documentation. Check the user's application language.userRequest (string): User's original request to you.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"language\": { \"description\": \"The programming language for the documentation. Check the user's application language.\", \"enum\": [ \"node\", \"python\", \"curl\", \"java\", \"go\", \"java\", \"ruby\", \"php\", \"dotnet\" ], \"type\": \"string\" }, \"query\": { \"description\": \"The user query to search an answer for in the Chargebee documentation.\", \"type\": \"string\" }, \"userRequest\": { \"description\": \"User's original request to you.\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "chargebee_code_planner",
+      "description": "Generate integration workflow and code snippets for Chargebee based on user goals and programming language. Streamline app integration with accurate guidelines.",
+      "instructions": "Always use this tool to get the accurate integeration code guide for Chargebee.\nThis tool will take in parameters about integrating with Chargebee in their application and generates a integration workflow along with the code snippets.It takes the following arguments:goal (string): What is the user's goal?language (enum): Programming language the code to be generated in. Check the user's application language.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"goal\": { \"description\": \"What is the user's goal?\", \"type\": \"string\" }, \"language\": { \"description\": \"Programming language the code to be generated in. Check the user's application language.\", \"enum\": [ \"node\", \"python\", \"curl\", \"java\", \"go\", \"java\", \"ruby\", \"php\", \"dotnet\" ], \"type\": \"string\" } }, \"required\": [ \"goal\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@chargebee/agentkit",
+  "version": "",
+  "keywords": []
+}

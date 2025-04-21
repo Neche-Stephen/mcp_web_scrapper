@@ -1,0 +1,29 @@
+{
+  "name": "mcp-search-linkup",
+  "author": "LinkupPlatform",
+  "author_url": "https://github.com/LinkupPlatform",
+  "category": "Search",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/LinkupPlatform/python-mcp-server",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "search-web",
+      "description": "Query the web using Linkup to access real-time knowledge and premium content, eliminating outdated data and enhancing responses with current, trusted information.",
+      "instructions": "Perform a web search query using Linkup. This tool is helpful for finding information on the web.",
+      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"The query to search the web with. This should be a question, no need to write in keywords.\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@LinkupPlatform/python-mcp-server",
+  "version": "0.1.3",
+  "keywords": []
+}

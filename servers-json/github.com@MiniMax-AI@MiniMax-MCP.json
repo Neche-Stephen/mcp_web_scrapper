@@ -1,0 +1,83 @@
+{
+  "name": "MiniMax MCP Server",
+  "author": "MiniMax-AI",
+  "author_url": "https://github.com/MiniMax-AI",
+  "category": "Image & Video Processing",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/MiniMax-AI/MiniMax-MCP",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "MINIMAX_API_KEY",
+      "required": "Yes",
+      "description": "Your MiniMax API key from the MiniMax platform",
+      "default": ""
+    },
+    {
+      "name": "MINIMAX_API_HOST",
+      "required": "No",
+      "description": "MiniMax API host endpoint - varies by region (Global: https://api.minimaxi.chat, Mainland: https://api.minimax.chat)",
+      "default": "https://api.minimaxi.chat"
+    },
+    {
+      "name": "MINIMAX_MCP_BASE_PATH",
+      "required": "No",
+      "description": "Local output directory path for saved resources",
+      "default": ""
+    },
+    {
+      "name": "MINIMAX_API_RESOURCE_MODE",
+      "required": "No",
+      "description": "How resources are provided - 'url' (default) or 'local'",
+      "default": "url"
+    }
+  ],
+  "tools": [
+    {
+      "name": "text_to_audio",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_voices",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "voice_clone",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "play_audio",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "generate_video",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "text_to_image",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@MiniMax-AI/MiniMax-MCP",
+  "version": "0.0.11",
+  "keywords": [
+    "minimax",
+    "mcp",
+    "text-to-speech",
+    "voice-cloning",
+    "video-generation"
+  ]
+}

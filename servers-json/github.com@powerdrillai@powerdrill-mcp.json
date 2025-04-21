@@ -1,0 +1,69 @@
+{
+  "name": "Powerdrill MCP Server",
+  "author": "powerdrillai",
+  "author_url": "https://github.com/powerdrillai",
+  "category": "Research & Data",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@powerdrillai/powerdrill-mcp",
+  "source_url": "https://github.com/powerdrillai/powerdrill-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "POWERDRILL_USER_ID",
+      "required": "Yes",
+      "description": "A unique identifier for your Powerdrill account",
+      "default": ""
+    },
+    {
+      "name": "POWERDRILL_PROJECT_API_KEY",
+      "required": "Yes",
+      "description": "Your authentication token for Powerdrill API access",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "mcp_powerdrill_list_datasets",
+      "description": "Retrieve a list of available datasets from Powerdrill MCP Server. Specify a limit to control the number of datasets returned for smart AI data analysis and insights.",
+      "instructions": "",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"limit\": { \"description\": \"Maximum number of datasets to return\", \"type\": \"number\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "mcp_powerdrill_get_dataset_overview",
+      "description": "Retrieve key details and summary insights for a specified dataset on the Powerdrill MCP Server, enabling efficient data analysis and informed decision-making.",
+      "instructions": "",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"datasetId\": { \"description\": \"The ID of the dataset to get overview information for\", \"type\": \"string\" } }, \"required\": [ \"datasetId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "mcp_powerdrill_create_job",
+      "description": "Analyze datasets and generate insights by submitting natural language questions or prompts using a structured job creation tool for efficient AI-driven data exploration.",
+      "instructions": "",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"dataset_id\": { \"description\": \"The ID of the dataset to analyze\", \"type\": \"string\" }, \"datasource_ids\": { \"description\": \"Optional array of specific data source IDs within the dataset to analyze\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"job_mode\": { \"default\": \"AUTO\", \"description\": \"The job mode (default: AUTO)\", \"type\": \"string\" }, \"output_language\": { \"default\": \"AUTO\", \"description\": \"The language for the output (default: AUTO)\", \"type\": \"string\" }, \"question\": { \"description\": \"The natural language question or prompt to analyze the data\", \"type\": \"string\" }, \"session_id\": { \"description\": \"Session ID to group related jobs\", \"type\": \"string\" }, \"stream\": { \"default\": false, \"description\": \"Whether to stream the results (default: false)\", \"type\": \"boolean\" } }, \"required\": [ \"question\", \"dataset_id\", \"session_id\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "mcp_powerdrill_create_session",
+      "description": "Initiate a data analysis session on the Powerdrill MCP Server by specifying session parameters, agent ID, job mode, and output language for AI-driven insights.",
+      "instructions": "",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"agent_id\": { \"default\": \"DATA_ANALYSIS_AGENT\", \"description\": \"The ID of the agent\", \"enum\": [ \"DATA_ANALYSIS_AGENT\" ], \"type\": \"string\" }, \"job_mode\": { \"default\": \"AUTO\", \"description\": \"Job mode for the session\", \"enum\": [ \"AUTO\", \"DATA_ANALYTICS\" ], \"type\": \"string\" }, \"max_contextual_job_history\": { \"default\": 10, \"description\": \"The maximum number of recent jobs retained as context for the next job\", \"maximum\": 10, \"minimum\": 0, \"type\": \"number\" }, \"name\": { \"description\": \"The session name, which can be up to 128 characters in length\", \"type\": \"string\" }, \"output_language\": { \"default\": \"AUTO\", \"description\": \"The language in which the output is generated\", \"enum\": [ \"AUTO\", \"EN\", \"ES\", \"AR\", \"PT\", \"ID\", \"JA\", \"RU\", \"HI\", \"FR\", \"DE\", \"VI\", \"TR\", \"PL\", \"IT\", \"KO\", \"ZH-CN\", \"ZH-TW\" ], \"type\": \"string\" } }, \"required\": [ \"name\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "mcp_powerdrill_list_data_sources",
+      "description": "Retrieve and filter data sources associated with a specified dataset on the Powerdrill MCP Server, enabling efficient data analysis and insights by managing pagination and status.",
+      "instructions": "",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"datasetId\": { \"description\": \"The ID of the dataset to list data sources from\", \"type\": \"string\" }, \"pageNumber\": { \"description\": \"The page number to start listing (default: 1)\", \"type\": \"number\" }, \"pageSize\": { \"description\": \"The number of items on a single page (default: 10)\", \"type\": \"number\" }, \"status\": { \"description\": \"Filter data sources by status: synching, invalid, synched (comma-separated for multiple)\", \"type\": \"string\" } }, \"required\": [ \"datasetId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "mcp_powerdrill_list_sessions",
+      "description": "List and search active sessions on Powerdrill MCP Server to organize and manage data analysis workflows efficiently. Supports pagination and session filtering by name.",
+      "instructions": "",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"pageNumber\": { \"description\": \"The page number to start listing (default: 1)\", \"type\": \"number\" }, \"pageSize\": { \"description\": \"The number of items on a single page (default: 10)\", \"type\": \"number\" }, \"search\": { \"description\": \"Search for sessions by name\", \"type\": \"string\" } }, \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@powerdrillai/powerdrill-mcp",
+  "version": "0.1.11",
+  "keywords": [
+    "mcp",
+    "powerdrill",
+    "dataset"
+  ]
+}

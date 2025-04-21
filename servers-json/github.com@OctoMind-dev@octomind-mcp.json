@@ -1,0 +1,102 @@
+{
+  "name": "octomind-mcp",
+  "author": "OctoMind-dev",
+  "author_url": "https://github.com/OctoMind-dev",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@octomind/octomind-mcp",
+  "source_url": "https://github.com/OctoMind-dev/octomind-mcp",
+  "language": "TypeScript",
+  "server_configuration": [],
+  "tools": [
+    {
+      "name": "search",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getTestCase",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "executeTests",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getEnvironments",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "createEnvironment",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "updateEnvironment",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "deleteEnvironment",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getTestReports",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getTestReport",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "discovery",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getPrivateLocations",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "getTestTargets",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "createTestTarget",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "updateTestTarget",
+      "error": "Attempted to use detached Frame 'D2E03697218312F7A9F73412E451A3A1'.",
+      "partial_data": true
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@OctoMind-dev/octomind-mcp",
+  "version": "1.0.14",
+  "keywords": [
+    "mcp",
+    "octomind"
+  ]
+}

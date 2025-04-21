@@ -1,0 +1,41 @@
+{
+  "name": "ScrapeGraph MCP Server",
+  "author": "ScrapeGraphAI",
+  "author_url": "https://github.com/ScrapeGraphAI",
+  "category": "Browser Automation",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "scrapegraphApiKey",
+      "required": "Yes",
+      "description": "Your ScapeGraph API key from the ScapeGraph Dashboard",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "markdownify",
+      "description": "Convert webpage content into clean, formatted markdown using a simple URL input. Ideal for transforming webpages into easy-to-read text format with ScrapeGraph MCP Server.",
+      "instructions": "Convert a webpage into clean, formatted markdown.\n\nArgs:\n    website_url: URL of the webpage to convert\n\nReturns:\n    Dictionary containing the markdown result",
+      "jsonSchema": "{ \"properties\": { \"website_url\": { \"title\": \"Website Url\", \"type\": \"string\" } }, \"required\": [ \"website_url\" ], \"title\": \"markdownifyArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "smartscraper",
+      "description": "Extract structured data from webpages using AI by specifying user prompts and URLs. Simplify web scraping with precision by transforming webpage content into organized, actionable information.",
+      "instructions": "Extract structured data from a webpage using AI.\n\nArgs:\n    user_prompt: Instructions for what data to extract\n    website_url: URL of the webpage to scrape\n\nReturns:\n    Dictionary containing the extracted data",
+      "jsonSchema": "{ \"properties\": { \"user_prompt\": { \"title\": \"User Prompt\", \"type\": \"string\" }, \"website_url\": { \"title\": \"Website Url\", \"type\": \"string\" } }, \"required\": [ \"user_prompt\", \"website_url\" ], \"title\": \"smartscraperArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "searchscraper",
+      "description": "Extract structured data and reference URLs from AI-powered web searches by inputting a search query or instructions, enabling efficient information retrieval and analysis.",
+      "instructions": "Perform AI-powered web searches with structured results.\n\nArgs:\n    user_prompt: Search query or instructions\n\nReturns:\n    Dictionary containing search results and reference URLs",
+      "jsonSchema": "{ \"properties\": { \"user_prompt\": { \"title\": \"User Prompt\", \"type\": \"string\" } }, \"required\": [ \"user_prompt\" ], \"title\": \"searchscraperArguments\", \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@ScrapeGraphAI/scrapegraph-mcp",
+  "version": "1.0.0",
+  "keywords": []
+}

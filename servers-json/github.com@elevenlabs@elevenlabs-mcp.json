@@ -1,0 +1,149 @@
+{
+  "name": "ElevenLabs MCP Server",
+  "author": "elevenlabs",
+  "author_url": "https://github.com/elevenlabs",
+  "category": "Speech Processing",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/elevenlabs/elevenlabs-mcp",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "ELEVENLABS_API_KEY",
+      "required": "Yes",
+      "description": "Your ElevenLabs API key from elevenlabs.io/app/settings/api-keys",
+      "default": ""
+    },
+    {
+      "name": "ELEVENLABS_MCP_BASE_PATH",
+      "required": "No",
+      "description": "The base path MCP server should look for and output files specified with relative paths",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "text_to_speech",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "speech_to_text",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "text_to_sound_effects",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "search_voices",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "get_voice",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "voice_clone",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "isolate_audio",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "check_subscription",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "create_agent",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "add_knowledge_base_to_agent",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_agents",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "get_agent",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "speech_to_speech",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "text_to_voice",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "create_voice_from_preview",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "make_outbound_call",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "search_voice_library",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_phone_numbers",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "play_audio",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@elevenlabs/elevenlabs-mcp",
+  "version": "0.2.1",
+  "keywords": [
+    "elevenlabs",
+    "mcp",
+    "text-to-speech",
+    "speech-to-text",
+    "voice-cloning"
+  ]
+}

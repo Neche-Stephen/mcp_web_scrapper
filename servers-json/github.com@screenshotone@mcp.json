@@ -1,0 +1,29 @@
+{
+  "name": "ScreenshotOne MCP Server",
+  "author": "screenshotone",
+  "author_url": "https://github.com/screenshotone",
+  "category": "Browser Automation",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/screenshotone/mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "SCREENSHOTONE_API_KEY",
+      "required": "Yes",
+      "description": "Your ScreenshotOne API key obtained from screenshotone.com",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "render-website-screenshot",
+      "description": "Capture and return a website screenshot as an image using the provided URL, enabling visual context from web pages for enhanced AI interactions.",
+      "instructions": "Render a screenshot of a website and returns it as an image.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"url\": { \"description\": \"URL of the website to screenshot\", \"format\": \"uri\", \"type\": \"string\" } }, \"required\": [ \"url\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@screenshotone/mcp",
+  "version": "1.0.0",
+  "keywords": []
+}

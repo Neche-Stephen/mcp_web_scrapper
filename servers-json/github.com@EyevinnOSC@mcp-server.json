@@ -1,0 +1,53 @@
+{
+  "name": "Eyevinn Open Source Cloud MCP Server",
+  "author": "EyevinnOSC",
+  "author_url": "https://github.com/EyevinnOSC",
+  "category": "",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@osaas/mcp-server",
+  "source_url": "https://github.com/EyevinnOSC/mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "OSC_ACCESS_TOKEN",
+      "required": "Yes",
+      "description": "Your Eyevinn Open Source Cloud Personal Access Token obtained from https://app.osaas.io/dashboard/settings/api",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "osc_create_db",
+      "description": "Create and configure a new database instance (SQL, NoSQL, or MemoryDb) in the Eyevinn Open Source Cloud MCP Server using a structured input format.",
+      "instructions": "Create a new database instance in Eyevinn Open Source Cloud",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"name\": { \"description\": \"Name of the database\", \"pattern\": \"^[a-z0-9]+$\", \"type\": \"string\" }, \"type\": { \"description\": \"Type of database [SQL, NoSQL, MemoryDb]\", \"type\": \"string\" } }, \"required\": [ \"name\", \"type\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "osc_create_bucket",
+      "description": "Create an S3-compatible bucket in Eyevinn Open Source Cloud using the MCP Server API, enabling efficient storage solutions for open web services.",
+      "instructions": "Create an S3 compatible bucket in Eyevinn Open Source Cloud",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"name\": { \"description\": \"Name of the bucket\", \"pattern\": \"^[a-z0-9]+$\", \"type\": \"string\" } }, \"required\": [ \"name\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "osc_create_vod",
+      "description": "Generate a VOD package by processing a source video URL through a specified pipeline in the Eyevinn Open Source Cloud MCP Server.",
+      "instructions": "Create a VOD package using a VOD pipeline in Eyevinn Open Source Cloud",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"pipeline\": { \"description\": \"Name of the pipeline\", \"pattern\": \"^[a-z0-9]+$\", \"type\": \"string\" }, \"source\": { \"description\": \"Source video URL\", \"type\": \"string\" } }, \"required\": [ \"pipeline\", \"source\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "osc_create_vod_pipeline",
+      "description": "Set up a video-on-demand (VOD) pipeline using Eyevinn Open Source Cloud MCP Server. Define pipeline name to create automated workflows for VOD content distribution and management.",
+      "instructions": "Create a VOD pipeline in Eyevinn Open Source Cloud",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"name\": { \"description\": \"Name of the pipeline\", \"pattern\": \"^[a-z0-9]+$\", \"type\": \"string\" } }, \"required\": [ \"name\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "osc_remove_vod_pipeline",
+      "description": "Removes a VOD pipeline from the Eyevinn Open Source Cloud MCP Server by specifying the pipeline name, enabling efficient management of media workflows.",
+      "instructions": "Remove a VOD pipeline in Eyevinn Open Source Cloud",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"name\": { \"description\": \"Name of the pipeline\", \"type\": \"string\" } }, \"required\": [ \"name\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@EyevinnOSC/mcp-server",
+  "version": "1.0.1",
+  "keywords": []
+}

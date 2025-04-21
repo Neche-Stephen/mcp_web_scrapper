@@ -1,0 +1,14 @@
+{
+  "name": "Meilisearch MCP Server",
+  "author": "meilisearch",
+  "author_url": "https://github.com/meilisearch",
+  "category": "Search",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/meilisearch/meilisearch-mcp",
+  "language": "Python",
+  "server_configuration": [],
+  "tools": [],
+  "partial_data": true,
+  "error": "net::ERR_INTERNET_DISCONNECTED at https://glama.ai/mcp/servers/@meilisearch/meilisearch-mcp"
+}

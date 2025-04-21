@@ -1,0 +1,41 @@
+{
+  "name": "LlamaCloud MCP Server",
+  "author": "run-llama",
+  "author_url": "https://github.com/run-llama",
+  "category": "Cloud Platforms",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@llamaindex/mcp-server-llamacloud",
+  "source_url": "https://github.com/run-llama/mcp-server-llamacloud",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "LLAMA_CLOUD_API_KEY",
+      "required": "Yes",
+      "description": "Your LlamaCloud API key",
+      "default": ""
+    },
+    {
+      "name": "LLAMA_CLOUD_INDEX_NAME",
+      "required": "Yes",
+      "description": "Your LlamaCloud index name",
+      "default": ""
+    },
+    {
+      "name": "LLAMA_CLOUD_PROJECT_NAME",
+      "required": "Yes",
+      "description": "Your LlamaCloud project name",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "get_information",
+      "description": "Retrieve precise answers from your knowledge base by querying the LlamaCloud MCP Server, enabling efficient information extraction for task-specific needs.",
+      "instructions": "Get information from your knowledge base to answer questions.",
+      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"The query used to get information about your knowledge base.\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@run-llama/mcp-server-llamacloud",
+  "version": "0.1.1",
+  "keywords": []
+}

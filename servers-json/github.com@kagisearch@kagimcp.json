@@ -1,0 +1,35 @@
+{
+  "name": "Kagi MCP Server",
+  "author": "kagisearch",
+  "author_url": "https://github.com/kagisearch",
+  "category": "Search",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/kagisearch/kagimcp",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "KAGI_API_KEY",
+      "required": "Yes",
+      "description": "Your Kagi API key for search API access",
+      "default": ""
+    },
+    {
+      "name": "FASTMCP_LOG_LEVEL",
+      "required": "No",
+      "description": "Level of logging (e.g. ERROR)",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "search",
+      "description": "Perform web searches with one or more queries on the Kagi MCP Server. Retrieve numbered results for easy reference, enabling users to access up-to-date information efficiently.",
+      "instructions": "Perform web search based on one or more queries. Results are from all queries given. They are numbered continuously, so that a user may be able to refer to a result by a specific number.",
+      "jsonSchema": "{ \"properties\": { \"queries\": { \"description\": \"One or more concise, keyword-focused search queries. Include essential context within each query for standalone use.\", \"items\": { \"type\": \"string\" }, \"title\": \"Queries\", \"type\": \"array\" } }, \"required\": [ \"queries\" ], \"title\": \"searchArguments\", \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@kagisearch/kagimcp",
+  "version": "0.1.3",
+  "keywords": []
+}

@@ -1,0 +1,82 @@
+{
+  "name": "302AI Sandbox MCP Server",
+  "author": "302ai",
+  "author_url": "https://github.com/302ai",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@302ai/sandbox-mcp",
+  "source_url": "https://github.com/302ai/302_sandbox_mcp",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "302AI_API_KEY",
+      "required": "Yes",
+      "description": "Your 302AI API key, which can be found at https://dash.302.ai/apis/list",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "writeSandboxFiles",
+      "description": "Batch import files from public URLs into a specified sandbox. Automatically creates directories and overwrites existing files. Requires a sandbox ID for operation.",
+      "instructions": "Import files from public URLs into a sandbox. Supports batch import of multiple files. If the target file already exists, it will be overwritten. If the target directory doesn't exist, it will be automatically created. You must create a sandbox before calling this tool.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"file_list\": { \"description\": \"List of files to import into the sandbox\", \"items\": { \"additionalProperties\": false, \"properties\": { \"file\": { \"description\": \"Public URL of the source file\", \"type\": \"string\" }, \"save_path\": { \"description\": \"Target path in the sandbox where the file will be saved (Linux path format) e.g. /home/user\", \"type\": \"string\" } }, \"required\": [ \"file\", \"save_path\" ], \"type\": \"object\" }, \"type\": \"array\" }, \"sandbox_id\": { \"description\": \"The ID of the sandbox to write files to.\", \"type\": \"string\" } }, \"required\": [ \"sandbox_id\", \"file_list\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "directRunCode",
+      "description": "Execute code in a temporary sandbox, automatically destroying it post-execution. Supports multiple languages, custom environment variables, and optional file download. Ideal for isolated, one-time code runs without persistent sandbox operations.",
+      "instructions": "Automatically creates a sandbox, executes code, and immediately destroys the sandbox after execution. Optionally exports sandbox files (compresses multiple files into a zip archive if there are multiple files in the specified path, or exports a single file directly). Recommended for use cases that don't require continuous sandbox operations.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"code\": { \"description\": \"The source code to be executed in the sandbox\", \"type\": \"string\" }, \"envs\": { \"additionalProperties\": { \"type\": \"string\" }, \"description\": \"Environment variables to be set during code execution. Supports passing custom environment variables as key-value pairs\", \"type\": \"object\" }, \"is_download\": { \"description\": \"Flag to indicate whether to download generated files. Must be enabled if the code generates files that need to be retrieved\", \"type\": \"boolean\" }, \"language\": { \"description\": \"The programming language to execute the code. If not provided or if the value is not in the allowed options, it will be treated as Python code\", \"enum\": [ \"python\", \"r\", \"java\", \"bash\", \"js\" ], \"type\": \"string\" }, \"timeout\": { \"description\": \"Maximum execution time in seconds for the sandbox. If code execution exceeds this time, it will be terminated and return a timeout error. Default is 5\", \"type\": \"number\" } }, \"required\": [ \"language\", \"code\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "listSandboxFiles",
+      "description": "Retrieve a list of files and directories at specified paths within a sandbox. Supports batch queries to verify file existence before download.",
+      "instructions": "List files and directories at specified paths within a sandbox. Supports batch queries with multiple paths. This operation can be used before downloadSandboxFiles to check if the file exists.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"path\": {}, \"sandbox_id\": { \"description\": \"The ID of the sandbox to query files from\", \"type\": \"string\" } }, \"required\": [ \"sandbox_id\", \"path\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "downloadSandboxFiles",
+      "description": "Export files or directories from a sandbox via the 302AI MCP Server. Supports batch downloads for common formats, including documents, images, audio, video, web, and programming files.",
+      "instructions": "Export files from a sandbox directory or file path to downloadable urls. Supports batch export of multiple directories or files. When exporting directories, only common file formats are included (documents, images, audio, video, compressed files, web files, and programming language files).",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"path\": { \"description\": \"Path(s) to export from the sandbox.\" }, \"sandbox_id\": { \"description\": \"The ID of the sandbox to export files from\", \"type\": \"string\" } }, \"required\": [ \"sandbox_id\", \"path\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "runCode",
+      "description": "Execute code in a secure sandbox environment with specified language and environment variables. Retrieve text output directly; for file operations, use dedicated viewing and export endpoints.",
+      "instructions": "Run code on a specific sandbox. This returns text output only. For operations that generate files, you'll need to use separate file viewing and export endpoints. Default file saving path is /home/user.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"code\": { \"description\": \"The code to run\", \"type\": \"string\" }, \"envs\": { \"additionalProperties\": { \"type\": \"string\" }, \"description\": \"Environment variables to set when running the code\", \"type\": \"object\" }, \"language\": { \"default\": \"python\", \"description\": \"The programming language to use. If not specified or if the value is not in the allowed range, it will be treated as Python code.\", \"enum\": [ \"python\", \"r\", \"java\", \"bash\", \"js\" ], \"type\": \"string\" }, \"sandbox_id\": { \"description\": \"The ID of the sandbox to run the code on\", \"type\": \"string\" }, \"timeout\": { \"default\": 5, \"description\": \"The timeout for code execution in seconds\", \"type\": \"integer\" } }, \"required\": [ \"code\", \"sandbox_id\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "runCommand",
+      "description": "Execute command line operations on a specific Linux sandbox via the 302AI Sandbox MCP Server. Returns text output only, with optional environment variables and timeout settings for efficient task management.",
+      "instructions": "Run a command line command on a specific linux sandbox. This returns text output only. For operations that generate files, you'll need to use separate file viewing and download endpoints.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"cmd\": { \"description\": \"The command line command to run\", \"type\": \"string\" }, \"envs\": { \"additionalProperties\": { \"type\": \"string\" }, \"description\": \"Environment variables to set when running the command\", \"type\": \"object\" }, \"sandbox_id\": { \"description\": \"The ID of the sandbox to run the command on\", \"type\": \"string\" }, \"timeout\": { \"default\": 60, \"description\": \"The timeout for command execution in seconds. When installing dependencies or performing similar operations, it is recommended to set it to above 120 seconds.\", \"type\": \"integer\" } }, \"required\": [ \"cmd\", \"sandbox_id\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "listSandboxes",
+      "description": "Retrieve a list of sandboxes associated with your API key. Filter results by sandbox ID or name to quickly identify and manage your sandbox environments within 302AI Sandbox MCP Server.",
+      "instructions": "Query the list of sandboxes associated with the current API key. If no parameters are passed, all current sandboxes will be returned.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"sandbox_id\": { \"description\": \"Filter by sandbox ID (optional)\", \"type\": \"string\" }, \"sandbox_name\": { \"description\": \"Filter by sandbox name provided during creation (optional)\", \"type\": \"string\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "killSandbox",
+      "description": "Destroy a sandbox by its ID using the MCP server, enabling efficient management and termination of sandbox environments for 302AI integrations.",
+      "instructions": "Destroy a sandbox by its ID.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"sandbox_id\": { \"description\": \"The ID of the sandbox to destroy\", \"type\": \"string\" } }, \"required\": [ \"sandbox_id\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "createSandbox",
+      "description": "Set up a Linux sandbox to execute code, run commands, and manage files. Create a sandbox with custom settings, obtain a sandbox_id for operations, and control costs by pausing automatically after use.",
+      "instructions": "Create a Linux sandbox that can execute code, run commands, upload and download files, and has complete Linux functionality. After successful creation, a sandbox_id will be returned, and all subsequent operations will need to include this sandbox_id to specify the corresponding sandbox. Except for directRunCode, all other operations require the creation of a sandbox first. After successful creation, the sandbox will automatically pause. When calling other sandbox operation interfaces later, it will automatically reconnect and pause again after execution to avoid generating extra costs.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"envs\": { \"additionalProperties\": { \"type\": \"string\" }, \"description\": \"Environment variables to set (optional)\", \"type\": \"object\" }, \"max_alive_time\": { \"description\": \"Maximum alive time of the sandbox (seconds), recommand 300.\", \"type\": \"integer\" }, \"metadata\": { \"additionalProperties\": { \"type\": \"string\" }, \"description\": \"Sandbox metadata (optional)\", \"type\": \"object\" }, \"sandbox_name\": { \"description\": \"Custom sandbox name (optional)\", \"type\": \"string\" } }, \"required\": [ \"max_alive_time\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@302ai/302_sandbox_mcp",
+  "version": "0.2.0",
+  "keywords": [
+    "MCP",
+    "Model Context Protocol",
+    "302AI",
+    "sandbox"
+  ]
+}

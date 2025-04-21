@@ -1,0 +1,125 @@
+{
+  "name": "Iaptic MCP Server",
+  "author": "iaptic",
+  "author_url": "https://github.com/iaptic",
+  "category": "Customer Data Platforms",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/mcp-server-iaptic",
+  "source_url": "https://github.com/iaptic/mcp-server-iaptic",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "IAPTIC_API_KEY",
+      "required": "Yes",
+      "description": "Your API key for accessing the Iaptic server.",
+      "default": ""
+    },
+    {
+      "name": "IAPTIC_APP_NAME",
+      "required": "Yes",
+      "description": "Your application name for the Iaptic server.",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "customer_list",
+      "description": "Retrieve a paginated list of customers from your Iaptic account, including usernames, purchase details, subscription status, renewal intent, and trial status. Results are sorted by creation date for easy tracking.",
+      "instructions": "List customers from your Iaptic account.Returns a paginated list of customers with their purchase statusEach customer includes:Application usernameLast purchase informationSubscription status (active/lapsed)Renewal intentTrial/introductory period statusUse limit and offset for pagination (default: 100 customers per page)Results are ordered by creation date (newest first)",
+      "jsonSchema": "{ \"properties\": { \"limit\": { \"description\": \"Maximum number of customers to return (default: 100)\", \"type\": \"number\" }, \"offset\": { \"description\": \"Number of customers to skip for pagination\", \"type\": \"number\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "customer_get",
+      "description": "Retrieve detailed customer profiles including purchase history, subscriptions, renewal status, and trial details by providing a unique customerId. Part of the Iaptic MCP Server for querying customer data.",
+      "instructions": "Get detailed information about a specific customer.Returns complete customer profile including:Application usernamePurchase historyActive and expired subscriptionsLast purchase detailsSubscription renewal statusTrial and introductory period informationRequired: customerId parameter",
+      "jsonSchema": "{ \"properties\": { \"customerId\": { \"description\": \"Unique identifier of the customer\", \"type\": \"string\" } }, \"required\": [ \"customerId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "customer_add_purchase",
+      "description": "Manually link a customer to a specific purchase using customerId and purchaseId. Overrides receipt validation links for precise purchase management within the Iaptic MCP Server.",
+      "instructions": "Manually associate a customer with a purchase.Links a purchase to a specific customerTakes priority over receipt validation linksUseful for manual purchase managementPurchase format should be \"platform:purchaseId\", for example apple:123109519983Required: customerId and purchaseId",
+      "jsonSchema": "{ \"properties\": { \"customerId\": { \"description\": \"Application username of the customer\", \"type\": \"string\" }, \"purchaseId\": { \"description\": \"ID of the purchase to associate\", \"type\": \"string\" } }, \"required\": [ \"customerId\", \"purchaseId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "customer_subscription",
+      "description": "Retrieve subscription details for a customer, including status, expiry, payment, renewal, and trial period info. Use to manage and monitor subscription-based services efficiently.",
+      "instructions": "Get customer's subscription status.Returns active subscription details if anyIncludes:Subscription status and expiryPayment and renewal informationTrial/introductory period statusSimpler alternative to customer_get for subscription-only apps",
+      "jsonSchema": "{ \"properties\": { \"customerId\": { \"description\": \"Application username of the customer\", \"type\": \"string\" } }, \"required\": [ \"customerId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "customer_transactions",
+      "description": "Retrieve detailed transaction history for a customer, including payment details, status, purchases, and timestamps, by providing their customer ID. Ideal for tracking and analyzing financial activity.",
+      "instructions": "Get customer's transaction history.Returns list of all transactionsIncludes:Payment detailsTransaction statusAssociated purchasesTimestamps",
+      "jsonSchema": "{ \"properties\": { \"customerId\": { \"description\": \"Application username of the customer\", \"type\": \"string\" } }, \"required\": [ \"customerId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "purchase_list",
+      "description": "Retrieve and filter purchase data from your Iaptic account. Access paginated results, filter by date range, customer ID, and view detailed purchase status, product, and transaction information.",
+      "instructions": "List purchases from your Iaptic account.Returns a paginated list of purchasesUse limit and offset for pagination (default: 100 per page)Filter by date range using startdate and enddate (ISO format)Filter by customerId to see purchases from a specific customerResults include purchase status, product info, and transaction detailsResults are ordered by purchase date (newest first)",
+      "jsonSchema": "{ \"properties\": { \"customerId\": { \"description\": \"Filter purchases by customer ID\", \"type\": \"string\" }, \"enddate\": { \"description\": \"Filter purchases before this date (ISO format, e.g. 2024-12-31)\", \"type\": \"string\" }, \"limit\": { \"description\": \"Maximum number of purchases to return (default: 100, max: 1000)\", \"type\": \"number\" }, \"offset\": { \"description\": \"Number of purchases to skip for pagination\", \"type\": \"number\" }, \"startdate\": { \"description\": \"Filter purchases after this date (ISO format, e.g. 2024-01-01)\", \"type\": \"string\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "purchase_get",
+      "description": "Retrieve comprehensive details of a specific purchase, including product information, status, transactions, customer data, and subscriptions, using a unique purchaseId with the Iaptic MCP Server.",
+      "instructions": "Get detailed information about a specific purchase.Returns complete purchase details including:Product informationPurchase statusAssociated transactionsCustomer informationSubscription details (if applicable)Required: purchaseId parameter",
+      "jsonSchema": "{ \"properties\": { \"purchaseId\": { \"description\": \"Unique identifier of the purchase\", \"type\": \"string\" } }, \"required\": [ \"purchaseId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "transaction_list",
+      "description": "Retrieve and filter financial transaction data from your Iaptic account. Paginate results, filter by date range or purchase ID, and access details like status, amount, currency, and payment information. Results are sorted by transaction date.",
+      "instructions": "List financial transactions from your Iaptic account.Returns a paginated list of transactionsUse limit and offset for pagination (default: 100 per page)Filter by date range using startdate and enddate (ISO format)Filter by purchaseId to see transactions for a specific purchaseResults include transaction status, amount, currency, and payment detailsResults are ordered by transaction date (newest first)Important: Use date filtering to avoid retrieving too many records",
+      "jsonSchema": "{ \"properties\": { \"enddate\": { \"description\": \"Filter transactions before this date (ISO format, e.g. 2024-12-31)\", \"type\": \"string\" }, \"limit\": { \"description\": \"Maximum number of transactions to return (default: 100, max: 1000)\", \"type\": \"number\" }, \"offset\": { \"description\": \"Number of transactions to skip for pagination\", \"type\": \"number\" }, \"purchaseId\": { \"description\": \"Filter transactions by purchase ID\", \"type\": \"string\" }, \"startdate\": { \"description\": \"Filter transactions after this date (ISO format, e.g. 2024-01-01)\", \"type\": \"string\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "transaction_get",
+      "description": "Retrieve complete transaction details, including status, amount, payment method, customer, purchase info, and timestamps, using the unique transactionId from the Iaptic MCP Server.",
+      "instructions": "Get detailed information about a specific transaction.Returns complete transaction details including:Transaction statusAmount and currencyPayment method detailsAssociated purchase informationCustomer informationTimestamps and audit dataRequired: transactionId parameter",
+      "jsonSchema": "{ \"properties\": { \"transactionId\": { \"description\": \"Unique identifier of the transaction\", \"type\": \"string\" } }, \"required\": [ \"transactionId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "stats_get",
+      "description": "Retrieve comprehensive statistics on transactions, revenue, subscriptions, and customer growth from your Iaptic account. Analyze metrics like revenue by product type and transaction success rates for actionable insights.",
+      "instructions": "Get general transactions, revenue and usage statistics from your Iaptic account.Returns aggregated metrics including:Total revenueNumber of active subscriptionsCustomer growth metricsTransaction success ratesRevenue by product typeData is aggregated across all your applications",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "stats_app",
+      "description": "Retrieve app-specific metrics like revenue, active subscriptions, customer data, and product performance statistics using the Iaptic MCP Server for detailed insights.",
+      "instructions": "Get statistics specific to your application.Returns app-specific metrics including:App revenue and growthActive subscriptions for this appCustomer metrics for this appProduct performance statisticsTransaction metricsUses the app name provided during server initialization",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "stripe_prices",
+      "description": "Retrieve detailed Stripe product and pricing information, including product IDs, descriptions, available offers, and subscription terms, with results cached for 5 minutes.",
+      "instructions": "Get available Stripe products and prices.Returns list of products with their associated pricesEach product includes:Product ID and display nameDescription and metadataAvailable pricing offersSubscription terms if applicableResults are cached for 5 minutes",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "event_list",
+      "description": "Retrieve a paginated list of recent system events, including receipt validations, purchase status changes, subscription renewals, and webhook deliveries. Filter by date range and use limit/offset for precise data access.",
+      "instructions": "List recent events from your Iaptic account.Returns a paginated list of system eventsEvents include:Receipt validationsPlatform notifications (Apple/Google/etc)Webhook deliveriesPurchase status changesSubscription renewalsUse limit and offset for paginationResults ordered by date (newest first)",
+      "jsonSchema": "{ \"properties\": { \"enddate\": { \"description\": \"Filter events before this date (ISO format, e.g. 2024-12-31)\", \"type\": \"string\" }, \"limit\": { \"description\": \"Maximum number of events to return (default: 100)\", \"type\": \"number\" }, \"offset\": { \"description\": \"Number of events to skip for pagination\", \"type\": \"number\" }, \"startdate\": { \"description\": \"Filter events after this date (ISO format, e.g. 2024-01-01)\", \"type\": \"string\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "iaptic_switch_app",
+      "description": "Switch between Iaptic apps within a session to manage multiple apps using different credentials. Change app names and API keys for subsequent API calls, even with a master key, for streamlined app management.",
+      "instructions": "Switch to a different Iaptic app.Allows temporarily using a different app's credentialsAll subsequent API calls will use the new app name and API keyIf using a master key, only the app name needs to be changedUseful for managing multiple apps in the same sessionRequired: appName parameter (apiKey required only if not using master key)",
+      "jsonSchema": "{ \"properties\": { \"apiKey\": { \"description\": \"API key for the app (not required if using master key)\", \"type\": \"string\" }, \"appName\": { \"description\": \"Name of the app to switch to\", \"type\": \"string\" } }, \"required\": [ \"appName\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "iaptic_reset_app",
+      "description": "Reset to the default Iaptic app credentials for API calls. Reverts to the original app name and API key provided during server initialization. Use this after switching apps to restore default settings.",
+      "instructions": "Reset to the default Iaptic app.Reverts to the original app credentials provided during server initializationAll subsequent API calls will use the default app name and API keyUse this after using iaptic_switch_app to return to the default app",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "iaptic_current_app",
+      "description": "Retrieve details about the active Iaptic app, including its name, authentication method (default or custom credentials), and use of master key for access.",
+      "instructions": "Get information about the currently active Iaptic app.Returns the current app nameIndicates whether using default or custom credentialsShows if using a master key for authentication",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@iaptic/mcp-server-iaptic",
+  "version": "1.0.1",
+  "keywords": []
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Nefino MCP Server",
+  "author": "nefino",
+  "author_url": "https://github.com/nefino",
+  "category": "Research & Data",
+  "license": "Apache 2.0",
+  "package_url": "",
+  "source_url": "https://github.com/nefino/mcp-nefino",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "NEFINO_BASE_URL",
+      "required": "Yes",
+      "description": "The Nefino API endpoint URL",
+      "default": ""
+    },
+    {
+      "name": "NEFINO_PASSWORD",
+      "required": "Yes",
+      "description": "Your Nefino API password",
+      "default": ""
+    },
+    {
+      "name": "NEFINO_USERNAME",
+      "required": "Yes",
+      "description": "Your Nefino API username",
+      "default": ""
+    },
+    {
+      "name": "NEFINO_JWT_SECRET",
+      "required": "Yes",
+      "description": "Your Nefino JWT secret",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "StartNewsRetrieval",
+      "description": "Initiate an asynchronous task to retrieve news for specific locations in Germany, filtered by renewable energy topics like solar, wind, and hydrogen, with options for date range or recency.",
+      "instructions": "Start an asynchronous news retrieval task for a place",
+      "jsonSchema": "{ \"$defs\": { \"NewsTopic\": { \"enum\": [ \"batteryStorage\", \"gridExpansion\", \"solar\", \"hydrogen\", \"wind\" ], \"title\": \"NewsTopic\", \"type\": \"string\" }, \"PlaceTypeNews\": { \"enum\": [ \"PR\", \"CTY\", \"AU\", \"LAU\" ], \"title\": \"PlaceTypeNews\", \"type\": \"string\" }, \"RangeOrRecency\": { \"enum\": [ \"RANGE\", \"RECENCY\" ], \"title\": \"RangeOrRecency\", \"type\": \"string\" } }, \"properties\": { \"date_range_begin\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"description\": \"Start date in YYYY-MM-DD format (when range_or_recency=RANGE)\", \"title\": \"Date Range Begin\" }, \"date_range_end\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"description\": \"End date in YYYY-MM-DD format (when range_or_recency=RANGE)\", \"title\": \"Date Range End\" }, \"last_n_days\": { \"anyOf\": [ { \"type\": \"integer\" }, { \"type\": \"null\" } ], \"default\": null, \"description\": \"Number of days to search for (when range_or_recency=RECENCY)\", \"title\": \"Last N Days\" }, \"news_topics\": { \"anyOf\": [ { \"items\": { \"$ref\": \"#/$defs/NewsTopic\" }, \"type\": \"array\" }, { \"type\": \"null\" } ], \"default\": null, \"description\": \"List of topics to filter by\", \"title\": \"News Topics\" }, \"place_id\": { \"description\": \"The id of the place\", \"title\": \"Place Id\", \"type\": \"string\" }, \"place_type\": { \"$ref\": \"#/$defs/PlaceTypeNews\", \"description\": \"The type of the place (PR, CTY, AU, LAU)\" }, \"range_or_recency\": { \"anyOf\": [ { \"$ref\": \"#/$defs/RangeOrRecency\" }, { \"type\": \"null\" } ], \"default\": null, \"description\": \"Type of search (RANGE or RECENCY)\" } }, \"required\": [ \"place_id\", \"place_type\" ], \"title\": \"start_news_retrievalArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "GetNewsResults",
+      "description": "Retrieve the outcomes of a news retrieval task initiated earlier on Nefino MCP Server. Input the task ID to access filtered renewable energy news by location, topic, and date range.",
+      "instructions": "Get the results of a previously started news retrieval task",
+      "jsonSchema": "{ \"properties\": { \"task_id\": { \"description\": \"The task ID returned by StartNewsRetrieval\", \"title\": \"Task Id\", \"type\": \"string\" } }, \"required\": [ \"task_id\" ], \"title\": \"get_news_resultsArguments\", \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@nefino/mcp-nefino",
+  "version": "0.1.5",
+  "keywords": []
+}

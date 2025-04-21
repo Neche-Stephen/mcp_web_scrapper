@@ -1,0 +1,70 @@
+{
+  "name": "Inkdrop MCP Server",
+  "author": "inkdropapp",
+  "author_url": "https://github.com/inkdropapp",
+  "category": "Note Taking",
+  "license": "Apache 2.0",
+  "package_url": "https://www.npmjs.com/package/@inkdropapp/mcp-server",
+  "source_url": "https://github.com/inkdropapp/mcp-server",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "INKDROP_LOCAL_PASSWORD",
+      "required": "Yes",
+      "description": "Password for the Inkdrop Local HTTP Server",
+      "default": ""
+    },
+    {
+      "name": "INKDROP_LOCAL_USERNAME",
+      "required": "Yes",
+      "description": "Username for the Inkdrop Local HTTP Server",
+      "default": ""
+    },
+    {
+      "name": "INKDROP_LOCAL_SERVER_URL",
+      "required": "Yes",
+      "description": "URL for the Inkdrop Local HTTP Server",
+      "default": "http://localhost:19840"
+    }
+  ],
+  "github_url": "https://github.com/inkdropapp",
+  "tools": [
+    {
+      "name": "read-note",
+      "description": "Retrieve the full content of a specific note by its ID from the Inkdrop database using the MCP server, enabling efficient access and integration with Claude AI.",
+      "instructions": "Retrieve the complete contents of the note by its ID from the database.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"noteId\": { \"description\": \"ID of the note to retrieve. It can be found as `_id` in the note docs\", \"type\": \"string\" } }, \"required\": [ \"noteId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "search-notes",
+      "description": "Search and filter notes in Inkdrop by keywords, tags, statuses, titles, or note bodies. Combine qualifiers and exclusions to refine results and locate specific information efficiently.",
+      "instructions": "List all notes that contain a given keyword.\nThe result does not include entire note bodies as they are truncated in 200 characters.\nYou have to retrieve the full note content by calling read-note.\nHere are tips to specify keywords effectively:Use special qualifiers to narrow down resultsYou can use special qualifiers to get more accurate results. See the qualifiers and their usage examples:bookbook:Blog: Searches for notes in the 'Blog' notebook.tagtag:JavaScript: Searches for all notes having the 'JavaScript' tag. Read more about tags.statusstatus:onHold: Searches for all notes with the 'On hold' status. Read more about statuses.titletitle:\"JavaScript setTimeout\": Searches for the note with the specified title.bodybody:KEYWORD: Searches for a specific word in all notes. Equivalent to a global search.Combine qualifiersYou can combine the filter qualifiers to refine data even more.Find notes that contain the word 'Hello' and have the 'Issue' tag.Hello tag:IssueFind notes that contain the word 'Typescript,' have the 'Contribution' tag, and the 'Completed' statusTypescript tag:Contribution status:CompletedSearch for text with spacesTo find the text that includes spaces, put the text into the double quotation marks (\"):\"database associations\"Exclude text from searchTo exclude text from the search results or ignore a specific qualifier, put the minus sign (-) before it. You can also combine the exclusions. See the examples:-book:Backend \"closure functions\": Ignores the 'Backend' notebook while searching for the 'closure functions' phrase.-tag:JavaScript: Ignores all notes having the 'JavaScript' tag.-book:Typescript tag:work \"Data types\": Ignores the 'Typescript' notebook and the 'work' tag while searching for the 'Data types' phrase.-status:dropped title:\"Sprint 10.0\" debounce: Ignores notes with the 'Dropped' status while searching for the 'debounce' word in the note with the 'Sprint 10.0' title.-\"Phrase to ignore\" \"in the rest of a sentence\": Ignores the 'Phrase to ignore' part while searching for 'in the rest of a sentence'.Note that you can't specify excluding modifiers only without including conditions.WARNING: Make sure to enter a text to search for after the exclusion modifier.✅ Will work-book:Backend \"closure functions\"⛔️ Won't work -book:Backend. There's no query. Inkdrop doesn't understand what to search for.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"keyword\": { \"description\": \"Keyword to search for.\", \"type\": \"string\" } }, \"required\": [ \"keyword\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "create-note",
+      "description": "Add structured notes to your Inkdrop database by specifying a title, content in Markdown, and a notebook ID. Define note status for better organization and retrieval.",
+      "instructions": "Create a new note in the database",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"body\": { \"description\": \"The content of the note represented with Markdown\", \"maxLength\": 1048576, \"type\": \"string\" }, \"bookId\": { \"description\": \"The notebook ID\", \"maxLength\": 128, \"minLength\": 5, \"pattern\": \"^(book:|trash$)\", \"type\": \"string\" }, \"status\": { \"description\": \"The status of the note\", \"enum\": [ \"none\", \"active\", \"onHold\", \"completed\", \"dropped\" ], \"type\": \"string\" }, \"title\": { \"description\": \"The note title\", \"maxLength\": 128, \"type\": \"string\" } }, \"required\": [ \"bookId\", \"title\", \"body\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "update-note",
+      "description": "Modify notes in Inkdrop's database by updating title, content, status, or notebook, ensuring accurate and current information storage.",
+      "instructions": "Update the existing note in the database",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"_id\": { \"description\": \"The unique document ID which should start with `note:` and the remains are randomly generated string\", \"maxLength\": 128, \"minLength\": 6, \"pattern\": \"^note:\", \"type\": \"string\" }, \"_rev\": { \"description\": \"This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable).\", \"type\": \"string\" }, \"body\": { \"description\": \"The content of the note represented with Markdown\", \"maxLength\": 1048576, \"type\": \"string\" }, \"bookId\": { \"description\": \"The notebook ID\", \"maxLength\": 128, \"minLength\": 5, \"pattern\": \"^(book:|trash$)\", \"type\": \"string\" }, \"status\": { \"description\": \"The status of the note\", \"enum\": [ \"none\", \"active\", \"onHold\", \"completed\", \"dropped\" ], \"type\": \"string\" }, \"title\": { \"description\": \"The note title\", \"maxLength\": 128, \"type\": \"string\" } }, \"required\": [ \"_id\", \"_rev\", \"bookId\", \"title\", \"body\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "list-notebooks",
+      "description": "Retrieve a list of all notebooks stored in Inkdrop for enhanced organization and access, integrated with Claude AI via the MCP server.",
+      "instructions": "Retrieve a list of all notebooks",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@inkdropapp/mcp-server",
+  "version": "1.1.0",
+  "keywords": [
+    "Inkdrop",
+    "MCP",
+    "Claude"
+  ]
+}

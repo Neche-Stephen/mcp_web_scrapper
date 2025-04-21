@@ -1,0 +1,109 @@
+{
+  "name": "Redis Cloud API MCP Server",
+  "author": "redis",
+  "author_url": "https://github.com/redis",
+  "category": "Cloud Platforms",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/redis/mcp-redis-cloud",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "API_KEY",
+      "required": "Yes",
+      "description": "Redis Cloud API key",
+      "default": ""
+    },
+    {
+      "name": "SECRET_KEY",
+      "required": "Yes",
+      "description": "Redis Cloud API secret key",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "get-current-account",
+      "description": "Retrieve details of the active Redis Cloud account to manage resources using the Redis Cloud API MCP Server interface.",
+      "instructions": "Get the current Cloud Redis account",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "get-current-payment-methods",
+      "description": "Retrieve the payment methods associated with your Redis Cloud account using the Redis Cloud API MCP Server to manage billing and subscription details.",
+      "instructions": "Get the current payment methods for the current Cloud Redis account",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "get-database-modules",
+      "description": "Retrieve a list of supported database modules (capabilities) for your Redis Cloud account, based on your subscription and database settings.",
+      "instructions": "Lookup list of database modules supported in current account (support may differ based on subscription and database settings). These modules are also called capabilities.",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "get-pro-plans-regions",
+      "description": "Retrieve a list of supported regions and cloud providers to manage Redis Cloud resources effectively using the Redis Cloud API MCP Server.",
+      "instructions": "Lookup list of regions for cloud provider. These regions include the providers too.",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "create-pro-subscription",
+      "description": "Initiate and track the creation of a new Redis Cloud PRO subscription. Requires validated payment methods, database modules, and regions. Returns a TASK ID for progress monitoring.",
+      "instructions": "Create a new pro subscription. Returns a TASK ID that can be used to track the status of the subscription creation. Prerequisites: 1) Verify payment method by checking get-current-payment-methods. 2) For database modules, validate against get-database-modules list. 3) Validate regions using get-pro-plans-regions. The payload must match the input schema.",
+      "jsonSchema": "{ \"properties\": { \"cloudProviders\": { \"description\": \"Required. Cloud hosting & networking details. Make sure to validate this before submitting the subscription.\", \"items\": { \"properties\": { \"cloudAccountId\": { \"description\": \"Optional. Cloud account identifier. Default: Redis internal cloud account (using Cloud Account Id = 1 implies using Redis internal cloud account). Note that a GCP subscription can be created only with Redis internal cloud account.\", \"example\": 1, \"format\": \"int32\", \"type\": \"integer\" }, \"provider\": { \"default\": \"AWS\", \"description\": \"Optional. Cloud provider. Default: 'AWS'\", \"enum\": [ \"AWS\", \"GCP\" ], \"type\": \"string\" }, \"regions\": { \"description\": \"Required. Cloud networking details, per region (single region or multiple regions for Active-Active cluster only)\", \"items\": { \"properties\": { \"multipleAvailabilityZones\": { \"default\": false, \"description\": \"Optional. Support deployment on multiple availability zones within the selected region. Default: 'false'\", \"type\": \"boolean\" }, \"networking\": { \"description\": \"Optional. Cloud networking details. Default: if using Redis internal cloud account, 192.168.0.0/24\", \"properties\": { \"deploymentCIDR\": { \"description\": \"Optional. Deployment CIDR mask. Default: If using Redis internal cloud account, 192.168.0.0/24\", \"example\": \"10.0.0.0/24\", \"type\": \"string\" }, \"vpcId\": { \"description\": \"Optional. Either an existing VPC Id or create a new VPC (if no VPC is specified)\", \"example\": \"<vpc-identifier>\", \"type\": \"string\" } }, \"required\": [ \"deploymentCIDR\" ], \"type\": \"object\" }, \"preferredAvailabilityZones\": { \"description\": \"Optional. Availability zones deployment preferences. If 'multipleAvailabilityZones' is set to 'true', you must specify three availability zones.\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"region\": { \"description\": \"Required. Deployment region as defined by cloud provider\", \"example\": \"us-east-1\", \"type\": \"string\" } }, \"required\": [ \"region\" ], \"type\": \"object\" }, \"type\": \"array\" } }, \"required\": [ \"regions\" ], \"type\": \"object\" }, \"type\": \"array\" }, \"databases\": { \"description\": \"Required. Databases specifications for each planned database. Make sure to validate this before submitting the subscription.\", \"items\": { \"properties\": { \"averageItemSizeInBytes\": { \"description\": \"Optional. Relevant only to ram-and-flash clusters. Estimated average size (measured in bytes) of the items stored in the database. Default: 1000\", \"format\": \"int64\", \"type\": \"integer\" }, \"dataPersistence\": { \"description\": \"Optional. Rate of database data persistence (in persistent storage). Default: 'none'\", \"enum\": [ \"none\", \"aof-every-1-second\", \"aof-every-write\", \"snapshot-every-1-hour\", \"snapshot-every-6-hours\", \"snapshot-every-12-hours\" ], \"type\": \"string\" }, \"datasetSizeInGb\": { \"description\": \"Optional. The maximum amount of data in the dataset for this specific database is in GB. You can not set both datasetSizeInGb and totalMemoryInGb.\", \"example\": 1, \"format\": \"double\", \"minimum\": 0.1, \"type\": \"number\" }, \"localThroughputMeasurement\": { \"description\": \"Optional. Throughput measurement for an active-active subscription\", \"items\": { \"properties\": { \"readOperationsPerSecond\": { \"description\": \"Default: 1000 ops/sec\", \"example\": 1000, \"format\": \"int64\", \"type\": \"integer\" }, \"region\": { \"type\": \"string\" }, \"writeOperationsPerSecond\": { \"description\": \"Default: 1000 ops/sec\", \"example\": 1000, \"format\": \"int64\", \"type\": \"integer\" } }, \"type\": \"object\" }, \"type\": \"array\" }, \"modules\": { \"description\": \"Optional. Redis modules to be provisioned in the database. Use get-database-modules to retrieve available modules and configure the desired ones\", \"items\": { \"properties\": { \"name\": { \"description\": \"Required. Redis module Id. Get the list of available module identifiers by calling get-database-modules\", \"type\": \"string\" }, \"parameters\": { \"additionalProperties\": true, \"description\": \"Optional. Redis database module parameters\", \"type\": \"object\" } }, \"required\": [ \"name\" ], \"type\": \"object\" }, \"type\": \"array\" }, \"name\": { \"description\": \"Required. Database name (must be up to 40 characters long, include only letters, digits, or hyphen ('-'), start with a letter, and end with a letter or digit)\", \"example\": \"Redis-database-example\", \"type\": \"string\" }, \"protocol\": { \"default\": \"redis\", \"description\": \"Optional. Database protocol: either 'redis' or 'memcached'. Default: 'redis'\", \"enum\": [ \"redis\", \"memcached\" ], \"type\": \"string\" }, \"quantity\": { \"description\": \"Optional. Number of databases (of this type) that will be created. Default: 1\", \"example\": 1, \"format\": \"int32\", \"type\": \"integer\" }, \"queryPerformanceFactor\": { \"description\": \"Optional. The query performance factor adds extra compute power specifically for search and query.\", \"example\": \"2x\", \"type\": \"string\" }, \"replication\": { \"default\": true, \"description\": \"Optional. Databases replication. Default: 'true'\", \"type\": \"boolean\" }, \"respVersion\": { \"description\": \"Optional. RESP version must be compatible with Redis version.\", \"enum\": [ \"resp2\", \"resp3\" ], \"example\": \"resp3\", \"type\": \"string\" }, \"shardingType\": { \"description\": \"Optional. Database Hashing policy.\", \"enum\": [ \"default-regex-rules\", \"custom-regex-rules\", \"redis-oss-hashing\" ], \"type\": \"string\" }, \"supportOSSClusterApi\": { \"default\": false, \"description\": \"Optional. Support Redis open-source (OSS) Cluster API. Default: 'false'\", \"type\": \"boolean\" }, \"throughputMeasurement\": { \"description\": \"Optional. Throughput measurement method. Default: 25000 ops/sec\", \"properties\": { \"by\": { \"description\": \"Required. Throughput measurement method. Either 'number-of-shards' or 'operations-per-second'\", \"enum\": [ \"operations-per-second\", \"number-of-shards\" ], \"type\": \"string\" }, \"value\": { \"description\": \"Required. Throughput value (as applies to selected measurement method)\", \"example\": 10000, \"format\": \"int64\", \"type\": \"integer\" } }, \"required\": [ \"by\", \"value\" ], \"type\": \"object\" } }, \"required\": [ \"name\", \"protocol\" ], \"type\": \"object\" }, \"type\": \"array\" }, \"deploymentType\": { \"description\": \"Optional. When 'single-region' or null: Creates a single region subscription. When 'active-active': creates an active-active (multi-region) subscription\", \"enum\": [ \"single-region\", \"active-active\" ], \"type\": \"string\" }, \"dryRun\": { \"default\": false, \"description\": \"Optional. When 'false': Creates a deployment plan and deploys it (creating any resources required by the plan). When 'true': creates a read-only deployment plan without any resource creation. Default: 'false'\", \"type\": \"boolean\" }, \"memoryStorage\": { \"default\": \"ram\", \"description\": \"Optional. Memory storage preference: either 'ram' or a combination of 'ram-and-flash'. Default: 'ram'\", \"enum\": [ \"ram\", \"ram-and-flash\" ], \"type\": \"string\" }, \"name\": { \"description\": \"Optional. Subscription name\", \"example\": \"My new subscription\", \"type\": \"string\" }, \"paymentMethod\": { \"default\": \"credit-card\", \"description\": \"Required. The payment method for the requested subscription. If 'credit-card' is specified, 'paymentMethodId' must be defined. Default: 'credit-card. Validate this before submitting the subscription.\", \"enum\": [ \"credit-card\", \"marketplace\" ], \"type\": \"string\" }, \"paymentMethodId\": { \"description\": \"Required if paymentMethod is credit-card. A valid payment method that was pre-defined in the current account. This value is Optional if 'paymentMethod' is 'marketplace', but Required for all other account types. Validate this before submitting the subscription.\", \"format\": \"int32\", \"type\": \"integer\" }, \"redisVersion\": { \"description\": \"Optional. If specified, the redisVersion defines the Redis version of the databases in the subscription. If omitted, the Redis version will be the default\", \"example\": \"7.2\", \"type\": \"string\" } }, \"required\": [ \"cloudProviders\", \"databases\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "get-pro-subscriptions",
+      "description": "Retrieve pro subscription details for your Redis Cloud account using the Redis Cloud API MCP Server. Manage resources effectively with straightforward access.",
+      "instructions": "Get the pro subscriptions for the current Cloud Redis account",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "get-pro-subscription",
+      "description": "Retrieve a pro subscription by ID using the Redis Cloud API MCP Server. Ensure the payload matches the required input schema for successful execution.",
+      "instructions": "Get pro subscription by ID. The payload must match the input schema.",
+      "jsonSchema": "{ \"properties\": { \"subscriptionId\": { \"description\": \"Subscription ID\", \"min\": 1, \"type\": \"number\" } }, \"required\": [ \"subscriptionId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "get-essential-subscriptions",
+      "description": "Retrieve essential subscriptions for your Redis Cloud account using paginated results. Specify page and size parameters to access all subscriptions efficiently.",
+      "instructions": "Get the essential subscriptions for the current Cloud Redis account. A paginated response is returned, and to get all the essential subscriptions, the page and size parameters must be used until all the essential subscriptions are retrieved.",
+      "jsonSchema": "{ \"properties\": { \"page\": { \"default\": 0, \"description\": \"Page number\", \"type\": \"number\" }, \"size\": { \"default\": 10, \"description\": \"Page size\", \"type\": \"number\" } }, \"required\": [], \"type\": \"object\" }"
+    },
+    {
+      "name": "get-essential-subscription-by-id",
+      "description": "Retrieve details of a specific Redis Cloud essential subscription using its unique ID to manage your account resources effectively.",
+      "instructions": "Get an essential subscription by ID for the current Cloud Redis account",
+      "jsonSchema": "{ \"properties\": { \"subscriptionId\": { \"description\": \"Subscription ID\", \"min\": 1, \"type\": \"number\" } }, \"required\": [ \"subscriptionId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "create-essential-subscription",
+      "description": "Set up a new essential subscription for Redis Cloud by specifying a name, payment method, and plan ID. Returns a TASK ID to monitor subscription creation progress.",
+      "instructions": "Create a new essential subscription. Returns a TASK ID that can be used to track the status of the subscription creation",
+      "jsonSchema": "{ \"properties\": { \"name\": { \"description\": \"Subscription name\", \"type\": \"string\" }, \"paymentMethod\": { \"default\": \"credit-card\", \"description\": \"Payment method\", \"enum\": [ \"credit-card\", \"marketplace\" ], \"type\": \"string\" }, \"paymentMethodId\": { \"description\": \"Payment method ID\", \"type\": \"number\" }, \"planId\": { \"description\": \"Plan ID. The plan ID can be taken from /fixed/plans\", \"type\": \"number\" } }, \"required\": [ \"name\", \"planId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "delete-essential-subscription",
+      "description": "Remove an essential subscription using its ID to manage Redis Cloud resources efficiently. This action ensures proper resource allocation and organization within the Redis Cloud API MCP Server.",
+      "instructions": "Delete an essential subscription by ID",
+      "jsonSchema": "{ \"properties\": { \"subscriptionId\": { \"description\": \"Subscription ID\", \"min\": 1, \"type\": \"number\" } }, \"required\": [ \"subscriptionId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "get-essentials-plans",
+      "description": "Retrieve available essential subscription plans for Redis Cloud by provider (AWS, GCP, AZURE) using paginated responses. Specify page and size parameters to fetch all plans efficiently.",
+      "instructions": "Get the available plans for essential subscriptions. Always ask for which provider the plans are want to be retrieved. A paginated response is returned, and to get all the plans, the page and size parameters must be used until all the plans are retrieved.",
+      "jsonSchema": "{ \"properties\": { \"page\": { \"default\": 0, \"description\": \"Page number\", \"type\": \"number\" }, \"provider\": { \"description\": \"Provider name.\", \"enum\": [ \"AWS\", \"GCP\", \"AZURE\" ], \"type\": \"string\" }, \"redisFlex\": { \"default\": false, \"description\": \"Redis Flex\", \"type\": \"boolean\" }, \"size\": { \"default\": 10, \"description\": \"Page size\", \"type\": \"number\" } }, \"required\": [ \"provider\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "get-tasks",
+      "error": "Attempted to use detached Frame '872DB39A0CD3C7C53F20A591518CD81D'.",
+      "partial_data": true
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@redis/mcp-redis-cloud",
+  "version": "1.0.0",
+  "keywords": [
+    "mcp",
+    "model-context-protocol"
+  ]
+}

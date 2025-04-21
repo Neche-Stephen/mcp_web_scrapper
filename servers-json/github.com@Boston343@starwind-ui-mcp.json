@@ -1,0 +1,59 @@
+{
+  "name": "Starwind UI MCP Server",
+  "author": "starwind-ui",
+  "author_url": "https://github.com/starwind-ui",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/Boston343/starwind-ui-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "init_project",
+      "description": "Set up new projects with Starwind UI components using your preferred package manager (npm, yarn, pnpm). Streamlines initialization for AI-assisted development workflows.",
+      "instructions": "Initializes a new project with Starwind UI",
+      "jsonSchema": "{ \"properties\": { \"packageManager\": { \"description\": \"Package manager to use (npm, yarn, pnpm)\", \"enum\": [ \"npm\", \"yarn\", \"pnpm\" ], \"type\": \"string\" } }, \"required\": [], \"type\": \"object\" }"
+    },
+    {
+      "name": "install_component",
+      "description": "Generate installation commands for Starwind UI components using npm, yarn, or pnpm. Specify a component, additional components, and installation options for streamlined setup.",
+      "instructions": "Generates installation commands for Starwind UI components",
+      "jsonSchema": "{ \"properties\": { \"additionalComponents\": { \"description\": \"Additional components to install\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"component\": { \"description\": \"Component name to install\", \"type\": \"string\" }, \"options\": { \"description\": \"Additional options for installation (e.g., '--all' to install all components)\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"packageManager\": { \"description\": \"Package manager to use (npm, yarn, pnpm)\", \"enum\": [ \"npm\", \"yarn\", \"pnpm\" ], \"type\": \"string\" } }, \"required\": [ \"component\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "update_component",
+      "description": "Generate update commands for Starwind UI components using specified package managers, with options to update individual or multiple components efficiently.",
+      "instructions": "Generates update commands for Starwind UI components",
+      "jsonSchema": "{ \"properties\": { \"additionalComponents\": { \"description\": \"Additional components to update\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"component\": { \"description\": \"Component name to update\", \"type\": \"string\" }, \"options\": { \"description\": \"Additional options for updating (e.g., '--all' to update all components)\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"packageManager\": { \"description\": \"Package manager to use (npm, yarn, pnpm)\", \"enum\": [ \"npm\", \"yarn\", \"pnpm\" ], \"type\": \"string\" } }, \"required\": [ \"component\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "get_documentation",
+      "description": "Access documentation links for Starwind UI components, CLI, installation, theming, and more. Retrieve specific details or an overview to streamline development with the Starwind UI MCP Server.",
+      "instructions": "Returns documentation links for Starwind UI",
+      "jsonSchema": "{ \"properties\": { \"component\": { \"description\": \"Specific component to get documentation for (only used when type is components)\", \"type\": \"string\" }, \"type\": { \"description\": \"Type of documentation to retrieve (defaults to overview)\", \"enum\": [ \"overview\", \"getting-started\", \"cli\", \"installation\", \"theming\", \"components\", \"full\" ], \"type\": \"string\" } }, \"required\": [], \"type\": \"object\" }"
+    },
+    {
+      "name": "fetch_llm_data",
+      "description": "Retrieves LLM data from Starwind.dev with a rate limit of 3 requests per minute and optional caching, enabling efficient access to AI assistant resources for Starwind UI projects.",
+      "instructions": "Fetches LLM data from starwind.dev (rate limited to 3 requests per minute, with caching)",
+      "jsonSchema": "{ \"properties\": { \"full\": { \"description\": \"Whether to fetch the full LLM data (defaults to false)\", \"type\": \"boolean\" } }, \"required\": [], \"type\": \"object\" }"
+    },
+    {
+      "name": "get_package_manager",
+      "description": "Identifies and returns the package manager in use within a specified project directory, defaulting to npm, yarn, or pnpm if detection fails. Supports streamlined project setup and dependency management.",
+      "instructions": "Detects and returns the current package manager information",
+      "jsonSchema": "{ \"properties\": { \"cwd\": { \"description\": \"Root directory to check for lock files\", \"type\": \"string\" }, \"defaultManager\": { \"description\": \"Default package manager to use if detection fails (npm, yarn, pnpm)\", \"enum\": [ \"npm\", \"yarn\", \"pnpm\" ], \"type\": \"string\" } }, \"required\": [ \"cwd\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@starwind-ui/starwind-ui-mcp",
+  "version": "0.1.0",
+  "keywords": []
+}

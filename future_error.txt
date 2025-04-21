@@ -1,0 +1,29 @@
+This is a potential error that could occur. - Will trouble shoot later
+
+--- Processing server 16/101: Elasticsearch MCP Server ---
+Launching browser for Elasticsearch MCP Server...
+Opening new page for Elasticsearch MCP Server...
+Navigating to https://glama.ai/mcp/servers/@elastic/mcp-server-elasticsearch
+Processing tool: pg_backups
+Waiting for content to load for Elasticsearch MCP Server...
+Extracting data from Elasticsearch MCP Server...
+Found 3 tools for Elasticsearch MCP Server
+Processing tool: list_indices
+Processing tool: unsubscribe
+Processing tool: pg_upgrade
+Processing tool: get_mappings
+Saving data to servers-json/redis-mcp-server.json
+Removed partial backup: servers-json/redis-mcp-server-partial.json
+Closing browser for Redis MCP Server...
+Successfully closed browser for Redis MCP Server
+Processing tool: ps_list
+Processing tool: search
+Processing tool: ps_scale
+Saving data to servers-json/elasticsearch-mcp-server.json
+Removed partial backup: servers-json/elasticsearch-mcp-server-partial.json
+Closing browser for Elasticsearch MCP Server...
+
+it opened Elasticsearch MCP Server, then saved with servers-json/redis-mcp-server.json, which has closed earlier
+
+
+    

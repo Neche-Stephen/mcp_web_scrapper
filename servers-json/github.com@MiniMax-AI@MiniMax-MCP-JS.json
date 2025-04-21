@@ -1,0 +1,85 @@
+{
+  "name": "MiniMax MCP JS",
+  "author": "MiniMax-AI",
+  "author_url": "https://github.com/MiniMax-AI",
+  "category": "Image & Video Processing",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/minimax-mcp-js",
+  "source_url": "https://github.com/MiniMax-AI/MiniMax-MCP-JS",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "MINIMAX_API_KEY",
+      "required": "Yes",
+      "description": "MiniMax API Key (required)",
+      "default": ""
+    },
+    {
+      "name": "MINIMAX_API_HOST",
+      "required": "No",
+      "description": "MiniMax API Host",
+      "default": "https://api.minimaxi.chat"
+    },
+    {
+      "name": "MINIMAX_MCP_BASE_PATH",
+      "required": "No",
+      "description": "Base path for output files",
+      "default": "User's desktop"
+    },
+    {
+      "name": "MINIMAX_RESOURCE_MODE",
+      "required": "No",
+      "description": "Resource handling mode, 'url' or 'local'",
+      "default": "url"
+    }
+  ],
+  "tools": [
+    {
+      "name": "text_to_audio",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_voices",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "play_audio",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "text_to_image",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "generate_video",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "voice_clone",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@MiniMax-AI/MiniMax-MCP-JS",
+  "version": "0.0.7",
+  "keywords": [
+    "mcp",
+    "minimax",
+    "ai",
+    "image-generation",
+    "video-generation",
+    "text-to-speech",
+    "tts"
+  ]
+}

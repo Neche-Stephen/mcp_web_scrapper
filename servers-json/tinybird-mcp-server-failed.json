@@ -1,0 +1,7 @@
+{
+  "title": "Tinybird MCP server",
+  "url": "https://glama.ai/mcp/servers/@tinybirdco/mcp-tinybird",
+  "error": "net::ERR_INTERNET_DISCONNECTED at https://glama.ai/mcp/servers/@tinybirdco/mcp-tinybird",
+  "status": "failed",
+  "partial_data": false
+}

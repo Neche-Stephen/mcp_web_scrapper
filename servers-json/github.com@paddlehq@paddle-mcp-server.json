@@ -1,0 +1,20 @@
+{
+  "name": "Paddle MCP Server",
+  "author": "PaddleHQ",
+  "author_url": "https://github.com/PaddleHQ",
+  "category": "Finance",
+  "license": "Apache 2.0",
+  "package_url": "https://www.npmjs.com/package/@paddle/paddle-mcp",
+  "source_url": "https://github.com/paddlehq/paddle-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [],
+  "tools": [],
+  "scrape_source": "https://glama.ai/mcp/servers/@PaddleHQ/paddle-mcp-server",
+  "version": "0.1.2",
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "paddle",
+    "billing"
+  ]
+}

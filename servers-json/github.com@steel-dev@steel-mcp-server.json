@@ -1,0 +1,95 @@
+{
+  "name": "Steel MCP Server",
+  "author": "steel-dev",
+  "author_url": "https://github.com/steel-dev",
+  "category": "Browser Automation",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/steel-dev/steel-mcp-server",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "STEEL_LOCAL",
+      "required": "No",
+      "description": "Determines if Steel Voyager runs in local (true) or cloud (false) mode.",
+      "default": "false"
+    },
+    {
+      "name": "STEEL_API_KEY",
+      "required": "No",
+      "description": "Required only when STEEL_LOCAL = false. Used to authenticate requests with the Steel endpoint.",
+      "default": ""
+    },
+    {
+      "name": "STEEL_BASE_URL",
+      "required": "No",
+      "description": "The base URL for the Steel API. Override this if self-hosting the Steel server (either locally or in your own cloud environment). If STEEL_LOCAL = true and STEEL_BASE_URL is unset, it defaults to http://localhost:3000.",
+      "default": "https://api.steel.dev"
+    },
+    {
+      "name": "GLOBAL_WAIT_SECONDS",
+      "required": "No",
+      "description": "Optional. Number of seconds to wait after each tool action (for instance, to allow slow-loading pages).",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "navigate",
+      "description": "Direct a browser to a specific URL using the Steel MCP Server, enabling web navigation for tasks like data retrieval, interaction, or content access.",
+      "instructions": "Navigate to a specified URL",
+      "jsonSchema": "{ \"properties\": { \"url\": { \"description\": \"The URL to navigate to\", \"type\": \"string\" } }, \"required\": [ \"url\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "search",
+      "description": "Perform a Google search using a specified query, generating a direct link to the search results. Utilizes the Steel MCP Server for web navigation and automation.",
+      "instructions": "Perform a Google search by navigating to https://www.google.com/search?q=encodedQuery using the provided query text.",
+      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"The text to search for on Google\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "click",
+      "description": "Identify and click specific elements on a webpage using numbered labels from annotated screenshots, enabling precise navigation and interaction with web content.",
+      "instructions": "Click an element on the page specified by its numbered label from the annotated screenshot",
+      "jsonSchema": "{ \"properties\": { \"label\": { \"description\": \"The label of the element to click, as shown in the annotated screenshot\", \"type\": \"number\" } }, \"required\": [ \"label\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "type",
+      "description": "Enter text into a labeled input field on a webpage using its numbered identifier. Optionally clear existing text before typing. Facilitates precise data input for web automation tasks.",
+      "instructions": "Type text into an input field specified by its numbered label from the annotated screenshot. Optionally replace existing text first.",
+      "jsonSchema": "{ \"properties\": { \"label\": { \"description\": \"The label of the input field\", \"type\": \"number\" }, \"replaceText\": { \"description\": \"If true, clears any existing text in the input field before typing the new text.\", \"type\": \"boolean\" }, \"text\": { \"description\": \"The text to type into the input field\", \"type\": \"string\" } }, \"required\": [ \"label\", \"text\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "scroll_down",
+      "description": "Scroll down a webpage by a specified number of pixels or one full page if no value is provided. Part of the Steel MCP Server, it enables precise web navigation for LLMs via Puppeteer-based tools.",
+      "instructions": "Scroll down the page by a pixel amount - if no pixels are specified, scrolls down one page",
+      "jsonSchema": "{ \"properties\": { \"pixels\": { \"description\": \"The number of pixels to scroll down. If not specified, scrolls down one page.\", \"type\": \"integer\" } }, \"required\": [], \"type\": \"object\" }"
+    },
+    {
+      "name": "scroll_up",
+      "description": "Navigate web pages by scrolling up a specified number of pixels or one page if no pixels are defined. Use this tool within the Steel MCP Server for precise web interaction.",
+      "instructions": "Scroll up the page by a pixel amount - if no pixels are specified, scrolls up one page",
+      "jsonSchema": "{ \"properties\": { \"pixels\": { \"description\": \"The number of pixels to scroll up. If not specified, scrolls up one page.\", \"type\": \"integer\" } }, \"required\": [], \"type\": \"object\" }"
+    },
+    {
+      "name": "go_back",
+      "description": "Navigate to the previous page in the browser history to simplify web backtracking within the Steel MCP Server environment.",
+      "instructions": "Go back to the previous page in the browser history",
+      "jsonSchema": "{ \"properties\": {}, \"required\": [], \"type\": \"object\" }"
+    },
+    {
+      "name": "wait",
+      "description": "Pause execution for a specified duration (up to 10 seconds) to ensure complete page loading, resolve missing elements, or allow dynamic content to render. Ideal for fixing incomplete screenshots or handling delayed UI updates.",
+      "instructions": "Use this tool when a page appears to be loading or not fully rendered. Common scenarios include: when elements are missing from a screenshot that should be there, when a page looks incomplete or broken, when dynamic content is still loading, or when a previous action (like clicking a button) hasn't fully processed yet. Waits for a specified number of seconds (up to 10) to allow the page to finish loading or rendering.",
+      "jsonSchema": "{ \"properties\": { \"seconds\": { \"description\": \"Number of seconds to wait (max 10). Start with a smaller value (2-3 seconds) and increase if needed.\", \"maximum\": 10, \"minimum\": 0, \"type\": \"number\" } }, \"required\": [ \"seconds\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "save_unmarked_screenshot",
+      "description": "Capture and save a screenshot of a webpage without bounding boxes or annotations, using a provided resource name for easy identification. Ideal for obtaining unobstructed views of web content.",
+      "instructions": "Capture a screenshot without bounding boxes and store it as a resource. Provide a resourceName to identify the screenshot. It's useful for when you want to view a page unobstructed by annotations or the user asks for a screenshot of the page.",
+      "jsonSchema": "{ \"properties\": { \"resourceName\": { \"description\": \"The name under which the unmarked screenshot will be saved as a resource (e.g. 'before_login'). If not provided, one will be generated.\", \"type\": \"string\" } }, \"required\": [], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@steel-dev/steel-mcp-server",
+  "version": "0.0.1",
+  "keywords": []
+}

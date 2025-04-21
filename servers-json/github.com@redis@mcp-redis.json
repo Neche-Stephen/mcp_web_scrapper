@@ -1,0 +1,118 @@
+{
+  "name": "Redis MCP Server",
+  "author": "redis",
+  "author_url": "https://github.com/redis",
+  "category": "Databases",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/redis/mcp-redis",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "REDIS_PWD",
+      "required": "No",
+      "description": "Default database password",
+      "default": ""
+    },
+    {
+      "name": "REDIS_SSL",
+      "required": "No",
+      "description": "Enables or disables SSL/TLS",
+      "default": "False"
+    },
+    {
+      "name": "REDIS_HOST",
+      "required": "No",
+      "description": "Redis IP or hostname",
+      "default": "127.0.0.1"
+    },
+    {
+      "name": "REDIS_PORT",
+      "required": "No",
+      "description": "Redis port",
+      "default": "6379"
+    },
+    {
+      "name": "REDIS_CA_PATH",
+      "required": "No",
+      "description": "CA certificate for verifying server",
+      "default": ""
+    },
+    {
+      "name": "REDIS_CA_CERTS",
+      "required": "No",
+      "description": "Path to the trusted CA certificates file",
+      "default": ""
+    },
+    {
+      "name": "REDIS_USERNAME",
+      "required": "No",
+      "description": "Default database username",
+      "default": "default"
+    },
+    {
+      "name": "REDIS_CERT_REQS",
+      "required": "No",
+      "description": "Whether the client should verify the server's certificate",
+      "default": "required"
+    },
+    {
+      "name": "REDIS_SSL_KEYFILE",
+      "required": "No",
+      "description": "Client's private key file for client authentication",
+      "default": ""
+    },
+    {
+      "name": "REDIS_SSL_CERTFILE",
+      "required": "No",
+      "description": "Client's certificate file for client authentication",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "dbsize",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "info",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "client_list",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "delete",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "type",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "expire",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "rename",
+      "error": "Attempted to use detached Frame '2575D3151C9BD93DA07B7602CB3BE359'.",
+      "partial_data": true
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@redis/mcp-redis",
+  "version": "0.1.0",
+  "keywords": []
+}

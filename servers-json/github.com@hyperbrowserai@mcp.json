@@ -1,0 +1,89 @@
+{
+  "name": "Hyperbrowser",
+  "author": "hyperbrowserai",
+  "author_url": "https://github.com/hyperbrowserai",
+  "category": "Browser Automation",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/hyperbrowser-mcp",
+  "source_url": "https://github.com/hyperbrowserai/mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "HYPERBROWSER_API_KEY",
+      "required": "Yes",
+      "description": "Your Hyperbrowser API key",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "scrape_webpage",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "crawl_webpages",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "extract_structured_data",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "browser_use_agent",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "openai_computer_use_agent",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "claude_computer_use_agent",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "search_with_bing",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "create_profile",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "delete_profile",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_profiles",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@hyperbrowserai/mcp",
+  "version": "1.0.25",
+  "keywords": [
+    "mcp",
+    "hyperbrowser",
+    "web-scraping",
+    "crawler",
+    "content-extraction"
+  ]
+}

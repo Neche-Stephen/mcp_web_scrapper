@@ -1,0 +1,45 @@
+{
+  "name": "Lara Translate MCP Server",
+  "author": "translated",
+  "author_url": "https://github.com/translated",
+  "category": "Language Translation",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@translated/lara-mcp",
+  "source_url": "https://github.com/translated/lara-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "LARA_ACCESS_KEY_ID",
+      "required": "Yes",
+      "description": "Your Lara API access key ID obtained from Lara Translate account",
+      "default": ""
+    },
+    {
+      "name": "LARA_ACCESS_KEY_SECRET",
+      "required": "Yes",
+      "description": "Your Lara API access key secret obtained from Lara Translate account",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "translate",
+      "description": "Translate text between multiple languages with language detection and context-aware adjustments. Specify target language, provide contextual hints, and include instructions for precise translations.",
+      "instructions": "Translate text between languages with support for language detection and context-aware translations.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"context\": { \"description\": \"Additional context string to improve translation quality (e.g., 'This is a legal document' or 'Im talking with a doctor'). This helps the translation system better understand the domain.\", \"type\": \"string\" }, \"instructions\": { \"description\": \"A list of instructions to adjust the network’s behavior regarding the output (e.g., 'Use a formal tone').\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"source\": { \"description\": \"The source language code (e.g., 'en-EN' for English). If not specified, the system will attempt to detect it automatically. If you have a hint about the source language, you should specify it in the source_hint field.\", \"type\": \"string\" }, \"source_hint\": { \"description\": \"Used to guide language detection. Specify this when the source language is uncertain to improve detection accuracy.\", \"type\": \"string\" }, \"target\": { \"description\": \"The target language code (e.g., 'it-IT' for Italian). This specifies the language you want the text translated into.\", \"type\": \"string\" }, \"text\": { \"description\": \"An array of text blocks to translate. Each block contains a text string and a boolean indicating whether it should be translated. This allows for selective translation where some text blocks can be preserved in their original form while others are translated.\", \"items\": { \"additionalProperties\": false, \"properties\": { \"text\": { \"type\": \"string\" }, \"translatable\": { \"type\": \"boolean\" } }, \"required\": [ \"text\", \"translatable\" ], \"type\": \"object\" }, \"type\": \"array\" } }, \"required\": [ \"text\", \"target\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@translated/lara-mcp",
+  "version": "0.0.10",
+  "keywords": [
+    "mcp",
+    "mcpserver",
+    "laratranslate",
+    "lara",
+    "translate",
+    "translation",
+    "ai",
+    "translate",
+    "translated"
+  ]
+}

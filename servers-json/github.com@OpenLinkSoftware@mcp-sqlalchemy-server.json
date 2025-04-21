@@ -1,0 +1,89 @@
+{
+  "name": "mcp-sqlalchemy",
+  "author": "OpenLinkSoftware",
+  "author_url": "https://github.com/OpenLinkSoftware",
+  "category": "Databases",
+  "license": "Apache 2.0",
+  "package_url": "",
+  "source_url": "https://github.com/OpenLinkSoftware/mcp-sqlalchemy-server",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "DB_URL",
+      "required": "Yes",
+      "description": "SQLAlchemy URL for database connection (e.g., virtuoso+pyodbc://user:password@VOS)",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "podbc_get_schemas",
+      "description": "Retrieve a list of all schema names from a connected database using SQLAlchemy via pyodbc, enabling efficient database schema management.",
+      "instructions": "Retrieve and return a list of all schema names from the connected database.",
+      "jsonSchema": "{ \"properties\": { \"url\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Url\" } }, \"title\": \"podbc_get_schemasArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "podbc_get_tables",
+      "description": "Retrieve a list of tables and their details from a specified database schema using SQLAlchemy connectivity. Automatically defaults to the connection schema if none is provided.",
+      "instructions": "Retrieve and return a list containing information about tables in specified schema, if empty uses connection default",
+      "jsonSchema": "{ \"properties\": { \"Schema\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Schema\" }, \"url\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Url\" } }, \"title\": \"podbc_get_tablesArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "podbc_describe_table",
+      "description": "Retrieve table definitions, including column names, data types, and keys, from any SQLAlchemy-accessible DBMS using the MCP server's pyodbc connectivity.",
+      "instructions": "Retrieve and return a dictionary containing the definition of a table, including column names, data types, nullable, autoincrement, primary key, and foreign keys.",
+      "jsonSchema": "{ \"properties\": { \"Schema\": { \"title\": \"Schema\", \"type\": \"string\" }, \"table\": { \"title\": \"Table\", \"type\": \"string\" }, \"url\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Url\" } }, \"required\": [ \"Schema\", \"table\" ], \"title\": \"podbc_describe_tableArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "podbc_filter_table_names",
+      "description": "Filter and retrieve table names containing a specific substring from any DBMS using SQLAlchemy connectivity via pyodbc, returning schema and table details in a structured list.",
+      "instructions": "Retrieve and return a list containing information about tables whose names contain the substring 'q' in the format [{'schema': 'schema_name', 'table': 'table_name'}, {'schema': 'schema_name', 'table': 'table_name'}].",
+      "jsonSchema": "{ \"properties\": { \"q\": { \"title\": \"Q\", \"type\": \"string\" }, \"url\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Url\" } }, \"required\": [ \"q\" ], \"title\": \"podbc_filter_table_namesArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "podbc_execute_query",
+      "description": "Execute SQL queries and retrieve results in JSONL format. Configure max rows, parameters, and connection URL for precise data extraction via SQLAlchemy connectivity.",
+      "instructions": "Execute a SQL query and return results in JSONL format.",
+      "jsonSchema": "{ \"properties\": { \"max_rows\": { \"default\": 100, \"title\": \"Max Rows\", \"type\": \"integer\" }, \"params\": { \"anyOf\": [ { \"additionalProperties\": true, \"type\": \"object\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Params\" }, \"query\": { \"title\": \"Query\", \"type\": \"string\" }, \"url\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Url\" } }, \"required\": [ \"query\" ], \"title\": \"podbc_execute_queryArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "podbc_execute_query_md",
+      "description": "Run SQL queries and retrieve results formatted as Markdown tables using SQLAlchemy connectivity, enabling easy integration with any DBMS.",
+      "instructions": "Execute a SQL query and return results in Markdown table format.",
+      "jsonSchema": "{ \"properties\": { \"max_rows\": { \"default\": 100, \"title\": \"Max Rows\", \"type\": \"integer\" }, \"params\": { \"anyOf\": [ { \"additionalProperties\": true, \"type\": \"object\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Params\" }, \"query\": { \"title\": \"Query\", \"type\": \"string\" }, \"url\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Url\" } }, \"required\": [ \"query\" ], \"title\": \"podbc_execute_query_mdArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "podbc_query_database",
+      "description": "Execute SQL queries on any DBMS via SQLAlchemy connectivity and retrieve results in JSONL format for streamlined data processing.",
+      "instructions": "Execute a SQL query and return results in JSONL format.",
+      "jsonSchema": "{ \"properties\": { \"query\": { \"title\": \"Query\", \"type\": \"string\" }, \"url\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Url\" } }, \"required\": [ \"query\" ], \"title\": \"podbc_query_databaseArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "podbc_spasql_query",
+      "description": "Execute SPASQL queries on databases via SQLAlchemy connectivity, enabling retrieval of structured results with customizable row limits and timeout settings.",
+      "instructions": "Execute a SPASQL query and return results.",
+      "jsonSchema": "{ \"properties\": { \"max_rows\": { \"anyOf\": [ { \"type\": \"integer\" }, { \"type\": \"null\" } ], \"default\": 20, \"title\": \"Max Rows\" }, \"query\": { \"title\": \"Query\", \"type\": \"string\" }, \"timeout\": { \"anyOf\": [ { \"type\": \"integer\" }, { \"type\": \"null\" } ], \"default\": 300000, \"title\": \"Timeout\" }, \"url\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Url\" } }, \"required\": [ \"query\" ], \"title\": \"podbc_spasql_queryArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "podbc_sparql_query",
+      "description": "Execute SPARQL queries to retrieve and analyze data from databases accessible via SQLAlchemy, with customizable options for format, timeout, and URL.",
+      "instructions": "Execute a SPARQL query and return results.",
+      "jsonSchema": "{ \"properties\": { \"format\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": \"json\", \"title\": \"Format\" }, \"query\": { \"title\": \"Query\", \"type\": \"string\" }, \"timeout\": { \"anyOf\": [ { \"type\": \"integer\" }, { \"type\": \"null\" } ], \"default\": 300000, \"title\": \"Timeout\" }, \"url\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Url\" } }, \"required\": [ \"query\" ], \"title\": \"podbc_sparql_queryArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "podbc_virtuoso_support_ai",
+      "description": "Leverage AI support in Virtuoso via MCP’s SQLAlchemy integration to process prompts and enhance database interactions.",
+      "instructions": "Tool to use the Virtuoso AI support function",
+      "jsonSchema": "{ \"properties\": { \"api_key\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Api Key\" }, \"prompt\": { \"title\": \"Prompt\", \"type\": \"string\" }, \"url\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Url\" } }, \"required\": [ \"prompt\" ], \"title\": \"podbc_virtuoso_support_aiArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "podbc_sparql_func",
+      "description": "Query and process SPARQL-based data directly through SQLAlchemy connectivity, enabling integration with any DBMS accessible via SQLAlchemy.",
+      "instructions": "Call ???.",
+      "jsonSchema": "{ \"properties\": { \"api_key\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Api Key\" }, \"prompt\": { \"title\": \"Prompt\", \"type\": \"string\" }, \"url\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Url\" } }, \"required\": [ \"prompt\" ], \"title\": \"podbc_sparql_funcArguments\", \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@OpenLinkSoftware/mcp-sqlalchemy-server",
+  "version": "0.3.1",
+  "keywords": []
+}

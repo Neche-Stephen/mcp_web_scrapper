@@ -1,0 +1,101 @@
+{
+  "name": "Nacos MCP Server",
+  "author": "nacos-group",
+  "author_url": "https://github.com/nacos-group",
+  "category": "Monitoring",
+  "license": "Apache 2.0",
+  "package_url": "",
+  "source_url": "https://github.com/nacos-group/nacos-mcp-server",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "host",
+      "required": "Yes",
+      "description": "Your Nacos host",
+      "default": ""
+    },
+    {
+      "name": "port",
+      "required": "Yes",
+      "description": "Your Nacos main port, such as 8848",
+      "default": ""
+    },
+    {
+      "name": "access_token",
+      "required": "Yes",
+      "description": "Your Nacos access token, get from `login` api: /nacos/v3/auth/user/login with `username` and `password`",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "list_namespaces",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_services",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "get_service",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_service_instances",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_service_subscribers",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_configs",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "get_config",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_config_history",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "get_config_history",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_config_listeners",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    },
+    {
+      "name": "list_listened_configs",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": ""
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@nacos-group/nacos-mcp-server",
+  "version": "0.1.1",
+  "keywords": []
+}

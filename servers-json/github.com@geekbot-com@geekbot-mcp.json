@@ -1,0 +1,45 @@
+{
+  "name": "Geekbot MCP",
+  "author": "geekbot-com",
+  "author_url": "https://github.com/geekbot-com",
+  "category": "Communication",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/geekbot-com/geekbot-mcp",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "GB_API_KEY",
+      "required": "Yes",
+      "description": "Your Geekbot API key, obtainable from https://geekbot.com/dashboard/api-webhooks",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "fetch_standups",
+      "description": "Retrieve a formatted JSON list of standups from Geekbot via the Geekbot MCP server. Facilitates access to standup data for integration within AI-driven workflows and conversations.",
+      "instructions": "Fetch standups list from GeekbotReturns:\n    str: Properly formatted JSON string of standups list",
+      "jsonSchema": "{ \"properties\": {}, \"title\": \"fetch_standupsArguments\", \"type\": \"object\" }"
+    },
+    {
+      "name": "fetch_reports",
+      "description": "Retrieve standup reports from Geekbot by specifying filters such as standup ID, user ID, or date ranges. Returns a JSON-formatted list of reports for easy integration and analysis.",
+      "instructions": "Fetch reports list from GeekbotArgs:\n    standup_id: int, optional, default is None The standup id to fetch reports for\n    user_id: int, optional, default is None The user id to fetch reports for\n    after: str, optional, default is None The date to fetch reports after in YYYY-MM-DD format\n    before: str, optional, default is None The date to fetch reports before in YYYY-MM-DD format\nReturns:\n    str: Properly formatted JSON string of reports list",
+      "jsonSchema": "{ \"properties\": { \"after\": { \"default\": null, \"title\": \"After\", \"type\": \"string\" }, \"before\": { \"default\": null, \"title\": \"Before\", \"type\": \"string\" }, \"standup_id\": { \"default\": null, \"title\": \"Standup Id\", \"type\": \"integer\" }, \"user_id\": { \"default\": null, \"title\": \"User Id\", \"type\": \"integer\" } }, \"title\": \"fetch_reportsArguments\", \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@geekbot-com/geekbot-mcp",
+  "version": "0.1.3",
+  "keywords": [
+    "geekbot",
+    "claude",
+    "ai",
+    "llm",
+    "mcp",
+    "api",
+    "integration",
+    "chatbot",
+    "anthropic"
+  ]
+}

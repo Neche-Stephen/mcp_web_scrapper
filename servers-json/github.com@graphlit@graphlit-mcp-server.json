@@ -1,0 +1,376 @@
+{
+  "name": "Graphlit MCP Server",
+  "author": "graphlit",
+  "author_url": "https://github.com/graphlit",
+  "category": "Knowledge & Memory",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/graphlit-mcp-server",
+  "source_url": "https://github.com/graphlit/graphlit-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "JIRA_EMAIL",
+      "required": "No",
+      "description": "Your Jira email for Jira data connector integration",
+      "default": ""
+    },
+    {
+      "name": "JIRA_TOKEN",
+      "required": "No",
+      "description": "Your Jira token for Jira data connector integration",
+      "default": ""
+    },
+    {
+      "name": "LINEAR_API_KEY",
+      "required": "No",
+      "description": "Your Linear API key for Linear data connector integration",
+      "default": ""
+    },
+    {
+      "name": "NOTION_API_KEY",
+      "required": "No",
+      "description": "Your Notion API key for Notion data connector integration",
+      "default": ""
+    },
+    {
+      "name": "SLACK_BOT_TOKEN",
+      "required": "No",
+      "description": "Your Slack bot token for Slack data connector integration",
+      "default": ""
+    },
+    {
+      "name": "DISCORD_BOT_TOKEN",
+      "required": "No",
+      "description": "Your Discord bot token for Discord data connector integration",
+      "default": ""
+    },
+    {
+      "name": "NOTION_DATABASE_ID",
+      "required": "No",
+      "description": "Your Notion database ID for Notion data connector integration",
+      "default": ""
+    },
+    {
+      "name": "GRAPHLIT_JWT_SECRET",
+      "required": "Yes",
+      "description": "Your JWT secret for signing the JWT token found in the API settings dashboard",
+      "default": ""
+    },
+    {
+      "name": "GOOGLE_EMAIL_CLIENT_ID",
+      "required": "No",
+      "description": "Your Google client ID for Google Mail data connector integration",
+      "default": ""
+    },
+    {
+      "name": "GRAPHLIT_ENVIRONMENT_ID",
+      "required": "Yes",
+      "description": "Your Graphlit environment ID found in the API settings dashboard",
+      "default": ""
+    },
+    {
+      "name": "GRAPHLIT_ORGANIZATION_ID",
+      "required": "Yes",
+      "description": "Your Graphlit organization ID found in the API settings dashboard",
+      "default": ""
+    },
+    {
+      "name": "GOOGLE_EMAIL_CLIENT_SECRET",
+      "required": "No",
+      "description": "Your Google client secret for Google Mail data connector integration",
+      "default": ""
+    },
+    {
+      "name": "GOOGLE_EMAIL_REFRESH_TOKEN",
+      "required": "No",
+      "description": "Your Google refresh token for Google Mail data connector integration",
+      "default": ""
+    },
+    {
+      "name": "GITHUB_PERSONAL_ACCESS_TOKEN",
+      "required": "No",
+      "description": "Your GitHub personal access token for GitHub data connector integration",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "retrieveSources",
+      "description": "Find relevant content sources from Graphlit's knowledge base using a search prompt, with optional filters for recency, content type, file type, feeds, or collections. Returns ranked sources with URIs for retrieval.",
+      "instructions": "Retrieve relevant content sources from Graphlit knowledge base. Do not use for retrieving content by content identifier - retrieve content resource instead, with URI 'contents://{id}'.\n    Accepts a search prompt, optional recency filter (defaults to all time), and optional content type and file type filters.\n    Also accepts optional feed and collection identifiers to filter content by.\n    Prompt should be optimized for vector search, via text embeddings. Rewrite prompt as appropriate for higher relevance to search results.\n    Returns the ranked content sources, including their content resource URI to retrieve the complete Markdown text.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"collections\": { \"description\": \"Collection identifiers to filter content by, optional.\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"contentType\": { \"description\": \"Content type filter, optional. One of: Email, Event, File, Issue, Message, Page, Post, Text.\", \"enum\": [ \"EMAIL\", \"EVENT\", \"FILE\", \"ISSUE\", \"MESSAGE\", \"PAGE\", \"POST\", \"TEXT\" ], \"type\": \"string\" }, \"feeds\": { \"description\": \"Feed identifiers to filter content by, optional.\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"fileType\": { \"description\": \"File type filter, optional. One of: Animation, Audio, Code, Data, Document, Drawing, Email, Geometry, Image, Package, PointCloud, Shape, Video.\", \"enum\": [ \"ANIMATION\", \"AUDIO\", \"CODE\", \"DATA\", \"DOCUMENT\", \"DRAWING\", \"EMAIL\", \"GEOMETRY\", \"IMAGE\", \"MANIFEST\", \"PACKAGE\", \"POINT_CLOUD\", \"SHAPE\", \"UNKNOWN\", \"VIDEO\" ], \"type\": \"string\" }, \"inLast\": { \"description\": \"Recency filter for content 'in last' timespan, optional. Should be ISO 8601 format, for example, 'PT1H' for last hour, 'P1D' for last day, 'P7D' for last week, 'P30D' for last month. Doesn't support weeks or months explicitly.\", \"type\": \"string\" }, \"prompt\": { \"description\": \"Search prompt for content retrieval.\", \"type\": \"string\" } }, \"required\": [ \"prompt\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "extractText",
+      "description": "Extracts structured JSON data from unstructured text using a specified JSON schema and LLM. Specify a prompt to guide extraction and obtain formatted data output.",
+      "instructions": "Extracts JSON data from text using LLM.\n    Accepts text to be extracted, and JSON schema which describes the data which will be extracted. JSON schema needs be of type 'object' and include 'properties' and 'required' fields.\n    Optionally accepts text prompt which is provided to LLM to guide data extraction. Defaults to 'Extract data using the tools provided'.\n    Returns extracted JSON from text.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"prompt\": { \"description\": \"Text prompt which is provided to LLM to guide data extraction, optional.\", \"type\": \"string\" }, \"schema\": { \"description\": \"JSON schema which describes the data which will be extracted. JSON schema needs be of type 'object' and include 'properties' and 'required' fields.\", \"type\": \"string\" }, \"text\": { \"description\": \"Text to be extracted with LLM.\", \"type\": \"string\" } }, \"required\": [ \"text\", \"schema\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "createCollection",
+      "description": "Organize and group content by creating a named collection. Add specific content identifiers to the collection for easy management and retrieval within a Graphlit MCP project.",
+      "instructions": "Create a collection.\n    Accepts a collection name, and optional list of content identifiers to add to collection.\n    Returns the collection identifier",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"contents\": { \"description\": \"Content identifiers to add to collection, optional.\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"name\": { \"description\": \"Collection name.\", \"type\": \"string\" } }, \"required\": [ \"name\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "addContentsToCollection",
+      "description": "Insert content identifiers into a specified collection on the Graphlit MCP Server. Use this tool to organize and manage content within collections for efficient retrieval and knowledge management.",
+      "instructions": "Add contents to a collection.\n    Accepts a collection identifier and a list of content identifiers to add to collection.\n    Returns the collection identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"contents\": { \"description\": \"Content identifiers to add to collection.\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"id\": { \"description\": \"Collection identifier.\", \"type\": \"string\" } }, \"required\": [ \"id\", \"contents\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "removeContentsFromCollection",
+      "description": "Eliminate specified content items from a collection by providing a collection identifier and a list of content identifiers, returning the updated collection identifier.",
+      "instructions": "Remove contents from collection.\n    Accepts a collection identifier and a list of content identifiers to remove from collection.\n    Returns the collection identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"contents\": { \"description\": \"Content identifiers to remove from collection.\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"id\": { \"description\": \"Collection identifier.\", \"type\": \"string\" } }, \"required\": [ \"id\", \"contents\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "deleteCollection",
+      "description": "Remove a collection from the MCP server without affecting its content. Specify the collection identifier to return the ID and deletion status.",
+      "instructions": "Delete a collection. Does not delete the content in the collection.\n    Accepts a collection identifier.\n    Returns the collection identifier and collection state, i.e. Deleted.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"id\": { \"description\": \"Collection identifier.\", \"type\": \"string\" } }, \"required\": [ \"id\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "deleteFeed",
+      "description": "Remove a feed and its ingested content from the Graphlit MCP Server using a feed identifier. Content deletion occurs asynchronously, returning the feed identifier and deletion status.",
+      "instructions": "Delete a feed and all of its ingested content.\n    Accepts a feed identifier which was returned from one of the ingestion tools, like ingestGoogleDriveFiles.\n    Content deletion will happen asynchronously.\n    Returns the feed identifier and feed state, i.e. Deleted.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"id\": { \"description\": \"Feed identifier.\", \"type\": \"string\" } }, \"required\": [ \"id\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "deleteContent",
+      "description": "Remove specific content by its identifier using this tool. Returns the deleted content's identifier and state, ensuring data management in the Graphlit MCP Server environment.",
+      "instructions": "Delete content.\n    Accepts a content identifier.\n    Returns the content identifier and content state, i.e. Deleted.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"id\": { \"description\": \"Content identifier.\", \"type\": \"string\" } }, \"required\": [ \"id\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "deleteContents",
+      "description": "Delete specific contents from Graphlit's knowledge base using optional filters for content type, file type, and limit. Returns identifiers and state of deleted items for precise cleanup.",
+      "instructions": "Deletes contents from Graphlit knowledge base.\n        Accepts optional content type and file type filters to limit the contents which will be deleted.\n        Also accepts optional limit of how many contents to delete, defaults to 1000.\n        Returns the content identifiers and content state, i.e. Deleted.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"contentType\": { \"description\": \"Content type filter, optional. One of: Email, Event, File, Issue, Message, Page, Post, Text.\", \"enum\": [ \"EMAIL\", \"EVENT\", \"FILE\", \"ISSUE\", \"MESSAGE\", \"PAGE\", \"POST\", \"TEXT\" ], \"type\": \"string\" }, \"fileType\": { \"description\": \"File type filter, optional. One of: Animation, Audio, Code, Data, Document, Drawing, Email, Geometry, Image, Package, PointCloud, Shape, Video.\", \"enum\": [ \"ANIMATION\", \"AUDIO\", \"CODE\", \"DATA\", \"DOCUMENT\", \"DRAWING\", \"EMAIL\", \"GEOMETRY\", \"IMAGE\", \"MANIFEST\", \"PACKAGE\", \"POINT_CLOUD\", \"SHAPE\", \"UNKNOWN\", \"VIDEO\" ], \"type\": \"string\" }, \"limit\": { \"default\": 1000, \"type\": \"number\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "deleteFeeds",
+      "description": "Remove feeds from the Graphlit knowledge base using optional filters like feed type and deletion limit. Returns deleted feed identifiers and their state.",
+      "instructions": "Deletes feeds from Graphlit knowledge base.\n        Accepts optional feed type filter to limit the feeds which will be deleted.\n        Also accepts optional limit of how many feeds to delete, defaults to 100.\n        Returns the feed identifiers and feed state, i.e. Deleted.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"feedType\": { \"description\": \"Feed type filter, optional. One of: Discord, Email, Intercom, Issue, MicrosoftTeams, Notion, Reddit, Rss, Search, Site, Slack, Web, YouTube, Zendesk.\", \"enum\": [ \"DISCORD\", \"EMAIL\", \"INTERCOM\", \"ISSUE\", \"MICROSOFT_TEAMS\", \"NOTION\", \"REDDIT\", \"RSS\", \"SEARCH\", \"SITE\", \"SLACK\", \"WEB\", \"YOU_TUBE\", \"ZENDESK\" ], \"type\": \"string\" }, \"limit\": { \"default\": 100, \"type\": \"number\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "isContentDone",
+      "description": "Verify if asynchronous content ingestion is complete by providing a content identifier. This tool helps confirm whether ingested content from URLs or other sources is ready for use in Graphlit projects.",
+      "instructions": "Check if content has completed asynchronous ingestion.\n    Accepts a content identifier which was returned from one of the non-feed ingestion tools, like ingestUrl.\n    Returns whether the content is done or not.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"id\": { \"description\": \"Content identifier.\", \"type\": \"string\" } }, \"required\": [ \"id\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "isFeedDone",
+      "description": "Verify completion of asynchronous feed ingestion using a unique identifier. Determines if all content for the specified feed is fully ingested, ensuring data readiness for further processing.",
+      "instructions": "Check if an asynchronous feed has completed ingesting all the available content.\n    Accepts a feed identifier which was returned from one of the ingestion tools, like ingestGoogleDriveFiles.\n    Returns whether the feed is done or not.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"id\": { \"description\": \"Feed identifier.\", \"type\": \"string\" } }, \"required\": [ \"id\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "listMicrosoftTeamsTeams",
+      "description": "Retrieve a list of Microsoft Teams teams to identify team identifiers for channel enumeration. Streamline integration with Microsoft Teams for efficient data management and collaboration workflows.",
+      "instructions": "Lists available Microsoft Teams teams.\n        Returns a list of Microsoft Teams teams, where the team identifier can be used with listMicrosoftTeamsChannels to enumerate Microsoft Teams channels.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "listMicrosoftTeamsChannels",
+      "description": "Retrieve a list of Microsoft Teams channels by team ID to identify channels for ingesting conversations into the Graphlit knowledge base.",
+      "instructions": "Lists available Microsoft Teams channels.\n        Returns a list of Microsoft Teams channels, where the channel identifier can be used with ingestMicrosoftTeamsMessages to ingest messages into Graphlit knowledge base.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"teamId\": { \"type\": \"string\" } }, \"required\": [ \"teamId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "listSlackChannels",
+      "description": "Retrieve a list of available Slack channels for integration with Graphlit's knowledge base, enabling streamlined ingestion of Slack messages for enhanced project insights and collaboration.",
+      "instructions": "Lists available Slack channels.\n        Returns a list of Slack channels, where the channel name can be used with ingestSlackMessages to ingest messages into Graphlit knowledge base.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "listSharePointLibraries",
+      "description": "Enumerate SharePoint libraries to identify and retrieve library IDs for folder navigation using the listSharePointFolders tool within the Graphlit MCP Server environment.",
+      "instructions": "Lists available SharePoint libraries.\n    Returns a list of SharePoint libraries, where the selected libraryId can be used with listSharePointFolders to enumerate SharePoint folders in a library.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "listSharePointFolders",
+      "description": "Retrieve a list of SharePoint folders to identify and organize content for ingestion into the Graphlit knowledge base. Simplify integration with ingestSharePointFiles for structured data management.",
+      "instructions": "Lists available SharePoint folders.\n        Returns a list of SharePoint folders, which can be used with ingestSharePointFiles to ingest files into Graphlit knowledge base.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"libraryId\": { \"type\": \"string\" } }, \"required\": [ \"libraryId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestSharePointFiles",
+      "description": "Transfer files from a SharePoint library or specific folder into the Graphlit knowledge base. Specify libraryId, optional folderId, and read limit for file quantity. Returns a feed identifier for asynchronous processing.",
+      "instructions": "Ingests files from SharePoint library into Graphlit knowledge base.\n    Accepts a SharePoint libraryId and an optional folderId to ingest files from a specific SharePoint folder.\n    Libraries can be enumerated with listSharePointLibraries and library folders with listSharePointFolders.\n    Accepts an optional read limit for the number of files to ingest.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"folderId\": { \"type\": \"string\" }, \"libraryId\": { \"type\": \"string\" }, \"readLimit\": { \"description\": \"Number of files to ingest, optional. Defaults to 100.\", \"type\": \"number\" } }, \"required\": [ \"libraryId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestOneDriveFiles",
+      "description": "Ingest files from a OneDrive folder into a Graphlit knowledge base. Specify a read limit for file count, and receive a feed identifier for asynchronous processing.",
+      "instructions": "Ingests files from OneDrive folder into Graphlit knowledge base.\n    Accepts an optional read limit for the number of files to ingest.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"readLimit\": { \"description\": \"Number of files to ingest, optional. Defaults to 100.\", \"type\": \"number\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestGoogleDriveFiles",
+      "description": "Transfers files from a Google Drive folder into a Graphlit knowledge base. Optionally, specify a file read limit for ingestion. Operates asynchronously and provides a feed identifier upon completion.",
+      "instructions": "Ingests files from Google Drive folder into Graphlit knowledge base.\n    Accepts an optional read limit for the number of files to ingest.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"readLimit\": { \"description\": \"Number of files to ingest, optional. Defaults to 100.\", \"type\": \"number\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestDropboxFiles",
+      "description": "Import files from a specified Dropbox folder into the Graphlit knowledge base. Allows setting a file read limit or defaulting to the root folder. Operates asynchronously and returns the feed identifier.",
+      "instructions": "Ingests files from Dropbox folder into Graphlit knowledge base.\n    Accepts optional relative path to Dropbox folder (i.e. /Pictures), and an optional read limit for the number of files to ingest.\n    If no path provided, ingests files from root Dropbox folder.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"path\": { \"type\": \"string\" }, \"readLimit\": { \"description\": \"Number of files to ingest, optional. Defaults to 100.\", \"type\": \"number\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestBoxFiles",
+      "description": "Transfer files from a Box folder into the Graphlit knowledge base. Specify a folder identifier or use the root folder. Optionally limit the number of files ingested. Executes asynchronously and returns the feed identifier.",
+      "instructions": "Ingests files from Box folder into Graphlit knowledge base.\n    Accepts optional Box folder identifier, and an optional read limit for the number of files to ingest.\n    If no folder identifier provided, ingests files from root Box folder (i.e. \"0\").\n    Folder identifier can be inferred from Box URL. https://app.box.com/folder/123456 -> folder identifier is \"123456\".\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"folderId\": { \"default\": \"0\", \"type\": \"string\" }, \"readLimit\": { \"description\": \"Number of files to ingest, optional. Defaults to 100.\", \"type\": \"number\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestGitHubFiles",
+      "description": "Transfer files from a GitHub repository into the Graphlit knowledge base by specifying the repository owner, name, and optional file read limit. Returns a feed identifier for asynchronous execution.",
+      "instructions": "Ingests files from GitHub repository into Graphlit knowledge base.\n    Accepts GitHub repository owner and repository name and an optional read limit for the number of files to ingest.\n    For example, for GitHub repository (https://github.com/openai/tiktoken), 'openai' is the repository owner, and 'tiktoken' is the repository name.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"readLimit\": { \"description\": \"Number of files to ingest, optional. Defaults to 100.\", \"type\": \"number\" }, \"repositoryName\": { \"description\": \"GitHub repository name.\", \"type\": \"string\" }, \"repositoryOwner\": { \"description\": \"GitHub repository owner.\", \"type\": \"string\" } }, \"required\": [ \"repositoryName\", \"repositoryOwner\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestNotionPages",
+      "description": "Easily transfer pages from a Notion database into Graphlit's knowledge base. Set a read limit to control the number of pages ingested. Operates asynchronously and provides a feed identifier for tracking.",
+      "instructions": "Ingests pages from Notion database into Graphlit knowledge base.\n        Accepts an optional read limit for the number of messages to ingest.\n        Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"readLimit\": { \"description\": \"Number of pages to ingest, optional. Defaults to 100.\", \"type\": \"number\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestMicrosoftTeamsMessages",
+      "description": "Extract and ingest Microsoft Teams channel messages into a Graphlit knowledge base for search and retrieval. Specify team and channel IDs, and set a read limit for message ingestion. Executes asynchronously and returns a feed identifier.",
+      "instructions": "Ingests messages from Microsoft Teams channel into Graphlit knowledge base.\n    Accepts Microsoft Teams team identifier and channel identifier, and an optional read limit for the number of messages to ingest.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"channelId\": { \"type\": \"string\" }, \"readLimit\": { \"description\": \"Number of messages to ingest, optional. Defaults to 100.\", \"type\": \"number\" }, \"teamId\": { \"type\": \"string\" } }, \"required\": [ \"teamId\", \"channelId\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestSlackMessages",
+      "description": "Ingest messages from a Slack channel into the Graphlit knowledge base. Specify the channel name and optionally limit the number of messages to process. Executes asynchronously and returns a feed identifier.",
+      "instructions": "Ingests messages from Slack channel into Graphlit knowledge base.\n        Accepts Slack channel name and an optional read limit for the number of messages to ingest.\n        Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"channelName\": { \"type\": \"string\" }, \"readLimit\": { \"description\": \"Number of messages to ingest, optional. Defaults to 100.\", \"type\": \"number\" } }, \"required\": [ \"channelName\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestDiscordMessages",
+      "description": "Ingest messages from a Discord channel into a knowledge base, specifying the channel name and optional read limit. Executes asynchronously and returns the feed identifier for easy retrieval.",
+      "instructions": "Ingests messages from Discord channel into Graphlit knowledge base.\n        Accepts Discord channel name and an optional read limit for the number of messages to ingest.\n        Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"channelName\": { \"type\": \"string\" }, \"readLimit\": { \"description\": \"Number of messages to ingest, optional. Defaults to 100.\", \"type\": \"number\" } }, \"required\": [ \"channelName\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestRedditPosts",
+      "description": "Extract and ingest Reddit posts from specified subreddits into the Graphlit knowledge base. Specify a subreddit name and optional read limit to control the number of posts processed. Performs asynchronously and returns the feed identifier.",
+      "instructions": "Ingests posts from Reddit subreddit into Graphlit knowledge base.\n        Accepts a subreddit name and an optional read limit for the number of posts to ingest.\n        Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"readLimit\": { \"description\": \"Number of posts to ingest, optional. Defaults to 100.\", \"type\": \"number\" }, \"subredditName\": { \"type\": \"string\" } }, \"required\": [ \"subredditName\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestGoogleEmail",
+      "description": "Ingest emails from a Google Email account into a knowledge base for search and retrieval. Optionally specify the number of emails to process, with results returned asynchronously via a feed identifier.",
+      "instructions": "Ingests emails from Google Email account into Graphlit knowledge base.\n    Accepts an optional read limit for the number of emails to ingest.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"readLimit\": { \"description\": \"Number of emails to ingest, optional. Defaults to 100.\", \"type\": \"number\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestMicrosoftEmail",
+      "description": "Extract emails from a Microsoft Email account into Graphlit’s knowledge base. Specify a read limit for controlled ingestion, executes asynchronously, and returns a feed identifier for tracking.",
+      "instructions": "Ingests emails from Microsoft Email account into Graphlit knowledge base.\n    Accepts an optional read limit for the number of emails to ingest.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"readLimit\": { \"description\": \"Number of emails to ingest, optional. Defaults to 100.\", \"type\": \"number\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestLinearIssues",
+      "description": "Streamline issue integration from Linear projects into Graphlit knowledge base. Specify project name and optional read limit for a controlled ingestion process, executed asynchronously with feed identifier return.",
+      "instructions": "Ingests issues from Linear project into Graphlit knowledge base.\n    Accepts Linear project name and an optional read limit for the number of issues to ingest.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"projectName\": { \"type\": \"string\" }, \"readLimit\": { \"description\": \"Number of issues to ingest, optional. Defaults to 100.\", \"type\": \"number\" } }, \"required\": [ \"projectName\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestGitHubIssues",
+      "description": "Extract and ingest GitHub repository issues into the Graphlit knowledge base by specifying the repository owner, name, and optional read limit. Enables asynchronous issue management and data integration.",
+      "instructions": "Ingests issues from GitHub repository into Graphlit knowledge base.\n    Accepts GitHub repository owner and repository name and an optional read limit for the number of issues to ingest.\n    For example, for GitHub repository (https://github.com/openai/tiktoken), 'openai' is the repository owner, and 'tiktoken' is the repository name.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"readLimit\": { \"description\": \"Number of issues to ingest, optional. Defaults to 100.\", \"type\": \"number\" }, \"repositoryName\": { \"description\": \"GitHub repository name.\", \"type\": \"string\" }, \"repositoryOwner\": { \"description\": \"GitHub repository owner.\", \"type\": \"string\" } }, \"required\": [ \"repositoryName\", \"repositoryOwner\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestJiraIssues",
+      "description": "Import Jira project issues into the Graphlit knowledge base. Specify the Jira server URL, project name, and optional read limit. Executes asynchronously and returns a feed identifier for tracking.",
+      "instructions": "Ingests issues from Atlassian Jira repository into Graphlit knowledge base.\n    Accepts Atlassian Jira server URL and project name, and an optional read limit for the number of issues to ingest.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"projectName\": { \"type\": \"string\" }, \"readLimit\": { \"description\": \"Number of issues to ingest, optional. Defaults to 100.\", \"type\": \"number\" }, \"url\": { \"type\": \"string\" } }, \"required\": [ \"url\", \"projectName\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "webCrawl",
+      "description": "Crawl and ingest web pages into a knowledge base using sitemap.xml, accepting a URL and optional read limit. Executes asynchronously and returns a feed identifier for streamlined data organization.",
+      "instructions": "Crawls web pages from web site into Graphlit knowledge base.\n    Accepts a URL and an optional read limit for the number of pages to crawl.\n    Uses sitemap.xml to discover pages to be crawled from website.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"readLimit\": { \"description\": \"Number of web pages to ingest, optional. Defaults to 100.\", \"type\": \"number\" }, \"url\": { \"type\": \"string\" } }, \"required\": [ \"url\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "webMap",
+      "description": "Enumerates web pages below a specified URL using a web sitemap, returning a detailed list of mapped URIs for site analysis or navigation.",
+      "instructions": "Enumerates the web pages at or beneath the provided URL using web sitemap. \n    Does not ingest web pages into Graphlit knowledge base.\n    Accepts web page URL as string.\n    Returns list of mapped URIs from web site.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"url\": { \"type\": \"string\" } }, \"required\": [ \"url\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "webSearch",
+      "description": "Execute web searches for pages, podcasts, videos, images, news, or shopping using a query string. Choose search services like Tavily or Exa, and retrieve URL, title, and Markdown text from results without ingesting into Graphlit.",
+      "instructions": "Performs web search based on search query. Format the search query as what would be entered into a Google search.\n    Prefer calling this tool over using 'curl' directly for any web search.\n    Does not ingest pages into Graphlit knowledge base.\n    Accepts search query as string, and optional search service type.\n    Can search for web pages, podcasts, videos, images, news, or shopping.\n    Search service types: Tavily, Exa. Defaults to Tavily.\n    Returns URL, title and relevant Markdown text from resulting web pages.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"search\": { \"type\": \"string\" }, \"searchService\": { \"default\": \"TAVILY\", \"enum\": [ \"EXA\", \"TAVILY\" ], \"type\": \"string\" } }, \"required\": [ \"search\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestRSS",
+      "description": "Extract and ingest posts from RSS feeds into the Graphlit knowledge base. For podcast feeds, audio is downloaded, transcribed, and stored. Specify an RSS URL and optional read limit to control the number of posts processed.",
+      "instructions": "Ingests posts from RSS feed into Graphlit knowledge base.\n    For podcast RSS feeds, audio will be downloaded, transcribed and ingested into Graphlit knowledge base.\n    Accepts RSS URL and an optional read limit for the number of posts to read.\n    Executes asynchronously and returns the feed identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"readLimit\": { \"description\": \"Number of issues to posts, optional. Defaults to 25.\", \"type\": \"number\" }, \"url\": { \"type\": \"string\" } }, \"required\": [ \"url\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestUrl",
+      "description": "Ingest unstructured content from URLs, including web pages, documents, audio, videos, and images, into the Graphlit knowledge base for processing and retrieval.",
+      "instructions": "Ingests content from URL into Graphlit knowledge base.\n    Can scrape web pages, and can ingest individual Word documents, PDFs, audio recordings, videos, images, or any other unstructured data.\n    Executes asynchronously and returns the content identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"url\": { \"type\": \"string\" } }, \"required\": [ \"url\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestText",
+      "description": "Ingest text into the Graphlit knowledge base for long-term storage or retrieval. Accepts plain text, Markdown, or HTML, enabling you to save LLM outputs, memories, or other text resources with a unique identifier.",
+      "instructions": "Ingests text as content into Graphlit knowledge base.\n    Accepts a name for the content object, the text itself, and an optional text type (Plain, Markdown, Html). Defaults to Markdown text type.\n    Can use for storing long-term textual memories or the output from LLM or other tools as content resources, which can be later searched or retrieved.\n    Executes synchronously and returns the content identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"name\": { \"type\": \"string\" }, \"text\": { \"type\": \"string\" }, \"textType\": { \"default\": \"MARKDOWN\", \"enum\": [ \"HTML\", \"MARKDOWN\", \"PLAIN\" ], \"type\": \"string\" } }, \"required\": [ \"name\", \"text\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "ingestFile",
+      "description": "Uploads local files to the Graphlit knowledge base for processing, extracting content, and enabling search within MCP clients. Supports async execution and returns a content identifier.",
+      "instructions": "Ingests local file into Graphlit knowledge base.\n    Accepts the path to the file in the local filesystem.\n    Executes asynchronously and returns the content identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"filePath\": { \"type\": \"string\" } }, \"required\": [ \"filePath\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "screenshotPage",
+      "description": "Captures web page screenshots from any URL using the MCP server, returning a content identifier for asynchronous processing and integration into Graphlit projects.",
+      "instructions": "Screenshots web page from URL.\n    Executes asynchronously and returns the content identifier.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"url\": { \"type\": \"string\" } }, \"required\": [ \"url\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "describeImage",
+      "description": "Generate descriptive text from an image using vision LLM. Input an image URL and prompt to receive Markdown-formatted text output, without storing the image in the knowledge base.",
+      "instructions": "Prompts vision LLM and returns completion. \n    Does not ingest image into Graphlit knowledge base.\n    Accepts image URL as string.\n    Returns Markdown text from LLM completion.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"prompt\": { \"type\": \"string\" }, \"url\": { \"type\": \"string\" } }, \"required\": [ \"prompt\", \"url\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "describeContent",
+      "description": "Generate detailed descriptions of image content using vision LLMs. Provide a content identifier and optional prompt to receive Markdown-formatted output for enhanced content analysis.",
+      "instructions": "Prompts vision LLM and returns description of image content. \n    Accepts content identifier as string, and optional prompt for image description.\n    Returns Markdown text from LLM completion.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"id\": { \"type\": \"string\" }, \"prompt\": { \"type\": \"string\" } }, \"required\": [ \"id\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@graphlit/graphlit-mcp-server",
+  "version": "1.0.0",
+  "keywords": [
+    "Graphlit",
+    "API",
+    "LLM",
+    "AI",
+    "RAG",
+    "OpenAI",
+    "PDF",
+    "parsing",
+    "preprocessing",
+    "memory",
+    "agents",
+    "agent tools",
+    "retrieval",
+    "web scraping",
+    "knowledge graph",
+    "MCP"
+  ]
+}

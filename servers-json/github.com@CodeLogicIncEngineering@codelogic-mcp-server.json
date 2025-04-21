@@ -1,0 +1,46 @@
+{
+  "name": "CodeLogic",
+  "author": "CodeLogicIncEngineering",
+  "author_url": "https://github.com/CodeLogicIncEngineering",
+  "category": "Developer Tools",
+  "license": "Mozilla Public License 2.0",
+  "package_url": "",
+  "source_url": "https://github.com/CodeLogicIncEngineering/codelogic-mcp-server",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "CODELOGIC_MV_NAME",
+      "required": "Yes",
+      "description": "Your CodeLogic materialized view name",
+      "default": ""
+    },
+    {
+      "name": "CODELOGIC_PASSWORD",
+      "required": "Yes",
+      "description": "Your CodeLogic password",
+      "default": ""
+    },
+    {
+      "name": "CODELOGIC_USERNAME",
+      "required": "Yes",
+      "description": "Your CodeLogic username",
+      "default": ""
+    },
+    {
+      "name": "CODELOGIC_SERVER_HOST",
+      "required": "Yes",
+      "description": "URL to the CodeLogic server (e.g. https://myco.app.codelogic.com)",
+      "default": ""
+    }
+  ],
+  "tools": [],
+  "scrape_source": "https://glama.ai/mcp/servers/@CodeLogicIncEngineering/codelogic-mcp-server",
+  "version": "0.6.2",
+  "keywords": [
+    "codelogic",
+    "mcp",
+    "code-analysis",
+    "knowledge-graph",
+    "static-analysis"
+  ]
+}

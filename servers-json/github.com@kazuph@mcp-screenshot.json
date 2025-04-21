@@ -1,0 +1,33 @@
+{
+  "name": "mcp-screenshot",
+  "author": "kazuph",
+  "author_url": "https://github.com/kazuph",
+  "category": "Image & Video Processing",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@kazuph/mcp-screenshot",
+  "source_url": "https://github.com/kazuph/mcp-screenshot",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "OCR_API_URL",
+      "required": "No",
+      "description": "yomitoku API base URL",
+      "default": "http://localhost:8000"
+    }
+  ],
+  "tools": [
+    {
+      "name": "capture",
+      "description": "Capture screenshots of specified regions, perform OCR, and save output in formats like JSON or markdown for macOS. Customize region and format settings to meet specific needs.",
+      "instructions": "Captures a screenshot of the specified region and performs OCR. Options:region: 'left'/'right'/'full' (default: 'left')format: 'json'/'markdown'/'vertical'/'horizontal' (default: 'markdown')\nThe screenshot is saved to a dated directory in Downloads.",
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"format\": { \"default\": \"markdown\", \"enum\": [ \"json\", \"markdown\", \"vertical\", \"horizontal\" ], \"type\": \"string\" }, \"region\": { \"default\": \"left\", \"enum\": [ \"left\", \"right\", \"full\" ], \"type\": \"string\" } }, \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@kazuph/mcp-screenshot",
+  "version": "1.0.4",
+  "keywords": [
+    "mcp",
+    "screenshot",
+    "ocr"
+  ]
+}

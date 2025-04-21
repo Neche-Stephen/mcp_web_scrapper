@@ -1,0 +1,15 @@
+{
+  "name": "Playwright MCP Server",
+  "author": "microsoft",
+  "author_url": "https://github.com/microsoft",
+  "category": "Browser Automation",
+  "license": "Apache 2.0",
+  "package_url": "https://www.npmjs.com/package/@playwright/mcp",
+  "source_url": "https://github.com/microsoft/playwright-mcp",
+  "language": "TypeScript",
+  "server_configuration": [],
+  "tools": [],
+  "scrape_source": "https://glama.ai/mcp/servers/@microsoft/playwright-mcp",
+  "version": "0.0.13",
+  "keywords": []
+}

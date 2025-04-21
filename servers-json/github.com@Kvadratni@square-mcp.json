@@ -1,0 +1,20 @@
+{
+  "name": "Square MCP Server",
+  "author": "block",
+  "author_url": "https://github.com/block",
+  "category": "Customer Data Platforms",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/Kvadratni/square-mcp",
+  "language": "Python",
+  "server_configuration": [],
+  "tools": [],
+  "scrape_source": "https://glama.ai/mcp/servers/@block/square-mcp",
+  "version": "0.2.2",
+  "keywords": [
+    "square",
+    "mcp",
+    "api",
+    "payments"
+  ]
+}

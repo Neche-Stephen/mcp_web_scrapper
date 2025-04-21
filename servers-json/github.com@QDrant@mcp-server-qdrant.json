@@ -1,0 +1,59 @@
+{
+  "name": "mcp-server-qdrant",
+  "author": "qdrant",
+  "author_url": "https://github.com/qdrant",
+  "category": "Search",
+  "license": "Apache 2.0",
+  "package_url": "",
+  "source_url": "https://github.com/QDrant/mcp-server-qdrant",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "QDRANT_URL",
+      "required": "No",
+      "description": "URL of the Qdrant server, e.g. http://localhost:6333",
+      "default": ""
+    },
+    {
+      "name": "QDRANT_API_KEY",
+      "required": "No",
+      "description": "API key for the Qdrant server",
+      "default": ""
+    },
+    {
+      "name": "COLLECTION_NAME",
+      "required": "No",
+      "description": "Name of the collection to use",
+      "default": ""
+    },
+    {
+      "name": "QDRANT_LOCAL_PATH",
+      "required": "No",
+      "description": "Path to the local Qdrant database",
+      "default": ""
+    },
+    {
+      "name": "FASTEMBED_MODEL_NAME",
+      "required": "No",
+      "description": "Name of the FastEmbed model to use",
+      "default": "sentence-transformers/all-MiniLM-L6-v2"
+    }
+  ],
+  "tools": [
+    {
+      "name": "qdrant-store-memory",
+      "description": "Store and retrieve information for future reference by saving it in memory using this tool integrated with a Qdrant vector search engine.",
+      "instructions": "Keep the memory for later use, when you are asked to remember something.",
+      "jsonSchema": "{ \"properties\": { \"information\": { \"type\": \"string\" } }, \"required\": [ \"information\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "qdrant-find-memories",
+      "description": "Search for memories stored in Qdrant by content, enabling access and analysis of user-related information through targeted queries.",
+      "instructions": "Look up memories in Qdrant. Use this tool when you need to: Find memories by their content Access memories for further analysis Get some personal information about the user",
+      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"The query to search for\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@qdrant/mcp-server-qdrant",
+  "version": "0.7.1",
+  "keywords": []
+}

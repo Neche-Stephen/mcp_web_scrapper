@@ -1,0 +1,161 @@
+{
+  "name": "mcp-with-ssh",
+  "author": "aakarsh-sasi",
+  "author_url": "https://github.com/aakarsh-sasi",
+  "category": "Knowledge & Memory",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@aakarsh-sasi/memory-bank-mcp",
+  "source_url": "https://github.com/aakarsh-sasi/memory-bank-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "mode",
+      "required": "No",
+      "description": "Operational mode (code, architect, ask, debug, test)",
+      "default": "code"
+    },
+    {
+      "name": "path",
+      "required": "No",
+      "description": "Custom project path",
+      "default": ""
+    },
+    {
+      "name": "folder",
+      "required": "No",
+      "description": "Custom folder name for the Memory Bank",
+      "default": "memory-bank"
+    },
+    {
+      "name": "remote",
+      "required": "No",
+      "description": "Whether to use remote server mode",
+      "default": ""
+    },
+    {
+      "name": "ssh-key",
+      "required": "No",
+      "description": "Path to SSH key for remote server authentication",
+      "default": "~/.ssh/your_ssh_key"
+    },
+    {
+      "name": "remote-host",
+      "required": "No",
+      "description": "Hostname for remote server",
+      "default": ""
+    },
+    {
+      "name": "remote-path",
+      "required": "No",
+      "description": "Path on remote server for Memory Bank storage",
+      "default": ""
+    },
+    {
+      "name": "remote-user",
+      "required": "No",
+      "description": "Username for remote server",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "initialize_memory_bank",
+      "description": "Set up a Memory Bank in a specified directory to create a central knowledge base with SSH support for efficient data storage and retrieval.",
+      "instructions": "Initialize a Memory Bank in the specified directory",
+      "jsonSchema": "{ \"properties\": { \"path\": { \"description\": \"Path where the Memory Bank will be initialized\", \"type\": \"string\" } }, \"required\": [ \"path\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "set_memory_bank_path",
+      "description": "Define or update the custom path for the Memory Bank in mcp-with-ssh, ensuring centralized knowledge storage and access via SSH. Use the command to specify a directory or default to the current one.",
+      "instructions": "Set a custom path for the Memory Bank",
+      "jsonSchema": "{ \"properties\": { \"path\": { \"description\": \"Custom path for the Memory Bank. If not provided, the current directory will be used.\", \"type\": \"string\" } }, \"required\": [], \"type\": \"object\" }"
+    },
+    {
+      "name": "debug_mcp_config",
+      "description": "Analyze and troubleshoot the current MCP configuration on the mcp-with-ssh server. Optionally include detailed insights by enabling verbose mode.",
+      "instructions": "Debug the current MCP configuration",
+      "jsonSchema": "{ \"properties\": { \"verbose\": { \"default\": false, \"description\": \"Whether to include detailed information\", \"type\": \"boolean\" } }, \"required\": [], \"type\": \"object\" }"
+    },
+    {
+      "name": "read_memory_bank_file",
+      "description": "Retrieve and access specific files stored in the memory bank via SSH with the MCP server. Input the filename to read its contents efficiently from the central knowledge base.",
+      "instructions": "Read a file from the Memory Bank",
+      "jsonSchema": "{ \"properties\": { \"filename\": { \"description\": \"Name of the file to read\", \"type\": \"string\" } }, \"required\": [ \"filename\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "write_memory_bank_file",
+      "description": "Store and manage data efficiently by writing content to a specified file in the memory bank using SSH-supported central knowledge base for seamless access.",
+      "instructions": "Write to a Memory Bank file",
+      "jsonSchema": "{ \"properties\": { \"content\": { \"description\": \"Content to write to the file\", \"type\": \"string\" }, \"filename\": { \"description\": \"Name of the file to write\", \"type\": \"string\" } }, \"required\": [ \"filename\", \"content\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "list_memory_bank_files",
+      "description": "Retrieve a list of files stored in the memory bank on the MCP server with SSH support for centralized knowledge management.",
+      "instructions": "List Memory Bank files",
+      "jsonSchema": "{ \"properties\": { \"random_string\": { \"description\": \"Dummy parameter for no-parameter tools\", \"type\": \"string\" } }, \"required\": [ \"random_string\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "get_memory_bank_status",
+      "description": "Retrieve the current status of the memory bank on the MCP server with SSH support. Use this tool to monitor and verify the central knowledge base's operational state.",
+      "instructions": "Check Memory Bank status",
+      "jsonSchema": "{ \"properties\": { \"random_string\": { \"description\": \"Dummy parameter for no-parameter tools\", \"type\": \"string\" } }, \"required\": [ \"random_string\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "migrate_file_naming",
+      "description": "Convert Memory Bank file names from camelCase to kebab-case using the MCP server with SSH support for efficient file system standardization.",
+      "instructions": "Migrate Memory Bank files from camelCase to kebab-case naming convention",
+      "jsonSchema": "{ \"properties\": { \"random_string\": { \"description\": \"Dummy parameter for no-parameter tools\", \"type\": \"string\" } }, \"required\": [ \"random_string\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "track_progress",
+      "description": "Use this tool to log progress and update Memory Bank files via SSH, documenting actions like feature implementations or bug fixes with detailed descriptions.",
+      "instructions": "Track progress and update Memory Bank files",
+      "jsonSchema": "{ \"properties\": { \"action\": { \"description\": \"Action performed (e.g., 'Implemented feature', 'Fixed bug')\", \"type\": \"string\" }, \"description\": { \"description\": \"Detailed description of the progress\", \"type\": \"string\" }, \"updateActiveContext\": { \"default\": true, \"description\": \"Whether to update the active context file\", \"type\": \"boolean\" } }, \"required\": [ \"action\", \"description\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "update_active_context",
+      "description": "Modify the active context file to track ongoing tasks, known issues, and next steps, ensuring centralized and up-to-date information in the MCP server with SSH support.",
+      "instructions": "Update the active context file",
+      "jsonSchema": "{ \"properties\": { \"issues\": { \"description\": \"List of known issues\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"nextSteps\": { \"description\": \"List of next steps\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"tasks\": { \"description\": \"List of ongoing tasks\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" } }, \"type\": \"object\" }"
+    },
+    {
+      "name": "log_decision",
+      "description": "Record and document decisions in a structured format, including title, context, alternatives, and consequences, for centralized knowledge management on the MCP server.",
+      "instructions": "Log a decision in the decision log",
+      "jsonSchema": "{ \"properties\": { \"alternatives\": { \"description\": \"Alternatives considered\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"consequences\": { \"description\": \"Consequences of the decision\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"context\": { \"description\": \"Decision context\", \"type\": \"string\" }, \"decision\": { \"description\": \"The decision made\", \"type\": \"string\" }, \"title\": { \"description\": \"Decision title\", \"type\": \"string\" } }, \"required\": [ \"title\", \"context\", \"decision\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "switch_mode",
+      "description": "Change the operational mode of the MCP server (architect, ask, code, debug, test) to align tasks with specific functionalities. Supports centralized SSH-based knowledge management.",
+      "instructions": "Switches to a specific mode",
+      "jsonSchema": "{ \"properties\": { \"mode\": { \"description\": \"Name of the mode to switch to (architect, ask, code, debug, test)\", \"type\": \"string\" } }, \"required\": [ \"mode\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "get_current_mode",
+      "description": "Retrieve the current operational mode from the MCP server with SSH support to access centralized system information efficiently.",
+      "instructions": "Gets information about the current mode",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    },
+    {
+      "name": "process_umb_command",
+      "description": "Execute the Update Memory Bank (UMB) command to manage and update the central knowledge base on the MCP server with SSH support.",
+      "instructions": "Processes the Update Memory Bank (UMB) command",
+      "jsonSchema": "{ \"properties\": { \"command\": { \"description\": \"Complete UMB command\", \"type\": \"string\" } }, \"required\": [ \"command\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "complete_umb",
+      "description": "Execute the Update Memory Bank (UMB) process on the MCP server with SSH support to manage and update the central knowledge base efficiently.",
+      "instructions": "Completes the Update Memory Bank (UMB) process",
+      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@aakarsh-sasi/memory-bank-mcp",
+  "version": "1.1.4",
+  "keywords": [
+    "mcp",
+    "memory-bank",
+    "ai",
+    "assistant",
+    "context"
+  ]
+}

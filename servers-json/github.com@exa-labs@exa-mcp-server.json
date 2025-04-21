@@ -1,0 +1,40 @@
+{
+  "name": "Exa MCP Server",
+  "author": "exa-labs",
+  "author_url": "https://github.com/exa-labs",
+  "category": "Search",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/exa-mcp-server",
+  "source_url": "https://github.com/exa-labs/exa-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "EXA_API_KEY",
+      "required": "Yes",
+      "description": "Your Exa API key from dashboard.exa.ai/api-keys",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "search",
+      "description": "Perform web searches via the Exa MCP Server to retrieve real-time information using a query and optional result count.",
+      "instructions": "Search the web using Exa AI",
+      "jsonSchema": "{ \"properties\": { \"numResults\": { \"description\": \"Number of results to return (default: 10)\", \"maximum\": 50, \"minimum\": 1, \"type\": \"number\" }, \"query\": { \"description\": \"Search query\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@exa-labs/exa-mcp-server",
+  "version": "0.3.6",
+  "keywords": [
+    "mcp",
+    "model context protocol",
+    "exa",
+    "websearch",
+    "claude",
+    "ai",
+    "research",
+    "papers",
+    "twitter",
+    "x.com"
+  ]
+}

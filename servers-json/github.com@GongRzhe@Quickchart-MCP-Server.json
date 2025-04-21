@@ -1,0 +1,41 @@
+{
+  "name": "Quickchart-MCP-Server",
+  "author": "GongRzhe",
+  "author_url": "https://github.com/GongRzhe",
+  "category": "Developer Tools",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@gongrzhe/quickchart-mcp-server",
+  "source_url": "https://github.com/GongRzhe/Quickchart-MCP-Server",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "generate_chart",
+      "description": "Create customizable charts with QuickChart.io, supporting bar, line, pie, radar, and more. Input datasets, labels, and options to generate visualizations directly.",
+      "instructions": "Generate a chart using QuickChart",
+      "jsonSchema": "{ \"properties\": { \"datasets\": { \"items\": { \"properties\": { \"additionalConfig\": { \"type\": \"object\" }, \"backgroundColor\": { \"oneOf\": [ { \"type\": \"string\" }, { \"items\": { \"type\": \"string\" }, \"type\": \"array\" } ] }, \"borderColor\": { \"oneOf\": [ { \"type\": \"string\" }, { \"items\": { \"type\": \"string\" }, \"type\": \"array\" } ] }, \"data\": { \"type\": \"array\" }, \"label\": { \"type\": \"string\" } }, \"required\": [ \"data\" ], \"type\": \"object\" }, \"type\": \"array\" }, \"labels\": { \"description\": \"Labels for data points\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"options\": { \"type\": \"object\" }, \"title\": { \"type\": \"string\" }, \"type\": { \"description\": \"Chart type (bar, line, pie, doughnut, radar, polarArea, scatter, bubble, radialGauge, speedometer)\", \"type\": \"string\" } }, \"required\": [ \"type\", \"datasets\" ], \"type\": \"object\" }"
+    },
+    {
+      "name": "download_chart",
+      "description": "Save customizable chart images locally by providing a Chart.js configuration object and specifying the output file path.",
+      "instructions": "Download a chart image to a local file",
+      "jsonSchema": "{ \"properties\": { \"config\": { \"description\": \"Chart configuration object\", \"type\": \"object\" }, \"outputPath\": { \"description\": \"Path where the chart image should be saved\", \"type\": \"string\" } }, \"required\": [ \"config\", \"outputPath\" ], \"type\": \"object\" }"
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@GongRzhe/Quickchart-MCP-Server",
+  "version": "1.0.4",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "quickchart",
+    "chart",
+    "data-visualization"
+  ]
+}
