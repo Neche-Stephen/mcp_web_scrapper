@@ -1,0 +1,7 @@
+{
+  "title": "Eyevinn Open Source Cloud MCP Server",
+  "url": "https://glama.ai/mcp/servers/@EyevinnOSC/mcp-server",
+  "error": "net::ERR_INTERNET_DISCONNECTED at https://glama.ai/mcp/servers/@EyevinnOSC/mcp-server",
+  "status": "failed",
+  "partial_data": false
+}

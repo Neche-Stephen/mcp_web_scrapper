@@ -1,0 +1,83 @@
+{
+  "name": "Upstash MCP Server",
+  "author": "upstash",
+  "author_url": "https://github.com/upstash",
+  "category": "Databases",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@upstash/mcp-server",
+  "source_url": "https://github.com/upstash/mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "UPSTASH_EMAIL",
+      "required": "Yes",
+      "description": "Your Upstash account email address",
+      "default": ""
+    },
+    {
+      "name": "UPSTASH_API_KEY",
+      "required": "Yes",
+      "description": "Your Upstash API key that can be created from the Upstash console",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "redis_database_create_new",
+      "description": "Create a new Redis database on the Upstash MCP Server by specifying the name and primary region. Supports multiple read regions for global database configuration.",
+      "instructions": "Create a new Upstash redis database. \nNOTE: Ask user for the region and name of the database.\nNOTE: Don't show the database ID from the response to the user unless explicitly asked or needed.",
+      "jsonSchema": {
+        "properties": {
+          "name": {
+            "description": "Name of the database.",
+            "type": "string"
+          },
+          "primary_region": {
+            "description": "Primary Region of the Global Database.",
+            "enum": [
+              "us-east-1",
+              "us-west-1",
+              "us-west-2",
+              "eu-west-1",
+              "eu-central-1",
+              "ap-southeast-1",
+              "ap-southeast-2",
+              "sa-east-1"
+            ],
+            "type": "string"
+          },
+          "read_regions": {
+            "description": "Array of read regions of the db",
+            "items": {
+              "enum": [
+                "us-east-1",
+                "us-west-1",
+                "us-west-2",
+                "eu-west-1",
+                "eu-central-1",
+                "ap-southeast-1",
+                "ap-southeast-2",
+                "sa-east-1"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "name",
+          "primary_region"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "redis_database_delete",
+      "error": "Attempted to use detached Frame 'AD0114A022BD25480481EDE99370EB66'.",
+      "partial_data": true
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@upstash/mcp-server",
+  "version": "0.0.0",
+  "keywords": []
+}

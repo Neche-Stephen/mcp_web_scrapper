@@ -20,37 +20,128 @@
       "name": "start_scan_from_content",
       "description": "Initiate a Semgrep scan using directly provided code content to identify security vulnerabilities. Input code files and configuration to generate detailed scan results.",
       "instructions": "Starts a Semgrep scan with code content provided directlyArgs:\n    ctx: MCP context for sending notifications\n    code_files: List of dictionaries with 'filename' and 'content' keys\n    config: Semgrep configuration (e.g. \"auto\" or absolute path to rule file)Returns:\n    Dictionary with scan information",
-      "jsonSchema": "{ \"properties\": { \"code_files\": { \"items\": { \"additionalProperties\": { \"type\": \"string\" }, \"type\": \"object\" }, \"title\": \"Code Files\", \"type\": \"array\" }, \"config\": { \"default\": \"auto\", \"title\": \"Config\", \"type\": \"string\" } }, \"required\": [ \"code_files\" ], \"title\": \"start_scan_from_contentArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "code_files": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "title": "Code Files",
+            "type": "array"
+          },
+          "config": {
+            "default": "auto",
+            "title": "Config",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code_files"
+        ],
+        "title": "start_scan_from_contentArguments",
+        "type": "object"
+      }
     },
     {
       "name": "get_scan_status",
       "description": "Retrieve the current status of a specified scan to monitor progress, check completion, or troubleshoot issues. Input the scan identifier to return detailed status information.",
       "instructions": "Gets the current status of a scanArgs:\n    scan_id: Identifier for the scanReturns:\n    Dictionary with scan status information",
-      "jsonSchema": "{ \"properties\": { \"scan_id\": { \"title\": \"Scan Id\", \"type\": \"string\" } }, \"required\": [ \"scan_id\" ], \"title\": \"get_scan_statusArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "scan_id": {
+            "title": "Scan Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scan_id"
+        ],
+        "title": "get_scan_statusArguments",
+        "type": "object"
+      }
     },
     {
       "name": "get_scan_results",
       "description": "Retrieve detailed results of a completed code scan by specifying the scan ID. Facilitates analysis of security vulnerabilities and rule matches in Semgrep MCP Server.",
       "instructions": "Gets the results of a completed scanArgs:\n    scan_id: Identifier for the scanReturns:\n    Dictionary with scan results",
-      "jsonSchema": "{ \"properties\": { \"scan_id\": { \"title\": \"Scan Id\", \"type\": \"string\" } }, \"required\": [ \"scan_id\" ], \"title\": \"get_scan_resultsArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "scan_id": {
+            "title": "Scan Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scan_id"
+        ],
+        "title": "get_scan_resultsArguments",
+        "type": "object"
+      }
     },
     {
       "name": "get_supported_languages",
       "description": "Retrieve a list of programming languages supported by Semgrep to ensure compatibility and targeted code analysis for security vulnerabilities.",
       "instructions": "Returns a list of supported languages by SemgrepReturns:\n    List of supported languages",
-      "jsonSchema": "{ \"properties\": {}, \"title\": \"get_supported_languagesArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {},
+        "title": "get_supported_languagesArguments",
+        "type": "object"
+      }
     },
     {
       "name": "semgrep_scan",
       "description": "Run static code analysis on provided files using Semgrep to detect vulnerabilities and return findings in JSON format for detailed inspection and remediation.",
       "instructions": "Runs a Semgrep scan on provided code content and returns the findings in JSON formatArgs:\n    code_files: List of dictionaries with 'filename' and 'content' keys\n    config: Semgrep configuration (e.g. \"auto\" or absolute path to rule file)Returns:\n    Dictionary with scan results in Semgrep JSON format",
-      "jsonSchema": "{ \"properties\": { \"code_files\": { \"items\": { \"additionalProperties\": { \"type\": \"string\" }, \"type\": \"object\" }, \"title\": \"Code Files\", \"type\": \"array\" }, \"config\": { \"default\": \"auto\", \"title\": \"Config\", \"type\": \"string\" } }, \"required\": [ \"code_files\" ], \"title\": \"semgrep_scanArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "code_files": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "title": "Code Files",
+            "type": "array"
+          },
+          "config": {
+            "default": "auto",
+            "title": "Config",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code_files"
+        ],
+        "title": "semgrep_scanArguments",
+        "type": "object"
+      }
     },
     {
       "name": "start_scan",
       "description": "Initiate a Semgrep scan to detect code vulnerabilities, monitor progress via notifications, and analyze results using specified configurations for targeted files or directories.",
       "instructions": "Starts a Semgrep scan with progress updates via notificationsArgs:\n    ctx: MCP context for sending notifications\n    target_path: Absolute path to the file or directory to scan\n    config: Semgrep configuration (e.g. \"auto\" or absolute path to rule file)Returns:\n    Dictionary with scan information",
-      "jsonSchema": "{ \"properties\": { \"config\": { \"default\": \"auto\", \"title\": \"Config\", \"type\": \"string\" }, \"target_path\": { \"title\": \"Target Path\", \"type\": \"string\" } }, \"required\": [ \"target_path\" ], \"title\": \"start_scanArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "config": {
+            "default": "auto",
+            "title": "Config",
+            "type": "string"
+          },
+          "target_path": {
+            "title": "Target Path",
+            "type": "string"
+          }
+        },
+        "required": [
+          "target_path"
+        ],
+        "title": "start_scanArguments",
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@semgrep/mcp",

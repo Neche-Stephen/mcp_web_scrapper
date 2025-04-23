@@ -26,37 +26,37 @@
       "name": "current_date",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "list_databases",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "describe_database",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "query_database",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "create_entity",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "update_entity",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@Fibery-inc/fibery-mcp-server",

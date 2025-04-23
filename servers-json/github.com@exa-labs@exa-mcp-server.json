@@ -20,7 +20,24 @@
       "name": "search",
       "description": "Perform web searches via the Exa MCP Server to retrieve real-time information using a query and optional result count.",
       "instructions": "Search the web using Exa AI",
-      "jsonSchema": "{ \"properties\": { \"numResults\": { \"description\": \"Number of results to return (default: 10)\", \"maximum\": 50, \"minimum\": 1, \"type\": \"number\" }, \"query\": { \"description\": \"Search query\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "numResults": {
+            "description": "Number of results to return (default: 10)",
+            "maximum": 50,
+            "minimum": 1,
+            "type": "number"
+          },
+          "query": {
+            "description": "Search query",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@exa-labs/exa-mcp-server",

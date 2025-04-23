@@ -20,13 +20,46 @@
       "name": "list_posthog_projects",
       "description": "Retrieve all PostHog projects via the Model Context Protocol Server to manage and analyze project data efficiently.",
       "instructions": "List all available PostHog projects.",
-      "jsonSchema": "{ \"properties\": {}, \"title\": \"list_posthog_projectsArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {},
+        "title": "list_posthog_projectsArguments",
+        "type": "object"
+      }
     },
     {
       "name": "create_posthog_annotation",
       "description": "Add annotations to PostHog projects by specifying project ID, content, and optional timestamp. Ideal for tracking events, updates, or milestones directly within PostHog via the MCP server.",
       "instructions": "Create a PostHog annotation.Args:\n    project_id: The ID of the project as an integer (e.g. 99423)\n    content: The content/text of the annotation\n    date_marker: Optional ISO-8601 timestamp for the annotation (e.g. 2024-03-20T14:15:22Z)",
-      "jsonSchema": "{ \"properties\": { \"content\": { \"title\": \"Content\", \"type\": \"string\" }, \"date_marker\": { \"anyOf\": [ { \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"title\": \"Date Marker\" }, \"project_id\": { \"title\": \"Project Id\", \"type\": \"integer\" } }, \"required\": [ \"project_id\", \"content\" ], \"title\": \"create_posthog_annotationArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "content": {
+            "title": "Content",
+            "type": "string"
+          },
+          "date_marker": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Date Marker"
+          },
+          "project_id": {
+            "title": "Project Id",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "project_id",
+          "content"
+        ],
+        "title": "create_posthog_annotationArguments",
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@PostHog/posthog-mcp",

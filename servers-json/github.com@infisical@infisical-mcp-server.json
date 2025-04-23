@@ -1,0 +1,356 @@
+{
+  "name": "Infisical MCP Server",
+  "author": "Infisical",
+  "author_url": "https://github.com/Infisical",
+  "category": "Security",
+  "license": "Apache 2.0",
+  "package_url": "https://www.npmjs.com/package/@infisical/mcp",
+  "source_url": "https://github.com/infisical/infisical-mcp-server",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "INFISICAL_HOST_URL",
+      "required": "No",
+      "description": "Custom host URL. This is useful if you're self-hosting Infisical or you're on dedicated infrastructure.",
+      "default": "https://app.infisical.com"
+    },
+    {
+      "name": "INFISICAL_UNIVERSAL_AUTH_CLIENT_ID",
+      "required": "Yes",
+      "description": "The Machine Identity universal auth client ID that will be used for authentication",
+      "default": ""
+    },
+    {
+      "name": "INFISICAL_UNIVERSAL_AUTH_CLIENT_SECRET",
+      "required": "Yes",
+      "description": "The Machine Identity universal auth client secret that will be used for authentication",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "create-secret",
+      "description": "Add a new secret to a specified project and environment in Infisical, defining its name, value, and path for secure storage and management.",
+      "instructions": "Create a new secret in Infisical",
+      "jsonSchema": {
+        "properties": {
+          "environmentSlug": {
+            "description": "The slug of the environment to create the secret in (required)",
+            "type": "string"
+          },
+          "projectId": {
+            "description": "The ID of the project to create the secret in (required)",
+            "type": "string"
+          },
+          "secretName": {
+            "description": "The name of the secret to create (required)",
+            "type": "string"
+          },
+          "secretPath": {
+            "description": "The path of the secret to create (Defaults to /)",
+            "type": "string"
+          },
+          "secretValue": {
+            "description": "The value of the secret to create",
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "environmentSlug",
+          "secretName"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "delete-secret",
+      "description": "Remove a specific secret from a project within the Infisical MCP Server by specifying the project ID, environment slug, and secret name.",
+      "instructions": "Delete a secret in Infisical",
+      "jsonSchema": {
+        "properties": {
+          "environmentSlug": {
+            "description": "The slug of the environment to delete the secret from (required)",
+            "type": "string"
+          },
+          "projectId": {
+            "description": "The ID of the project to delete the secret from (required)",
+            "type": "string"
+          },
+          "secretName": {
+            "description": "The name of the secret to delete (required)",
+            "type": "string"
+          },
+          "secretPath": {
+            "description": "The path of the secret to delete (Defaults to /)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "environmentSlug",
+          "secretName"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "update-secret",
+      "description": "Modify secret details in Infisical, including name, value, or path, for a specific project and environment.",
+      "instructions": "Update a secret in Infisical",
+      "jsonSchema": {
+        "properties": {
+          "environmentSlug": {
+            "description": "The slug of the environment to update the secret in (required)",
+            "type": "string"
+          },
+          "newSecretName": {
+            "description": "The new name of the secret to update (Optional)",
+            "type": "string"
+          },
+          "projectId": {
+            "description": "The ID of the project to update the secret in (required)",
+            "type": "string"
+          },
+          "secretName": {
+            "description": "The current name of the secret to update (required)",
+            "type": "string"
+          },
+          "secretPath": {
+            "description": "The path of the secret to update (Defaults to /)",
+            "type": "string"
+          },
+          "secretValue": {
+            "description": "The new value of the secret to update (Optional)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "environmentSlug",
+          "secretName"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "list-secrets",
+      "description": "Retrieve and display all secrets within a specified project and environment in Infisical. Supports custom paths, expanded references, and included imports for comprehensive secret management.",
+      "instructions": "List all secrets in a given Infisical project and environment",
+      "jsonSchema": {
+        "properties": {
+          "environmentSlug": {
+            "description": "The slug of the environment to list the secrets from (required)",
+            "type": "string"
+          },
+          "expandSecretReferences": {
+            "description": "Whether to expand secret references (Defaults to true)",
+            "type": "boolean"
+          },
+          "includeImports": {
+            "description": "Whether to include secret imports (Defaults to true)",
+            "type": "boolean"
+          },
+          "projectId": {
+            "description": "The ID of the project to list the secrets from (required)",
+            "type": "string"
+          },
+          "secretPath": {
+            "description": "The path of the secrets to list (Defaults to /)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "environmentSlug"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "get-secret",
+      "description": "Retrieve a specific secret from a designated project and environment in Infisical. Specify the secret name, project ID, and environment slug to securely access stored secrets and manage configurations.",
+      "instructions": "Get a secret in Infisical",
+      "jsonSchema": {
+        "properties": {
+          "environmentSlug": {
+            "description": "The slug of the environment to get the secret from (required)",
+            "type": "string"
+          },
+          "expandSecretReferences": {
+            "description": "Whether to expand secret references (Defaults to true)",
+            "type": "boolean"
+          },
+          "includeImports": {
+            "description": "Whether to include secret imports. If the secret isn't found, it will try to find a secret in a secret import that matches the requested secret name (Defaults to true)",
+            "type": "boolean"
+          },
+          "projectId": {
+            "description": "The ID of the project to get the secret from (required)",
+            "type": "string"
+          },
+          "secretName": {
+            "description": "The name of the secret to get (required)",
+            "type": "string"
+          },
+          "secretPath": {
+            "description": "The path of the secret to get (Defaults to /)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "environmentSlug",
+          "secretName"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "create-project",
+      "description": "Initialize a project in Infisical by specifying its name, type, and optional details like description, slug, and template to streamline secret management configuration.",
+      "instructions": "Create a new project in Infisical",
+      "jsonSchema": {
+        "properties": {
+          "description": {
+            "description": "The description of the project to create",
+            "type": "string"
+          },
+          "kmsKeyId": {
+            "description": "The ID of the KMS key to use for the project. Defaults to Infisical's default KMS",
+            "type": "string"
+          },
+          "projectName": {
+            "description": "The name of the project to create (required)",
+            "type": "string"
+          },
+          "projectTemplate": {
+            "description": "The template of the project to create",
+            "type": "string"
+          },
+          "slug": {
+            "description": "The slug of the project to create",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of project to create (required). If not specified by the user, ask them to confirm the type they want to use.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectName",
+          "type"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "create-environment",
+      "description": "Set up new environments in Infisical by specifying project ID, name, and slug. This tool facilitates organized secret management within defined project structures.",
+      "instructions": "Create a new environment in Infisical",
+      "jsonSchema": {
+        "properties": {
+          "name": {
+            "description": "The name of the environment to create (required)",
+            "type": "string"
+          },
+          "position": {
+            "description": "The position of the environment to create",
+            "type": "number"
+          },
+          "projectId": {
+            "description": "The ID of the project to create the environment in (required)",
+            "type": "string"
+          },
+          "slug": {
+            "description": "The slug of the environment to create (required)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "name",
+          "slug"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "create-folder",
+      "description": "Create and organize folders in Infisical for structured secret management. Specify folder name, project ID, environment, optional path, and description for efficient organization.",
+      "instructions": "Create a new folder in Infisical",
+      "jsonSchema": {
+        "properties": {
+          "description": {
+            "description": "The description of the folder to create",
+            "type": "string"
+          },
+          "environment": {
+            "description": "The environment to create the folder in (required)",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the folder to create (required)",
+            "type": "string"
+          },
+          "path": {
+            "description": "The path to create the folder in (Defaults to /)",
+            "type": "string"
+          },
+          "projectId": {
+            "description": "The project to create the folder in (required)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "projectId",
+          "environment"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "invite-members-to-project",
+      "description": "Add users to an Infisical project by specifying emails or usernames, assigning roles, and linking them to a specific project ID.",
+      "instructions": "Invite members to a project in Infisical",
+      "jsonSchema": {
+        "properties": {
+          "emails": {
+            "description": "The emails of the members to invite. Either usernames or emails must be provided.",
+            "type": "array"
+          },
+          "projectId": {
+            "description": "The ID of the project to invite members to (required)",
+            "type": "string"
+          },
+          "roleSlugs": {
+            "description": "The role slugs of the members to invite. If not provided, the default role 'member' will be used. Ask the user to confirm the role they want to use if not explicitly specified.",
+            "type": "array"
+          },
+          "usernames": {
+            "description": "The usernames of the members to invite. Either usernames or emails must be provided.",
+            "type": "array"
+          }
+        },
+        "required": [
+          "projectId"
+        ],
+        "type": "object"
+      }
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@Infisical/infisical-mcp-server",
+  "version": "0.0.0",
+  "keywords": [
+    "infisical",
+    "open-source",
+    "sdk",
+    "typescript",
+    "mcp",
+    "mcp-server",
+    "secrets-management",
+    "secrets",
+    "secrets-manager"
+  ]
+}

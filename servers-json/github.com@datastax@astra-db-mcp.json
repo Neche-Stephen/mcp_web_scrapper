@@ -1,0 +1,256 @@
+{
+  "name": "Astra DB MCP Server",
+  "author": "datastax",
+  "author_url": "https://github.com/datastax",
+  "category": "Databases",
+  "license": "Apache 2.0",
+  "package_url": "https://www.npmjs.com/package/@datastax/astra-db-mcp",
+  "source_url": "https://github.com/datastax/astra-db-mcp",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "ASTRA_DB_API_ENDPOINT",
+      "required": "Yes",
+      "description": "The Astra DB API Endpoint",
+      "default": ""
+    },
+    {
+      "name": "ASTRA_DB_APPLICATION_TOKEN",
+      "required": "Yes",
+      "description": "Your Astra DB Application Token",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "GetCollections",
+      "description": "Retrieve all collections from an Astra DB database using natural language commands via the Astra DB MCP Server, enabling efficient data management.",
+      "instructions": "Get all collections in the Astra DB database",
+      "jsonSchema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      }
+    },
+    {
+      "name": "CreateCollection",
+      "description": "Easily create a new database collection with specified dimensions and vector settings using this tool, designed for streamlined data management in Astra DB.",
+      "instructions": "Create a new collection in the database",
+      "jsonSchema": {
+        "properties": {
+          "collectionName": {
+            "description": "Name of the collection to create",
+            "type": "string"
+          },
+          "dimension": {
+            "default": 1536,
+            "description": "The dimensions of the vector collection, if vector is true",
+            "type": "number"
+          },
+          "vector": {
+            "default": true,
+            "description": "Whether to create a vector collection",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "collectionName"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "UpdateCollection",
+      "description": "Modify the name of an existing database collection using specified inputs, ensuring accurate and efficient updates to your data organization.",
+      "instructions": "Update an existing collection in the database",
+      "jsonSchema": {
+        "properties": {
+          "collectionName": {
+            "description": "Name of the collection to update",
+            "type": "string"
+          },
+          "newName": {
+            "description": "New name for the collection",
+            "type": "string"
+          }
+        },
+        "required": [
+          "collectionName",
+          "newName"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "DeleteCollection",
+      "description": "Remove a collection from Astra DB using the Astra DB MCP Server. Specify the collection name to delete it permanently from the database.",
+      "instructions": "Delete a collection from the database",
+      "jsonSchema": {
+        "properties": {
+          "collectionName": {
+            "description": "Name of the collection to delete",
+            "type": "string"
+          }
+        },
+        "required": [
+          "collectionName"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "ListRecords",
+      "description": "Retrieve records from a specified database collection with customizable limits using the Astra DB MCP Server tool designed for managing data collections.",
+      "instructions": "List records from a collection in the database",
+      "jsonSchema": {
+        "properties": {
+          "collectionName": {
+            "description": "Name of the collection to list records from",
+            "type": "string"
+          },
+          "limit": {
+            "default": 10,
+            "description": "Maximum number of records to return",
+            "type": "number"
+          }
+        },
+        "required": [
+          "collectionName"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "GetRecord",
+      "description": "Retrieve a specific record by its ID from a named collection in Astra DB using natural language commands on the MCP Server.",
+      "instructions": "Get a specific record from a collection by ID",
+      "jsonSchema": {
+        "properties": {
+          "collectionName": {
+            "description": "Name of the collection to get the record from",
+            "type": "string"
+          },
+          "recordId": {
+            "description": "ID of the record to retrieve",
+            "type": "string"
+          }
+        },
+        "required": [
+          "collectionName",
+          "recordId"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "CreateRecord",
+      "description": "Insert a new record into a specified collection in Astra DB using MCP Server. Define the collection name and provide the record data for creation.",
+      "instructions": "Create a new record in a collection",
+      "jsonSchema": {
+        "properties": {
+          "collectionName": {
+            "description": "Name of the collection to create the record in",
+            "type": "string"
+          },
+          "record": {
+            "description": "The record data to insert",
+            "type": "object"
+          }
+        },
+        "required": [
+          "collectionName",
+          "record"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "UpdateRecord",
+      "description": "Modify an existing record in a specified collection within Astra DB by providing the collection name, record ID, and updated data.",
+      "instructions": "Update an existing record in a collection",
+      "jsonSchema": {
+        "properties": {
+          "collectionName": {
+            "description": "Name of the collection containing the record",
+            "type": "string"
+          },
+          "record": {
+            "description": "The updated record data",
+            "type": "object"
+          },
+          "recordId": {
+            "description": "ID of the record to update",
+            "type": "string"
+          }
+        },
+        "required": [
+          "collectionName",
+          "recordId",
+          "record"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "DeleteRecord",
+      "description": "Remove a specific record from a collection in Astra DB using the provided collection name and record ID through the MCP Server interface.",
+      "instructions": "Delete a record from a collection",
+      "jsonSchema": {
+        "properties": {
+          "collectionName": {
+            "description": "Name of the collection containing the record",
+            "type": "string"
+          },
+          "recordId": {
+            "description": "ID of the record to delete",
+            "type": "string"
+          }
+        },
+        "required": [
+          "collectionName",
+          "recordId"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "FindRecord",
+      "description": "Search and retrieve records from a specified collection in Astra DB by matching a field value. Define the collection, field, and value to filter results efficiently.",
+      "instructions": "Find records in a collection by field value",
+      "jsonSchema": {
+        "properties": {
+          "collectionName": {
+            "description": "Name of the collection to search in",
+            "type": "string"
+          },
+          "field": {
+            "description": "Field name to search by (e.g., 'title', '_id', or any property)",
+            "type": "string"
+          },
+          "limit": {
+            "default": 10,
+            "description": "Maximum number of records to return",
+            "type": "number"
+          },
+          "value": {
+            "description": "Value to search for in the specified field",
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        },
+        "required": [
+          "collectionName",
+          "field",
+          "value"
+        ],
+        "type": "object"
+      }
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@datastax/astra-db-mcp",
+  "version": "1.2.0",
+  "keywords": []
+}

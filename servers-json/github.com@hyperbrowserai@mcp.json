@@ -20,61 +20,61 @@
       "name": "scrape_webpage",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "crawl_webpages",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "extract_structured_data",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "browser_use_agent",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "openai_computer_use_agent",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "claude_computer_use_agent",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "search_with_bing",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "create_profile",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "delete_profile",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "list_profiles",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@hyperbrowserai/mcp",

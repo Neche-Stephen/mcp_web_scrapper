@@ -20,13 +20,37 @@
       "name": "get_risk_score",
       "description": "Assess risk scores for crypto addresses, domains, ENS, CNS, KNS, or hostnames using BICScan MCP Server. Scores range from 0 to 100, with 100 indicating high risk. Input an address to evaluate potential security threats.",
       "instructions": "Get Risk Score for Crypto, Domain Name, ENS, CNS, KNS or even Hostname AddressArgs:\n    address: EOA, CA, ENS, CNS, KNS or even HostName\nReturns:\n    Dict: where summary.bicscan_score is from 0 to 100. 100 is high risk.",
-      "jsonSchema": "{ \"properties\": { \"address\": { \"title\": \"Address\", \"type\": \"string\" } }, \"required\": [ \"address\" ], \"title\": \"get_risk_scoreArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "address": {
+            "title": "Address",
+            "type": "string"
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "title": "get_risk_scoreArguments",
+        "type": "object"
+      }
     },
     {
       "name": "get_assets",
       "description": "Retrieve comprehensive asset holdings linked to a crypto address using the BICScan MCP Server. Input an EOA, CA, ENS, CNS, or KNS address to receive a detailed list of assets.",
       "instructions": "Get Assets holdings by CryptoAddressArgs:\n    address: EOA, CA, ENS, CNS, KNS.\nReturns:\n    Dict: where assets is a list of assets",
-      "jsonSchema": "{ \"properties\": { \"address\": { \"title\": \"Address\", \"type\": \"string\" } }, \"required\": [ \"address\" ], \"title\": \"get_assetsArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "address": {
+            "title": "Address",
+            "type": "string"
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "title": "get_assetsArguments",
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@ahnlabio/bicscan-mcp",

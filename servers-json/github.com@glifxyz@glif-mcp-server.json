@@ -20,34 +20,29 @@
       "name": "run_glif",
       "description": "Execute AI workflows on Glif.app by running a specific glif with its ID and input values, enabling tasks like image generation, meme creation, and chained LLM calls.",
       "instructions": "Run a glif with the specified ID and inputs",
-      "jsonSchema": "{ \"properties\": { \"id\": { \"description\": \"The ID of the glif to run\", \"type\": \"string\" }, \"inputs\": { \"description\": \"Array of input values for the glif\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" } }, \"required\": [ \"id\", \"inputs\" ], \"type\": \"object\" }"
-    },
-    {
-      "name": "list_featured_glifs",
-      "description": "Retrieve a curated list of featured glifs to access pre-built workflows for AI tasks like image generation and chained LLM calls.",
-      "instructions": "Get a curated list of featured glifs",
-      "jsonSchema": "{ \"properties\": {}, \"required\": [], \"type\": \"object\" }"
-    },
-    {
-      "name": "glif_info",
-      "description": "Retrieve comprehensive details about a specific glif, including input fields, using the ID provided. Ideal for managing and optimizing AI workflows hosted on Glif.",
-      "instructions": "Get detailed information about a glif including input fields",
-      "jsonSchema": "{ \"properties\": { \"id\": { \"description\": \"The ID of the glif to show details for\", \"type\": \"string\" } }, \"required\": [ \"id\" ], \"type\": \"object\" }"
-    },
-    {
-      "name": "my_glifs",
-      "description": "Retrieve and manage a list of your AI workflows hosted on Glif's MCP server, including image generators, meme tools, and chained LLM calls, for streamlined access and organization.",
-      "instructions": "Get a list of your glifs",
-      "jsonSchema": "{ \"properties\": {}, \"required\": [], \"type\": \"object\" }"
-    },
-    {
-      "name": "my_glif_user_info",
-      "description": "Retrieve detailed user account data, recent glifs, and workflow runs to manage activities on the Glif MCP server efficiently.",
-      "instructions": "Get detailed information about your user account, recent glifs, and recent runs",
-      "jsonSchema": "{ \"properties\": {}, \"required\": [], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "id": {
+            "description": "The ID of the glif to run",
+            "type": "string"
+          },
+          "inputs": {
+            "description": "Array of input values for the glif",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "inputs"
+        ],
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@glifxyz/glif-mcp-server",
-  "version": "0.9.8",
+  "version": "",
   "keywords": []
 }

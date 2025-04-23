@@ -4,7 +4,7 @@
   "author_url": "https://github.com/hackle-io",
   "category": "Developer Tools",
   "license": "MIT License",
-  "package_url": "",
+  "package_url": "https://www.npmjs.com/package/@hackle-io/hackle-mcp",
   "source_url": "https://github.com/hackle-io/hackle-mcp",
   "language": "TypeScript",
   "server_configuration": [
@@ -17,7 +17,7 @@
   ],
   "tools": [],
   "scrape_source": "https://glama.ai/mcp/servers/@hackle-io/hackle-mcp",
-  "version": "0.0.5",
+  "version": "0.0.12",
   "keywords": [
     "mcp",
     "model-context-protocol",

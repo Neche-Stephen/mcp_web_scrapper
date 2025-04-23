@@ -35,7 +35,7 @@
   ],
   "tools": [],
   "scrape_source": "https://glama.ai/mcp/servers/@CodeLogicIncEngineering/codelogic-mcp-server",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "keywords": [
     "codelogic",
     "mcp",

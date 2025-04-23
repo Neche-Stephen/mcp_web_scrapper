@@ -1,7 +1,0 @@
-{
-  "title": "Meilisearch MCP Server",
-  "url": "https://glama.ai/mcp/servers/@meilisearch/meilisearch-mcp",
-  "error": "net::ERR_INTERNET_DISCONNECTED at https://glama.ai/mcp/servers/@meilisearch/meilisearch-mcp",
-  "status": "failed",
-  "partial_data": true
-}

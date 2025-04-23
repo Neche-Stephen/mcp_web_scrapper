@@ -26,7 +26,20 @@
       "name": "retrieve",
       "description": "Search and retrieve documents, policies, product details, or project data from Ragie's Knowledge Base. Use this tool to find relevant information for company-specific queries.",
       "instructions": "Look up information in the Knowledge Base. Use this tool when you need to:Find relevant documents or information on specific topicsRetrieve company policies, procedures, or guidelinesAccess product specifications or technical documentationGet contextual information to answer company-specific questionsFind historical data or information about projects",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"query\": { \"description\": \"The query to search for data in the Knowledge Base\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "description": "The query to search for data in the Knowledge Base",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@ragieai/ragie-mcp-server",

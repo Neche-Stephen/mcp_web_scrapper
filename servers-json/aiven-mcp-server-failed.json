@@ -1,0 +1,7 @@
+{
+  "title": "Aiven MCP Server",
+  "url": "https://glama.ai/mcp/servers/@Aiven-Open/mcp-aiven",
+  "error": "Cannot access 'server' before initialization",
+  "status": "failed",
+  "partial_data": false
+}

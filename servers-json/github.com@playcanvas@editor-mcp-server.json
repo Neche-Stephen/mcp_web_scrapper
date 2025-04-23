@@ -20,127 +20,84 @@
       "name": "create_entities",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "modify_entities",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "duplicate_entities",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "reparent_entity",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "delete_entities",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "list_entities",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "add_components",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "remove_components",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "add_script_component_script",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "create_assets",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "list_assets",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "delete_assets",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "instantiate_template_assets",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "set_material_diffuse",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "set_script_text",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "script_parse",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "modify_scene_settings",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "query_scene_settings",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "store_search",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "store_get",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "store_download",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
+      "error": "Attempted to use detached Frame '671E8DFDD25A4662EED0BA89DD1CF8D2'.",
+      "partial_data": true
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@playcanvas/editor-mcp-server",

@@ -26,7 +26,23 @@
       "name": "search",
       "description": "Perform web searches with one or more queries on the Kagi MCP Server. Retrieve numbered results for easy reference, enabling users to access up-to-date information efficiently.",
       "instructions": "Perform web search based on one or more queries. Results are from all queries given. They are numbered continuously, so that a user may be able to refer to a result by a specific number.",
-      "jsonSchema": "{ \"properties\": { \"queries\": { \"description\": \"One or more concise, keyword-focused search queries. Include essential context within each query for standalone use.\", \"items\": { \"type\": \"string\" }, \"title\": \"Queries\", \"type\": \"array\" } }, \"required\": [ \"queries\" ], \"title\": \"searchArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "queries": {
+            "description": "One or more concise, keyword-focused search queries. Include essential context within each query for standalone use.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Queries",
+            "type": "array"
+          }
+        },
+        "required": [
+          "queries"
+        ],
+        "title": "searchArguments",
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@kagisearch/kagimcp",

@@ -26,13 +26,86 @@
       "name": "oxylabs_scraper",
       "description": "Extract web content using Oxylabs Web Scraper API, enabling customizable parsing and rendering for efficient data retrieval from complex websites.",
       "instructions": "Scrape url using Oxylabs Web Api",
-      "jsonSchema": "{ \"properties\": { \"parse\": { \"anyOf\": [ { \"type\": \"boolean\" }, { \"type\": \"null\" } ], \"default\": null, \"description\": \"Should result be parsed. If result should not be parsed then html will be stripped and converted to markdown file\", \"title\": \"Parse\" }, \"render\": { \"anyOf\": [ { \"enum\": [ \"html\", \"None\" ], \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"description\": \"Whether a headless browser should be used to render the page. See: https://developers.oxylabs.io/scraper-apis/web-scraper-api/features/javascript-rendering `html` will return rendered html page `None` will not use render for scraping.\", \"title\": \"Render\" }, \"url\": { \"description\": \"Url to scrape\", \"title\": \"Url\", \"type\": \"string\" } }, \"required\": [ \"url\" ], \"title\": \"scrape_urlArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "parse": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Should result be parsed. If result should not be parsed then html will be stripped and converted to markdown file",
+            "title": "Parse"
+          },
+          "render": {
+            "anyOf": [
+              {
+                "enum": [
+                  "html",
+                  "None"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Whether a headless browser should be used to render the page. See: https://developers.oxylabs.io/scraper-apis/web-scraper-api/features/javascript-rendering `html` will return rendered html page `None` will not use render for scraping.",
+            "title": "Render"
+          },
+          "url": {
+            "description": "Url to scrape",
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "title": "scrape_urlArguments",
+        "type": "object"
+      }
     },
     {
       "name": "oxylabs_web_unblocker",
       "description": "Bypass web restrictions and scrape content from any URL using advanced proxy solutions and headless browser rendering for efficient data extraction.",
       "instructions": "Scrape url using Oxylabs Web Unblocker",
-      "jsonSchema": "{ \"properties\": { \"render\": { \"anyOf\": [ { \"enum\": [ \"html\", \"None\" ], \"type\": \"string\" }, { \"type\": \"null\" } ], \"default\": null, \"description\": \"Whether a headless browser should be used to render the page. See: https://developers.oxylabs.io/advanced-proxy-solutions/web-unblocker/headless-browser/javascript-rendering `html` will return rendered html page `None` will not use render for scraping.\", \"title\": \"Render\" }, \"url\": { \"description\": \"Url to scrape with web unblocker\", \"title\": \"Url\", \"type\": \"string\" } }, \"required\": [ \"url\" ], \"title\": \"scrape_with_web_unblockerArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "render": {
+            "anyOf": [
+              {
+                "enum": [
+                  "html",
+                  "None"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Whether a headless browser should be used to render the page. See: https://developers.oxylabs.io/advanced-proxy-solutions/web-unblocker/headless-browser/javascript-rendering `html` will return rendered html page `None` will not use render for scraping.",
+            "title": "Render"
+          },
+          "url": {
+            "description": "Url to scrape with web unblocker",
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "title": "scrape_with_web_unblockerArguments",
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@oxylabs/oxylabs-mcp",

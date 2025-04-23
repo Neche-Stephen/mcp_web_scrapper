@@ -26,16 +26,74 @@
       "name": "get_build_failure_logs",
       "description": "Retrieve and analyze CircleCI build failure logs by providing a project URL or workspace details. Use a direct URL or specify workspace root, Git remote URL, and branch to debug builds efficiently.",
       "instructions": "This tool helps debug CircleCI build failures by retrieving failure logs.\n\nInput options (EXACTLY ONE of these two options must be used):\n\nOption 1 - Direct URL (provide ONE of these):\n- projectURL: The URL of the CircleCI project in any of these formats:\n  * Project URL: https://app.circleci.com/pipelines/gh/organization/project\n  * Pipeline URL: https://app.circleci.com/pipelines/gh/organization/project/123\n  * Workflow URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def\n  * Job URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def/jobs/xyz\n\nOption 2 - Project Detection (ALL of these must be provided together):\n- workspaceRoot: The absolute path to the workspace root\n- gitRemoteURL: The URL of the git remote repository\n- branch: The name of the current branch\n\nIMPORTANT:\n- Never call this tool with incomplete parameters\n- If using Option 1, the URLs MUST be provided by the user - do not attempt to construct or guess URLs\n- If using Option 2, ALL THREE parameters (workspaceRoot, gitRemoteURL, branch) must be provided\n- If neither option can be fully satisfied, ask the user for the missing information before making the tool call",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"params\": { \"additionalProperties\": false, \"properties\": { \"branch\": { \"description\": \"The name of the branch currently checked out in local workspace. This should match local git branch. For example: \\\"feature/my-branch\\\", \\\"bugfix/123\\\", \\\"main\\\", \\\"master\\\" etc.\", \"type\": \"string\" }, \"gitRemoteURL\": { \"description\": \"The URL of the remote git repository. This should be the URL of the repository that you cloned to your local workspace. For example: \\\"https://github.com/user/my-project.git\\\"\", \"type\": \"string\" }, \"projectURL\": { \"description\": \"The URL of the CircleCI project. Can be any of these formats:\\n- Project URL with branch: https://app.circleci.com/pipelines/gh/organization/project?branch=feature-branch\\n- Pipeline URL: https://app.circleci.com/pipelines/gh/organization/project/123\\n- Workflow URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def\\n- Job URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def/jobs/xyz\", \"type\": \"string\" }, \"workspaceRoot\": { \"description\": \"The absolute path to the root directory of your project workspace. This should be the top-level folder containing your source code, configuration files, and dependencies. For example: \\\"/home/user/my-project\\\" or \\\"C:\\\\Users\\\\user\\\\my-project\\\"\", \"type\": \"string\" } }, \"type\": \"object\" } }, \"required\": [ \"params\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "params": {
+            "additionalProperties": false,
+            "properties": {
+              "branch": {
+                "description": "The name of the branch currently checked out in local workspace. This should match local git branch. For example: \"feature/my-branch\", \"bugfix/123\", \"main\", \"master\" etc.",
+                "type": "string"
+              },
+              "gitRemoteURL": {
+                "description": "The URL of the remote git repository. This should be the URL of the repository that you cloned to your local workspace. For example: \"https://github.com/user/my-project.git\"",
+                "type": "string"
+              },
+              "projectURL": {
+                "description": "The URL of the CircleCI project. Can be any of these formats:\n- Project URL with branch: https://app.circleci.com/pipelines/gh/organization/project?branch=feature-branch\n- Pipeline URL: https://app.circleci.com/pipelines/gh/organization/project/123\n- Workflow URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def\n- Job URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def/jobs/xyz",
+                "type": "string"
+              },
+              "workspaceRoot": {
+                "description": "The absolute path to the root directory of your project workspace. This should be the top-level folder containing your source code, configuration files, and dependencies. For example: \"/home/user/my-project\" or \"C:\\Users\\user\\my-project\"",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "params"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "find_flaky_tests",
       "description": "Identify flaky tests in CircleCI projects by analyzing pipeline, workflow, or job URLs, or using workspace and git repository details. Enables targeted fixes to improve test reliability.",
       "instructions": "This tool retrieves information about flaky tests in a CircleCI project. \n\nThe agent receiving this output MUST analyze the flaky test data and implement appropriate fixes based on the specific issues identified.\n\nInput options (EXACTLY ONE of these two options must be used):\n\nOption 1 - Direct URL (provide ONE of these):\n- projectURL: The URL of the CircleCI project in any of these formats:\n  * Project URL: https://app.circleci.com/pipelines/gh/organization/project\n  * Pipeline URL: https://app.circleci.com/pipelines/gh/organization/project/123\n  * Workflow URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def\n  * Job URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def/jobs/xyz\n\nOption 2 - Project Detection (ALL of these must be provided together):\n- workspaceRoot: The absolute path to the workspace root\n- gitRemoteURL: The URL of the git remote repository\n\nIMPORTANT:\n- Never call this tool with incomplete parameters\n- If using Option 1, the URLs MUST be provided by the user - do not attempt to construct or guess URLs\n- If using Option 2, BOTH parameters (workspaceRoot, gitRemoteURL) must be provided\n- If neither option can be fully satisfied, ask the user for the missing information before making the tool call",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"params\": { \"additionalProperties\": false, \"properties\": { \"gitRemoteURL\": { \"description\": \"The URL of the remote git repository. This should be the URL of the repository that you cloned to your local workspace. For example: \\\"https://github.com/user/my-project.git\\\"\", \"type\": \"string\" }, \"projectURL\": { \"description\": \"The URL of the CircleCI project. Can be any of these formats:\\n- Project URL: https://app.circleci.com/pipelines/gh/organization/project\\n- Project URL with branch: https://app.circleci.com/pipelines/gh/organization/project?branch=feature-branch\\n- Pipeline URL: https://app.circleci.com/pipelines/gh/organization/project/123\\n- Workflow URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def\\n- Job URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def/jobs/xyz\", \"type\": \"string\" }, \"workspaceRoot\": { \"description\": \"The absolute path to the root directory of your project workspace. This should be the top-level folder containing your source code, configuration files, and dependencies. For example: \\\"/home/user/my-project\\\" or \\\"C:\\\\Users\\\\user\\\\my-project\\\"\", \"type\": \"string\" } }, \"type\": \"object\" } }, \"required\": [ \"params\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "params": {
+            "additionalProperties": false,
+            "properties": {
+              "gitRemoteURL": {
+                "description": "The URL of the remote git repository. This should be the URL of the repository that you cloned to your local workspace. For example: \"https://github.com/user/my-project.git\"",
+                "type": "string"
+              },
+              "projectURL": {
+                "description": "The URL of the CircleCI project. Can be any of these formats:\n- Project URL: https://app.circleci.com/pipelines/gh/organization/project\n- Project URL with branch: https://app.circleci.com/pipelines/gh/organization/project?branch=feature-branch\n- Pipeline URL: https://app.circleci.com/pipelines/gh/organization/project/123\n- Workflow URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def\n- Job URL: https://app.circleci.com/pipelines/gh/organization/project/123/workflows/abc-def/jobs/xyz",
+                "type": "string"
+              },
+              "workspaceRoot": {
+                "description": "The absolute path to the root directory of your project workspace. This should be the top-level folder containing your source code, configuration files, and dependencies. For example: \"/home/user/my-project\" or \"C:\\Users\\user\\my-project\"",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "params"
+        ],
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@CircleCI-Public/mcp-server-circleci",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "keywords": []
 }

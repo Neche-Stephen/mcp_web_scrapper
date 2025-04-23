@@ -20,115 +20,97 @@
       "name": "API-get-user",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-get-users",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-get-self",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-post-database-query",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-post-search",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-get-block-children",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-patch-block-children",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-retrieve-a-block",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-update-a-block",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-delete-a-block",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-retrieve-a-page",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-patch-page",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-post-page",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-create-a-database",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-update-a-database",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "API-retrieve-a-database",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "API-retrieve-a-page-property",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "API-retrieve-a-comment",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "API-create-a-comment",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@makenotion/notion-mcp-server",

@@ -20,73 +20,756 @@
       "name": "open-browser",
       "description": "Launch a browser instance with a specific serial number and user ID using AdsPower LocalAPI MCP Server. Streamline browser management tasks in automated workflows.",
       "instructions": "Open the browser",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"serialNumber\": { \"description\": \"The serial number of the browser to open\", \"type\": \"string\" }, \"userId\": { \"description\": \"The browser id of the browser to open\", \"type\": \"string\" } }, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "serialNumber": {
+            "description": "The serial number of the browser to open",
+            "type": "string"
+          },
+          "userId": {
+            "description": "The browser id of the browser to open",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
     },
     {
       "name": "close-browser",
       "description": "Stop a browser session by specifying the browser ID, enabling efficient management of browser profiles via the AdsPower LocalAPI MCP Server.",
       "instructions": "Close the browser",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"userId\": { \"description\": \"The browser id of the browser to stop\", \"type\": \"string\" } }, \"required\": [ \"userId\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "description": "The browser id of the browser to stop",
+            "type": "string"
+          }
+        },
+        "required": [
+          "userId"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "create-browser",
       "description": "Set up a custom browser profile with AdsPower LocalAPI by configuring cookies, domain name, country, fingerprint settings, and proxy details for enhanced browsing scenarios.",
       "instructions": "Create a browser",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"cookie\": { \"description\": \"The cookie of the browser, eg: \\\"[{\\\"domain\\\":\\\".baidu.com\\\",\\\"expirationDate\\\":\\\"\\\",\\\"name\\\":\\\"\\\",\\\"path\\\":\\\"/\\\",\\\"sameSite\\\":\\\"unspecified\\\",\\\"secure\\\":true,\\\"value\\\":\\\"\\\",\\\"id\\\":1}]\\\"\", \"type\": \"string\" }, \"country\": { \"description\": \"The country of the browser, eg: \\\"CN\\\"\", \"type\": \"string\" }, \"domainName\": { \"description\": \"The domain name of the browser, eg: facebook.com\", \"type\": \"string\" }, \"fingerprintConfig\": { \"additionalProperties\": false, \"description\": \"The fingerprint config of the browser, default is automatic_timezone: 0, timezone: \\\"\\\", language: [], flash: \\\"\\\", fonts: [], webrtc: disabled, browser_kernel_config: ua_auto, random_ua: ua_version: [], ua_system_version: [], tls_switch: 0, tls: \\\"\\\"\", \"properties\": { \"automatic_timezone\": { \"description\": \"The automatic timezone of the browser, default is 0\", \"enum\": [ \"0\", \"1\" ], \"type\": \"string\" }, \"browser_kernel_config\": { \"additionalProperties\": false, \"description\": \"The browser kernel config of the browser, default is version: ua_auto, type: chrome\", \"properties\": { \"type\": { \"description\": \"The type of the browser, default is chrome\", \"enum\": [ \"chrome\", \"firefox\" ], \"type\": \"string\" }, \"version\": { \"description\": \"The version of the browser, default is ua_auto\", \"enum\": [ \"92\", \"99\", \"102\", \"105\", \"108\", \"110\", \"113\", \"116\", \"120\", \"126\", \"130\", \"134\", \"ua_auto\" ], \"type\": \"string\" } }, \"type\": \"object\" }, \"flash\": { \"description\": \"The flash of the browser, default is disabled\", \"enum\": [ \"block\", \"allow\" ], \"type\": \"string\" }, \"fonts\": { \"description\": \"The fonts of the browser, eg: [\\\"Arial\\\", \\\"Times New Roman\\\"]\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"language\": { \"description\": \"The language of the browser, eg: [\\\"en-US\\\", \\\"zh-CN\\\"]\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"random_ua\": { \"additionalProperties\": false, \"description\": \"The random ua config of the browser, default is ua_version: [], ua_system_version: []\", \"properties\": { \"ua_system_version\": { \"description\": \"The ua system version of the browser, eg: [\\\"Android 9\\\", \\\"iOS 14\\\"]\", \"items\": { \"enum\": [ \"Android 9\", \"Android 10\", \"Android 11\", \"Android 12\", \"Android 13\", \"iOS 14\", \"iOS 15\", \"Windows 7\", \"Windows 8\", \"Windows 10\", \"Windows 11\", \"Mac OS X 10\", \"Mac OS X 11\", \"Mac OS X 12\", \"Mac OS X 13\", \"Linux\" ], \"type\": \"string\" }, \"type\": \"array\" }, \"ua_version\": { \"items\": { \"type\": \"string\" }, \"type\": \"array\" } }, \"type\": \"object\" }, \"timezone\": { \"description\": \"The timezone of the browser, eg: Asia/Shanghai\", \"type\": \"string\" }, \"tls\": { \"description\": \"The tls of the browser, default is \\\"\\\"\", \"type\": \"string\" }, \"tls_switch\": { \"description\": \"The tls switch of the browser, default is 0\", \"enum\": [ \"0\", \"1\" ], \"type\": \"string\" }, \"webrtc\": { \"description\": \"The webrtc of the browser, default is disabled\", \"enum\": [ \"disabled\", \"forward\", \"proxy\", \"local\" ], \"type\": \"string\" } }, \"type\": \"object\" }, \"groupId\": { \"description\": \"The group id of the browser, must be a valid group id, if not, you can use the get-group-list tool to get the group list or create a new group\", \"type\": \"string\" }, \"name\": { \"description\": \"The name of the browser, eg: \\\"My Browser\\\"\", \"type\": \"string\" }, \"openUrls\": { \"description\": \"The open urls of the browser, eg: [\\\"https://www.google.com\\\"]\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"password\": { \"description\": \"The password of the browser, eg: \\\"password\\\"\", \"type\": \"string\" }, \"storageStrategy\": { \"description\": \"The storage strategy of the browser, default is 0\", \"type\": \"number\" }, \"sysAppCateId\": { \"description\": \"The sys app cate id of the browser, you can use the get-application-list tool to get the application list\", \"type\": \"string\" }, \"userProxyConfig\": { \"additionalProperties\": false, \"description\": \"The user proxy config of the browser\", \"properties\": { \"global_config\": { \"description\": \"The global config of the browser, default is 0\", \"enum\": [ \"0\", \"1\" ], \"type\": \"string\" }, \"proxy_host\": { \"description\": \"The proxy host of the browser, eg: 127.0.0.1\", \"type\": \"string\" }, \"proxy_password\": { \"description\": \"The proxy password of the browser, eg: password\", \"type\": \"string\" }, \"proxy_port\": { \"description\": \"The proxy port of the browser, eg: 8080\", \"type\": \"string\" }, \"proxy_soft\": { \"description\": \"The proxy soft of the browser\", \"enum\": [ \"brightdata\", \"brightauto\", \"oxylabsauto\", \"922S5auto\", \"ipideeauto\", \"ipfoxyauto\", \"922S5auth\", \"kookauto\", \"ssh\", \"other\", \"no_proxy\" ], \"type\": \"string\" }, \"proxy_type\": { \"enum\": [ \"http\", \"https\", \"socks5\", \"no_proxy\" ], \"type\": \"string\" }, \"proxy_url\": { \"description\": \"The proxy url of the browser, eg: http://127.0.0.1:8080\", \"type\": \"string\" }, \"proxy_user\": { \"description\": \"The proxy user of the browser, eg: user\", \"type\": \"string\" } }, \"required\": [ \"proxy_soft\" ], \"type\": \"object\" }, \"username\": { \"description\": \"The username of the browser, eg: \\\"user\\\"\", \"type\": \"string\" } }, \"required\": [ \"groupId\", \"userProxyConfig\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "cookie": {
+            "description": "The cookie of the browser, eg: \"[{\"domain\":\".baidu.com\",\"expirationDate\":\"\",\"name\":\"\",\"path\":\"/\",\"sameSite\":\"unspecified\",\"secure\":true,\"value\":\"\",\"id\":1}]\"",
+            "type": "string"
+          },
+          "country": {
+            "description": "The country of the browser, eg: \"CN\"",
+            "type": "string"
+          },
+          "domainName": {
+            "description": "The domain name of the browser, eg: facebook.com",
+            "type": "string"
+          },
+          "fingerprintConfig": {
+            "additionalProperties": false,
+            "description": "The fingerprint config of the browser, default is automatic_timezone: 0, timezone: \"\", language: [], flash: \"\", fonts: [], webrtc: disabled, browser_kernel_config: ua_auto, random_ua: ua_version: [], ua_system_version: [], tls_switch: 0, tls: \"\"",
+            "properties": {
+              "automatic_timezone": {
+                "description": "The automatic timezone of the browser, default is 0",
+                "enum": [
+                  "0",
+                  "1"
+                ],
+                "type": "string"
+              },
+              "browser_kernel_config": {
+                "additionalProperties": false,
+                "description": "The browser kernel config of the browser, default is version: ua_auto, type: chrome",
+                "properties": {
+                  "type": {
+                    "description": "The type of the browser, default is chrome",
+                    "enum": [
+                      "chrome",
+                      "firefox"
+                    ],
+                    "type": "string"
+                  },
+                  "version": {
+                    "description": "The version of the browser, default is ua_auto",
+                    "enum": [
+                      "92",
+                      "99",
+                      "102",
+                      "105",
+                      "108",
+                      "110",
+                      "113",
+                      "116",
+                      "120",
+                      "126",
+                      "130",
+                      "134",
+                      "ua_auto"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "flash": {
+                "description": "The flash of the browser, default is disabled",
+                "enum": [
+                  "block",
+                  "allow"
+                ],
+                "type": "string"
+              },
+              "fonts": {
+                "description": "The fonts of the browser, eg: [\"Arial\", \"Times New Roman\"]",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "language": {
+                "description": "The language of the browser, eg: [\"en-US\", \"zh-CN\"]",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "random_ua": {
+                "additionalProperties": false,
+                "description": "The random ua config of the browser, default is ua_version: [], ua_system_version: []",
+                "properties": {
+                  "ua_system_version": {
+                    "description": "The ua system version of the browser, eg: [\"Android 9\", \"iOS 14\"]",
+                    "items": {
+                      "enum": [
+                        "Android 9",
+                        "Android 10",
+                        "Android 11",
+                        "Android 12",
+                        "Android 13",
+                        "iOS 14",
+                        "iOS 15",
+                        "Windows 7",
+                        "Windows 8",
+                        "Windows 10",
+                        "Windows 11",
+                        "Mac OS X 10",
+                        "Mac OS X 11",
+                        "Mac OS X 12",
+                        "Mac OS X 13",
+                        "Linux"
+                      ],
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "ua_version": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "timezone": {
+                "description": "The timezone of the browser, eg: Asia/Shanghai",
+                "type": "string"
+              },
+              "tls": {
+                "description": "The tls of the browser, default is \"\"",
+                "type": "string"
+              },
+              "tls_switch": {
+                "description": "The tls switch of the browser, default is 0",
+                "enum": [
+                  "0",
+                  "1"
+                ],
+                "type": "string"
+              },
+              "webrtc": {
+                "description": "The webrtc of the browser, default is disabled",
+                "enum": [
+                  "disabled",
+                  "forward",
+                  "proxy",
+                  "local"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "groupId": {
+            "description": "The group id of the browser, must be a valid group id, if not, you can use the get-group-list tool to get the group list or create a new group",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the browser, eg: \"My Browser\"",
+            "type": "string"
+          },
+          "openUrls": {
+            "description": "The open urls of the browser, eg: [\"https://www.google.com\"]",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "password": {
+            "description": "The password of the browser, eg: \"password\"",
+            "type": "string"
+          },
+          "storageStrategy": {
+            "description": "The storage strategy of the browser, default is 0",
+            "type": "number"
+          },
+          "sysAppCateId": {
+            "description": "The sys app cate id of the browser, you can use the get-application-list tool to get the application list",
+            "type": "string"
+          },
+          "userProxyConfig": {
+            "additionalProperties": false,
+            "description": "The user proxy config of the browser",
+            "properties": {
+              "global_config": {
+                "description": "The global config of the browser, default is 0",
+                "enum": [
+                  "0",
+                  "1"
+                ],
+                "type": "string"
+              },
+              "proxy_host": {
+                "description": "The proxy host of the browser, eg: 127.0.0.1",
+                "type": "string"
+              },
+              "proxy_password": {
+                "description": "The proxy password of the browser, eg: password",
+                "type": "string"
+              },
+              "proxy_port": {
+                "description": "The proxy port of the browser, eg: 8080",
+                "type": "string"
+              },
+              "proxy_soft": {
+                "description": "The proxy soft of the browser",
+                "enum": [
+                  "brightdata",
+                  "brightauto",
+                  "oxylabsauto",
+                  "922S5auto",
+                  "ipideeauto",
+                  "ipfoxyauto",
+                  "922S5auth",
+                  "kookauto",
+                  "ssh",
+                  "other",
+                  "no_proxy"
+                ],
+                "type": "string"
+              },
+              "proxy_type": {
+                "enum": [
+                  "http",
+                  "https",
+                  "socks5",
+                  "no_proxy"
+                ],
+                "type": "string"
+              },
+              "proxy_url": {
+                "description": "The proxy url of the browser, eg: http://127.0.0.1:8080",
+                "type": "string"
+              },
+              "proxy_user": {
+                "description": "The proxy user of the browser, eg: user",
+                "type": "string"
+              }
+            },
+            "required": [
+              "proxy_soft"
+            ],
+            "type": "object"
+          },
+          "username": {
+            "description": "The username of the browser, eg: \"user\"",
+            "type": "string"
+          }
+        },
+        "required": [
+          "groupId",
+          "userProxyConfig"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "update-browser",
       "description": "Modify browser settings in AdsPower LocalAPI, including cookies, fingerprints, proxies, and URLs, to customize and optimize browser profiles for targeted operations.",
       "instructions": "Update the browser",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"cookie\": { \"description\": \"The cookie of the browser, eg: \\\"[{\\\"domain\\\":\\\".baidu.com\\\",\\\"expirationDate\\\":\\\"\\\",\\\"name\\\":\\\"\\\",\\\"path\\\":\\\"/\\\",\\\"sameSite\\\":\\\"unspecified\\\",\\\"secure\\\":true,\\\"value\\\":\\\"\\\",\\\"id\\\":1}]\\\"\", \"type\": \"string\" }, \"country\": { \"description\": \"The country of the browser, eg: \\\"CN\\\"\", \"type\": \"string\" }, \"domainName\": { \"description\": \"The domain name of the browser, eg: facebook.com\", \"type\": \"string\" }, \"fingerprintConfig\": { \"additionalProperties\": false, \"description\": \"The fingerprint config of the browser, default is automatic_timezone: 0, timezone: \\\"\\\", language: [], flash: \\\"\\\", fonts: [], webrtc: disabled, browser_kernel_config: ua_auto, random_ua: ua_version: [], ua_system_version: [], tls_switch: 0, tls: \\\"\\\"\", \"properties\": { \"automatic_timezone\": { \"description\": \"The automatic timezone of the browser, default is 0\", \"enum\": [ \"0\", \"1\" ], \"type\": \"string\" }, \"browser_kernel_config\": { \"additionalProperties\": false, \"description\": \"The browser kernel config of the browser, default is version: ua_auto, type: chrome\", \"properties\": { \"type\": { \"description\": \"The type of the browser, default is chrome\", \"enum\": [ \"chrome\", \"firefox\" ], \"type\": \"string\" }, \"version\": { \"description\": \"The version of the browser, default is ua_auto\", \"enum\": [ \"92\", \"99\", \"102\", \"105\", \"108\", \"110\", \"113\", \"116\", \"120\", \"126\", \"130\", \"134\", \"ua_auto\" ], \"type\": \"string\" } }, \"type\": \"object\" }, \"flash\": { \"description\": \"The flash of the browser, default is disabled\", \"enum\": [ \"block\", \"allow\" ], \"type\": \"string\" }, \"fonts\": { \"description\": \"The fonts of the browser, eg: [\\\"Arial\\\", \\\"Times New Roman\\\"]\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"language\": { \"description\": \"The language of the browser, eg: [\\\"en-US\\\", \\\"zh-CN\\\"]\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"random_ua\": { \"additionalProperties\": false, \"description\": \"The random ua config of the browser, default is ua_version: [], ua_system_version: []\", \"properties\": { \"ua_system_version\": { \"description\": \"The ua system version of the browser, eg: [\\\"Android 9\\\", \\\"iOS 14\\\"]\", \"items\": { \"enum\": [ \"Android 9\", \"Android 10\", \"Android 11\", \"Android 12\", \"Android 13\", \"iOS 14\", \"iOS 15\", \"Windows 7\", \"Windows 8\", \"Windows 10\", \"Windows 11\", \"Mac OS X 10\", \"Mac OS X 11\", \"Mac OS X 12\", \"Mac OS X 13\", \"Linux\" ], \"type\": \"string\" }, \"type\": \"array\" }, \"ua_version\": { \"items\": { \"type\": \"string\" }, \"type\": \"array\" } }, \"type\": \"object\" }, \"timezone\": { \"description\": \"The timezone of the browser, eg: Asia/Shanghai\", \"type\": \"string\" }, \"tls\": { \"description\": \"The tls of the browser, default is \\\"\\\"\", \"type\": \"string\" }, \"tls_switch\": { \"description\": \"The tls switch of the browser, default is 0\", \"enum\": [ \"0\", \"1\" ], \"type\": \"string\" }, \"webrtc\": { \"description\": \"The webrtc of the browser, default is disabled\", \"enum\": [ \"disabled\", \"forward\", \"proxy\", \"local\" ], \"type\": \"string\" } }, \"type\": \"object\" }, \"groupId\": { \"description\": \"The group id of the browser, must be a valid group id, if not, you can use the get-group-list tool to get the group list or create a new group\", \"type\": \"string\" }, \"name\": { \"description\": \"The name of the browser, eg: \\\"My Browser\\\"\", \"type\": \"string\" }, \"openUrls\": { \"description\": \"The open urls of the browser, eg: [\\\"https://www.google.com\\\"]\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"password\": { \"description\": \"The password of the browser, eg: \\\"password\\\"\", \"type\": \"string\" }, \"storageStrategy\": { \"description\": \"The storage strategy of the browser, default is 0\", \"type\": \"number\" }, \"sysAppCateId\": { \"description\": \"The sys app cate id of the browser, you can use the get-application-list tool to get the application list\", \"type\": \"string\" }, \"userId\": { \"description\": \"The user id of the browser to update\", \"type\": \"string\" }, \"userProxyConfig\": { \"additionalProperties\": false, \"description\": \"The user proxy config of the browser\", \"properties\": { \"global_config\": { \"description\": \"The global config of the browser, default is 0\", \"enum\": [ \"0\", \"1\" ], \"type\": \"string\" }, \"proxy_host\": { \"description\": \"The proxy host of the browser, eg: 127.0.0.1\", \"type\": \"string\" }, \"proxy_password\": { \"description\": \"The proxy password of the browser, eg: password\", \"type\": \"string\" }, \"proxy_port\": { \"description\": \"The proxy port of the browser, eg: 8080\", \"type\": \"string\" }, \"proxy_soft\": { \"description\": \"The proxy soft of the browser\", \"enum\": [ \"brightdata\", \"brightauto\", \"oxylabsauto\", \"922S5auto\", \"ipideeauto\", \"ipfoxyauto\", \"922S5auth\", \"kookauto\", \"ssh\", \"other\", \"no_proxy\" ], \"type\": \"string\" }, \"proxy_type\": { \"enum\": [ \"http\", \"https\", \"socks5\", \"no_proxy\" ], \"type\": \"string\" }, \"proxy_url\": { \"description\": \"The proxy url of the browser, eg: http://127.0.0.1:8080\", \"type\": \"string\" }, \"proxy_user\": { \"description\": \"The proxy user of the browser, eg: user\", \"type\": \"string\" } }, \"required\": [ \"proxy_soft\" ], \"type\": \"object\" }, \"username\": { \"description\": \"The username of the browser, eg: \\\"user\\\"\", \"type\": \"string\" } }, \"required\": [ \"groupId\", \"userProxyConfig\", \"userId\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "cookie": {
+            "description": "The cookie of the browser, eg: \"[{\"domain\":\".baidu.com\",\"expirationDate\":\"\",\"name\":\"\",\"path\":\"/\",\"sameSite\":\"unspecified\",\"secure\":true,\"value\":\"\",\"id\":1}]\"",
+            "type": "string"
+          },
+          "country": {
+            "description": "The country of the browser, eg: \"CN\"",
+            "type": "string"
+          },
+          "domainName": {
+            "description": "The domain name of the browser, eg: facebook.com",
+            "type": "string"
+          },
+          "fingerprintConfig": {
+            "additionalProperties": false,
+            "description": "The fingerprint config of the browser, default is automatic_timezone: 0, timezone: \"\", language: [], flash: \"\", fonts: [], webrtc: disabled, browser_kernel_config: ua_auto, random_ua: ua_version: [], ua_system_version: [], tls_switch: 0, tls: \"\"",
+            "properties": {
+              "automatic_timezone": {
+                "description": "The automatic timezone of the browser, default is 0",
+                "enum": [
+                  "0",
+                  "1"
+                ],
+                "type": "string"
+              },
+              "browser_kernel_config": {
+                "additionalProperties": false,
+                "description": "The browser kernel config of the browser, default is version: ua_auto, type: chrome",
+                "properties": {
+                  "type": {
+                    "description": "The type of the browser, default is chrome",
+                    "enum": [
+                      "chrome",
+                      "firefox"
+                    ],
+                    "type": "string"
+                  },
+                  "version": {
+                    "description": "The version of the browser, default is ua_auto",
+                    "enum": [
+                      "92",
+                      "99",
+                      "102",
+                      "105",
+                      "108",
+                      "110",
+                      "113",
+                      "116",
+                      "120",
+                      "126",
+                      "130",
+                      "134",
+                      "ua_auto"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "flash": {
+                "description": "The flash of the browser, default is disabled",
+                "enum": [
+                  "block",
+                  "allow"
+                ],
+                "type": "string"
+              },
+              "fonts": {
+                "description": "The fonts of the browser, eg: [\"Arial\", \"Times New Roman\"]",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "language": {
+                "description": "The language of the browser, eg: [\"en-US\", \"zh-CN\"]",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "random_ua": {
+                "additionalProperties": false,
+                "description": "The random ua config of the browser, default is ua_version: [], ua_system_version: []",
+                "properties": {
+                  "ua_system_version": {
+                    "description": "The ua system version of the browser, eg: [\"Android 9\", \"iOS 14\"]",
+                    "items": {
+                      "enum": [
+                        "Android 9",
+                        "Android 10",
+                        "Android 11",
+                        "Android 12",
+                        "Android 13",
+                        "iOS 14",
+                        "iOS 15",
+                        "Windows 7",
+                        "Windows 8",
+                        "Windows 10",
+                        "Windows 11",
+                        "Mac OS X 10",
+                        "Mac OS X 11",
+                        "Mac OS X 12",
+                        "Mac OS X 13",
+                        "Linux"
+                      ],
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "ua_version": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "timezone": {
+                "description": "The timezone of the browser, eg: Asia/Shanghai",
+                "type": "string"
+              },
+              "tls": {
+                "description": "The tls of the browser, default is \"\"",
+                "type": "string"
+              },
+              "tls_switch": {
+                "description": "The tls switch of the browser, default is 0",
+                "enum": [
+                  "0",
+                  "1"
+                ],
+                "type": "string"
+              },
+              "webrtc": {
+                "description": "The webrtc of the browser, default is disabled",
+                "enum": [
+                  "disabled",
+                  "forward",
+                  "proxy",
+                  "local"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "groupId": {
+            "description": "The group id of the browser, must be a valid group id, if not, you can use the get-group-list tool to get the group list or create a new group",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the browser, eg: \"My Browser\"",
+            "type": "string"
+          },
+          "openUrls": {
+            "description": "The open urls of the browser, eg: [\"https://www.google.com\"]",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "password": {
+            "description": "The password of the browser, eg: \"password\"",
+            "type": "string"
+          },
+          "storageStrategy": {
+            "description": "The storage strategy of the browser, default is 0",
+            "type": "number"
+          },
+          "sysAppCateId": {
+            "description": "The sys app cate id of the browser, you can use the get-application-list tool to get the application list",
+            "type": "string"
+          },
+          "userId": {
+            "description": "The user id of the browser to update",
+            "type": "string"
+          },
+          "userProxyConfig": {
+            "additionalProperties": false,
+            "description": "The user proxy config of the browser",
+            "properties": {
+              "global_config": {
+                "description": "The global config of the browser, default is 0",
+                "enum": [
+                  "0",
+                  "1"
+                ],
+                "type": "string"
+              },
+              "proxy_host": {
+                "description": "The proxy host of the browser, eg: 127.0.0.1",
+                "type": "string"
+              },
+              "proxy_password": {
+                "description": "The proxy password of the browser, eg: password",
+                "type": "string"
+              },
+              "proxy_port": {
+                "description": "The proxy port of the browser, eg: 8080",
+                "type": "string"
+              },
+              "proxy_soft": {
+                "description": "The proxy soft of the browser",
+                "enum": [
+                  "brightdata",
+                  "brightauto",
+                  "oxylabsauto",
+                  "922S5auto",
+                  "ipideeauto",
+                  "ipfoxyauto",
+                  "922S5auth",
+                  "kookauto",
+                  "ssh",
+                  "other",
+                  "no_proxy"
+                ],
+                "type": "string"
+              },
+              "proxy_type": {
+                "enum": [
+                  "http",
+                  "https",
+                  "socks5",
+                  "no_proxy"
+                ],
+                "type": "string"
+              },
+              "proxy_url": {
+                "description": "The proxy url of the browser, eg: http://127.0.0.1:8080",
+                "type": "string"
+              },
+              "proxy_user": {
+                "description": "The proxy user of the browser, eg: user",
+                "type": "string"
+              }
+            },
+            "required": [
+              "proxy_soft"
+            ],
+            "type": "object"
+          },
+          "username": {
+            "description": "The username of the browser, eg: \"user\"",
+            "type": "string"
+          }
+        },
+        "required": [
+          "groupId",
+          "userProxyConfig",
+          "userId"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "delete-browser",
       "description": "Remove specified browser profiles from AdsPower LocalAPI MCP Server by providing user IDs. Streamlines browser profile management and ensures efficient cleanup.",
       "instructions": "Delete the browser",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"userIds\": { \"description\": \"The user ids of the browsers to delete\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" } }, \"required\": [ \"userIds\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "userIds": {
+            "description": "The user ids of the browsers to delete",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "userIds"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "get-browser-list",
       "description": "Retrieve a list of browsers from AdsPower LocalAPI MCP Server based on criteria like group ID, serial number, or sorting order. Enables efficient management of browser profiles for specific tasks.",
       "instructions": "Get the list of browsers",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"groupId\": { \"description\": \"The group id of the browser\", \"type\": \"string\" }, \"id\": { \"description\": \"The id of the browser\", \"type\": \"string\" }, \"order\": { \"description\": \"The order of the browser\", \"enum\": [ \"asc\", \"desc\" ], \"type\": \"string\" }, \"serialNumber\": { \"description\": \"The serial number of the browser\", \"type\": \"string\" }, \"size\": { \"description\": \"The size of the page\", \"type\": \"number\" }, \"sort\": { \"description\": \"The sort of the browser\", \"enum\": [ \"serial_number\", \"last_open_time\", \"created_time\" ], \"type\": \"string\" } }, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "groupId": {
+            "description": "The group id of the browser",
+            "type": "string"
+          },
+          "id": {
+            "description": "The id of the browser",
+            "type": "string"
+          },
+          "order": {
+            "description": "The order of the browser",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "type": "string"
+          },
+          "serialNumber": {
+            "description": "The serial number of the browser",
+            "type": "string"
+          },
+          "size": {
+            "description": "The size of the page",
+            "type": "number"
+          },
+          "sort": {
+            "description": "The sort of the browser",
+            "enum": [
+              "serial_number",
+              "last_open_time",
+              "created_time"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
     },
     {
       "name": "get-opened-browser",
       "description": "Retrieve the list of currently opened browsers using the AdsPower LocalAPI MCP Server to monitor or manage active browser sessions programmatically.",
       "instructions": "Get the list of opened browsers",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      }
     },
     {
       "name": "move-browser",
       "description": "Transfer browser profiles to a designated group using groupId and browserIds for organized management and enhanced workflow efficiency.",
       "instructions": "Move browsers to a group",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"groupId\": { \"description\": \"The target group id\", \"type\": \"string\" }, \"userIds\": { \"description\": \"The browser ids to move\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" } }, \"required\": [ \"groupId\", \"userIds\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "groupId": {
+            "description": "The target group id",
+            "type": "string"
+          },
+          "userIds": {
+            "description": "The browser ids to move",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "groupId",
+          "userIds"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "create-group",
       "description": "Organize browser profiles by creating a named group with optional remarks using AdsPower LocalAPI MCP Server, simplifying profile management and grouping for enhanced workflow efficiency.",
       "instructions": "Create a browser group",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"groupName\": { \"description\": \"The name of the group to create\", \"type\": \"string\" }, \"remark\": { \"description\": \"The remark of the group\", \"type\": \"string\" } }, \"required\": [ \"groupName\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "groupName": {
+            "description": "The name of the group to create",
+            "type": "string"
+          },
+          "remark": {
+            "description": "The remark of the group",
+            "type": "string"
+          }
+        },
+        "required": [
+          "groupName"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "update-group",
       "description": "Modify browser group details, including group name and optional remarks, through the AdsPower LocalAPI MCP Server for streamlined profile management.",
       "instructions": "Update the browser group",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"groupId\": { \"description\": \"The id of the group to update\", \"type\": \"string\" }, \"groupName\": { \"description\": \"The new name of the group\", \"type\": \"string\" }, \"remark\": { \"description\": \"The new remark of the group\", \"type\": [ \"string\", \"null\" ] } }, \"required\": [ \"groupId\", \"groupName\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "groupId": {
+            "description": "The id of the group to update",
+            "type": "string"
+          },
+          "groupName": {
+            "description": "The new name of the group",
+            "type": "string"
+          },
+          "remark": {
+            "description": "The new remark of the group",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "groupId",
+          "groupName"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "get-group-list",
       "description": "Retrieve a list of groups from AdsPower LocalAPI MCP Server to manage browser profiles efficiently using specified group name and page size parameters.",
       "instructions": "Get the list of groups",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"name\": { \"description\": \"The name of the group\", \"type\": \"string\" }, \"size\": { \"description\": \"The size of the page\", \"type\": \"number\" } }, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of the group",
+            "type": "string"
+          },
+          "size": {
+            "description": "The size of the page",
+            "type": "number"
+          }
+        },
+        "type": "object"
+      }
     },
     {
       "name": "get-application-list",
       "description": "Retrieve a list of applications via the AdsPower LocalAPI MCP Server, enabling efficient management and interaction with browser profiles using customizable parameters.",
       "instructions": "Get the list of applications",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"size\": { \"description\": \"The size of the page\", \"type\": \"number\" } }, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "size": {
+            "description": "The size of the page",
+            "type": "number"
+          }
+        },
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@AdsPower/local-api-mcp-typescript",

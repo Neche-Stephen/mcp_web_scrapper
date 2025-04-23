@@ -1,0 +1,15 @@
+{
+  "name": "JSON Resume MCP Server",
+  "author": "jsonresume",
+  "author_url": "https://github.com/jsonresume",
+  "category": "Version Control",
+  "license": "The Unlicense",
+  "package_url": "https://www.npmjs.com/package/@jsonresume/mcp",
+  "source_url": "https://github.com/jsonresume/mcp",
+  "language": "TypeScript",
+  "server_configuration": [],
+  "tools": [],
+  "scrape_source": "https://glama.ai/mcp/servers/@jsonresume/mcp",
+  "version": "3.0.3",
+  "keywords": []
+}

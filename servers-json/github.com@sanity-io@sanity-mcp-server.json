@@ -44,121 +44,121 @@
       "name": "get_initial_context",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "get_sanity_config",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "get_groq_specification",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "create_document",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "update_document",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "patch_document",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "query_documents",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "document_action",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "create_version",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "discard_version",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "mark_for_unpublish",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "get_schema",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "list_schema_ids",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "list_releases",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "create_release",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "edit_release",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "schedule_release",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "release_action",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "list_embeddings_indices",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "semantic_search",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@sanity-io/sanity-mcp-server",

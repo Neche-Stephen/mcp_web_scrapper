@@ -38,19 +38,52 @@
       "name": "list_databases",
       "description": "Retrieve a list of databases from the MCP ClickHouse server for schema inspection and query management. Enables efficient database organization and access.",
       "instructions": "",
-      "jsonSchema": "{ \"properties\": {}, \"title\": \"list_databasesArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {},
+        "title": "list_databasesArguments",
+        "type": "object"
+      }
     },
     {
       "name": "list_tables",
       "description": "Retrieve and list database tables from a ClickHouse server using specified database and optional filters for efficient schema inspection.",
       "instructions": "",
-      "jsonSchema": "{ \"properties\": { \"database\": { \"title\": \"Database\", \"type\": \"string\" }, \"like\": { \"default\": null, \"title\": \"Like\", \"type\": \"string\" } }, \"required\": [ \"database\" ], \"title\": \"list_tablesArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "database": {
+            "title": "Database",
+            "type": "string"
+          },
+          "like": {
+            "default": null,
+            "title": "Like",
+            "type": "string"
+          }
+        },
+        "required": [
+          "database"
+        ],
+        "title": "list_tablesArguments",
+        "type": "object"
+      }
     },
     {
       "name": "run_select_query",
       "description": "Execute SQL SELECT queries on the ClickHouse database integrated within the MCP server. Retrieve data efficiently by submitting structured queries for analysis or reporting.",
       "instructions": "",
-      "jsonSchema": "{ \"properties\": { \"query\": { \"title\": \"Query\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"title\": \"run_select_queryArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "query": {
+            "title": "Query",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "run_select_queryArguments",
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@ClickHouse/mcp-clickhouse",

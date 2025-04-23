@@ -26,37 +26,112 @@
       "name": "echo",
       "description": "Returns the input message as provided, enabling message verification and testing within the Genkit MCP server's integration framework.",
       "instructions": "Echoes back the input",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"message\": { \"description\": \"Message to echo\", \"type\": \"string\" } }, \"required\": [ \"message\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "message": {
+            "description": "Message to echo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "message"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "add",
       "description": "Calculate the sum of two numbers by inputting values for 'a' and 'b' using the Genkit MCP integration tool.",
       "instructions": "Adds two numbers",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"a\": { \"description\": \"First number\", \"type\": \"number\" }, \"b\": { \"description\": \"Second number\", \"type\": \"number\" } }, \"required\": [ \"a\", \"b\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "a": {
+            "description": "First number",
+            "type": "number"
+          },
+          "b": {
+            "description": "Second number",
+            "type": "number"
+          }
+        },
+        "required": [
+          "a",
+          "b"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "printEnv",
       "description": "Display all environment variables for debugging and verifying MCP server configuration on Genkit MCP. Simplifies troubleshooting by providing a clear view of the runtime environment.",
       "instructions": "Prints all environment variables, helpful for debugging MCP server configuration",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      }
     },
     {
       "name": "longRunningOperation",
       "description": "Execute and monitor long-running operations with real-time progress updates using the Genkit MCP server tool. Specify duration and steps for precise task management.",
       "instructions": "Demonstrates a long running operation with progress updates",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"duration\": { \"default\": 10, \"description\": \"Duration of the operation in seconds\", \"type\": \"number\" }, \"steps\": { \"default\": 5, \"description\": \"Number of steps in the operation\", \"type\": \"number\" } }, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "duration": {
+            "default": 10,
+            "description": "Duration of the operation in seconds",
+            "type": "number"
+          },
+          "steps": {
+            "default": 5,
+            "description": "Number of steps in the operation",
+            "type": "number"
+          }
+        },
+        "type": "object"
+      }
     },
     {
       "name": "sampleLLM",
       "description": "Generate text samples from a language model by inputting a prompt and specifying token limits, integrated with Genkit MCP for streamlined use.",
       "instructions": "Samples from an LLM using MCP's sampling feature",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"maxTokens\": { \"default\": 100, \"description\": \"Maximum number of tokens to generate\", \"type\": \"number\" }, \"prompt\": { \"description\": \"The prompt to send to the LLM\", \"type\": \"string\" } }, \"required\": [ \"prompt\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "maxTokens": {
+            "default": 100,
+            "description": "Maximum number of tokens to generate",
+            "type": "number"
+          },
+          "prompt": {
+            "description": "The prompt to send to the LLM",
+            "type": "string"
+          }
+        },
+        "required": [
+          "prompt"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "getTinyImage",
       "description": "Generate and return MCP_TINY_IMAGE to optimize integration with the Model Context Protocol (MCP) on Genkit MCP server.",
       "instructions": "Returns the MCP_TINY_IMAGE",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@firebase/genkit",

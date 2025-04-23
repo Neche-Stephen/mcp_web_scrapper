@@ -7,90 +7,128 @@
   "package_url": "https://www.npmjs.com/package/@octomind/octomind-mcp",
   "source_url": "https://github.com/OctoMind-dev/octomind-mcp",
   "language": "TypeScript",
-  "server_configuration": [],
+  "server_configuration": [
+    {
+      "name": "APIKEY",
+      "required": "Yes",
+      "description": "The API key for Octomind API",
+      "default": ""
+    },
+    {
+      "name": "LOG_LEVEL",
+      "required": "No",
+      "description": "The log level to use",
+      "default": "info"
+    },
+    {
+      "name": "LOG_FILENAME",
+      "required": "No",
+      "description": "The file to write logs to (only for debugging). If not set, logging is disabled",
+      "default": ""
+    },
+    {
+      "name": "OCTOMIND_API_URL",
+      "required": "No",
+      "description": "Base URL for the API endpoint to use",
+      "default": "https://app.octomind.dev/api"
+    }
+  ],
   "tools": [
     {
       "name": "search",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "getTestCase",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "executeTests",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "getEnvironments",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "createEnvironment",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "updateEnvironment",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "deleteEnvironment",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "getTestReports",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "getTestReport",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "discovery",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "getPrivateLocations",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "getTestTargets",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "createTestTarget",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "updateTestTarget",
-      "error": "Attempted to use detached Frame 'D2E03697218312F7A9F73412E451A3A1'.",
-      "partial_data": true
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "deleteTestTarget",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "getVersion",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@OctoMind-dev/octomind-mcp",

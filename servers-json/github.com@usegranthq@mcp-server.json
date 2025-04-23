@@ -1,0 +1,108 @@
+{
+  "name": "UseGrant MCP Server",
+  "author": "usegranthq",
+  "author_url": "https://github.com/usegranthq",
+  "category": "Security",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/@usegrant/mcp",
+  "source_url": "https://github.com/usegranthq/mcp-server",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "USEGRANT_API_KEY",
+      "required": "Yes",
+      "description": "A valid UseGrant API key for authentication",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "list_providers",
+      "description": "Retrieve a comprehensive list of all providers managed through the UseGrant MCP Server, enabling efficient provider management and access control.",
+      "instructions": "List all providers",
+      "jsonSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "create_provider",
+      "description": "Create a new provider by defining its name and description using the UseGrant MCP Server, ensuring proper setup for provider management in the platform.",
+      "instructions": "Create a new provider",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "description": "The description of the provider",
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the provider",
+            "maxLength": 50,
+            "minLength": 3,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "description"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_provider",
+      "description": "Retrieve provider details by ID from the UseGrant MCP Server to efficiently manage and access provider information in the platform.",
+      "instructions": "Get a provider by ID",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "The ID of the provider",
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "delete_provider",
+      "description": "Remove a provider from the UseGrant MCP Server by specifying its unique ID. This tool ensures accurate management of provider records within the platform.",
+      "instructions": "Delete a provider",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "The ID of the provider",
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_clients",
+      "error": "Navigating frame was detached",
+      "partial_data": true
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@usegranthq/mcp-server",
+  "version": "1.3.0",
+  "keywords": [
+    "mcp-server",
+    "usegrant",
+    "sdk"
+  ]
+}

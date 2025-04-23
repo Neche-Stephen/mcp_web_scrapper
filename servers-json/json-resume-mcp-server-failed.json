@@ -1,7 +1,0 @@
-{
-  "title": "JSON Resume MCP Server",
-  "url": "https://glama.ai/mcp/servers/@jsonresume/mcp",
-  "error": "net::ERR_INTERNET_DISCONNECTED at https://glama.ai/mcp/servers/@jsonresume/mcp",
-  "status": "failed",
-  "partial_data": false
-}

@@ -7,34 +7,8 @@
   "package_url": "https://www.npmjs.com/package/azure-mcp",
   "source_url": "https://github.com/Streen9/azure-mcp",
   "language": "TypeScript",
-  "server_configuration": [
-    {
-      "name": "",
-      "required": "",
-      "description": "",
-      "default": ""
-    }
-  ],
-  "tools": [
-    {
-      "name": "run-azure-code",
-      "description": "Execute JavaScript code using Azure SDK to manage resources, handle subscriptions, and optimize tenant operations with structured, error-handling compliant scripts.",
-      "instructions": "Run Azure code",
-      "jsonSchema": "{ \"properties\": { \"code\": { \"description\": \"Your job is to answer questions about Azure environment by writing Javascript code using Azure SDK. The code must adhere to a few rules:\\n- Use the provided client instances: 'resourceClient' for ResourceManagementClient and 'subscriptionClient' for SubscriptionClient\\n- DO NOT create new client instances or import Azure SDK packages\\n- Use async/await and promises\\n- Think step-by-step before writing the code\\n- Avoid hardcoded values like Resource IDs\\n- Handle errors gracefully\\n- Handle pagination correctly using for-await-of loops\\n- Data returned must be JSON containing only the minimal amount of data needed\\n- Code MUST \\\"return\\\" a value: string, number, boolean or JSON object\", \"type\": \"string\" }, \"reasoning\": { \"description\": \"The reasoning behind the code\", \"type\": \"string\" }, \"subscriptionId\": { \"description\": \"Azure Subscription ID\", \"type\": \"string\" }, \"tenantId\": { \"description\": \"Azure Tenant ID\", \"type\": \"string\" } }, \"required\": [ \"reasoning\", \"code\" ], \"type\": \"object\" }"
-    },
-    {
-      "name": "list-tenants",
-      "description": "Retrieve a list of all available Azure tenants to simplify tenant selection and management within the Azure MCP Server.",
-      "instructions": "List all available Azure tenants",
-      "jsonSchema": "{ \"properties\": {}, \"required\": [], \"type\": \"object\" }"
-    },
-    {
-      "name": "select-tenant",
-      "description": "Choose and apply specific Azure tenant and subscription IDs for secure resource management and subscription handling within the Azure MCP Server environment.",
-      "instructions": "Select Azure tenant and subscription",
-      "jsonSchema": "{ \"properties\": { \"subscriptionId\": { \"description\": \"Azure Subscription ID to select\", \"type\": \"string\" }, \"tenantId\": { \"description\": \"Azure Tenant ID to select\", \"type\": \"string\" } }, \"required\": [ \"tenantId\", \"subscriptionId\" ], \"type\": \"object\" }"
-    }
-  ],
+  "server_configuration": [],
+  "tools": [],
   "scrape_source": "https://glama.ai/mcp/servers/@kalivaraprasad-gonapa/azure-mcp",
   "version": "0.0.4",
   "keywords": []

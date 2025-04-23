@@ -20,16 +20,16 @@
       "name": "evaluate_llm_response",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "evaluate_llm_response_on_multiple_criteria",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@atla-ai/atla-mcp-server",
-  "version": "0.1.0",
+  "version": "",
   "keywords": []
 }

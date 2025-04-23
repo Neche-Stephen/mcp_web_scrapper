@@ -20,43 +20,142 @@
       "name": "dev",
       "description": "Streamline development tasks with a universal tool for file operations, command execution, project analysis, notebook management, and vector store interactions. Simplify workflows through a unified interface integrated with Hanzo MCP.",
       "instructions": "Universal development tool for all project operations.This tool provides a unified interface for all development operations,\nincluding file operations, command execution, project analysis,\nnotebook operations, and vector store operations.Args:\n    operation: The operation to perform\n    **kwargs: Additional arguments specific to the operationReturns:\n    Operation result as JSON or text",
-      "jsonSchema": "{ \"properties\": { \"ctx\": { \"title\": \"Ctx\" }, \"kwargs\": { \"title\": \"kwargs\", \"type\": \"string\" }, \"operation\": { \"title\": \"Operation\", \"type\": \"string\" } }, \"required\": [ \"ctx\", \"operation\", \"kwargs\" ], \"title\": \"devArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "ctx": {
+            "title": "Ctx"
+          },
+          "kwargs": {
+            "title": "kwargs",
+            "type": "string"
+          },
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ctx",
+          "operation",
+          "kwargs"
+        ],
+        "title": "devArguments",
+        "type": "object"
+      }
     },
     {
       "name": "think",
       "description": "Log and analyze complex reasoning or brainstorming tasks without modifying repositories. Use to explore solutions, assess fixes, or interpret test results, enhancing decision-making with structured thought processes.",
       "instructions": "Use the tool to think about something.It will not obtain new information or make any changes to the repository, but just log the thought. Use it when complex reasoning or brainstorming is needed. For example, if you explore the repo and discover the source of a bug, call this tool to brainstorm several unique ways of fixing the bug, and assess which change(s) are likely to be simplest and most effective. Alternatively, if you receive some test results, call this tool to brainstorm ways to fix the failing tests.Args:\n    thought: Your thoughts or analysisReturns:\n    Confirmation that the thinking process has been recorded, possibly with enhanced analysis",
-      "jsonSchema": "{ \"properties\": { \"thought\": { \"title\": \"Thought\", \"type\": \"string\" } }, \"required\": [ \"thought\" ], \"title\": \"thinkArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "thought": {
+            "title": "Thought",
+            "type": "string"
+          }
+        },
+        "required": [
+          "thought"
+        ],
+        "title": "thinkArguments",
+        "type": "object"
+      }
     },
     {
       "name": "run_mcp",
       "description": "Execute server operations like listing, starting, stopping, or restarting MCP servers on the Hanzo MCP platform using specific commands and optional server targets.",
       "instructions": "Run operations on MCP servers.Args:\n    operation: The operation to perform (list, start, stop, info, restart)\n    server: The server to operate on (optional, for specific server operations)\n    **kwargs: Additional arguments for the operationReturns:\n    Operation result",
-      "jsonSchema": "{ \"properties\": { \"ctx\": { \"title\": \"Ctx\" }, \"kwargs\": { \"title\": \"kwargs\", \"type\": \"string\" }, \"operation\": { \"title\": \"Operation\", \"type\": \"string\" }, \"server\": { \"default\": null, \"title\": \"Server\", \"type\": \"string\" } }, \"required\": [ \"ctx\", \"operation\", \"kwargs\" ], \"title\": \"run_mcpArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "ctx": {
+            "title": "Ctx"
+          },
+          "kwargs": {
+            "title": "kwargs",
+            "type": "string"
+          },
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "server": {
+            "default": null,
+            "title": "Server",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ctx",
+          "operation",
+          "kwargs"
+        ],
+        "title": "run_mcpArguments",
+        "type": "object"
+      }
     },
     {
       "name": "list_external_servers",
       "description": "Discover available external MCP servers connected to the Hanzo AI platform. Use this tool to retrieve a list of external servers for integration or collaboration purposes.",
       "instructions": "List available external MCP servers.Returns:\n    A list of available external MCP servers",
-      "jsonSchema": "{ \"properties\": {}, \"title\": \"list_external_serversArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {},
+        "title": "list_external_serversArguments",
+        "type": "object"
+      }
     },
     {
       "name": "enable_external_server",
       "description": "Activate an external MCP server by specifying its name to integrate it with the Hanzo MCP, enabling enhanced code management and AI-driven platform capabilities. Returns the operation’s result.",
       "instructions": "Enable an external MCP server.Args:\n    name: The name of the server to enableReturns:\n    The result of the operation",
-      "jsonSchema": "{ \"properties\": { \"name\": { \"title\": \"Name\", \"type\": \"string\" } }, \"required\": [ \"name\" ], \"title\": \"enable_external_serverArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "enable_external_serverArguments",
+        "type": "object"
+      }
     },
     {
       "name": "disable_external_server",
       "description": "Disables an external MCP server by specifying its name. This tool is part of the Hanzo MCP, which manages AI platform capabilities and code tools for LLM clients.",
       "instructions": "Disable an external MCP server.Args:\n    name: The name of the server to disableReturns:\n    The result of the operation",
-      "jsonSchema": "{ \"properties\": { \"name\": { \"title\": \"Name\", \"type\": \"string\" } }, \"required\": [ \"name\" ], \"title\": \"disable_external_serverArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "disable_external_serverArguments",
+        "type": "object"
+      }
     },
     {
       "name": "set_auto_detect",
       "description": "Configure auto-detection of external MCP servers for the Hanzo MCP platform. Enable or disable this feature to streamline server connectivity and integration.",
       "instructions": "Set whether to auto-detect external MCP servers.Args:\n    enabled: Whether to enable auto-detectionReturns:\n    The result of the operation",
-      "jsonSchema": "{ \"properties\": { \"enabled\": { \"title\": \"Enabled\", \"type\": \"boolean\" } }, \"required\": [ \"enabled\" ], \"title\": \"set_auto_detectArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "title": "set_auto_detectArguments",
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@hanzoai/mcp",

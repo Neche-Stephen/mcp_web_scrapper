@@ -20,7 +20,54 @@
       "name": "submit_app_requirements",
       "description": "Submit detailed app requirements, including name, pitch, and specifications, to initiate app planning and generate initial MVP tasks with Databutton MCP Server.",
       "instructions": "Submit app requirements",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"name\": { \"description\": \"The name of the app\", \"type\": \"string\" }, \"pitch\": { \"description\": \"The pitch for the app\", \"type\": \"string\" }, \"spec\": { \"additionalProperties\": false, \"properties\": { \"description\": { \"description\": \"The app's specifications given in no more than 4-5 paragraphs\", \"type\": \"string\" }, \"design\": { \"description\": \"The app's design\", \"type\": \"string\" }, \"targetAudience\": { \"description\": \"The app's target audience\", \"type\": \"string\" }, \"typography\": { \"description\": \"The app's typography\", \"type\": \"string\" } }, \"required\": [ \"description\", \"targetAudience\", \"design\", \"typography\" ], \"type\": \"object\" } }, \"required\": [ \"name\", \"pitch\", \"spec\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of the app",
+            "type": "string"
+          },
+          "pitch": {
+            "description": "The pitch for the app",
+            "type": "string"
+          },
+          "spec": {
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "description": "The app's specifications given in no more than 4-5 paragraphs",
+                "type": "string"
+              },
+              "design": {
+                "description": "The app's design",
+                "type": "string"
+              },
+              "targetAudience": {
+                "description": "The app's target audience",
+                "type": "string"
+              },
+              "typography": {
+                "description": "The app's typography",
+                "type": "string"
+              }
+            },
+            "required": [
+              "description",
+              "targetAudience",
+              "design",
+              "typography"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "name",
+          "pitch",
+          "spec"
+        ],
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@databutton/databutton-mcp",

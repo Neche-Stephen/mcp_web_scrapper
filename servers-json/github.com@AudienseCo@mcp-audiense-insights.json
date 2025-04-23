@@ -32,49 +32,188 @@
       "name": "get-reports",
       "description": "Fetch a list of Audiense Insights reports for data on demographics, behavior, and influencer engagement to enhance marketing strategies.",
       "instructions": "Retrieves the list of Audiense insights reports owned by the authenticated user.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      }
     },
     {
       "name": "get-report-info",
       "description": "Retrieve comprehensive details about a specific intelligence report, including status, segmentation type, audience size, and access links, using the report ID.",
       "instructions": "Retrieves detailed information about a specific intelligence report, including its status, segmentation type, audience size, segments, and access links.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"report_id\": { \"description\": \"The ID of the intelligence report.\", \"type\": \"string\" } }, \"required\": [ \"report_id\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "report_id": {
+            "description": "The ID of the intelligence report.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "report_id"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "get-audience-insights",
       "description": "Retrieves aggregated audience insights by analyzing demographics, behavior, psychographics, and socioeconomic attributes to support targeted marketing strategies and audience understanding.",
       "instructions": "Retrieves aggregated insights for a given audience ID, providing statistical distributions across various attributes.\n    Available insights include demographics (e.g., gender, age, country), behavioral traits (e.g., active hours, platform usage), psychographics (e.g., personality traits, interests), and socioeconomic factors (e.g., income, education status).",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"audience_insights_id\": { \"description\": \"The ID of the audience insights.\", \"type\": \"string\" }, \"insights\": { \"description\": \"Optional list of insight names to filter.\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" } }, \"required\": [ \"audience_insights_id\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "audience_insights_id": {
+            "description": "The ID of the audience insights.",
+            "type": "string"
+          },
+          "insights": {
+            "description": "Optional list of insight names to filter.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "audience_insights_id"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "get-baselines",
       "description": "Retrieve audience data baselines for marketing insights, filtered by country if needed, to analyze demographics, behavior, and influencer engagement.",
       "instructions": "Retrieves available baselines, optionally filtered by country.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"country\": { \"description\": \"ISO country code to filter by.\", \"type\": \"string\" } }, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "country": {
+            "description": "ISO country code to filter by.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
     },
     {
       "name": "get-categories",
       "description": "Retrieve a list of affinity categories to define audience segments for comparison in influencer analysis using the Audiense Insights MCP Server.",
       "instructions": "Retrieves the list of available affinity categories that can be used as the categories parameter in the compare-audience-influencers tool.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      }
     },
     {
       "name": "compare-audience-influencers",
       "description": "Analyze and contrast influencer profiles between a selected audience and a baseline audience. Measure affinity, uniqueness, and alignment to identify key influencers tailored to your specific audience segment.",
       "instructions": "Compares the influencers of an audience with a baseline audience. The baseline is determined as follows: \n    If the selection was the full audience and a single country represents more than 50% of the audience, that country is used as the baseline.\n    Otherwise, the Global baseline is applied. If the selection was a specific segment, the full audience is used as the baseline.\n    Each influencer comparison includes: \n        - Affinity (%) - The level of alignment between the influencer and the audience. Baseline Affinity (%)\n        - The influencer’s affinity within the baseline audience. Uniqueness Score\n        - A measure of how distinct the influencer is within the selected audience compared to the baseline.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"audience_influencers_id\": { \"description\": \"The ID of the audience influencers.\", \"type\": \"string\" }, \"baseline_audience_influencers_id\": { \"description\": \"The ID of the baseline audience influencers.\", \"type\": \"string\" }, \"bio_keyword\": { \"description\": \"Keyword to filter influencers by their biography.\", \"type\": \"string\" }, \"categories\": { \"description\": \"Filter influencers by categories.\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"count\": { \"description\": \"Number of items per page (default: 200).\", \"type\": \"number\" }, \"countries\": { \"description\": \"Filter influencers by country ISO codes.\", \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"cursor\": { \"description\": \"Cursor for pagination.\", \"type\": \"number\" }, \"entity_type\": { \"description\": \"Filter by entity type (person or brand).\", \"enum\": [ \"person\", \"brand\" ], \"type\": \"string\" }, \"followers_max\": { \"description\": \"Maximum number of followers.\", \"type\": \"number\" }, \"followers_min\": { \"description\": \"Minimum number of followers.\", \"type\": \"number\" } }, \"required\": [ \"audience_influencers_id\", \"baseline_audience_influencers_id\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "audience_influencers_id": {
+            "description": "The ID of the audience influencers.",
+            "type": "string"
+          },
+          "baseline_audience_influencers_id": {
+            "description": "The ID of the baseline audience influencers.",
+            "type": "string"
+          },
+          "bio_keyword": {
+            "description": "Keyword to filter influencers by their biography.",
+            "type": "string"
+          },
+          "categories": {
+            "description": "Filter influencers by categories.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "count": {
+            "description": "Number of items per page (default: 200).",
+            "type": "number"
+          },
+          "countries": {
+            "description": "Filter influencers by country ISO codes.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "cursor": {
+            "description": "Cursor for pagination.",
+            "type": "number"
+          },
+          "entity_type": {
+            "description": "Filter by entity type (person or brand).",
+            "enum": [
+              "person",
+              "brand"
+            ],
+            "type": "string"
+          },
+          "followers_max": {
+            "description": "Maximum number of followers.",
+            "type": "number"
+          },
+          "followers_min": {
+            "description": "Minimum number of followers.",
+            "type": "number"
+          }
+        },
+        "required": [
+          "audience_influencers_id",
+          "baseline_audience_influencers_id"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "get-audience-content",
       "description": "Analyze audience content engagement by retrieving detailed insights such as popular posts, top domains, hashtags, emojis, links, media, and word cloud for liked, shared, and influential content.",
       "instructions": "Retrieves audience content engagement details for a given audience.This tool provides a detailed breakdown of the content an audience interacts with, including:Liked Content: Popular posts, top domains, top emojis, top hashtags, top links, top media, and a word cloud.Shared Content: Content that the audience shares, categorized similarly to liked content.Influential Content: Content from influential accounts that impact the audience, with similar categorization.Each category contains:popularPost: List of the most engaged posts.topDomains: Most mentioned domains.topEmojis: Most used emojis.topHashtags: Most used hashtags.topLinks: Most shared links.topMedia: Media types shared and samples.wordcloud: Frequently used words.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"audience_content_id\": { \"description\": \"The ID of the audience content to retrieve.\", \"type\": \"string\" } }, \"required\": [ \"audience_content_id\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "audience_content_id": {
+            "description": "The ID of the audience content to retrieve.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "audience_content_id"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "report-summary",
       "description": "Generate actionable summaries of Audiense intelligence reports, highlighting key segments, insights, and influencers for data-driven marketing decisions.",
       "instructions": "Generates a comprehensive summary of an Audiense report, including segment details, top insights, and influencers.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"report_id\": { \"description\": \"The ID of the intelligence report to summarize.\", \"type\": \"string\" } }, \"required\": [ \"report_id\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "report_id": {
+            "description": "The ID of the intelligence report to summarize.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "report_id"
+        ],
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@AudienseCo/mcp-audiense-insights",

@@ -7,9 +7,185 @@
   "package_url": "https://www.npmjs.com/package/@playwright/mcp",
   "source_url": "https://github.com/microsoft/playwright-mcp",
   "language": "TypeScript",
-  "server_configuration": [],
-  "tools": [],
+  "server_configuration": [
+    {
+      "name": "CAPS",
+      "required": "No",
+      "description": "Comma-separated list of capabilities to enable, possible values: tabs, pdf, history, wait, files, install",
+      "default": ""
+    },
+    {
+      "name": "PORT",
+      "required": "No",
+      "description": "Port to listen on for SSE transport",
+      "default": ""
+    },
+    {
+      "name": "VISION",
+      "required": "No",
+      "description": "Run server that uses screenshots (Aria snapshots are used by default)",
+      "default": ""
+    },
+    {
+      "name": "BROWSER",
+      "required": "No",
+      "description": "Browser or chrome channel to use. Possible values: chrome, firefox, webkit, msedge, chrome-beta, chrome-canary, chrome-dev, msedge-beta, msedge-canary, msedge-dev",
+      "default": "chrome"
+    },
+    {
+      "name": "HEADLESS",
+      "required": "No",
+      "description": "Run browser in headless mode (headed by default)",
+      "default": ""
+    },
+    {
+      "name": "CDP_ENDPOINT",
+      "required": "No",
+      "description": "CDP endpoint to connect to",
+      "default": ""
+    },
+    {
+      "name": "USER_DATA_DIR",
+      "required": "No",
+      "description": "Path to the user data directory",
+      "default": ""
+    },
+    {
+      "name": "EXECUTABLE_PATH",
+      "required": "No",
+      "description": "Path to the browser executable",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "browser_close",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_wait",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_resize",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_file_upload",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_install",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_press_key",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_navigate",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_navigate_back",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_navigate_forward",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_pdf_save",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_snapshot",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_click",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_drag",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_hover",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_type",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_select_option",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_take_screenshot",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_tab_list",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_tab_new",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_tab_select",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "browser_tab_close",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    }
+  ],
   "scrape_source": "https://glama.ai/mcp/servers/@microsoft/playwright-mcp",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "keywords": []
 }

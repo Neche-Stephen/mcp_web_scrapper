@@ -7,8 +7,648 @@
   "package_url": "https://www.npmjs.com/package/@paddle/paddle-mcp",
   "source_url": "https://github.com/paddlehq/paddle-mcp-server",
   "language": "TypeScript",
-  "server_configuration": [],
-  "tools": [],
+  "server_configuration": [
+    {
+      "name": "PADDLE_API_KEY",
+      "required": "Yes",
+      "description": "Your Paddle API key from Paddle > Developer tools > Authentication",
+      "default": ""
+    },
+    {
+      "name": "PADDLE_ENVIRONMENT",
+      "required": "Yes",
+      "description": "The Paddle environment to use (sandbox or production)",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "list_products",
+      "description": "Retrieve and manage products from your Paddle catalog with pagination, filtering by status, tax category, and type, and sorting options. Includes related entities like prices for detailed insights.",
+      "instructions": "This tool will list products in your Paddle catalog.Use the maximum perPage by default (200) to ensure comprehensive results.\nFilter products by status, tax category, and type as needed.\nResults are paginated - use the 'after' parameter with the last ID from previous results to get the next page.\nSort results using orderBy parameter.\nInclude related entities like prices if needed.\nAmounts are in the smallest currency unit (e.g., cents).",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "after": {
+            "description": "Cursor for use in pagination. Represents the ID of the last entity in the previous page of results.",
+            "type": "string"
+          },
+          "id": {
+            "description": "Filter products by their ID. Accepts multiple values.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "include": {
+            "description": "Related data to include in the response.",
+            "items": {
+              "enum": [
+                "prices"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "orderBy": {
+            "description": "Sort order for returned items.",
+            "enum": [
+              "created_at[ASC]",
+              "created_at[DESC]",
+              "custom_data[ASC]",
+              "custom_data[DESC]",
+              "description[ASC]",
+              "description[DESC]",
+              "id[ASC]",
+              "id[DESC]",
+              "image_url[ASC]",
+              "image_url[DESC]",
+              "name[ASC]",
+              "name[DESC]",
+              "status[ASC]",
+              "status[DESC]",
+              "tax_category[ASC]",
+              "tax_category[DESC]",
+              "updated_at[ASC]",
+              "updated_at[DESC]"
+            ],
+            "type": "string"
+          },
+          "perPage": {
+            "description": "Number of items to be returned per page (default: 25, maximum: 50).",
+            "type": "number"
+          },
+          "status": {
+            "description": "Filter products by their status. Accepts multiple values.",
+            "items": {
+              "enum": [
+                "active",
+                "archived"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "taxCategory": {
+            "description": "Filter products by their tax category. Accepts multiple values.",
+            "items": {
+              "enum": [
+                "digital-goods",
+                "ebooks",
+                "implementation-services",
+                "professional-services",
+                "saas",
+                "software-programming-services",
+                "standard",
+                "training-services",
+                "website-hosting"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": {
+            "description": "Filter products by their type. Accepts multiple values.",
+            "items": {
+              "enum": [
+                "standard",
+                "custom"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "name": "create_product",
+      "description": "Create a new product in Paddle by defining its name, description, image URL, and tax category. Automatically calculates taxes based on the selected category, ensuring compliance across jurisdictions.",
+      "instructions": "This tool will create a new product in Paddle.When selecting a tax category, choose the one that best describes your product:standard: Software products that are pre-written and can be downloaded and installed onto a local devicedigital-goods: Non-customizable digital files or media (not software) acquired with an up front payment that can be accessed without any physical product being deliveredebooks: Digital books and educational material which is sold with permanent rights for use by the customerimplementation-services: Remote configuration, set-up, and integrating software on behalf of a customerprofessional-services: Services that involve the application of your expertise and specialized knowledge of a software productsaas: Products that allow users to connect to and use online or cloud-based applications over the Internetsoftware-programming-services: Services that can be used to customize and white label software productstraining-services: Training and education services related to software productswebsite-hosting: Cloud storage service for personal or corporate information, assets, or intellectual propertyThe tax category affects how taxes are calculated in different jurisdictions. Choose carefully as it impacts your customers' tax rates.\nWhen using the standard tax category, prompt the user to review the tax category in the Paddle dashboard.",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "customData": {
+            "additionalProperties": {},
+            "description": "A JSON object containing custom data. Limited to 50 keys, with key names up to 40 characters long.",
+            "type": "object"
+          },
+          "description": {
+            "description": "A description of the product that will be displayed to customers.",
+            "type": "string"
+          },
+          "imageUrl": {
+            "description": "A URL to an image that will be displayed to customers. Must be publicly accessible.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the product. Must be unique within your catalog.",
+            "type": "string"
+          },
+          "taxCategory": {
+            "description": "The tax category that best describes your product. Used to automatically calculate tax rates.",
+            "enum": [
+              "digital-goods",
+              "ebooks",
+              "implementation-services",
+              "professional-services",
+              "saas",
+              "software-programming-services",
+              "standard",
+              "training-services",
+              "website-hosting"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "taxCategory"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_prices",
+      "description": "Retrieve and filter prices from your Paddle catalog by product ID, status, or type. Supports pagination, sorting, and including related entities like products. Amounts are in the smallest currency unit (e.g., cents).",
+      "instructions": "This tool will list prices in your Paddle catalog.Use the maximum perPage by default (200) to ensure comprehensive results.\nFilter prices by product ID, status, recurring, and type as needed.\nResults are paginated - use the 'after' parameter with the last ID from previous results to get the next page.\nSort results using orderBy parameter.\nInclude related entities like products if needed.\nAmounts are in the smallest currency unit (e.g., cents).",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "after": {
+            "description": "Cursor for pagination. Returns results after the cursor position.",
+            "type": "string"
+          },
+          "id": {
+            "description": "Filter by a list of price IDs. Use this to retrieve multiple prices by ID.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "include": {
+            "description": "Related entities to include in the response.",
+            "items": {
+              "enum": [
+                "product"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "orderBy": {
+            "description": "Sort field and order.",
+            "enum": [
+              "billing_cycle.frequency[ASC]",
+              "billing_cycle.frequency[DESC]",
+              "billing_cycle.interval[ASC]",
+              "billing_cycle.interval[DESC]",
+              "id[ASC]",
+              "id[DESC]",
+              "product_id[ASC]",
+              "product_id[DESC]",
+              "quantity.maximum[ASC]",
+              "quantity.maximum[DESC]",
+              "quantity.minimum[ASC]",
+              "quantity.minimum[DESC]",
+              "status[ASC]",
+              "status[DESC]",
+              "tax_mode[ASC]",
+              "tax_mode[DESC]",
+              "unit_price.amount[ASC]",
+              "unit_price.amount[DESC]",
+              "unit_price.currency_code[ASC]",
+              "unit_price.currency_code[DESC]"
+            ],
+            "type": "string"
+          },
+          "perPage": {
+            "description": "Number of records to return per page. Default is 25, maximum is 50.",
+            "type": "number"
+          },
+          "productId": {
+            "description": "Filter by a list of product IDs. Returns prices for the specified products.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "status": {
+            "description": "Filter by price status. Returns prices with the specified statuses.",
+            "items": {
+              "enum": [
+                "active",
+                "archived"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "name": "create_price",
+      "description": "Set product prices optimized for global markets using country-specific overrides. Adjust pricing based on purchasing power parity, local currencies, and economic conditions to maximize conversion rates.",
+      "instructions": "Group countries based on purchasing power parity (PPP), not just currency zones\nCreate separate overrides for countries with different economic conditions even if they share the same currency (e.g., Greece and Ireland should have different price points)\nAdjust prices relative to local economic conditions - higher in wealthy markets, lower in developing economies\nFor optimal conversion rates, set prices using local market research and willingness-to-pay data\nUse local currencies where preferred by the customer",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "billingCycle": {
+            "additionalProperties": false,
+            "description": "For subscription prices, defines the recurring billing period",
+            "properties": {
+              "frequency": {
+                "description": "How many intervals make up one billing cycle (e.g., 2 weeks, 3 months)",
+                "type": "number"
+              },
+              "interval": {
+                "description": "The billing period unit (day, week, month, or year)",
+                "enum": [
+                  "day",
+                  "week",
+                  "month",
+                  "year"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "interval",
+              "frequency"
+            ],
+            "type": "object"
+          },
+          "customData": {
+            "additionalProperties": {},
+            "description": "A JSON object of custom metadata. Limited to 50 keys, with key names up to 40 characters",
+            "type": "object"
+          },
+          "description": {
+            "description": "A description of this price that will be displayed to customers",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the price",
+            "type": "string"
+          },
+          "productId": {
+            "description": "The ID of the product this price is for",
+            "type": "string"
+          },
+          "quantity": {
+            "additionalProperties": false,
+            "description": "Quantity limits for this price",
+            "properties": {
+              "maximum": {
+                "description": "The maximum quantity that can be purchased. Must be greater than minimum if specified",
+                "type": "number"
+              },
+              "minimum": {
+                "description": "The minimum quantity that can be purchased. Must be at least 1 if specified",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "trialPeriod": {
+            "additionalProperties": false,
+            "description": "For subscription prices with a trial, defines the trial period duration",
+            "properties": {
+              "frequency": {
+                "description": "How many intervals make up the trial period (e.g., 14 days, 1 month)",
+                "type": "number"
+              },
+              "interval": {
+                "description": "The trial period unit (day, week, month, or year)",
+                "enum": [
+                  "day",
+                  "week",
+                  "month",
+                  "year"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "interval",
+              "frequency"
+            ],
+            "type": "object"
+          },
+          "unitPrice": {
+            "additionalProperties": false,
+            "description": "The base price details",
+            "properties": {
+              "amount": {
+                "description": "The price amount in the smallest currency unit (e.g., cents). Must be a positive integer represented as a string",
+                "type": "string"
+              },
+              "currencyCode": {
+                "description": "The three-letter ISO 4217 currency code (e.g., USD, EUR, GBP)",
+                "type": "string"
+              }
+            },
+            "required": [
+              "amount",
+              "currencyCode"
+            ],
+            "type": "object"
+          },
+          "unitPriceOverrides": {
+            "description": "Country-specific price overrides. Used for regional pricing",
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "countryCodes": {
+                  "description": "List of two-letter ISO 3166-1 alpha-2 country codes where this override applies",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "unitPrice": {
+                  "additionalProperties": false,
+                  "description": "The override price details",
+                  "properties": {
+                    "amount": {
+                      "description": "The override price amount in the smallest currency unit. Must be a positive integer represented as a string",
+                      "type": "string"
+                    },
+                    "currencyCode": {
+                      "description": "The three-letter ISO 4217 currency code (e.g., USD, EUR, GBP)",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currencyCode"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "countryCodes",
+                "unitPrice"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "productId",
+          "description",
+          "unitPrice"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_customers",
+      "description": "Retrieve and manage customer data from your Paddle account by filtering, searching, and sorting results. Use pagination to access comprehensive lists of active or archived customers by email, ID, or status.",
+      "instructions": "This tool will list customers in your Paddle account.Use the maximum perPage by default (200) to ensure comprehensive results.\nFilter customers by email, ID, and status as needed.\nUse the search parameter to find customers by ID, name, or email address.\nResults are paginated - use the 'after' parameter with the last ID from previous results to get the next page.\nSort results using orderBy parameter.\nCustomers can have either 'active' or 'archived' status.",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "after": {
+            "description": "Return entities after the specified Paddle ID when working with paginated endpoints.",
+            "type": "string"
+          },
+          "email": {
+            "description": "Return entities that exactly match the specified email address.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "id": {
+            "description": "Return only the IDs specified.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "orderBy": {
+            "description": "Order returned entities by the specified field and direction.",
+            "enum": [
+              "id[ASC]",
+              "id[DESC]"
+            ],
+            "type": "string"
+          },
+          "perPage": {
+            "description": "Set how many entities are returned per page. Default: 50; Maximum: 200.",
+            "type": "number"
+          },
+          "search": {
+            "description": "Return entities that match a search query. Searches id, name, and email fields.",
+            "type": "string"
+          },
+          "status": {
+            "description": "Return entities that match the specified status.",
+            "items": {
+              "enum": [
+                "active",
+                "archived"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_transactions",
+      "description": "Retrieve and filter transactions from your Paddle account by date, status, customer ID, or other criteria. Include related data like addresses, adjustments, or discounts. Results are paginated and sortable for efficient analysis.",
+      "instructions": "This tool will list transactions from your Paddle account.Use the maximum perPage by default (30) to ensure comprehensive results. \nFilter transactions by billing and creation dates, collection mode, customer ID, invoice number, origin, status and subscription ID as required. \nYou can include related information such as addresses, adjustments, adjustment totals, available payment methods, business details, customer data, and discounts when needed.\nResults are paginated - use the 'after' parameter with the last ID from previous results to get the next page.\nSort results using orderBy parameter.\nAmounts are in the smallest currency unit (e.g., cents).",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "after": {
+            "description": "Return entities after the specified Paddle ID when working with paginated endpoints.",
+            "type": "string"
+          },
+          "billedAt": {
+            "description": "Return entities billed at a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "billedAt_gt": {
+            "description": "Return entities billed after a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "billedAt_gte": {
+            "description": "Return entities billed at or after a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "billedAt_lt": {
+            "description": "Return entities billed before a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "billedAt_lte": {
+            "description": "Return entities billed at or before a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "collectionMode": {
+            "description": "Return entities that match the specified collection mode.",
+            "enum": [
+              "automatic",
+              "manual"
+            ],
+            "type": "string"
+          },
+          "createdAt": {
+            "description": "Return entities created at a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "createdAt_gt": {
+            "description": "Return entities created after a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "createdAt_gte": {
+            "description": "Return entities created at or after a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "createdAt_lt": {
+            "description": "Return entities created before a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "createdAt_lte": {
+            "description": "Return entities created at or before a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "customerId": {
+            "description": "Return entities related to the specified customer.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "id": {
+            "description": "Return only the IDs specified.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "include": {
+            "description": "Include related entities in the response.",
+            "items": {
+              "enum": [
+                "address",
+                "adjustment",
+                "adjustments_totals",
+                "business",
+                "customer",
+                "discount"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "invoiceNumber": {
+            "description": "Return entities that match the invoice number.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "orderBy": {
+            "description": "Order returned entities by field and direction.",
+            "enum": [
+              "billed_at[ASC]",
+              "billed_at[DESC]",
+              "created_at[ASC]",
+              "created_at[DESC]",
+              "id[ASC]",
+              "id[DESC]",
+              "updated_at[ASC]",
+              "updated_at[DESC]"
+            ],
+            "type": "string"
+          },
+          "origin": {
+            "description": "Return entities related to the specified origin.",
+            "items": {
+              "enum": [
+                "api",
+                "subscription_charge",
+                "subscription_payment_method_change",
+                "subscription_recurring",
+                "subscription_update",
+                "web"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "perPage": {
+            "description": "Set how many entities are returned per page.",
+            "type": "number"
+          },
+          "status": {
+            "description": "Return entities that match the specified status.",
+            "items": {
+              "enum": [
+                "draft",
+                "ready",
+                "billed",
+                "paid",
+                "completed",
+                "canceled",
+                "past_due"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "subscriptionId": {
+            "description": "Return entities related to the specified subscription. Pass null to return entities not related to any subscription.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "updatedAt": {
+            "description": "Return entities updated at a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "updatedAt_gt": {
+            "description": "Return entities updated after a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "updatedAt_gte": {
+            "description": "Return entities updated at or after a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "updatedAt_lt": {
+            "description": "Return entities updated before a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          },
+          "updatedAt_lte": {
+            "description": "Return entities updated at or before a specific time. Pass an RFC 3339 datetime string.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_subscriptions",
+      "error": "Attempted to use detached Frame '6B5B5A36213E31209628BFFCE82D2C4A'.",
+      "partial_data": true
+    }
+  ],
   "scrape_source": "https://glama.ai/mcp/servers/@PaddleHQ/paddle-mcp-server",
   "version": "0.1.2",
   "keywords": [

@@ -1,0 +1,140 @@
+{
+  "name": "Tavily MCP Server",
+  "author": "tavily-ai",
+  "author_url": "https://github.com/tavily-ai",
+  "category": "Search",
+  "license": "MIT License",
+  "package_url": "https://www.npmjs.com/package/tavily-mcp",
+  "source_url": "https://github.com/tavily-ai/tavily-mcp",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "TAVILY_API_KEY",
+      "required": "Yes",
+      "description": "Your Tavily API key obtained from app.tavily.com/home",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "tavily-search",
+      "description": "Perform real-time web searches with AI-powered precision, offering customizable results by domain, content type, and time range for current information, news, and detailed web analysis.",
+      "instructions": "A powerful web search tool that provides comprehensive, real-time results using Tavily's AI search engine. Returns relevant web content with customizable parameters for result count, content type, and domain filtering. Ideal for gathering current information, news, and detailed web content analysis.",
+      "jsonSchema": {
+        "properties": {
+          "days": {
+            "default": 3,
+            "description": "The number of days back from the current date to include in the search results. This specifies the time frame of data to be retrieved. Please note that this feature is only available when using the 'news' search topic",
+            "type": "number"
+          },
+          "exclude_domains": {
+            "default": [],
+            "description": "List of domains to specifically exclude, if the user asks to exclude a domain set this to the domain of the site",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "include_domains": {
+            "default": [],
+            "description": "A list of domains to specifically include in the search results, if the user asks to search on specific sites set this to the domain of the site",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "include_image_descriptions": {
+            "default": false,
+            "description": "Include a list of query-related images and their descriptions in the response",
+            "type": "boolean"
+          },
+          "include_images": {
+            "default": false,
+            "description": "Include a list of query-related images in the response",
+            "type": "boolean"
+          },
+          "include_raw_content": {
+            "default": false,
+            "description": "Include the cleaned and parsed HTML content of each search result",
+            "type": "boolean"
+          },
+          "max_results": {
+            "default": 10,
+            "description": "The maximum number of search results to return",
+            "maximum": 20,
+            "minimum": 5,
+            "type": "number"
+          },
+          "query": {
+            "description": "Search query",
+            "type": "string"
+          },
+          "search_depth": {
+            "default": "basic",
+            "description": "The depth of the search. It can be 'basic' or 'advanced'",
+            "enum": [
+              "basic",
+              "advanced"
+            ],
+            "type": "string"
+          },
+          "time_range": {
+            "description": "The time range back from the current date to include in the search results. This feature is available for both 'general' and 'news' search topics",
+            "enum": [
+              "day",
+              "week",
+              "month",
+              "year",
+              "d",
+              "w",
+              "m",
+              "y"
+            ],
+            "type": "string"
+          },
+          "topic": {
+            "default": "general",
+            "description": "The category of the search. This will determine which of our agents will be used for the search",
+            "enum": [
+              "general",
+              "news"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "tavily-extract",
+      "error": "Attempted to use detached Frame '901EE682A4D3F93C977142CC46FE2898'.",
+      "partial_data": true
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@tavily-ai/tavily-mcp",
+  "version": "0.1.4",
+  "keywords": [
+    "tavily-mcp",
+    "tavily",
+    "mcp",
+    "model-context-protocol",
+    "websearch",
+    "claude",
+    "claude-desktop",
+    "search-api",
+    "web-search",
+    "ai-search",
+    "anthropic",
+    "real-time-search",
+    "search-tools",
+    "tavily-api",
+    "tavily-search",
+    "tavily-extract",
+    "web-extraction",
+    "data-extraction",
+    "search-integration"
+  ]
+}

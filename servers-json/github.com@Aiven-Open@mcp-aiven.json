@@ -26,19 +26,52 @@
       "name": "list_projects",
       "description": "Retrieve a list of projects associated with the Aiven MCP Server to manage and interact with Aiven services like PostgreSQL, Kafka, and OpenSearch for building full-stack solutions.",
       "instructions": "",
-      "jsonSchema": "{ \"properties\": {}, \"title\": \"list_projectsArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {},
+        "title": "list_projectsArguments",
+        "type": "object"
+      }
     },
     {
       "name": "list_services",
       "description": "Retrieve a list of Aiven services (PostgreSQL, Kafka, ClickHouse, Valkey, OpenSearch) for a specified project to enable efficient management and integration with LLM-powered full stack solutions.",
       "instructions": "",
-      "jsonSchema": "{ \"properties\": { \"project_name\": { \"title\": \"project_name\", \"type\": \"string\" } }, \"required\": [ \"project_name\" ], \"title\": \"list_servicesArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "project_name": {
+            "title": "project_name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "project_name"
+        ],
+        "title": "list_servicesArguments",
+        "type": "object"
+      }
     },
     {
       "name": "get_service_details",
       "description": "Retrieve detailed information about a specified Aiven service (e.g., PostgreSQL, Kafka) by providing the project and service name for integration or management purposes.",
       "instructions": "",
-      "jsonSchema": "{ \"properties\": { \"project_name\": { \"title\": \"project_name\", \"type\": \"string\" }, \"service_name\": { \"title\": \"service_name\", \"type\": \"string\" } }, \"required\": [ \"project_name\", \"service_name\" ], \"title\": \"get_service_detailsArguments\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "project_name": {
+            "title": "project_name",
+            "type": "string"
+          },
+          "service_name": {
+            "title": "service_name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "project_name",
+          "service_name"
+        ],
+        "title": "get_service_detailsArguments",
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@Aiven-Open/mcp-aiven",

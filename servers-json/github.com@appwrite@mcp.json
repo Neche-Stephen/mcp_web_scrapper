@@ -7,8 +7,921 @@
   "package_url": "",
   "source_url": "https://github.com/appwrite/mcp",
   "language": "Python",
-  "server_configuration": [],
-  "tools": [],
+  "server_configuration": [
+    {
+      "name": "APPWRITE_API_KEY",
+      "required": "Yes",
+      "description": "Your Appwrite API key with necessary scopes to access the resources you want to use",
+      "default": ""
+    },
+    {
+      "name": "APPWRITE_ENDPOINT",
+      "required": "No",
+      "description": "Your Appwrite endpoint URL",
+      "default": "https://cloud.appwrite.io/v1"
+    },
+    {
+      "name": "APPWRITE_PROJECT_ID",
+      "required": "Yes",
+      "description": "Your Appwrite project ID",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "users_create",
+      "description": "Add new users to an Appwrite project by specifying user details such as email, name, password, phone, and a unique user ID through the MCP server.",
+      "instructions": "Create user",
+      "jsonSchema": {
+        "properties": {
+          "email": {
+            "description": "Parameter 'email'",
+            "type": "string"
+          },
+          "name": {
+            "description": "Parameter 'name'",
+            "type": "string"
+          },
+          "password": {
+            "description": "Parameter 'password'",
+            "type": "string"
+          },
+          "phone": {
+            "description": "Parameter 'phone'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_argon2_user",
+      "description": "Securely create a new user in Appwrite with Argon2 password hashing by providing a user ID, email, and password.",
+      "instructions": "Create user with Argon2 password",
+      "jsonSchema": {
+        "properties": {
+          "email": {
+            "description": "Parameter 'email'",
+            "type": "string"
+          },
+          "name": {
+            "description": "Parameter 'name'",
+            "type": "string"
+          },
+          "password": {
+            "description": "Parameter 'password'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "email",
+          "password"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_bcrypt_user",
+      "description": "Generate a secure user account in Appwrite by creating a user with a bcrypt-encrypted password. Input requires user ID, email, and password for secure authentication.",
+      "instructions": "Create user with bcrypt password",
+      "jsonSchema": {
+        "properties": {
+          "email": {
+            "description": "Parameter 'email'",
+            "type": "string"
+          },
+          "name": {
+            "description": "Parameter 'name'",
+            "type": "string"
+          },
+          "password": {
+            "description": "Parameter 'password'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "email",
+          "password"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_jwt",
+      "description": "Generate JSON Web Tokens (JWT) for users by specifying user_id, session_id, and optional duration. Facilitates secure user authentication and session management within Appwrite projects.",
+      "instructions": "Create user JWT",
+      "jsonSchema": {
+        "properties": {
+          "duration": {
+            "description": "Parameter 'duration'",
+            "type": "string"
+          },
+          "session_id": {
+            "description": "Parameter 'session_id'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_md5_user",
+      "description": "Generate a user in Appwrite by specifying user ID, email, and password, with the password stored as an MD5 hash for security.",
+      "instructions": "Create user with MD5 password",
+      "jsonSchema": {
+        "properties": {
+          "email": {
+            "description": "Parameter 'email'",
+            "type": "string"
+          },
+          "name": {
+            "description": "Parameter 'name'",
+            "type": "string"
+          },
+          "password": {
+            "description": "Parameter 'password'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "email",
+          "password"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_mfa_recovery_codes",
+      "description": "Generate multi-factor authentication (MFA) recovery codes for a specific user ID to ensure account access in case of MFA device loss or unavailability.",
+      "instructions": "Create MFA recovery codes",
+      "jsonSchema": {
+        "properties": {
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_ph_pass_user",
+      "description": "Create users in Appwrite with PHPass-hashed passwords by providing user ID, email, and password. Simplifies user management through secure password handling.",
+      "instructions": "Create user with PHPass password",
+      "jsonSchema": {
+        "properties": {
+          "email": {
+            "description": "Parameter 'email'",
+            "type": "string"
+          },
+          "name": {
+            "description": "Parameter 'name'",
+            "type": "string"
+          },
+          "password": {
+            "description": "Parameter 'password'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "email",
+          "password"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_scrypt_modified_user",
+      "description": "Create users with Scrypt-modified passwords by specifying email, user ID, password, and cryptographic parameters for enhanced security in Appwrite MCP Server.",
+      "instructions": "Create user with Scrypt modified password",
+      "jsonSchema": {
+        "properties": {
+          "email": {
+            "description": "Parameter 'email'",
+            "type": "string"
+          },
+          "name": {
+            "description": "Parameter 'name'",
+            "type": "string"
+          },
+          "password": {
+            "description": "Parameter 'password'",
+            "type": "string"
+          },
+          "password_salt": {
+            "description": "Parameter 'password_salt'",
+            "type": "string"
+          },
+          "password_salt_separator": {
+            "description": "Parameter 'password_salt_separator'",
+            "type": "string"
+          },
+          "password_signer_key": {
+            "description": "Parameter 'password_signer_key'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "email",
+          "password",
+          "password_salt",
+          "password_salt_separator",
+          "password_signer_key"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_scrypt_user",
+      "description": "Create a user with Scrypt password hashing in Appwrite. Input user details, password, and Scrypt parameters to securely register a new account.",
+      "instructions": "Create user with Scrypt password",
+      "jsonSchema": {
+        "properties": {
+          "email": {
+            "description": "Parameter 'email'",
+            "type": "string"
+          },
+          "name": {
+            "description": "Parameter 'name'",
+            "type": "string"
+          },
+          "password": {
+            "description": "Parameter 'password'",
+            "type": "string"
+          },
+          "password_cpu": {
+            "description": "Parameter 'password_cpu'",
+            "type": "string"
+          },
+          "password_length": {
+            "description": "Parameter 'password_length'",
+            "type": "string"
+          },
+          "password_memory": {
+            "description": "Parameter 'password_memory'",
+            "type": "string"
+          },
+          "password_parallel": {
+            "description": "Parameter 'password_parallel'",
+            "type": "string"
+          },
+          "password_salt": {
+            "description": "Parameter 'password_salt'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "email",
+          "password",
+          "password_salt",
+          "password_cpu",
+          "password_memory",
+          "password_parallel",
+          "password_length"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_session",
+      "description": "Generate a user session by specifying the user_id, enabling secure and authenticated access to Appwrite resources through the Appwrite MCP Server.",
+      "instructions": "Create session",
+      "jsonSchema": {
+        "properties": {
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_sha_user",
+      "description": "Create a user account in Appwrite using SHA-based password authentication. Specify user ID, email, and password to generate a secure user profile.",
+      "instructions": "Create user with SHA password",
+      "jsonSchema": {
+        "properties": {
+          "email": {
+            "description": "Parameter 'email'",
+            "type": "string"
+          },
+          "name": {
+            "description": "Parameter 'name'",
+            "type": "string"
+          },
+          "password": {
+            "description": "Parameter 'password'",
+            "type": "string"
+          },
+          "password_version": {
+            "description": "Parameter 'password_version'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "email",
+          "password"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_target",
+      "description": "Create a user target in Appwrite by specifying user ID, target ID, provider type, and identifier to manage user resources within projects.",
+      "instructions": "Create user target",
+      "jsonSchema": {
+        "properties": {
+          "identifier": {
+            "description": "Parameter 'identifier'",
+            "type": "string"
+          },
+          "name": {
+            "description": "Parameter 'name'",
+            "type": "string"
+          },
+          "provider_id": {
+            "description": "Parameter 'provider_id'",
+            "type": "string"
+          },
+          "provider_type": {
+            "description": "Parameter 'provider_type'",
+            "type": "string"
+          },
+          "target_id": {
+            "description": "Parameter 'target_id'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "target_id",
+          "provider_type",
+          "identifier"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_create_token",
+      "description": "Generate tokens for Appwrite users by specifying user ID, expiration, and token length to enable secure access control and authentication.",
+      "instructions": "Create token",
+      "jsonSchema": {
+        "properties": {
+          "expire": {
+            "description": "Parameter 'expire'",
+            "type": "string"
+          },
+          "length": {
+            "description": "Parameter 'length'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_delete",
+      "description": "Remove a user from an Appwrite project by specifying the user_id. This tool enables quick and efficient user management within your Appwrite environment.",
+      "instructions": "Delete user",
+      "jsonSchema": {
+        "properties": {
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_delete_identity",
+      "description": "Remove a user identity from Appwrite by specifying the identity ID, ensuring secure and efficient user management within your project.",
+      "instructions": "Delete identity",
+      "jsonSchema": {
+        "properties": {
+          "identity_id": {
+            "description": "Parameter 'identity_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "identity_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_delete_mfa_authenticator",
+      "description": "Remove an MFA authenticator for a specific user in Appwrite, enhancing security management by allowing administrators to control user authentication methods.",
+      "instructions": "Delete authenticator",
+      "jsonSchema": {
+        "properties": {
+          "type": {
+            "description": "Parameter 'type'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "type"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_delete_session",
+      "description": "Remove a specific session associated with a user in Appwrite by providing the session ID and user ID to terminate access securely.",
+      "instructions": "Delete user session",
+      "jsonSchema": {
+        "properties": {
+          "session_id": {
+            "description": "Parameter 'session_id'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "session_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_delete_sessions",
+      "description": "Terminate all active sessions for a specific user by providing their unique user ID, ensuring account security and access control in Appwrite projects.",
+      "instructions": "Delete user sessions",
+      "jsonSchema": {
+        "properties": {
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_delete_target",
+      "description": "Remove a user-specific target by specifying the 'user_id' and 'target_id' in the Appwrite MCP Server, enabling precise management of user-related resources.",
+      "instructions": "Delete user target",
+      "jsonSchema": {
+        "properties": {
+          "target_id": {
+            "description": "Parameter 'target_id'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "target_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_get",
+      "description": "Retrieve user details from Appwrite using the 'user_id' parameter, enabling efficient user data management within Appwrite projects.",
+      "instructions": "Get user",
+      "jsonSchema": {
+        "properties": {
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_get_mfa_recovery_codes",
+      "description": "Retrieve MFA recovery codes for a specific user ID to ensure account access in case of authentication issues.",
+      "instructions": "Get MFA recovery codes",
+      "jsonSchema": {
+        "properties": {
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_get_prefs",
+      "description": "Retrieve user preferences from Appwrite by specifying the user ID. Facilitates personalized user experiences and configurations within your project.",
+      "instructions": "Get user preferences",
+      "jsonSchema": {
+        "properties": {
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_get_target",
+      "description": "Retrieve specific user target data in Appwrite by providing user_id and target_id for effective user management and resource tracking.",
+      "instructions": "Get user target",
+      "jsonSchema": {
+        "properties": {
+          "target_id": {
+            "description": "Parameter 'target_id'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "target_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_list",
+      "description": "Retrieve and manage user data with Appwrite MCP Server by listing users based on specified queries or search parameters. Simplify user administration and access control.",
+      "instructions": "List users",
+      "jsonSchema": {
+        "properties": {
+          "queries": {
+            "description": "Parameter 'queries'",
+            "type": "string"
+          },
+          "search": {
+            "description": "Parameter 'search'",
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_list_identities",
+      "description": "Retrieve and filter user identities stored in Appwrite projects using queries and search parameters for effective identity management.",
+      "instructions": "List identities",
+      "jsonSchema": {
+        "properties": {
+          "queries": {
+            "description": "Parameter 'queries'",
+            "type": "string"
+          },
+          "search": {
+            "description": "Parameter 'search'",
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_list_logs",
+      "description": "Track and retrieve user activity logs by specifying a user ID, enabling efficient monitoring and auditing of user actions within Appwrite projects.",
+      "instructions": "List user logs",
+      "jsonSchema": {
+        "properties": {
+          "queries": {
+            "description": "Parameter 'queries'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_list_memberships",
+      "description": "Retrieve and manage user memberships in Appwrite by fetching associated teams, roles, or resources using a specific user ID.",
+      "instructions": "List user memberships",
+      "jsonSchema": {
+        "properties": {
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_list_mfa_factors",
+      "description": "Retrieve multi-factor authentication (MFA) factors associated with a specific user ID to manage and verify MFA settings in Appwrite projects.",
+      "instructions": "List factors",
+      "jsonSchema": {
+        "properties": {
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_list_sessions",
+      "description": "Retrieve active sessions for a specific user in Appwrite to monitor and manage their authentication sessions effectively.",
+      "instructions": "List user sessions",
+      "jsonSchema": {
+        "properties": {
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_list_targets",
+      "description": "Retrieve and list target resources associated with a specific user ID using specified queries for efficient user management within Appwrite projects.",
+      "instructions": "List user targets",
+      "jsonSchema": {
+        "properties": {
+          "queries": {
+            "description": "Parameter 'queries'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_update_email",
+      "description": "Update a user's email address in Appwrite by specifying the user ID and new email. Facilitates user account management within Appwrite projects.",
+      "instructions": "Update email",
+      "jsonSchema": {
+        "properties": {
+          "email": {
+            "description": "Parameter 'email'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "email"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_update_email_verification",
+      "description": "Verify or update a user's email address using the 'email_verification' parameter to ensure account authentication and security in Appwrite projects.",
+      "instructions": "Update email verification",
+      "jsonSchema": {
+        "properties": {
+          "email_verification": {
+            "description": "Parameter 'email_verification'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "email_verification"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_update_labels",
+      "description": "Modify or assign labels to a specific user in Appwrite projects using the user ID and desired labels for efficient user management and organization.",
+      "instructions": "Update user labels",
+      "jsonSchema": {
+        "properties": {
+          "labels": {
+            "description": "Parameter 'labels'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "labels"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_update_mfa",
+      "description": "Enhance account security by updating Multi-Factor Authentication (MFA) settings for a specific user in Appwrite projects using this tool.",
+      "instructions": "Update MFA",
+      "jsonSchema": {
+        "properties": {
+          "mfa": {
+            "description": "Parameter 'mfa'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "mfa"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_update_mfa_recovery_codes",
+      "description": "Regenerate multi-factor authentication (MFA) recovery codes for a specific user ID to ensure secure account access in case of device loss or authentication issues.",
+      "instructions": "Regenerate MFA recovery codes",
+      "jsonSchema": {
+        "properties": {
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_update_name",
+      "description": "Modify user names in Appwrite projects by specifying the user ID and new name, ensuring accurate user record updates.",
+      "instructions": "Update name",
+      "jsonSchema": {
+        "properties": {
+          "name": {
+            "description": "Parameter 'name'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "name"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_update_password",
+      "description": "Update a user's password by specifying the user ID and new password using the Appwrite API integration.",
+      "instructions": "Update password",
+      "jsonSchema": {
+        "properties": {
+          "password": {
+            "description": "Parameter 'password'",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "Parameter 'user_id'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "password"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "users_update_phone",
+      "error": "Attempted to use detached Frame 'D317F189388D0A8670E15BE547B3A6F7'.",
+      "partial_data": true
+    }
+  ],
   "scrape_source": "https://glama.ai/mcp/servers/@appwrite/mcp",
   "version": "0.1.4",
   "keywords": []

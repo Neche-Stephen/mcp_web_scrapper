@@ -211,10 +211,19 @@ async function testExtraction() {
                 XPathResult.FIRST_ORDERED_NODE_TYPE,
                 null
               ).singleNodeValue;
-
-              return (
-                schemaElement?.textContent.replace(/\s+/g, " ").trim() || ""
-              );
+            
+              if (!schemaElement) return null;
+              
+              try {
+                // Get the raw text and parse it as JSON
+                const schemaText = schemaElement.textContent
+                  .replace(/\s+/g, ' ')
+                  .trim();
+                return JSON.parse(schemaText);
+              } catch (err) {
+                console.warn('Failed to parse JSON Schema:', err);
+                return null;
+              }
             };
 
             return {
@@ -290,7 +299,7 @@ async function testExtraction() {
 
     // Log the results
     console.log("\nEXTRACTION RESULTS:");
-    console.log("Extracted Data:", extractedData);
+    console.log("Extracted Data:", extractedData.tools[0]);
     // console.log('-------------------');
     // console.log(`Title: ${extractedData.Title}`);
     // console.log(`Author: ${extractedData.Author}`);

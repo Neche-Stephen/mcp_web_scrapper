@@ -5,6 +5,7 @@ const { promisify } = require("util");
 const exec = promisify(require("child_process").exec);
 const toml = require("@iarna/toml"); // For parsing pyproject.toml
 
+
 // Configuration
 const MAX_RETRIES = 2;
 const DELAY_BETWEEN_REQUESTS = 5000;
@@ -220,6 +221,8 @@ async function processServer(server, safeTitle, outputFilename) {
 
       // Extract information with timeout
       console.log(`Extracting data from ${server.title}...`);
+
+
 
       // Begin to extract data from the page - except tools, which will be handled separately
       serverData = await withTimeout(
@@ -448,10 +451,19 @@ async function processServer(server, safeTitle, outputFilename) {
                 XPathResult.FIRST_ORDERED_NODE_TYPE,
                 null
               ).singleNodeValue;
-
-              return (
-                schemaElement?.textContent.replace(/\s+/g, " ").trim() || ""
-              );
+            
+              if (!schemaElement) return null;
+              
+              try {
+                // Get the raw text and parse it as JSON
+                const schemaText = schemaElement.textContent
+                  .replace(/\s+/g, ' ')
+                  .trim();
+                return JSON.parse(schemaText);
+              } catch (err) {
+                console.warn('Failed to parse JSON Schema:', err);
+                return null;
+              }
             };
 
             return {
@@ -542,7 +554,7 @@ async function processServer(server, safeTitle, outputFilename) {
       // Add the URL to the data
       serverData.scrape_source = server.url;
 
-      // Extract version and keywords from repository if available
+      // Extract version and keywords from repository
       if (serverData.source_url) {
         try {
           serverData = await extractRepoMetadata(serverData);

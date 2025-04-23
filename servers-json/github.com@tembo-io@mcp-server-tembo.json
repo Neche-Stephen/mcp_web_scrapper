@@ -7,67 +7,346 @@
   "package_url": "",
   "source_url": "https://github.com/tembo-io/mcp-server-tembo",
   "language": "TypeScript",
-  "server_configuration": [],
+  "server_configuration": [
+    {
+      "name": "TEMBO_API_KEY",
+      "required": "Yes",
+      "description": "Your API key for Tembo Cloud",
+      "default": ""
+    }
+  ],
   "tools": [
     {
       "name": "get_all_apps",
       "description": "Retrieve detailed attributes for all applications in the Tembo Cloud platform via the Tembo MCP Server API, enabling efficient management of cloud resources.",
       "instructions": "Get attributes for all apps",
-      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {},
+        "type": "object"
+      }
     },
     {
       "name": "get_app",
       "description": "Retrieve detailed attributes of a specific app type using the Tembo MCP Server API, enabling efficient management of Tembo Cloud resources through structured data retrieval.",
       "instructions": "Get the attributes of a single App",
-      "jsonSchema": "{ \"properties\": { \"type\": { \"description\": \"The app type to get details for\", \"type\": \"string\" } }, \"required\": [ \"type\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "type": {
+            "description": "The app type to get details for",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "ask_tembo",
       "description": "Query Tembo Docs directly to find answers and instructions, such as creating instances or managing Tembo Cloud resources via natural language.",
       "instructions": "Ask a question to Tembo Docs",
-      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"The ask query. For example, \\\"how to create a Tembo instance\\\"\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "query": {
+            "description": "The ask query. For example, \"how to create a Tembo instance\"",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "get_instance_schema",
       "description": "Retrieve the JSON schema for a Tembo Cloud instance to understand its structure and manage resources effectively via the Tembo MCP Server.",
       "instructions": "Get the json-schema for an instance",
-      "jsonSchema": "{ \"properties\": {}, \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {},
+        "type": "object"
+      }
     },
     {
       "name": "get_all_instances",
       "description": "Retrieve all Tembo Cloud instances associated with a specific organization ID using the MCP server, enabling efficient resource management through API integration.",
       "instructions": "Get all Tembo instances in an organization",
-      "jsonSchema": "{ \"properties\": { \"org_id\": { \"description\": \"Organization id for the request\", \"type\": \"string\" } }, \"required\": [ \"org_id\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "org_id": {
+            "description": "Organization id for the request",
+            "type": "string"
+          }
+        },
+        "required": [
+          "org_id"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "create_instance",
       "description": "Deploy a new Tembo instance by specifying CPU, memory, storage, and stack type. Manage resources for dev, test, or prod environments using organization-specific configurations.",
       "instructions": "Create a new Tembo instance",
-      "jsonSchema": "{ \"properties\": { \"cpu\": { \"enum\": [ \"0.25\", \"0.5\", \"1\", \"2\", \"4\", \"6\", \"8\", \"12\", \"16\", \"32\" ], \"type\": \"string\" }, \"environment\": { \"enum\": [ \"dev\", \"test\", \"prod\" ], \"type\": \"string\" }, \"instance_name\": { \"type\": \"string\" }, \"memory\": { \"enum\": [ \"512Mi\", \"1Gi\", \"2Gi\", \"4Gi\", \"8Gi\", \"12Gi\", \"16Gi\", \"24Gi\", \"32Gi\", \"64Gi\" ], \"type\": \"string\" }, \"org_id\": { \"description\": \"Organization ID that owns the Tembo instance\", \"type\": \"string\" }, \"replicas\": { \"type\": \"integer\" }, \"spot\": { \"type\": \"boolean\" }, \"stack_type\": { \"enum\": [ \"Analytics\", \"Geospatial\", \"MachineLearning\", \"MessageQueue\", \"MongoAlternative\", \"OLTP\", \"ParadeDB\", \"Standard\", \"Timeseries\", \"VectorDB\" ], \"type\": \"string\" }, \"storage\": { \"enum\": [ \"10Gi\", \"50Gi\", \"100Gi\", \"200Gi\", \"300Gi\", \"400Gi\", \"500Gi\", \"1Ti\", \"1.5Ti\", \"2Ti\" ], \"type\": \"string\" } }, \"required\": [ \"org_id\", \"instance_name\", \"stack_type\", \"cpu\", \"memory\", \"storage\", \"environment\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "cpu": {
+            "enum": [
+              "0.25",
+              "0.5",
+              "1",
+              "2",
+              "4",
+              "6",
+              "8",
+              "12",
+              "16",
+              "32"
+            ],
+            "type": "string"
+          },
+          "environment": {
+            "enum": [
+              "dev",
+              "test",
+              "prod"
+            ],
+            "type": "string"
+          },
+          "instance_name": {
+            "type": "string"
+          },
+          "memory": {
+            "enum": [
+              "512Mi",
+              "1Gi",
+              "2Gi",
+              "4Gi",
+              "8Gi",
+              "12Gi",
+              "16Gi",
+              "24Gi",
+              "32Gi",
+              "64Gi"
+            ],
+            "type": "string"
+          },
+          "org_id": {
+            "description": "Organization ID that owns the Tembo instance",
+            "type": "string"
+          },
+          "replicas": {
+            "type": "integer"
+          },
+          "spot": {
+            "type": "boolean"
+          },
+          "stack_type": {
+            "enum": [
+              "Analytics",
+              "Geospatial",
+              "MachineLearning",
+              "MessageQueue",
+              "MongoAlternative",
+              "OLTP",
+              "ParadeDB",
+              "Standard",
+              "Timeseries",
+              "VectorDB"
+            ],
+            "type": "string"
+          },
+          "storage": {
+            "enum": [
+              "10Gi",
+              "50Gi",
+              "100Gi",
+              "200Gi",
+              "300Gi",
+              "400Gi",
+              "500Gi",
+              "1Ti",
+              "1.5Ti",
+              "2Ti"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "org_id",
+          "instance_name",
+          "stack_type",
+          "cpu",
+          "memory",
+          "storage",
+          "environment"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "get_instance",
       "description": "Retrieve details of a specific Tembo Cloud instance by providing the organization ID and instance ID, enabling efficient resource management through the Tembo MCP Server.",
       "instructions": "Get an existing Tembo instance",
-      "jsonSchema": "{ \"properties\": { \"instance_id\": { \"type\": \"string\" }, \"org_id\": { \"description\": \"Organization ID that owns the instance\", \"type\": \"string\" } }, \"required\": [ \"org_id\", \"instance_id\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "instance_id": {
+            "type": "string"
+          },
+          "org_id": {
+            "description": "Organization ID that owns the instance",
+            "type": "string"
+          }
+        },
+        "required": [
+          "org_id",
+          "instance_id"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "delete_instance",
       "description": "Remove a specific Tembo instance by providing the instance ID and organization ID, ensuring proper management of Tembo Cloud resources.",
       "instructions": "Delete an existing Tembo instance",
-      "jsonSchema": "{ \"properties\": { \"instance_id\": { \"description\": \"Delete this instance id\", \"type\": \"string\" }, \"org_id\": { \"description\": \"Organization id of the instance to delete\", \"type\": \"string\" } }, \"required\": [ \"org_id\", \"instance_id\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "instance_id": {
+            "description": "Delete this instance id",
+            "type": "string"
+          },
+          "org_id": {
+            "description": "Organization id of the instance to delete",
+            "type": "string"
+          }
+        },
+        "required": [
+          "org_id",
+          "instance_id"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "patch_instance",
       "description": "Modify attributes of a Tembo instance, including CPU, memory, storage, and environment, to adapt to changing requirements or configurations.",
       "instructions": "Update attributes on an existing Tembo instance",
-      "jsonSchema": "{ \"properties\": { \"cpu\": { \"enum\": [ \"0.25\", \"0.5\", \"1\", \"2\", \"4\", \"6\", \"8\", \"12\", \"16\", \"32\" ], \"type\": \"string\" }, \"environment\": { \"enum\": [ \"dev\", \"test\", \"prod\" ], \"type\": \"string\" }, \"instance_id\": { \"type\": \"string\" }, \"instance_name\": { \"type\": \"string\" }, \"memory\": { \"enum\": [ \"512Mi\", \"1Gi\", \"2Gi\", \"4Gi\", \"8Gi\", \"12Gi\", \"16Gi\", \"24Gi\", \"32Gi\", \"64Gi\" ], \"type\": \"string\" }, \"org_id\": { \"description\": \"Organization ID that owns the instance\", \"type\": \"string\" }, \"replicas\": { \"type\": \"integer\" }, \"spot\": { \"type\": \"boolean\" }, \"storage\": { \"enum\": [ \"10Gi\", \"50Gi\", \"100Gi\", \"200Gi\", \"300Gi\", \"400Gi\", \"500Gi\", \"1Ti\", \"1.5Ti\", \"2Ti\" ], \"type\": \"string\" } }, \"required\": [ \"org_id\", \"instance_id\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "cpu": {
+            "enum": [
+              "0.25",
+              "0.5",
+              "1",
+              "2",
+              "4",
+              "6",
+              "8",
+              "12",
+              "16",
+              "32"
+            ],
+            "type": "string"
+          },
+          "environment": {
+            "enum": [
+              "dev",
+              "test",
+              "prod"
+            ],
+            "type": "string"
+          },
+          "instance_id": {
+            "type": "string"
+          },
+          "instance_name": {
+            "type": "string"
+          },
+          "memory": {
+            "enum": [
+              "512Mi",
+              "1Gi",
+              "2Gi",
+              "4Gi",
+              "8Gi",
+              "12Gi",
+              "16Gi",
+              "24Gi",
+              "32Gi",
+              "64Gi"
+            ],
+            "type": "string"
+          },
+          "org_id": {
+            "description": "Organization ID that owns the instance",
+            "type": "string"
+          },
+          "replicas": {
+            "type": "integer"
+          },
+          "spot": {
+            "type": "boolean"
+          },
+          "storage": {
+            "enum": [
+              "10Gi",
+              "50Gi",
+              "100Gi",
+              "200Gi",
+              "300Gi",
+              "400Gi",
+              "500Gi",
+              "1Ti",
+              "1.5Ti",
+              "2Ti"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "org_id",
+          "instance_id"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "restore_instance",
       "description": "Restores a Tembo instance by specifying the organization ID, instance name, and recovery target time. Use this tool to recover data from a specific point in time for efficient instance management.",
       "instructions": "Restore a Tembo instance",
-      "jsonSchema": "{ \"properties\": { \"instance_name\": { \"type\": \"string\" }, \"org_id\": { \"description\": \"Organization ID that owns the Tembo instance\", \"type\": \"string\" }, \"restore\": { \"properties\": { \"instance_id\": { \"type\": \"string\" }, \"recovery_target_time\": { \"format\": \"date-time\", \"type\": \"string\" } }, \"required\": [ \"instance_id\" ], \"type\": \"object\" } }, \"required\": [ \"org_id\", \"instance_name\", \"restore\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "instance_name": {
+            "type": "string"
+          },
+          "org_id": {
+            "description": "Organization ID that owns the Tembo instance",
+            "type": "string"
+          },
+          "restore": {
+            "properties": {
+              "instance_id": {
+                "type": "string"
+              },
+              "recovery_target_time": {
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "required": [
+              "instance_id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "org_id",
+          "instance_name",
+          "restore"
+        ],
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@tembo-io/mcp-server-tembo",

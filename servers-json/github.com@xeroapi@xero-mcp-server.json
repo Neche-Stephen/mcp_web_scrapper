@@ -26,73 +26,419 @@
       "name": "list-contacts",
       "description": "Retrieve and manage all contacts in Xero, including Suppliers and Customers, using the standardized MCP server for efficient contact operations.",
       "instructions": "List all contacts in Xero. This includes Suppliers and Customers.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      }
     },
     {
       "name": "list-invoices",
       "description": "Fetch and display invoices from Xero, including Draft, Submitted, and Paid statuses. Filter by specific contacts or invoice numbers, and paginate results for comprehensive viewing.",
       "instructions": "List invoices in Xero. This includes Draft, Submitted, and Paid invoices. \n  Ask the user if they want to see invoices for a specific contact,\n  invoice number, or to see all invoices before running. \n  Ask the user if they want the next page of invoices after running this tool \n  if 10 invoices are returned. \n  If they want the next page, call this tool again with the next page number \n  and the contact or invoice number if one was provided in the previous call.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"contactIds\": { \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"invoiceNumbers\": { \"items\": { \"type\": \"string\" }, \"type\": \"array\" }, \"page\": { \"type\": \"number\" } }, \"required\": [ \"page\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "contactIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "invoiceNumbers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "page": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "page"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "create-contact",
       "description": "Add a new contact to Xero via the MCP server by providing essential details like name, email, and phone number for streamlined contact management.",
       "instructions": "Create a contact in Xero.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"email\": { \"format\": \"email\", \"type\": \"string\" }, \"name\": { \"type\": \"string\" }, \"phone\": { \"type\": \"string\" } }, \"required\": [ \"name\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "email": {
+            "format": "email",
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "create-invoice",
       "description": "Generate and send invoices in Xero by specifying contact details and line items. Ensure accurate billing and streamline financial transactions with this tool.",
       "instructions": "Create an invoice in Xero.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"contactId\": { \"type\": \"string\" }, \"lineItems\": { \"items\": { \"additionalProperties\": false, \"properties\": { \"accountCode\": { \"type\": \"string\" }, \"description\": { \"type\": \"string\" }, \"quantity\": { \"type\": \"number\" }, \"taxType\": { \"type\": \"string\" }, \"unitAmount\": { \"type\": \"number\" } }, \"required\": [ \"description\", \"quantity\", \"unitAmount\", \"accountCode\", \"taxType\" ], \"type\": \"object\" }, \"type\": \"array\" }, \"reference\": { \"type\": \"string\" } }, \"required\": [ \"contactId\", \"lineItems\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "contactId": {
+            "type": "string"
+          },
+          "lineItems": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "accountCode": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "number"
+                },
+                "taxType": {
+                  "type": "string"
+                },
+                "unitAmount": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "description",
+                "quantity",
+                "unitAmount",
+                "accountCode",
+                "taxType"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "reference": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "contactId",
+          "lineItems"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "list-accounts",
       "description": "Retrieve all Xero accounts with codes and names, enabling accurate invoice creation and account management within the Xero MCP Server.",
       "instructions": "Lists all accounts in Xero. Use this tool to get the account codes and names to be used when creating invoices in Xero",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      }
     },
     {
       "name": "list-tax-rates",
       "description": "Retrieve all tax rates from Xero for accurate invoice creation and financial management. Enables access to essential tax data through the Xero MCP Server.",
       "instructions": "Lists all tax rates in Xero. Use this tool to get the tax rates to be used when creating invoices in Xero",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": {}, \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      }
     },
     {
       "name": "list-quotes",
       "description": "Retrieve and manage quotes in Xero by listing all available quotes or filtering by specific contacts. This tool supports pagination for handling large datasets, enabling users to navigate through multiple pages of quotes efficiently.",
       "instructions": "List all quotes in Xero. \n  Ask the user if they want to see quotes for a specific contact before running. \n  Ask the user if they want the next page of quotes after running this tool if 10 quotes are returned. \n  If they do, call this tool again with the page number and the contact provided in the previous call.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"contactId\": { \"type\": \"string\" }, \"page\": { \"type\": \"number\" } }, \"required\": [ \"page\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "contactId": {
+            "type": "string"
+          },
+          "page": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "page"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "create-quote",
       "description": "Generate and customize quotes in Xero by specifying contact details, line items, and invoice terms using the Xero MCP Server.",
       "instructions": "Create a quote in Xero.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"contactId\": { \"type\": \"string\" }, \"lineItems\": { \"items\": { \"additionalProperties\": false, \"properties\": { \"accountCode\": { \"type\": \"string\" }, \"description\": { \"type\": \"string\" }, \"quantity\": { \"type\": \"number\" }, \"taxType\": { \"type\": \"string\" }, \"unitAmount\": { \"type\": \"number\" } }, \"required\": [ \"description\", \"quantity\", \"unitAmount\", \"accountCode\", \"taxType\" ], \"type\": \"object\" }, \"type\": \"array\" }, \"quoteNumber\": { \"type\": \"string\" }, \"reference\": { \"type\": \"string\" }, \"summary\": { \"type\": \"string\" }, \"terms\": { \"type\": \"string\" }, \"title\": { \"type\": \"string\" } }, \"required\": [ \"contactId\", \"lineItems\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "contactId": {
+            "type": "string"
+          },
+          "lineItems": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "accountCode": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "number"
+                },
+                "taxType": {
+                  "type": "string"
+                },
+                "unitAmount": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "description",
+                "quantity",
+                "unitAmount",
+                "accountCode",
+                "taxType"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "quoteNumber": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "terms": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "contactId",
+          "lineItems"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "update-contact",
       "description": "Modify contact details in Xero, including name, address, email, and phone number, using the contactId for identification. Ensures accurate and efficient contact management.",
       "instructions": "Update a contact in Xero.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"address\": { \"additionalProperties\": false, \"properties\": { \"addressLine1\": { \"type\": \"string\" }, \"addressLine2\": { \"type\": \"string\" }, \"city\": { \"type\": \"string\" }, \"country\": { \"type\": \"string\" }, \"postalCode\": { \"type\": \"string\" }, \"region\": { \"type\": \"string\" } }, \"required\": [ \"addressLine1\" ], \"type\": \"object\" }, \"contactId\": { \"type\": \"string\" }, \"email\": { \"format\": \"email\", \"type\": \"string\" }, \"firstName\": { \"type\": \"string\" }, \"lastName\": { \"type\": \"string\" }, \"name\": { \"type\": \"string\" }, \"phone\": { \"type\": \"string\" } }, \"required\": [ \"contactId\", \"name\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "address": {
+            "additionalProperties": false,
+            "properties": {
+              "addressLine1": {
+                "type": "string"
+              },
+              "addressLine2": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "addressLine1"
+            ],
+            "type": "object"
+          },
+          "contactId": {
+            "type": "string"
+          },
+          "email": {
+            "format": "email",
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "contactId",
+          "name"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "update-invoice",
       "description": "Modify details of draft invoices in Xero, including due date, line items, and reference. Ensures accurate updates to financial records.",
       "instructions": "Update an invoice in Xero. Only works on draft invoices.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"dueDate\": { \"type\": \"string\" }, \"invoiceId\": { \"type\": \"string\" }, \"lineItems\": { \"items\": { \"additionalProperties\": false, \"properties\": { \"accountCode\": { \"type\": \"string\" }, \"description\": { \"type\": \"string\" }, \"quantity\": { \"type\": \"number\" }, \"taxType\": { \"type\": \"string\" }, \"unitAmount\": { \"type\": \"number\" } }, \"required\": [ \"description\", \"quantity\", \"unitAmount\", \"accountCode\", \"taxType\" ], \"type\": \"object\" }, \"type\": \"array\" }, \"reference\": { \"type\": \"string\" } }, \"required\": [ \"invoiceId\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "dueDate": {
+            "type": "string"
+          },
+          "invoiceId": {
+            "type": "string"
+          },
+          "lineItems": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "accountCode": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "number"
+                },
+                "taxType": {
+                  "type": "string"
+                },
+                "unitAmount": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "description",
+                "quantity",
+                "unitAmount",
+                "accountCode",
+                "taxType"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "reference": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "invoiceId"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "list-credit-notes",
       "description": "Retrieve Xero credit notes by specifying a contact or viewing all entries. Supports pagination to fetch subsequent pages when more than 10 notes are returned.",
       "instructions": "List credit notes in Xero. \n  Ask the user if they want to see credit notes for a specific contact,\n  or to see all credit notes before running. \n  Ask the user if they want the next page of credit notes after running this tool \n  if 10 credit notes are returned. \n  If they want the next page, call this tool again with the next page number \n  and the contact if one was provided in the previous call.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"contactId\": { \"type\": \"string\" }, \"page\": { \"type\": \"number\" } }, \"required\": [ \"page\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "contactId": {
+            "type": "string"
+          },
+          "page": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "page"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "create-credit-note",
       "description": "Generate a credit note in Xero using defined contact ID and line item details to adjust invoices or refund transactions accurately.",
       "instructions": "Create a credit note in Xero.",
-      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-07/schema#\", \"additionalProperties\": false, \"properties\": { \"contactId\": { \"type\": \"string\" }, \"lineItems\": { \"items\": { \"additionalProperties\": false, \"properties\": { \"accountCode\": { \"type\": \"string\" }, \"description\": { \"type\": \"string\" }, \"quantity\": { \"type\": \"number\" }, \"taxType\": { \"type\": \"string\" }, \"unitAmount\": { \"type\": \"number\" } }, \"required\": [ \"description\", \"quantity\", \"unitAmount\", \"accountCode\", \"taxType\" ], \"type\": \"object\" }, \"type\": \"array\" }, \"reference\": { \"type\": \"string\" } }, \"required\": [ \"contactId\", \"lineItems\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "contactId": {
+            "type": "string"
+          },
+          "lineItems": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "accountCode": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "number"
+                },
+                "taxType": {
+                  "type": "string"
+                },
+                "unitAmount": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "description",
+                "quantity",
+                "unitAmount",
+                "accountCode",
+                "taxType"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "reference": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "contactId",
+          "lineItems"
+        ],
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@XeroAPI/xero-mcp-server",

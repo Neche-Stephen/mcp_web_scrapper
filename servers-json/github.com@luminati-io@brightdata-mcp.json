@@ -27,121 +27,38 @@
       "default": ""
     }
   ],
-  "github_url": "https://github.com/luminati-io",
   "tools": [
     {
       "name": "search_engine",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "scrape_as_markdown",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "scrape_as_html",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "session_stats",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "web_data_amazon_product",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "web_data_amazon_product_reviews",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "web_data_linkedin_person_profile",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "web_data_linkedin_company_profile",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "scraping_browser_navigate",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "scraping_browser_go_back",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "scraping_browser_go_forward",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "scraping_browser_links",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "scraping_browser_click",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "scraping_browser_type",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "scraping_browser_wait_for",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "scraping_browser_screenshot",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "scraping_browser_get_text",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "scraping_browser_get_html",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
+      "error": "Attempted to use detached Frame 'BDD2F618245563F2368B65D3022BAD22'.",
+      "partial_data": true
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@luminati-io/brightdata-mcp",
-  "version": "1.7.0",
-  "keywords": [
-    "mcp",
-    "brightdata"
-  ]
+  "version": "",
+  "keywords": []
 }

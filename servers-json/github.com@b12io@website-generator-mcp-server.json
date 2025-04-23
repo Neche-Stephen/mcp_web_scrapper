@@ -1,0 +1,45 @@
+{
+  "name": "Website Generator",
+  "author": "b12io",
+  "author_url": "https://github.com/b12io",
+  "category": "Browser Automation",
+  "license": "Apache 2.0",
+  "package_url": "",
+  "source_url": "https://github.com/b12io/website-generator-mcp-server?tab=readme-ov-file",
+  "language": "JavaScript",
+  "server_configuration": [
+    {
+      "name": "",
+      "required": "",
+      "description": "",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "b12_website_generator",
+      "description": "Create a ready-to-publish website for your business by providing its name and a brief description. The tool generates a link to claim and publish your website for free.",
+      "instructions": "Generates website for business by a given business name and short description\nand prints output in the chat using the following format:\nYour new website for *{{The business name}}* is ready! [Sign up to see the website]({{The link to claim newly designed website.}}) and publish it for free.",
+      "jsonSchema": {
+        "properties": {
+          "description": {
+            "description": "The short description of the business in less than 1000 characters.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the business.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "description"
+        ],
+        "type": "object"
+      }
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@b12io/website-generator-mcp-server",
+  "version": "",
+  "keywords": []
+}

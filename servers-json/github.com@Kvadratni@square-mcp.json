@@ -7,8 +7,280 @@
   "package_url": "",
   "source_url": "https://github.com/Kvadratni/square-mcp",
   "language": "Python",
-  "server_configuration": [],
-  "tools": [],
+  "server_configuration": [
+    {
+      "name": "SQUARE_ENVIRONMENT",
+      "required": "No",
+      "description": "Square API environment ('sandbox' or 'production')",
+      "default": "sandbox"
+    },
+    {
+      "name": "SQUARE_ACCESS_TOKEN",
+      "required": "Yes",
+      "description": "Your Square API access token",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "payments",
+      "description": "Perform and manage payment operations such as creating, updating, canceling, or listing payments, refunds, disputes, and gift cards using Square API integrations.",
+      "instructions": "Manage payment operations using Square APIArgs:\n    operation: The operation to perform. Valid operations:\n        Payments:\n            - list_payments\n            - create_payment\n            - get_payment\n            - update_payment\n            - cancel_payment\n        Refunds:\n            - refund_payment\n            - list_refunds\n            - get_refund\n        Disputes:\n            - list_disputes\n            - retrieve_dispute\n            - accept_dispute\n            - create_dispute_evidence\n        Gift Cards:\n            - create_gift_card\n            - link_customer_to_gift_card\n            - retrieve_gift_card\n            - list_gift_cards\n        Bank Accounts:\n            - list_bank_accounts\n            - get_bank_account\n    params: Dictionary of parameters for the specific operation",
+      "jsonSchema": {
+        "properties": {
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation",
+          "params"
+        ],
+        "title": "paymentsArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "terminal",
+      "error": "Timeout (40000ms): Navigation to tool page https://glama.ai/mcp/servers/@block/square-mcp/tools/terminal timed out",
+      "partial_data": true
+    },
+    {
+      "name": "orders",
+      "description": "Handle order management and checkout processes for Square, including creating, retrieving, cloning, paying, and updating orders, as well as generating payment links and managing custom attributes.",
+      "instructions": "Manage orders and checkout operationsArgs:\n    operation: The operation to perform. Valid operations:\n        Orders:\n            - create_order\n            - batch_retrieve_orders\n            - calculate_order\n            - clone_order\n            - search_orders\n            - pay_order\n            - update_order\n        Checkout:\n            - create_checkout\n            - create_payment_link\n        Custom Attributes:\n            - upsert_order_custom_attribute\n            - list_order_custom_attribute_definitions\n    params: Dictionary of parameters for the specific operation",
+      "jsonSchema": {
+        "properties": {
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation",
+          "params"
+        ],
+        "title": "ordersArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "catalog",
+      "description": "Perform catalog management tasks in Square MCP Server, including creating, updating, retrieving, and deleting catalog objects, images, and modifiers with specified operations and parameters.",
+      "instructions": "Manage catalog operationsArgs:\n    operation: The operation to perform. Valid operations:\n        - create_catalog_object\n        - batch_delete_catalog_objects\n        - batch_retrieve_catalog_objects\n        - batch_upsert_catalog_objects\n        - create_catalog_image\n        - delete_catalog_object\n        - retrieve_catalog_object\n        - search_catalog_objects\n        - update_catalog_object\n        - update_item_modifier_lists\n        - update_item_taxes\n    params: Dictionary of parameters for the specific operation",
+      "jsonSchema": {
+        "properties": {
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation",
+          "params"
+        ],
+        "title": "catalogArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "inventory",
+      "description": "Handle inventory operations with Square's API, enabling batch changes, retrievals, and detailed tracking of inventory counts, adjustments, and transfers for streamlined management.",
+      "instructions": "Manage inventory operationsArgs:\n    operation: The operation to perform. Valid operations:\n        - batch_change_inventory\n        - batch_retrieve_inventory_changes\n        - batch_retrieve_inventory_counts\n        - retrieve_inventory_adjustment\n        - retrieve_inventory_changes\n        - retrieve_inventory_count\n        - retrieve_inventory_physical_count\n        - retrieve_inventory_transfer\n    params: Dictionary of parameters for the specific operation",
+      "jsonSchema": {
+        "properties": {
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation",
+          "params"
+        ],
+        "title": "inventoryArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "subscriptions",
+      "description": "Handle subscription actions for Square MCP Server: create, search, retrieve, update, cancel, pause, resume, swap plans, and list events with structured parameters.",
+      "instructions": "Manage subscription operationsArgs:\n    operation: The operation to perform. Valid operations:\n        - create_subscription\n        - search_subscriptions\n        - retrieve_subscription\n        - update_subscription\n        - cancel_subscription\n        - list_subscription_events\n        - pause_subscription\n        - resume_subscription\n        - swap_plan\n    params: Dictionary of parameters for the specific operation",
+      "jsonSchema": {
+        "properties": {
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation",
+          "params"
+        ],
+        "title": "subscriptionsArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "invoices",
+      "description": "Create, update, search, and manage invoices on Square MCP Server. Perform operations like canceling, publishing, or deleting invoices with structured parameters for streamlined financial management.",
+      "instructions": "Manage invoice operationsArgs:\n    operation: The operation to perform. Valid operations:\n        - create_invoice\n        - search_invoices\n        - get_invoice\n        - update_invoice\n        - cancel_invoice\n        - publish_invoice\n        - delete_invoice\n    params: Dictionary of parameters for the specific operation",
+      "jsonSchema": {
+        "properties": {
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation",
+          "params"
+        ],
+        "title": "invoicesArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "team",
+      "description": "Manage team operations, wages, labor, and cash drawers efficiently. Perform tasks like creating team members, updating shifts, retrieving wage settings, and listing cash drawer shifts with ease.",
+      "instructions": "Manage team operationsArgs:\n    operation: The operation to perform. Valid operations:\n        Team Members:\n            - create_team_member\n            - bulk_create_team_members\n            - update_team_member\n            - retrieve_team_member\n            - search_team_members\n        Wages:\n            - retrieve_wage_setting\n            - update_wage_setting\n        Labor:\n            - create_break_type\n            - create_shift\n            - search_shifts\n            - update_shift\n            - create_workweek_config\n        Cash Drawers:\n            - list_cash_drawer_shifts\n            - retrieve_cash_drawer_shift\n    params: Dictionary of parameters for the specific operation",
+      "jsonSchema": {
+        "properties": {
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation",
+          "params"
+        ],
+        "title": "teamArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "customers",
+      "description": "Streamline customer management by listing, creating, updating, deleting, and searching customer records, groups, segments, and custom attributes using Square MCP Server.",
+      "instructions": "Manage customer operationsArgs:\n    operation: The operation to perform. Valid operations:\n        Customers:\n            - list_customers\n            - create_customer\n            - delete_customer\n            - retrieve_customer\n            - update_customer\n            - search_customers\n        Groups:\n            - create_customer_group\n            - delete_customer_group\n            - list_customer_groups\n            - retrieve_customer_group\n            - update_customer_group\n        Segments:\n            - list_customer_segments\n            - retrieve_customer_segment\n        Custom Attributes:\n            - create_customer_custom_attribute_definition\n            - delete_customer_custom_attribute_definition\n            - list_customer_custom_attribute_definitions\n    params: Dictionary of parameters for the specific operation",
+      "jsonSchema": {
+        "properties": {
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation",
+          "params"
+        ],
+        "title": "customersArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "loyalty",
+      "description": "Handle loyalty operations for Square, including creating loyalty programs, managing accounts, accumulating points, adjusting balances, and setting up promotions.",
+      "instructions": "Manage loyalty operationsArgs:\n    operation: The operation to perform. Valid operations:\n        Programs:\n            - create_loyalty_program\n            - retrieve_loyalty_program\n        Accounts:\n            - create_loyalty_account\n            - search_loyalty_accounts\n            - retrieve_loyalty_account\n            - accumulate_loyalty_points\n            - adjust_loyalty_points\n            - search_loyalty_events\n        Promotions:\n            - create_loyalty_promotion\n            - cancel_loyalty_promotion\n    params: Dictionary of parameters for the specific operation",
+      "jsonSchema": {
+        "properties": {
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation",
+          "params"
+        ],
+        "title": "loyaltyArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "bookings",
+      "description": "Simplify booking management with operations like creating, searching, updating, and canceling bookings. Retrieve team member profiles, location details, and customize booking attributes efficiently.",
+      "instructions": "Manage booking operationsArgs:\n    operation: The operation to perform. Valid operations:\n        Bookings:\n            - create_booking\n            - search_bookings\n            - retrieve_booking\n            - update_booking\n            - cancel_booking\n        Team Member Bookings:\n            - bulk_retrieve_team_member_bookings\n            - retrieve_team_member_booking_profile\n        Location Profiles:\n            - list_location_booking_profiles\n            - retrieve_location_booking_profile\n        Custom Attributes:\n            - create_booking_custom_attribute_definition\n            - update_booking_custom_attribute_definition\n    params: Dictionary of parameters for the specific operation",
+      "jsonSchema": {
+        "properties": {
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation",
+          "params"
+        ],
+        "title": "bookingsArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "business",
+      "description": "Streamline business operations by managing merchants, locations, vendors, and sites through Square MCP Server. Perform actions like listing, creating, updating, and retrieving data efficiently.",
+      "instructions": "Manage business operationsArgs:\n    operation: The operation to perform. Valid operations:\n        Merchants:\n            - list_merchants\n            - retrieve_merchant\n        Locations:\n            - list_locations\n            - create_location\n            - retrieve_location\n            - update_location\n        Vendors:\n            - bulk_create_vendors\n            - bulk_retrieve_vendors\n            - create_vendor\n            - search_vendors\n            - update_vendor\n        Sites:\n            - list_sites\n    params: Dictionary of parameters for the specific operation",
+      "jsonSchema": {
+        "properties": {
+          "operation": {
+            "title": "Operation",
+            "type": "string"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation",
+          "params"
+        ],
+        "title": "businessArguments",
+        "type": "object"
+      }
+    }
+  ],
   "scrape_source": "https://glama.ai/mcp/servers/@block/square-mcp",
   "version": "0.2.2",
   "keywords": [

@@ -7,30 +7,10 @@
   "package_url": "",
   "source_url": "https://github.com/dappierai/dappier-mcp",
   "language": "Python",
-  "server_configuration": [
-    {
-      "name": "DAPPIER_API_KEY",
-      "required": "Yes",
-      "description": "Your Dappier API key obtained from https://platform.dappier.com/profile/api-keys",
-      "default": ""
-    }
-  ],
-  "tools": [
-    {
-      "name": "dappier_real_time_search",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    },
-    {
-      "name": "dappier_ai_recommendations",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
-    }
-  ],
+  "server_configuration": [],
+  "tools": [],
   "scrape_source": "https://glama.ai/mcp/servers/@DappierAI/dappier-mcp",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "keywords": [
     "http",
     "mcp",

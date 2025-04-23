@@ -38,41 +38,40 @@
       "name": "text_to_audio",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "list_voices",
-      "description": "",
-      "instructions": "",
-      "jsonSchema": ""
+      "error": "Timeout (40000ms): Navigation to tool page https://glama.ai/mcp/servers/@MiniMax-AI/MiniMax-MCP-JS/tools/list_voices timed out",
+      "partial_data": true
     },
     {
       "name": "play_audio",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "text_to_image",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "generate_video",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "voice_clone",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@MiniMax-AI/MiniMax-MCP-JS",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "keywords": [
     "mcp",
     "minimax",

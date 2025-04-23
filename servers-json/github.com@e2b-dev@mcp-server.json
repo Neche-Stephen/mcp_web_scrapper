@@ -20,7 +20,19 @@
       "name": "run_code",
       "description": "Execute Python code securely in a sandbox environment using Jupyter Notebook syntax. Facilitates safe and isolated code testing and debugging.",
       "instructions": "Run python code in a secure sandbox by E2B. Using the Jupyter Notebook syntax.",
-      "jsonSchema": "{ \"properties\": { \"code\": { \"title\": \"Code\", \"type\": \"string\" } }, \"required\": [ \"code\" ], \"title\": \"ToolSchema\", \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ],
+        "title": "ToolSchema",
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@e2b-dev/mcp-server",

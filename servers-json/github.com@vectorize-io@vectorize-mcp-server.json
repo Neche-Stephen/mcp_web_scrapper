@@ -26,19 +26,77 @@
       "name": "retrieve",
       "description": "Retrieve specified number of documents from a Vectorize pipeline using a search term. Input pipeline ID, question, and desired document count for targeted document retrieval.",
       "instructions": "Retrieve documents from a Vectorize pipeline.",
-      "jsonSchema": "{ \"properties\": { \"k\": { \"description\": \"The number of documents to retrieve.\", \"type\": \"number\" }, \"pipelineId\": { \"description\": \"The pipeline ID to retrieve documents from.\", \"type\": \"string\" }, \"question\": { \"description\": \"The term to search for.\", \"type\": \"string\" } }, \"required\": [ \"pipelineId\", \"question\", \"k\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "k": {
+            "description": "The number of documents to retrieve.",
+            "type": "number"
+          },
+          "pipelineId": {
+            "description": "The pipeline ID to retrieve documents from.",
+            "type": "string"
+          },
+          "question": {
+            "description": "The term to search for.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pipelineId",
+          "question",
+          "k"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "extract",
       "description": "Extract and chunk text from documents in various formats by providing a base64-encoded file and content type for structured data processing.",
       "instructions": "Perform text extraction and chunking on a document.",
-      "jsonSchema": "{ \"properties\": { \"base64Document\": { \"description\": \"Document encoded in base64.\", \"type\": \"string\" }, \"contentType\": { \"description\": \"Document content type.\", \"type\": \"string\" } }, \"required\": [ \"base64Document\", \"contentType\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "base64Document": {
+            "description": "Document encoded in base64.",
+            "type": "string"
+          },
+          "contentType": {
+            "description": "Document content type.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "base64Document",
+          "contentType"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "deep-research",
       "description": "Analyze and retrieve detailed insights from Vectorize pipelines using advanced document retrieval and web search capabilities for comprehensive research.",
       "instructions": "Generate a deep research on a Vectorize pipeline.",
-      "jsonSchema": "{ \"properties\": { \"pipelineId\": { \"description\": \"The pipeline ID to retrieve documents from.\", \"type\": \"string\" }, \"query\": { \"description\": \"The deep research query.\", \"type\": \"string\" }, \"webSearch\": { \"description\": \"Whether to perform a web search.\", \"type\": \"boolean\" } }, \"required\": [ \"pipelineId\", \"query\", \"webSearch\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "pipelineId": {
+            "description": "The pipeline ID to retrieve documents from.",
+            "type": "string"
+          },
+          "query": {
+            "description": "The deep research query.",
+            "type": "string"
+          },
+          "webSearch": {
+            "description": "Whether to perform a web search.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pipelineId",
+          "query",
+          "webSearch"
+        ],
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@vectorize-io/vectorize-mcp-server",

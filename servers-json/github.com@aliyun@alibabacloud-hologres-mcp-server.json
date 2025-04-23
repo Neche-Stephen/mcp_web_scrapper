@@ -7,76 +7,8 @@
   "package_url": "",
   "source_url": "https://github.com/aliyun/alibabacloud-hologres-mcp-server",
   "language": "Python",
-  "server_configuration": [
-    {
-      "name": "HOLOGRES_HOST",
-      "required": "Yes",
-      "description": "Hologres server host",
-      "default": ""
-    },
-    {
-      "name": "HOLOGRES_PORT",
-      "required": "Yes",
-      "description": "Hologres server port",
-      "default": ""
-    },
-    {
-      "name": "HOLOGRES_USER",
-      "required": "Yes",
-      "description": "Hologres access ID/username",
-      "default": ""
-    },
-    {
-      "name": "HOLOGRES_DATABASE",
-      "required": "Yes",
-      "description": "Hologres database name",
-      "default": ""
-    },
-    {
-      "name": "HOLOGRES_PASSWORD",
-      "required": "Yes",
-      "description": "Hologres access key/password",
-      "default": ""
-    }
-  ],
-  "tools": [
-    {
-      "name": "execute_select_sql",
-      "description": "Run SELECT SQL queries to retrieve data from Hologres databases using the Hologres MCP Server, enabling AI Agents to access and analyze database information.",
-      "instructions": "Execute SELECT SQL to query data from Hologres database.",
-      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"The (SELECT) SQL query to execute\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
-    },
-    {
-      "name": "execute_dml_sql",
-      "description": "Execute INSERT, UPDATE, DELETE SQL queries to modify data directly in Hologres databases via the Hologres MCP Server.",
-      "instructions": "Execute (INSERT, UPDATE, DELETE) SQL to insert, update, and delete data in Hologres databse.",
-      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"The DML SQL query to execute\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
-    },
-    {
-      "name": "execute_ddl_sql",
-      "description": "Execute CREATE, ALTER, or DROP SQL statements to manage tables, views, procedures, and GUCs in Hologres databases via the Hologres MCP Server.",
-      "instructions": "Execute (CREATE, ALTER, DROP) SQL statements to CREATE, ALTER, or DROP tables, views, procedures, GUCs etc. in Hologres databse.",
-      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"The DDL SQL query to execute\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
-    },
-    {
-      "name": "gather_table_statistics",
-      "description": "Execute the ANALYZE TABLE command to collect table statistics in Hologres, optimizing query performance and enabling better query plans.",
-      "instructions": "Execute the ANALYZE TABLE command to have Hologres collect table statistics, enabling QO to generate better query plans",
-      "jsonSchema": "{ \"properties\": { \"schema\": { \"description\": \"Schema name\", \"type\": \"string\" }, \"table\": { \"description\": \"Table name\", \"type\": \"string\" } }, \"required\": [ \"schema\", \"table\" ], \"type\": \"object\" }"
-    },
-    {
-      "name": "get_query_plan",
-      "description": "Analyze and retrieve the execution plan for a SQL query using this tool, enabling optimized database interactions within the Hologres MCP Server environment.",
-      "instructions": "Get query plan for a SQL query",
-      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"The SQL query to analyze\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
-    },
-    {
-      "name": "get_execution_plan",
-      "description": "Analyze SQL query performance by retrieving the actual execution plan with runtime statistics using this tool. Helps optimize database operations on Hologres MCP Server.",
-      "instructions": "Get actual execution plan with runtime statistics for a SQL query",
-      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"The SQL query to analyze\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
-    }
-  ],
+  "server_configuration": [],
+  "tools": [],
   "scrape_source": "https://glama.ai/mcp/servers/@aliyun/alibabacloud-hologres-mcp-server",
   "version": "1.0.0",
   "keywords": []

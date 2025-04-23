@@ -1,0 +1,7 @@
+{
+  "title": "Nefino MCP Server",
+  "url": "https://glama.ai/mcp/servers/@nefino/mcp-nefino",
+  "error": "Cannot access 'server' before initialization",
+  "status": "failed",
+  "partial_data": false
+}

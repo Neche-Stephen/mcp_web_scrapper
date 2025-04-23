@@ -1,7 +1,0 @@
-{
-  "title": "UseGrant MCP Server",
-  "url": "https://glama.ai/mcp/servers/@usegranthq/mcp-server",
-  "error": "Protocol error (Runtime.callFunctionOn): Execution context was destroyed.",
-  "status": "failed",
-  "partial_data": false
-}

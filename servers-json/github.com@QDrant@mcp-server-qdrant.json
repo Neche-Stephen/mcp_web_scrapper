@@ -44,13 +44,34 @@
       "name": "qdrant-store-memory",
       "description": "Store and retrieve information for future reference by saving it in memory using this tool integrated with a Qdrant vector search engine.",
       "instructions": "Keep the memory for later use, when you are asked to remember something.",
-      "jsonSchema": "{ \"properties\": { \"information\": { \"type\": \"string\" } }, \"required\": [ \"information\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "information": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "information"
+        ],
+        "type": "object"
+      }
     },
     {
       "name": "qdrant-find-memories",
       "description": "Search for memories stored in Qdrant by content, enabling access and analysis of user-related information through targeted queries.",
       "instructions": "Look up memories in Qdrant. Use this tool when you need to: Find memories by their content Access memories for further analysis Get some personal information about the user",
-      "jsonSchema": "{ \"properties\": { \"query\": { \"description\": \"The query to search for\", \"type\": \"string\" } }, \"required\": [ \"query\" ], \"type\": \"object\" }"
+      "jsonSchema": {
+        "properties": {
+          "query": {
+            "description": "The query to search for",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      }
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@qdrant/mcp-server-qdrant",

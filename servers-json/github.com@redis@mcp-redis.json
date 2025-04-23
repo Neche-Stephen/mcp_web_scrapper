@@ -74,42 +74,253 @@
       "name": "dbsize",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "info",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "client_list",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "delete",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "type",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "expire",
       "description": "",
       "instructions": "",
-      "jsonSchema": ""
+      "jsonSchema": null
     },
     {
       "name": "rename",
-      "error": "Attempted to use detached Frame '2575D3151C9BD93DA07B7602CB3BE359'.",
-      "partial_data": true
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "get_indexes",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "get_index_info",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "get_indexed_keys_number",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "create_vector_index_hash",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "vector_search_hash",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "hset",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "hget",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "hdel",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "hgetall",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "hexists",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "set_vector_in_hash",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "get_vector_from_hash",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "lpush",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "rpush",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "lpop",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "rpop",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "lrange",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "llen",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "set",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "get",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "json_set",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "json_get",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "json_del",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "zadd",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "zrange",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "zrem",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "sadd",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "srem",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "smembers",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "xadd",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "xrange",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "xdel",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "publish",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "subscribe",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    },
+    {
+      "name": "unsubscribe",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
     }
   ],
   "scrape_source": "https://glama.ai/mcp/servers/@redis/mcp-redis",

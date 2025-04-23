@@ -1,0 +1,321 @@
+{
+  "name": "Alibaba Cloud MCP Server",
+  "author": "aliyun",
+  "author_url": "https://github.com/aliyun",
+  "category": "Cloud Platforms",
+  "license": "Apache 2.0",
+  "package_url": "",
+  "source_url": "https://github.com/aliyun/alibabacloud-ecs-mcp-server",
+  "language": "Python",
+  "server_configuration": [
+    {
+      "name": "ALIBABA_CLOUD_ACCESS_KEY_ID",
+      "required": "Yes",
+      "description": "Your Alibaba Cloud Access Key ID",
+      "default": ""
+    },
+    {
+      "name": "ALIBABA_CLOUD_ACCESS_KEY_SECRET",
+      "required": "Yes",
+      "description": "Your Alibaba Cloud Access Key SECRET",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "RunCommand",
+      "description": "Execute commands across multiple ECS instances simultaneously for efficient management of applications and resource tagging using Alibaba Cloud MCP Server.",
+      "instructions": "批量在多台ECS实例上运行云助手命令，适用于需要同时管理多台ECS实例的场景，如应用程序管理和资源标记操作等。",
+      "jsonSchema": {
+        "properties": {
+          "Command": {
+            "description": "ECS实例上执行的命令内容",
+            "title": "Command",
+            "type": "string"
+          },
+          "CommandType": {
+            "default": "RunShellScript",
+            "description": "ECS实例上执行的命令类型，可选值：RunShellScript，RunPythonScript，RunPerlScript，RunBatScript，RunPowerShellScript",
+            "title": "Commandtype",
+            "type": "string"
+          },
+          "InstanceIds": {
+            "description": "AlibabaCloud ECS instance ID List",
+            "items": {
+              "type": "string"
+            },
+            "title": "Instanceids",
+            "type": "array"
+          },
+          "RegionId": {
+            "default": "cn-hangzhou",
+            "description": "AlibabaCloud region ID",
+            "title": "Regionid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "InstanceIds",
+          "Command"
+        ],
+        "title": "RunCommandArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "StartInstances",
+      "description": "Initiate and manage the simultaneous start of multiple Alibaba Cloud ECS instances, ideal for application deployment or high-availability scenarios.",
+      "instructions": "批量启动ECS实例，适用于需要同时管理和启动多台ECS实例的场景，例如应用部署和高可用性场景。",
+      "jsonSchema": {
+        "properties": {
+          "InstanceIds": {
+            "description": "AlibabaCloud ECS instance ID List",
+            "items": {
+              "type": "string"
+            },
+            "title": "Instanceids",
+            "type": "array"
+          },
+          "RegionId": {
+            "default": "cn-hangzhou",
+            "description": "AlibabaCloud region ID",
+            "title": "Regionid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "InstanceIds"
+        ],
+        "title": "StartInstancesArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "StopInstances",
+      "description": "Stop multiple Alibaba Cloud ECS instances simultaneously to manage resources efficiently. Specify instance IDs and choose forced shutdown if needed. Ideal for batch instance management and cost optimization.",
+      "instructions": "批量停止ECS实例，适用于需要同时管理和停止多台ECS实例的场景。",
+      "jsonSchema": {
+        "properties": {
+          "ForeceStop": {
+            "default": false,
+            "description": "是否强制关机",
+            "title": "Forecestop",
+            "type": "boolean"
+          },
+          "InstanceIds": {
+            "description": "AlibabaCloud ECS instance ID List",
+            "items": {
+              "type": "string"
+            },
+            "title": "Instanceids",
+            "type": "array"
+          },
+          "RegionId": {
+            "default": "cn-hangzhou",
+            "description": "AlibabaCloud region ID",
+            "title": "Regionid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "InstanceIds"
+        ],
+        "title": "StopInstancesArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "RebootInstances",
+      "description": "Restart multiple Alibaba Cloud ECS instances simultaneously using this tool, ideal for managing instance lifecycle in bulk and ensuring consistent system performance.",
+      "instructions": "批量重启ECS实例，适用于需要同时管理和重启多台ECS实例的场景。",
+      "jsonSchema": {
+        "properties": {
+          "ForeceStop": {
+            "default": false,
+            "description": "是否强制关机",
+            "title": "Forecestop",
+            "type": "boolean"
+          },
+          "InstanceIds": {
+            "description": "AlibabaCloud ECS instance ID List",
+            "items": {
+              "type": "string"
+            },
+            "title": "Instanceids",
+            "type": "array"
+          },
+          "RegionId": {
+            "default": "cn-hangzhou",
+            "description": "AlibabaCloud region ID",
+            "title": "Regionid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "InstanceIds"
+        ],
+        "title": "RebootInstancesArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "RunInstances",
+      "description": "Enables bulk creation of ECS instances in Alibaba Cloud, ideal for scenarios like application deployment or high-availability setups. Specify region, image, instance type, security group, and VSwitch to deploy multiple instances efficiently.",
+      "instructions": "批量创建ECS实例，适用于需要同时创建多台ECS实例的场景，例如应用部署和高可用性场景。",
+      "jsonSchema": {
+        "properties": {
+          "Amount": {
+            "default": 1,
+            "description": "创建数量",
+            "title": "Amount",
+            "type": "integer"
+          },
+          "ImageId": {
+            "description": "镜像ID",
+            "title": "Imageid",
+            "type": "string"
+          },
+          "InstanceName": {
+            "default": "",
+            "description": "实例名称",
+            "title": "Instancename",
+            "type": "string"
+          },
+          "InstanceType": {
+            "description": "实例规格",
+            "title": "Instancetype",
+            "type": "string"
+          },
+          "RegionId": {
+            "default": "cn-hangzhou",
+            "description": "AlibabaCloud region ID",
+            "title": "Regionid",
+            "type": "string"
+          },
+          "SecurityGroupId": {
+            "description": "安全组ID",
+            "title": "Securitygroupid",
+            "type": "string"
+          },
+          "VSwitchId": {
+            "description": "交换机ID",
+            "title": "Vswitchid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ImageId",
+          "InstanceType",
+          "SecurityGroupId",
+          "VSwitchId"
+        ],
+        "title": "RunInstancesArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "ResetPassword",
+      "description": "Reset and update passwords for multiple Alibaba Cloud ECS instances in one operation. Requires instance IDs and a new password, and restarts instances after the change.",
+      "instructions": "批量修改ECS实例的密码，请注意，本操作将会重启ECS实例",
+      "jsonSchema": {
+        "properties": {
+          "InstanceIds": {
+            "description": "AlibabaCloud ECS instance ID List",
+            "items": {
+              "type": "string"
+            },
+            "title": "Instanceids",
+            "type": "array"
+          },
+          "Password": {
+            "description": "ECS实例的密码,8-30个字符且只能包含以下限制条件中的字符：小写字母，大写字母，数字，只可包含特殊字符（）~！@#$%^&*-_+=（40：<>，？/",
+            "title": "Password",
+            "type": "string"
+          },
+          "RegionId": {
+            "default": "cn-hangzhou",
+            "description": "AlibabaCloud region ID",
+            "title": "Regionid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "InstanceIds",
+          "Password"
+        ],
+        "title": "ResetPasswordArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "ReplaceSystemDisk",
+      "description": "Replace the system disk of Alibaba Cloud ECS instances to update or change the operating system, using specified image files across multiple instances.",
+      "instructions": "批量替换ECS实例的系统盘，更换操作系统",
+      "jsonSchema": {
+        "properties": {
+          "ImageId": {
+            "description": "镜像ID",
+            "title": "Imageid",
+            "type": "string"
+          },
+          "InstanceIds": {
+            "description": "AlibabaCloud ECS instance ID List",
+            "items": {
+              "type": "string"
+            },
+            "title": "Instanceids",
+            "type": "array"
+          },
+          "RegionId": {
+            "default": "cn-hangzhou",
+            "description": "AlibabaCloud region ID",
+            "title": "Regionid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "InstanceIds",
+          "ImageId"
+        ],
+        "title": "ReplaceSystemDiskArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "GetCpuUsageData",
+      "description": "Retrieve CPU usage data for Alibaba Cloud ECS instances to monitor performance and optimize resource allocation. Specify region and instance IDs for accurate, actionable insights.",
+      "instructions": "获取ECS实例的CPU使用率数据",
+      "jsonSchema": {
+        "properties": {
+          "InstanceIds": {
+            "description": "AlibabaCloud ECS instance ID List",
+            "items": {
+              "type": "string"
+            },
+            "title": "Instanceids",
+            "type": "array"
+          },
+          "RegionId": {
+            "default": "cn-hangzhou",
+            "description": "AlibabaCloud region ID",
+            "title": "Regionid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "InstanceIds"
+        ],
+        "title": "GetCpuUsageDataArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "GetCpuLoadavgData",
+      "error": "Attempted to use detached Frame 'C4458BCFF12DB04EB968A11195CC163C'.",
+      "partial_data": true
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@aliyun/alibabacloud-ecs-mcp-server",
+  "version": "0.7.5",
+  "keywords": []
+}

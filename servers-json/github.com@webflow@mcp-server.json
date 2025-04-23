@@ -7,8 +7,761 @@
   "package_url": "https://www.npmjs.com/package/webflow-mcp-server",
   "source_url": "https://github.com/webflow/mcp-server",
   "language": "JavaScript",
-  "server_configuration": [],
-  "tools": [],
+  "server_configuration": [
+    {
+      "name": "WEBFLOW_TOKEN",
+      "required": "Yes",
+      "description": "Your Webflow API token obtained from Webflow's API Playground",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "sites_list",
+      "description": "Retrieve a list of all Webflow sites associated with your account to manage, edit, or analyze them effectively. Simplify site organization and access.",
+      "instructions": "",
+      "jsonSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "sites_get",
+      "description": "Retrieve detailed information about a specific Webflow site using its unique site ID to manage or integrate site data effectively.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "site_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "site_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "sites_publish",
+      "description": "Publish Webflow sites to specified custom domains or a Webflow subdomain by providing the site ID and domain details. Manage site deployment efficiently with this MCP server tool.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "customDomains": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "publishToWebflowSubdomain": {
+            "default": false,
+            "type": "boolean"
+          },
+          "site_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "site_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "pages_list",
+      "description": "Retrieve a list of pages for a specific Webflow site by providing the site ID. Use parameters like limit, offset, and locale to refine the results for your needs.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "type": "number"
+          },
+          "localeId": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "number"
+          },
+          "site_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "site_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "pages_get_metadata",
+      "description": "Extract metadata from Webflow pages by specifying a page ID. Use this tool to retrieve structured data for efficient content management and analysis.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "localeId": {
+            "type": "string"
+          },
+          "page_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "page_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "pages_update_page_settings",
+      "description": "Modify Webflow page settings such as SEO, openGraph, visibility, and access. Update page properties like slug, title, or locale for improved site management and customization.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "additionalProperties": false,
+            "properties": {
+              "archived": {
+                "type": "boolean"
+              },
+              "canBranch": {
+                "type": "boolean"
+              },
+              "collectionId": {
+                "type": "string"
+              },
+              "createdOn": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "draft": {
+                "type": "boolean"
+              },
+              "id": {
+                "type": "string"
+              },
+              "isBranch": {
+                "type": "boolean"
+              },
+              "isMembersOnly": {
+                "type": "boolean"
+              },
+              "lastUpdated": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "localeId": {
+                "type": "string"
+              },
+              "openGraph": {
+                "additionalProperties": false,
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "descriptionCopied": {
+                    "type": "boolean"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "titleCopied": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              },
+              "parentId": {
+                "type": "string"
+              },
+              "publishedPath": {
+                "type": "string"
+              },
+              "seo": {
+                "additionalProperties": false,
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "siteId": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "type": "object"
+          },
+          "localeId": {
+            "type": "string"
+          },
+          "page_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "page_id",
+          "body"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "pages_get_content",
+      "description": "Retrieve content from specific Webflow pages using the page ID. Specify locale, limit, or offset to filter and manage data extraction efficiently.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "type": "number"
+          },
+          "localeId": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "number"
+          },
+          "page_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "page_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "pages_update_static_content",
+      "description": "Update static content elements on Webflow pages by modifying node text or property overrides for specified locale and page ID.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "localeId": {
+            "type": "string"
+          },
+          "nodes": {
+            "items": {
+              "anyOf": [
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "nodeId": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "nodeId",
+                    "text"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "nodeId": {
+                      "type": "string"
+                    },
+                    "propertyOverrides": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "propertyId": {
+                            "type": "string"
+                          },
+                          "text": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "propertyId",
+                          "text"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "nodeId",
+                    "propertyOverrides"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            "type": "array"
+          },
+          "page_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "page_id",
+          "localeId",
+          "nodes"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "collections_list",
+      "description": "Retrieve a list of collections associated with a specific Webflow site by providing the site ID. Use this tool to manage and organize site content efficiently.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "site_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "site_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "collections_get",
+      "description": "Retrieve data from a specific collection in Webflow by providing the collection ID. Simplify accessing and managing structured content for your projects.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "collection_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "collection_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "collections_items_create_item_live",
+      "description": "Create and publish live items in Webflow collections using collection ID and item details. Ensure structured data aligns with CMS requirements for seamless integration.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "collection_id": {
+            "type": "string"
+          },
+          "request": {
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "cmsLocaleId": {
+                      "type": "string"
+                    },
+                    "createdOn": {
+                      "type": "string"
+                    },
+                    "fieldData": {
+                      "allOf": [
+                        {
+                          "additionalProperties": {},
+                          "type": "object"
+                        },
+                        {
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "slug": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "slug"
+                          ],
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "isDraft": {
+                      "type": "boolean"
+                    },
+                    "lastPublished": {
+                      "type": "string"
+                    },
+                    "lastUpdated": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "fieldData"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "collection_id",
+          "request"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "collections_items_update_items_live",
+      "description": "Update live items in Webflow collections by modifying item details such as fields, slugs, and metadata directly within the platform.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "collection_id": {
+            "type": "string"
+          },
+          "request": {
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "cmsLocaleId": {
+                      "type": "string"
+                    },
+                    "createdOn": {
+                      "type": "string"
+                    },
+                    "fieldData": {
+                      "allOf": [
+                        {
+                          "additionalProperties": {},
+                          "type": "object"
+                        },
+                        {
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "slug": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "isDraft": {
+                      "type": "boolean"
+                    },
+                    "lastPublished": {
+                      "type": "string"
+                    },
+                    "lastUpdated": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "collection_id",
+          "request"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "collections_items_list_items",
+      "description": "Retrieve and organize items from a Webflow CMS collection by specifying collection ID, sorting options, and pagination parameters for efficient data management.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "cmsLocaleId": {
+            "type": "string"
+          },
+          "collection_id": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "number"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "sortBy": {
+            "enum": [
+              "lastPublished",
+              "name",
+              "slug"
+            ],
+            "type": "string"
+          },
+          "sortOrder": {
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "collection_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "collections_items_create_item",
+      "description": "Create and add new items to a specific collection in Webflow using the collection ID and item details, including field data, CMS locale, and publication status.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "collection_id": {
+            "type": "string"
+          },
+          "request": {
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "cmsLocaleId": {
+                      "type": "string"
+                    },
+                    "createdOn": {
+                      "type": "string"
+                    },
+                    "fieldData": {
+                      "allOf": [
+                        {
+                          "additionalProperties": {},
+                          "type": "object"
+                        },
+                        {
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "slug": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "slug"
+                          ],
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "isDraft": {
+                      "type": "boolean"
+                    },
+                    "lastPublished": {
+                      "type": "string"
+                    },
+                    "lastUpdated": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "fieldData"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "collection_id",
+          "request"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "collections_items_update_items",
+      "description": "Update multiple items in a Webflow collection by specifying item IDs, field data, and statuses like draft or archived. Use to maintain and modify structured content efficiently.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "collection_id": {
+            "type": "string"
+          },
+          "request": {
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "cmsLocaleId": {
+                      "type": "string"
+                    },
+                    "createdOn": {
+                      "type": "string"
+                    },
+                    "fieldData": {
+                      "allOf": [
+                        {
+                          "additionalProperties": {},
+                          "type": "object"
+                        },
+                        {
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "slug": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "slug"
+                          ],
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "isDraft": {
+                      "type": "boolean"
+                    },
+                    "lastPublished": {
+                      "type": "string"
+                    },
+                    "lastUpdated": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "fieldData"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "collection_id",
+          "request"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "collections_items_publish_items",
+      "description": "Publish selected items from a specified collection in Webflow to make them live on your site. Streamline content updates and ensure accurate data display.",
+      "instructions": "",
+      "jsonSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "collection_id": {
+            "type": "string"
+          },
+          "itemIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "collection_id",
+          "itemIds"
+        ],
+        "type": "object"
+      }
+    }
+  ],
   "scrape_source": "https://glama.ai/mcp/servers/@webflow/mcp-server",
   "version": "0.4.1",
   "keywords": []

@@ -1,7 +1,0 @@
-{
-  "title": "Tavily MCP Server",
-  "url": "https://glama.ai/mcp/servers/@tavily-ai/tavily-mcp",
-  "error": "net::ERR_INTERNET_DISCONNECTED at https://glama.ai/mcp/servers/@tavily-ai/tavily-mcp",
-  "status": "failed",
-  "partial_data": false
-}

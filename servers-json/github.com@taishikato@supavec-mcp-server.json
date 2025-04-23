@@ -1,0 +1,29 @@
+{
+  "name": "Supavec MCP Server",
+  "author": "supavec",
+  "author_url": "https://github.com/supavec",
+  "category": "Search",
+  "license": "MIT License",
+  "package_url": "",
+  "source_url": "https://github.com/taishikato/supavec-mcp-server",
+  "language": "TypeScript",
+  "server_configuration": [
+    {
+      "name": "SUPAVEC_API_KEY",
+      "required": "Yes",
+      "description": "Your Supavec API key obtained from signing up at https://www.supavec.com",
+      "default": ""
+    }
+  ],
+  "tools": [
+    {
+      "name": "fetch-embeddings",
+      "description": "",
+      "instructions": "",
+      "jsonSchema": null
+    }
+  ],
+  "scrape_source": "https://glama.ai/mcp/servers/@supavec/mcp-server",
+  "version": "0.1.0",
+  "keywords": []
+}
